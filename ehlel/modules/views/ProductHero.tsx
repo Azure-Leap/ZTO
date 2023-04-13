@@ -8,7 +8,7 @@ import WhiteCard from "../components/whiteCard";
 export default function ProductHero() {
   if (typeof window !== "undefined") {
     console.log("window");
-    // browser code
+    // browser codegit
     const left: HTMLElement | null = document.getElementById("left-side");
 
     const handleMove = (e: MouseEvent | TouchEvent) => {
