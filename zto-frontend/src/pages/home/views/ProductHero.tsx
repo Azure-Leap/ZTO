@@ -5,6 +5,7 @@ import ProductHeroLayout from "./ProductHeroLayout";
 import Cardnine from "../../../comp/Card";
 import Box from "@mui/material/Box";
 import WhiteCard from "../../../comp/whiteCard";
+import Link from "next/link";
 export default function ProductHero() {
   if (typeof window !== "undefined") {
     console.log("window");

@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import Link from "next/link";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Sign in", "Dashboard", "Sign up"];
@@ -135,6 +136,9 @@ function NavAppBar() {
                 <Avatar alt="ZTO" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+            <Link href="../login">
+              <Button>Sign in</Button>
+            </Link>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
