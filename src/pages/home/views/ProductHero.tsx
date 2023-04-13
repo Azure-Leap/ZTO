@@ -1,14 +1,14 @@
 import React from "react";
-import Button from "../components/Button";
-import Typography from "../components/Typography";
+import Button from "../../../comp/Button";
+import Typography from "../../../comp/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
-import Cardnine from "../components/Card";
+import Cardnine from "../../../comp/Card";
 import Box from "@mui/material/Box";
-import WhiteCard from "../components/whiteCard";
+import WhiteCard from "../../../comp/whiteCard";
 export default function ProductHero() {
   if (typeof window !== "undefined") {
     console.log("window");
-    // browser codegit
+    // browser codegit git config push.default current
     const left: HTMLElement | null = document.getElementById("left-side");
 
     const handleMove = (e: MouseEvent | TouchEvent) => {

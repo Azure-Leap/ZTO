@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "ehlel/modules/form/cursor.js",
+    "src/form/cursor.js",
     "ehlel/modules/views/ProductHero.tsxx",
     "ehlel/modules/components/Card.jsx",
     "ehlel/modules/views/ProductHeroLayout.tsx",

@@ -1,15 +1,7 @@
-import NavAppBar from "@/comp/Testnav";
-import ProductHero from "../../ehlel/modules/views/ProductHero";
-import CustomCursor from "../../ehlel/modules/form/cursor";
+import React from "react";
 
-export default function Home() {
-  return (
-    <>
-      <main className="bg-white">
-        <NavAppBar />
-        <ProductHero />
-        <CustomCursor />
-      </main>
-    </>
-  );
-}
+const index = () => {
+  return <div>index</div>;
+};
+
+export default index;
