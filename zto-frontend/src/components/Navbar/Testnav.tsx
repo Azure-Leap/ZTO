@@ -12,7 +12,6 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import Link from "next/link";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Sign in", "Dashboard", "Sign up"];
@@ -41,29 +40,11 @@ function NavAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "#292626" }}>
+    <AppBar position="static" sx={{ bgcolor: "#FFFFFF" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            ZTO
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+        
+          {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } , color: "#000"}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -98,8 +79,8 @@ function NavAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          </Box> */}
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -117,17 +98,38 @@ function NavAppBar() {
             }}
           >
             LOGO
-          </Typography>
+          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "#000000", display: "block" }}
               >
                 {page}
               </Button>
             ))}
+            
+          </Box>
+          <Box sx={{ display: { xs: "none", md: "flex" }, textAlign:"center" }}>
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "#000",
+              textDecoration: "none",
+            }}
+          >
+            ZTO
+          </Typography>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -136,9 +138,6 @@ function NavAppBar() {
                 <Avatar alt="ZTO" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
-            <Link href="../login">
-              <Button>Sign in</Button>
-            </Link>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"

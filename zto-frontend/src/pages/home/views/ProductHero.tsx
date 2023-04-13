@@ -1,10 +1,10 @@
 import React from "react";
-import Button from "../../../comp/Button";
-import Typography from "../../../comp/Typography";
+import Button from "../../../components/Hero/Button";
+import Typography from "../../../components/Hero/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
-import Cardnine from "../../../comp/Card";
+import Cardnine from "../../../components/Hero/Card";
 import Box from "@mui/material/Box";
-import WhiteCard from "../../../comp/whiteCard";
+import WhiteCard from "../../../components/Hero/whiteCard";
 import Link from "next/link";
 export default function ProductHero() {
   if (typeof window !== "undefined") {
