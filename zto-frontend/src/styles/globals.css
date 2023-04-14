@@ -76,10 +76,10 @@
   padding: 0;
   margin: 0;
 }
-
 html,
 body {
-  max-width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
   overflow-x: hidden;
 }
 body {
@@ -100,7 +100,7 @@ a {
     color-scheme: dark;
   }
 }
-* {
+/* * {
   cursor: none;
 }
 .cursor {
@@ -118,7 +118,7 @@ a {
   top: 0;
   left: 0;
   pointer-events: painted;
-}
+} */
 .bounce__css {
   animation: bounce__move_css linear 40s forwards infinite;
   transform-style: preserve-3d;
@@ -159,10 +159,6 @@ a {
   --dark: rgb(20, 20, 20);
   --yellow: rgb(253, 216, 53);
   --blue: rgb(98, 0, 234);
-
-  /* --c1: rgb(38, 70, 83);
-  --c2: rgb(42, 157, 143); */
-
   --left-color: var(--c1);
   --right-color: var(--c2);
 }

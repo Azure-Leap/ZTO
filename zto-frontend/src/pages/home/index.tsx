@@ -11,10 +11,10 @@ export default function Home() {
       <main className="bg-white">
         <NavAppBar />
         <ProductHero />
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <Container>
-          <TemplateList/>
-          <WebSteppers/>
+          <TemplateList />
+          <WebSteppers />
         </Container>
       </main>
     </>
