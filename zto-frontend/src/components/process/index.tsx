@@ -18,9 +18,9 @@ const steps = [
 
 export default function WebSteppers() {
   return (
-    <Box sx={{ width: '100%', textAlign:"center" }}>
+    <Box sx={{ width: '100%', textAlign:"center" , my: "20px" , pt: "10px" }}>
       <Typography variant='h3'>Хэрхэн вэбсайттай болох вэ?</Typography>
-      <Grid container spacing={2} my={10}>
+      <Grid container spacing={2}>
           {steps.map((e) => (
         <Grid item xs={4} my={5}>
           <Box>{e.icon}</Box>
