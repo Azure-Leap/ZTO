@@ -1,4 +1,4 @@
-import NavAppBar from "../../components/Navbar/Testnav";
+import NavAppBar from "../../components/Navbar";
 import ProductHero from "@/pages/home/views/ProductHero";
 import CustomCursor from "@/form/cursor";
 import TemplateList from "@/components/templateCard";
@@ -11,9 +11,9 @@ export default function Home() {
       <main className="bg-white">
         <NavAppBar />
         <ProductHero />
-        <CustomCursor />
-        <Container>
+        {/* <CustomCursor /> */}
           <TemplateList/>
+        <Container>
           <WebSteppers/>
         </Container>
       </main>

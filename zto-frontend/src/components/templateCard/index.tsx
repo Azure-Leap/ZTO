@@ -1,30 +1,40 @@
 import * as React from 'react';
-import { Box, Typography, Grid, } from '@mui/material';
+import { Box, Typography, Grid, Button, Container, } from '@mui/material';
+import { Swiper, SwiperSlide } from "swiper/react";
 import Image from 'next/image';
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper";
 
 export default function TemplateList() {
     return (
-        <Box  mt={40} mb={20} >
-            <Typography variant="h4" fontWeight="600">
-                Template
-            </Typography>          
-            <Box  sx={{
-            display: "flex",
-            marginTop: "5%",
-            gap: "30px",
-            overflowX: "scroll",
-            "&::-webkit-scrollbar": {
-              display: "none",
-            },
-          }} >
-          {itemData.map((x) => (
-            <Box>
-                <Image src={x.image} width={700} height={500} alt="name" />
-                <Typography>{x.title}</Typography>
+        <Box textAlign={'center'} sx={{backgroundColor: "#000", color:"#fff", py:"30px"}} >
+            <Container>
+            <Typography variant="h3" my={"25px"} >
+                Та өөрийн бизнест тохирсон вэб хуудсаа эндээс олоорой!!
+            </Typography>
+            {/* <button className="rounded-full text-lg w-20">Save Changes</button> */}
+            <Button variant='outlined' sx={{ mt: "20px", px: "20px", fontSize: "1.5rem", backgroundColor:"#fff",   borderRadius:"30px"  }}>Get started</Button>
 
+            <Box sx={{my:"25px", pt:"10px"}}>
+            <Swiper
+                navigation={true}
+                modules={[Navigation]}
+                className="mySwiper overflowY"
+            > 
+                {itemData.map((x)=>
+                <SwiperSlide>
+                    <img src={x.image} width={850} height={600} />
+                    <Typography variant='h5'>{x.title}</Typography>
+                </SwiperSlide>
+                )}
+            </Swiper>
             </Box>
-          ))}
-          </Box>           
+            </Container>
         </Box>
 
     );
@@ -32,12 +42,12 @@ export default function TemplateList() {
 
 const itemData = [
     {
-        image: '/image/store.jpg',
+        image: 'https://static.wixstatic.com/media/0784b1_5a7b4554103544dfb0cd5545fa46b78b~mv2.jpg/v1/fit/w_1276,h_820,q_90/0784b1_5a7b4554103544dfb0cd5545fa46b78b~mv2.webp',
         title: 'Store',
     },
-    
+
     {
-        image: '/image/food.jpg',
+        image: '/image/Landing Page (1).jpg',
         title: 'Food',
     },
     {
@@ -48,12 +58,12 @@ const itemData = [
         image: '/image/fitnrss.jpg',
         title: 'Fitness',
     },
-   
+
     {
         image: '/image/business.png',
         title: 'Business',
     },
-   
+
     {
         image: '/image/technology.jpg',
         title: 'Technology',
@@ -62,6 +72,6 @@ const itemData = [
         image: '/image/Landing Page.jpg',
         title: 'Blog',
     },
-   
-   
+
+
 ];
