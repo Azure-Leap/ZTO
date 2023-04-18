@@ -12,9 +12,10 @@ export default function Home() {
         <NavAppBar />
         <ProductHero />
         {/* <CustomCursor /> */}
-          <TemplateList/>
+
         <Container>
-          <WebSteppers/>
+          <TemplateList />
+          <WebSteppers />
         </Container>
       </main>
     </>
