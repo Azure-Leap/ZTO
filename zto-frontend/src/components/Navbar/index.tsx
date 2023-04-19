@@ -15,7 +15,7 @@ import { Link } from '@mui/material';
 
 const pages = [  'About', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const webTypes = ['All templates', "Website", "One page", 'eStore']
+const webTypes = [{name:'All templates', link:"/website-templates" }, {name:"Website"}, {name:"One page"}, {name:'eStore'}]
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -69,6 +69,10 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+              <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Products</Typography>
+                </MenuItem>
+              
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
@@ -118,8 +122,8 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {webTypes.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Link href='/' underline="none" textAlign="center">{setting}</Link>
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Link href={setting.link} underline="none" textAlign="center">{setting.name}</Link>
                 </MenuItem>
               ))}
             </Menu> 

@@ -4,6 +4,7 @@ import CustomCursor from "@/form/cursor";
 import TemplateList from "@/components/templateCard";
 import WebSteppers from "@/components/process";
 import { Container } from "@mui/material";
+import SecondSection from "@/components/secondSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <NavAppBar />
         <ProductHero />
         {/* <CustomCursor /> */}
+          <SecondSection/>
           <TemplateList/>
         <Container>
           <WebSteppers/>

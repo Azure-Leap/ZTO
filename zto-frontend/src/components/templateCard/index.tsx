@@ -12,7 +12,7 @@ import { Navigation } from "swiper";
 
 export default function TemplateList() {
     return (
-        <Box textAlign={'center'} sx={{backgroundColor: "#000", color:"#fff", py:"30px"}} >
+        <Box textAlign={'center'} sx={{py:"40px"}} >
             <Container>
             <Typography variant="h3" my={"25px"} >
                 Та өөрийн бизнест тохирсон вэб хуудсаа эндээс олоорой!!
