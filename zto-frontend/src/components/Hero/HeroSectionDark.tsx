@@ -20,7 +20,7 @@ const HeroSectionDark = () => {
         align="center"
         variant="h2"
         marginTop={10}
-        marginRight={170}
+        marginLight={180}
       >
         Өөрийн зүйлийг өөрөө бүтээ.
       </Typography>
@@ -28,12 +28,12 @@ const HeroSectionDark = () => {
         className="title"
         color="inherit"
         variant="h5"
-        marginRight={170}
+        marginLight={180}
         sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
       >
         Хүссэн загвараа эндээс ол
       </Typography>
-      <Box sx={{ marginRight: 170 }}>
+      <Box sx={{ marginLight: 180 }}>
         <Button
           id="apple"
           variant="contained"
@@ -47,7 +47,7 @@ const HeroSectionDark = () => {
       </Box>
       <Typography
         className="mintitle"
-        marginRight={170}
+        marginLight={180}
         variant="body2"
         sx={{ mt: 2 }}
       >

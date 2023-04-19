@@ -3,7 +3,6 @@ import HeroSectionDark from "@/components/Hero/HeroSectionDark";
 import HeroSectionWhite from "@/components/Hero/HeroSectionWhite";
 export default function ProductHero() {
   if (typeof window !== "undefined") {
-    console.log("window");
     const left: HTMLElement | null = document.getElementById("left-side");
 
     const handleMove = (e: MouseEvent | TouchEvent) => {
@@ -22,12 +21,7 @@ export default function ProductHero() {
     };
   }
   return (
-    <ProductHeroLayout
-      sxBackground={{
-        backgroundPosition: "center",
-        alignItems: "center",
-      }}
-    >
+    <ProductHeroLayout sxBackground={{}}>
       <HeroSectionDark />
       <HeroSectionWhite />
     </ProductHeroLayout>

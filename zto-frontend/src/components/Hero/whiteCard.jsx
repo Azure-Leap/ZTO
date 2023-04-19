@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Box, Grid, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 const Cardninedata = ({ card }) => {
@@ -12,11 +13,17 @@ const Cardninedata = ({ card }) => {
         background: "white",
       }}
     >
-      <Box sx={{ marginBottom: "4%", opacity: "1" }}>
-        <img src={`${card.imageURL}`} alt="" width={300} height={310} />
+      <Box
+        sx={{
+          marginBottom: "4%",
+          opacity: "1",
+          width: "280px",
+          height: "280px",
+        }}
+      >
+        <img src={`${card.imageURL}`} alt="" width={350} className="CardImg" />
       </Box>
       <Box>
-        {" "}
         <Box
           sx={{
             color: "black",
@@ -204,16 +211,10 @@ const WhiteCard = () => {
     },
   ];
   return (
-    <Grid
-      sx={{
-        opacity: "0.9",
-        overflowX: "scroll",
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-      }}
-    >
-      <Box sx={{ display: "flex", gap: "0.5%", padding: "20px" }}>
+    <Grid>
+      <Box
+        sx={{ display: "flex", gap: "0.5%", padding: "20px", width: "1920px" }}
+      >
         {coti.map((card, index) => (
           <Cardninedata key={index} card={card} />
         ))}

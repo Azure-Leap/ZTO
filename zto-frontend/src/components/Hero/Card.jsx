@@ -6,14 +6,20 @@ const Cardninedata = ({ card }) => {
     <Grid
       sx={{
         padding: "10px ",
-        width: "100%",
         borderRadius: "16px",
         boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
         background: "black",
       }}
     >
-      <Box sx={{ marginBottom: "4%", opacity: "1" }}>
-        <img src={`${card.imageURL}`} alt="" width={300} height={310} />
+      <Box
+        sx={{
+          marginBottom: "4%",
+          opacity: "1",
+          width: "280px",
+          height: "280px",
+        }}
+      >
+        <img src={`${card.imageURL}`} alt="" width={350} className="CardImg" />
       </Box>
       <Box>
         {" "}
@@ -198,16 +204,10 @@ const Cardnine = () => {
     },
   ];
   return (
-    <Grid
-      sx={{
-        opacity: "0.9",
-        overflowX: "scroll",
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-      }}
-    >
-      <Box sx={{ display: "flex", gap: "0.5%", padding: "20px" }}>
+    <Grid>
+      <Box
+        sx={{ display: "flex", gap: "0.5%", padding: "20px", width: "1920px" }}
+      >
         {coti.map((card, index) => (
           <Cardninedata key={index} card={card} />
         ))}
