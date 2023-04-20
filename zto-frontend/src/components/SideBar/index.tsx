@@ -61,6 +61,7 @@ export default function ResponsiveDrawer(props: Props) {
     <div>
       <Toolbar />
       <List/>
+      <Typography fontWeight={600} pl={"16px"} >Web types</Typography>
         <FormGroup>
           {webtype.map((text, index)=>(
            <ListItem>
@@ -70,6 +71,7 @@ export default function ResponsiveDrawer(props: Props) {
         </FormGroup>
       <List/>
       <List>
+        <Typography >Categories</Typography>
         {categoryData.map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
@@ -94,7 +96,8 @@ export default function ResponsiveDrawer(props: Props) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor:"#fff"
+          backgroundColor:"#fff",
+          boxShadow: "none"
         }}
       >
         <Box sx={{backgroundColor:"#000"}}>          
@@ -111,8 +114,8 @@ export default function ResponsiveDrawer(props: Props) {
           </IconButton>
         </Box>
         <Box  sx={{mt:"10px"}}>
-        <SearchBreadcrumb/>
-      </Box>
+          <SearchBreadcrumb/>
+        </Box>
       </AppBar>
       <Box
         component="nav"
