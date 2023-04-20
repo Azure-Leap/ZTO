@@ -1,4 +1,5 @@
 import NavAppBar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import ProductHero from "@/pages/home/views/ProductHero";
 import CustomCursor from "@/form/cursor";
 import TemplateList from "@/components/templateCard";
@@ -13,11 +14,10 @@ export default function Home() {
         <NavAppBar />
         <ProductHero />
         {/* <CustomCursor /> */}
-          <SecondSection/>
-          <TemplateList />
-       
-          <WebSteppers />
-      
+        <SecondSection />
+        <TemplateList />
+        <WebSteppers />
+        <Footer />
       </main>
     </>
   );
