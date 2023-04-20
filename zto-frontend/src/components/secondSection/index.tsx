@@ -18,11 +18,11 @@ export default function BasicGrid() {
   return (
     <Container>
     <Box sx={{ flexGrow: 1, my:"120px" }}>
-      <Grid container spacing={2}>
-      <Grid item xs={5}>
+      <Grid container spacing={2} justifyContent={'center'}>
+      <Grid item xs={6}>
           <img src='/image/undraw_building_websites_i78t.png' width={"500px"} />
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={6}>
           <Typography variant='h2'>Вэбсайтаа өөрөө бүтээе</Typography>
           <Typography variant='h6'>
           Мэдээлэл, технологийн энэ цаг үед Вэб сайт тухайн байгууллагын нүүр царай болж байна.<br></br> Зах зээл, захиалагчийнхаа хэрэгцээ, шаардлагаар дахин нэг шинэ бүтээгдэхүүн, өөр сонголтыг нэвтрүүлж байгаагаа дуулгахад таатай байна. Мэргэжлийн түвшинд өнгө загварын шийдлийг шуурхай, хямд зардлаар танд хүргэх нь энэ бүтээгдэхүүний онцлог оршино.        

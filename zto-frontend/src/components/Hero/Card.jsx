@@ -19,7 +19,7 @@ const Cardninedata = ({ card }) => {
           height: "280px",
         }}
       >
-        <img src={`${card.imageURL}`} alt="" width={350} className="CardImg" />
+        <img src={`${card.imageURL}`} alt="" width={'100%'} className="CardImg" />
       </Box>
       <Box>
         {" "}

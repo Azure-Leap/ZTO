@@ -1,42 +1,93 @@
-import * as React from 'react';
-import { Box, Typography, Grid, Button, Container, } from '@mui/material';
+import React, { useRef, useState } from "react";
+// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from 'next/image';
-
+import Image from "next/image";
+import Link from "next/link";
+import { Box, Button, Container, Typography } from "@mui/material";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 
 // import required modules
-import { Navigation } from "swiper";
+// import { Pagination } from "swiper";
 
-export default function TemplateList() {
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+export default function App() {
     return (
-        <Box textAlign={'center'} sx={{py:"40px"}} >
+        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff" }}>
             <Container>
-            <Typography variant="h3" my={"25px"} >
-                Та өөрийн бизнест тохирсон вэб хуудсаа эндээс олоорой!!
-            </Typography>
-            {/* <button className="rounded-full text-lg w-20">Save Changes</button> */}
-            <Button variant='outlined' sx={{ mt: "20px", px: "20px", fontSize: "1.5rem", backgroundColor:"#fff",   borderRadius:"30px"  }}>Get started</Button>
-
-            <Box sx={{my:"25px", pt:"10px"}}>
-            <Swiper
-                navigation={true}
-                modules={[Navigation]}
-                className="mySwiper overflowY"
-            > 
-                {itemData.map((x)=>
-                <SwiperSlide>
-                    <img src={x.image} width={850} height={600} />
-                    <Typography variant='h5'>{x.title}</Typography>
-                </SwiperSlide>
-                )}
-            </Swiper>
-            </Box>
+             <Box textAlign={"center"}>
+                <Typography variant="h2" fontSize={'4rem'} fontWeight={600} >Та өөрийн бизнест тохирсон вэб сайтаа эндээс олоорой</Typography>
+                <Typography sx={{my: '10px'}} fontSize={'1.25rem'} >Get a headstart on your journey with 900+ free, customizable website templates, strategically
+researched and tailored for every industry — or start from a blank canvas on our website builder.</Typography>
+                <Button variant="outlined" 
+                sx={{ mt: "20px", p: "15px, 20px", fontSize: "1.3rem",
+                backgroundColor:'#fff', color:"#000",  
+                ":hover": {
+                    bgcolor: "#eeeeee",
+                    color: "#000"},
+                 borderRadius: "30px" }}>
+                    Get started
+                </Button>
+             </Box>
             </Container>
-        </Box>
+            <Box sx={{ m: "100px" }} >
 
+
+                <Swiper
+                    slidesPerView={1}
+                    spaceBetween={10}
+                    autoplay={{
+                        delay: 1500,
+                        disableOnInteraction: false,
+                    }}
+
+                    modules={[Autoplay, Pagination, Navigation]}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                        },
+                        2100: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+
+                    }}
+                    navigation={true}
+                    className="mySwiper"
+                >
+                    {itemData.map((item, idx) => (
+
+                        <SwiperSlide key={idx} >
+                            <div className="h-96">
+                                <img                             
+                                    src={item.image}
+                                    alt="Illustration of a person carrying ideas for a professional website design"
+                                    width={'100%'}
+                                    height={'400px'} 
+                                />
+                                 
+                            </div>  
+                            <Link href={'/'} >
+                                {item.title}
+                            </Link>                        
+                        </SwiperSlide>
+                    ))}
+
+                </Swiper>
+            </Box>
+        </Box>
     );
 }
 

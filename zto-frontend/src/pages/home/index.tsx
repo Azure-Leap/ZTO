@@ -13,11 +13,11 @@ export default function Home() {
         <NavAppBar />
         <ProductHero />
         {/* <CustomCursor /> */}
-        <Container>
           <SecondSection/>
           <TemplateList />
+       
           <WebSteppers />
-        </Container>
+      
       </main>
     </>
   );
