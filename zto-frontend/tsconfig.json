@@ -28,7 +28,7 @@
     "ehlel/modules/views/ProductHeroLayout.tsx",
     "ehlel/modules/components/Handlemove.jsx",
     "ehlel/modules/components/whiteCard.jsx",
-    "src/pages/login.tsx"
+    "src/pages/auth/login.tsx"
   ],
   "exclude": ["node_modules"]
 }

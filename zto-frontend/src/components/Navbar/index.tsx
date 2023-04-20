@@ -11,11 +11,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from '@mui/material';
+// import { Link } from '@mui/material';
+import Link from 'next/link';
 
-const pages = [  'About', 'Pricing', 'Blog'];
+const pages = ['About', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const webTypes = [{name:'All templates', link:"/website-templates" }, {name:"Website"}, {name:"One page"}, {name:'eStore'}]
+const webTypes = [{ name: 'All templates', link: "/" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -69,10 +70,10 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem  onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Products</Typography>
-                </MenuItem>
-              
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Products</Typography>
+              </MenuItem>
+
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
@@ -123,10 +124,13 @@ function ResponsiveAppBar() {
             >
               {webTypes.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  <Link href={setting.link} underline="none" textAlign="center">{setting.name}</Link>
+                  <Link href={`/website-templates${(setting.link)}`}>
+                    {setting.name}
+                  </Link>
+                  {/* <Link href={setting.link} underline="none" textAlign="center">{setting.name}</Link> */}
                 </MenuItem>
               ))}
-            </Menu> 
+            </Menu>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -166,12 +170,17 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Box>
-              <Button sx={{ color: "#000", fontWeight:"600" }}>
-                Login
+              <Button sx={{ color: "#000", fontWeight: "600" }}>
+                
+                <Link href='/auth/login'>
+                  Login
+                </Link>
               </Button>
               <Button variant="outlined" sx={{fontWeight:"600"}} >
-                Sign Up
-              </Button>
+                <Link href='/auth/login' >
+                  Sign Up
+                </Link>               
+              </Button> 
 
             </Box>
 

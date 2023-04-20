@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 
 const Login = () => {
+
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const sign_in_btn = document.querySelector("#sign-in-btn");
@@ -76,6 +78,7 @@ const Login = () => {
               <p className="social-text">Or Sign up with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
+                {/* <i className="fa-brands fa-facebook"></i> */}
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a href="#" className="social-icon">
@@ -88,7 +91,7 @@ const Login = () => {
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>
-            </form>
+            </form> 
           </div>
         </div>
 
