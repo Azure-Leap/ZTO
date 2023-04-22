@@ -19,7 +19,6 @@ const Footer = () => {
           gap: "16vh",
           paddingBottom: "3vh",
           paddingTop: "3vh",
-          borderTop: 1,
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>

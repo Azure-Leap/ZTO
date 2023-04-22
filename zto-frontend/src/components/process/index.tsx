@@ -18,10 +18,11 @@ const steps = [
 
 export default function WebSteppers() {
   return (
-    <Container>
+    <Box sx={{backgroundColor:"black"}}>
+       <Container>
     <Box sx={{ width:'100%', textAlign:"center" , my: "20px" , pt: "10px" }}>
-      <Typography variant='h3'>Хэрхэн вэбсайттай болох вэ?</Typography>
-      <Grid container spacing={2}  >
+      <Typography sx={{color:"white"}} variant='h3'>Хэрхэн вэбсайттай болох вэ?</Typography>
+      <Grid sx={{color:"white"}}  container spacing={2}  >
           {steps.map((e) => (
         <Grid item xs={12} sm={12} md={6} lg={4} my={5} >
           <Box>{e.icon}</Box>
@@ -33,5 +34,7 @@ export default function WebSteppers() {
       </Grid>
     </Box>
     </Container>
+    </Box>
+   
   );
 }
