@@ -660,20 +660,16 @@ form.sign-in-form {
       opacity: 1;
   }
 }
-
-
 .Aboutprofile-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75vh;
+
  
 }
-
 .Aboutmain {
   width: 340px;
   overflow: hidden;
-
   font-size: 16px;
   line-height: 22px;
   color: #000;

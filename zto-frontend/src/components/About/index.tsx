@@ -9,11 +9,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const About = () => {
   return (
-    <Box>
-      <Typography variant='h3' sx={{textAlign:"center", marginTop:"20px"}}>Бидний тухай</Typography>
+    <Box sx={{marginBottom:"80px"}}>
+      <Typography variant='h3' sx={{textAlign:"center", marginTop:"40px", marginBottom:"40px"}}>Бидний тухай</Typography>
     <div className="Aboutprofile-container">
       <div className="Aboutprofile-card">
-
     <Box className="Abouttop-card">
       <img src="https://images.pexels.com/photos/15006072/pexels-photo-15006072.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="user picture"/>
       <Box className="Aboutmenu-icon">
@@ -70,7 +69,6 @@ const About = () => {
         <address>neg yum bichne: <a href="" target="_blank">fdsfds</a></address>
         <address>neg yum bichne: <a href="">fsdfdsf</a></address>
       </Box>
-  
   </Box>
       </div>
       <div className="Aboutprofile-card">
@@ -101,11 +99,9 @@ const About = () => {
         <address>neg yum bichne: <a href="">fsdfdsf</a></address>
       </Box>
     </Box>
-
       </div>
     </div>
     </Box>
   )
 }
-
 export default About
