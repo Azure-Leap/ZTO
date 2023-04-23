@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 // import { Link } from '@mui/material';
 import Link from 'next/link';
 
-const pages = ['About', 'Pricing', 'Blog'];
+const pages = ['About', 'Blog', ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const webTypes = [{ name: 'All templates', link: "/" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
@@ -78,8 +78,10 @@ function ResponsiveAppBar() {
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+          
               ))}
             </Menu>
+ 
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' } }} /> */}
           <Typography
@@ -106,6 +108,12 @@ function ResponsiveAppBar() {
                 Products
               </Button>
             </Tooltip>
+            <Button  sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
+            <Link href='/pricing' > 
+                Pricing  
+                 </Link>
+              </Button>
+           
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -166,12 +174,9 @@ function ResponsiveAppBar() {
             </Box>
 
           </Box>
-
-
           <Box sx={{ flexGrow: 0 }}>
             <Box>
               <Button sx={{ color: "#000", fontWeight: "600" }}>
-                
                 <Link href='/auth/login'>
                   Login
                 </Link>
