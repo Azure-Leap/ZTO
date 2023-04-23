@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,6 +21,8 @@ import { FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import Navbar from "../Navbar";
 import SearchBreadcrumb from '../Search';
+import axios  from 'axios';
+import { title } from 'process';
 
 const webtype = ['All templates', 'Website', 'One page', 'eStore'];
 export const categoryData = [
@@ -50,13 +53,28 @@ interface Props {
 }
 
 export default function ResponsiveDrawer(props: Props) {
+  const [categories, setCategories] = useState([]);
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const getCategory = async () =>{
+    try{
+      const res = await axios.get("http://localhost:9010/categories");
+      
+      setCategories(res.data)
+    }catch(err){
+      console.log("ERR", err);
+    }
+  }
+
+  useEffect(()=>{
+     getCategory()
+  }, [])
+console.log(categories);
   const drawer = (
     <div>
       <Toolbar />
@@ -72,17 +90,17 @@ export default function ResponsiveDrawer(props: Props) {
       <List/>
       <List>
         <Typography >Categories</Typography>
-        {categoryData.map((item, index) => (
+        {categories.map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <Image src={item.icon} alt='Picture' width={25} height={25} />
+                <Image src={item.image} alt='Picture' width={25} height={25} />
               </ListItemIcon>
-              <ListItemText primary={item.name} />
+              <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> 
     </div>
   );
 

@@ -177,12 +177,17 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Box>
               <Button sx={{ color: "#000", fontWeight: "600" }}>
+<<<<<<< Updated upstream
                 <Link href='/auth/login'>
+=======
+                
+                <Link href='/login'>
+>>>>>>> Stashed changes
                   Login
                 </Link>
               </Button>
               <Button variant="outlined" sx={{fontWeight:"600"}} >
-                <Link href='/auth/login' >
+                <Link href='/login' >
                   Sign Up
                 </Link>               
               </Button> 

@@ -1,7 +1,16 @@
-import React, { useEffect } from "react";
+import { AuthContext } from "@/context/UserContext";
+import React, { SetStateAction, useContext, useEffect, useState } from "react";
+// import {useNavigate} from "rea"
+import axios from 'axios';
+import Link from "next/link";
 
 const Login = () => {
-
+const { setUser} = useContext(AuthContext)
+// const [user, setUser] = useState()
+const [email, setEmail] = useState()
+const [password, setPassword] = useState();
+ const [message, setMessage] = useState();
+const [isSignIn, setIsSignIn] = useState('sign-in-form')
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -28,22 +37,42 @@ const Login = () => {
       };
     }
   }, []);
+
+  const handleClick = async (e:any) => {
+    try {
+      e.preventDefault()
+      const res = await axios.post('http://localhost:9010/auth/login', {email, password})
+      console.log(res.data);
+      setUser(res.data.user);
+      // setMessage(res.statusText)      
+      setTimeout(() => {
+        <Link href='/home'/>
+      }, 1000)      
+      // navigate('/dashboard', { replace: true });
+    } catch (error:any) {
+      console.log(error);
+      setMessage(error);
+    }
+  };
+
   return (
     <div>
       <div className="container">
         <div className="forms-container">
-          <div className="signin-signup">
-            <form action="#" className="sign-in-form">
+          <div className="signin-signup">    
+          {isSignIn?
+            <form  className="sign-in-form" onSubmit={(e)=>handleClick(e)} >
               <h2 className="title">Sign in</h2>
               <div className="input-field">
                 <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Email or phone number" onChange={(e:any)=>setEmail(e.target.value)} />
               </div>
               <div className="input-field">
                 <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" onChange={(e:any)=>setPassword(e.target.value)}/>
               </div>
-              <input type="submit" value="Login" className="btn solid" />
+              {/* <button >Log in</button> */}
+              <input type="submit" value="Login" className="btn solid"  />
               <p className="social-text">Or Sign in with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
@@ -59,8 +88,7 @@ const Login = () => {
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>
-            </form>
-            <form action="#" className="sign-up-form">
+            </form> :  <form className="sign-up-form" onSubmit={(e)=>handleClick(e)}>
               <h2 className="title">Sign up</h2>
               <div className="input-field">
                 <i className="fas fa-user"></i>
@@ -78,7 +106,6 @@ const Login = () => {
               <p className="social-text">Or Sign up with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
-                {/* <i className="fa-brands fa-facebook"></i> */}
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a href="#" className="social-icon">
@@ -91,11 +118,11 @@ const Login = () => {
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>
-            </form> 
+            </form>  }
           </div>
         </div>
 
-        <div className="panels-container">
+      <div className="panels-container">         
           <div className="panel left-panel">
             <div className="content">
               <h3>New here ?</h3>
@@ -103,26 +130,26 @@ const Login = () => {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Debitis, ex ratione. Aliquid!
               </p>
-              <button className="btn transparent" id="sign-up-btn">
+              <button className="btn transparent" id="sign-up-btn" onClick={()=>setIsSignIn('sign-up-form')} >
                 Sign up
               </button>
             </div>
             <img src="img/log.svg" className="image" alt="" />
-          </div>
-          <div className="panel right-panel">
+          </div> 
+         <div className="panel right-panel">
             <div className="content">
               <h3>One of us ?</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
                 laboriosam ad deleniti.
               </p>
-              <button className="btn transparent" id="sign-in-btn">
+              <button className="btn transparent" id="sign-in-btn" onClick={()=>setIsSignIn('sign-in-form')} >
                 Sign in
               </button>
             </div>
             <img src="img/register.svg" className="image" alt="" />
-          </div>
-        </div>
+          </div>  
+        </div> 
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 @Schema({timestamps:true})
-export class User {
-    @Prop({required: true})
+export class Users {
+    @Prop()
     username: String;
     @Prop({required: true})
     email: String;
@@ -16,4 +16,4 @@ export class User {
     address: String;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User)
+export const UserSchema = SchemaFactory.createForClass(Users)
