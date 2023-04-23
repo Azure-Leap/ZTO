@@ -8,7 +8,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const About = () => {
   return (
-    <Box sx={{marginBottom:"80px"}}>
+    <Box sx={{marginBottom:"80px", height:"95vh"}}>
       <Typography variant='h3' sx={{textAlign:"center", marginTop:"40px", marginBottom:"40px"}}>Бидний тухай</Typography>
     <div className="Aboutprofile-container">
       <div className="Aboutprofile-card">

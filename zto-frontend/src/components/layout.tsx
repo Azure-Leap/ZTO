@@ -5,7 +5,7 @@ const Layout  = ({children}:any)=>{
     return <>
     <ResponsiveAppBar/>
     {children}
-    <Footer />
+    <Footer/>
     </>
 }
 

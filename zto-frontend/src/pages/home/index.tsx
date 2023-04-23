@@ -12,14 +12,13 @@ export default function Home() {
   return (
     <>
       <main className="bg-white">
-        <NavAppBar />
+        {/* <NavAppBar /> */}
         <ProductHero />
         {/* <CustomCursor /> */}
         <SecondSection />
         <TemplateList />
         <About/>
         <WebSteppers />
-        <Footer />
       </main>
     </>
   );

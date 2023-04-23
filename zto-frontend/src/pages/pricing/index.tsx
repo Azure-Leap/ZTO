@@ -64,7 +64,6 @@ function PricingContent() {
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
-      <Navbar/>
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
           component="h1"
@@ -149,7 +148,6 @@ function PricingContent() {
           ))}
         </Grid>
       </Container>
-      <Footer/>
     </React.Fragment>
   );
 }

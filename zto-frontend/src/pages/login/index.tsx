@@ -42,11 +42,11 @@ const [isSignIn, setIsSignIn] = useState('sign-in-form')
     try {
       e.preventDefault()
       const res = await axios.post('http://localhost:9010/auth/login', {email, password})
-      console.log(res.data);
+      console.log(res.data.user);
       setUser(res.data.user);
       // setMessage(res.statusText)      
       setTimeout(() => {
-        <Link href='/home'/>
+        <Link href='/'/>
       }, 1000)      
       // navigate('/dashboard', { replace: true });
     } catch (error:any) {

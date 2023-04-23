@@ -11,13 +11,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import { Link } from '@mui/material';
+import Badge, { BadgeProps } from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from 'next/link';
+import { AuthContext } from '@/context/UserContext';
 
-const pages = ['About', 'Blog', ];
+const pages = [{ title: 'About', link: "/about" }, { title: 'Pricing', link: '/pricing' }, { title: 'Help', link: '/help' }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const webTypes = [{ name: 'All templates', link: "/" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
+const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
+  const {user}= React.useContext(AuthContext)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -35,6 +39,15 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }));
 
   return (
     <AppBar position="static" sx={{ textAlign: "center", backgroundColor: "#fff", color: "#000" }}>
@@ -74,14 +87,15 @@ function ResponsiveAppBar() {
                 <Typography textAlign="center">Products</Typography>
               </MenuItem>
 
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, idx) => (
+                <MenuItem key={idx} onClick={handleCloseNavMenu}>
+                  <Link href={page.link}>{page.title}</Link>
+                  {/* <Link textAlign="center">{page}</Link> */}
                 </MenuItem>
-          
+
               ))}
             </Menu>
- 
+
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' } }} /> */}
           <Typography
@@ -108,12 +122,12 @@ function ResponsiveAppBar() {
                 Products
               </Button>
             </Tooltip>
-            <Button  sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
+            {/* <Button  sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
             <Link href='/pricing' > 
                 Pricing  
                  </Link>
-              </Button>
-           
+              </Button> */}
+
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -139,13 +153,13 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-            {pages.map((page) => (
+            {pages.map((page, idx) => (
               <Button
-                key={page}
+                key={idx}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}
               >
-                {page}
+                <Link href={page.link}>{page.title}</Link>
               </Button>
             ))}
           </Box>
@@ -175,22 +189,28 @@ function ResponsiveAppBar() {
 
           </Box>
           <Box sx={{ flexGrow: 0 }}>
+            {!user?
             <Box>
               <Button sx={{ color: "#000", fontWeight: "600" }}>
-                
+
                 <Link href='/login'>
                   Login
                 </Link>
               </Button>
-              <Button variant="outlined" sx={{fontWeight:"600"}} >
+              <Button variant="outlined" sx={{ fontWeight: "600" }} >
                 <Link href='/login' >
                   Sign Up
-                </Link>               
-              </Button> 
+                </Link>
+              </Button>
+            </Box> :
+            <Box>
+           <IconButton aria-label="cart" sx={{px:'20px'}} >
+              <StyledBadge badgeContent={4} color="secondary">
+                <ShoppingCartIcon/>
+              </StyledBadge>
+            </IconButton>
 
-            </Box>
-
-            {/* <Tooltip title="Open settings">
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -216,7 +236,9 @@ function ResponsiveAppBar() {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu> */}
+            </Menu>
+            </Box>
+            }
           </Box>
         </Toolbar>
       </Container>

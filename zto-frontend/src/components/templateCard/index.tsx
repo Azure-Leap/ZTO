@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function App() {
     return (
-        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff" }}>
+        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff"}}>
             <Container>
              <Box textAlign={"center"}>
                 <Typography variant="h2" fontSize={'4rem'} fontWeight={600} >Та өөрийн бизнест тохирсон вэб сайтаа эндээс олоорой</Typography>
@@ -33,12 +33,11 @@ researched and tailored for every industry — or start from a blank canvas on o
                 </Button>
              </Box>
             </Container>
-            <Box sx={{ m: "100px" }} >
-
+            <Box sx={{m:"50px 70px"}}>
 
                 <Swiper
-                    slidesPerView={1}
-                    spaceBetween={10}
+                    slidesPerView={2}
+                    spaceBetween={30}
                     autoplay={{
                         delay: 1500,
                         disableOnInteraction: false,
@@ -51,7 +50,7 @@ researched and tailored for every industry — or start from a blank canvas on o
                             spaceBetween: 20,
                         },
                         768: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
                         },
                         1024: {
@@ -70,15 +69,13 @@ researched and tailored for every industry — or start from a blank canvas on o
                     {itemData.map((item, idx) => (
 
                         <SwiperSlide key={idx} >
-                            <div className="h-96">
+                          
                                 <img                             
                                     src={item.image}
                                     alt="Illustration of a person carrying ideas for a professional website design"
                                     width={'100%'}
-                                    height={'400px'} 
+                                    height={'520px'} 
                                 />
-                                 
-                            </div>  
                             <Link href={'/'} >
                                 {item.title}
                             </Link>                        
