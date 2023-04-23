@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,8 +20,26 @@ import { FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import Navbar from "../Navbar";
 import SearchBreadcrumb from '../Search';
-import axios  from 'axios';
-import { title } from 'process';
+
+
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import Avatar from '@mui/material/Avatar';
+import { red } from '@mui/material/colors';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+
+
+
+
 
 const webtype = ['All templates', 'Website', 'One page', 'eStore'];
 export const categoryData = [
@@ -53,28 +70,13 @@ interface Props {
 }
 
 export default function ResponsiveDrawer(props: Props) {
-  const [categories, setCategories] = useState([]);
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const getCategory = async () =>{
-    try{
-      const res = await axios.get("http://localhost:9010/categories");
-      
-      setCategories(res.data)
-    }catch(err){
-      console.log("ERR", err);
-    }
-  }
-
-  useEffect(()=>{
-     getCategory()
-  }, [])
-console.log(categories);
   const drawer = (
     <div>
       <Toolbar />
@@ -90,25 +92,22 @@ console.log(categories);
       <List/>
       <List>
         <Typography >Categories</Typography>
-        {categories.map((item, index) => (
+        {categoryData.map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <Image src={item.image} alt='Picture' width={25} height={25} />
+                <Image src={item.icon} alt='Picture' width={25} height={25} />
               </ListItemIcon>
-              <ListItemText primary={item.title} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
-      </List> 
+      </List>
     </div>
   );
-
   const container = window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* <CssBaseline /> */}
       <AppBar
         position="fixed"
         sx={{
@@ -126,7 +125,7 @@ console.log(categories);
             edge="start"
             onClick={handleDrawerToggle}
             sx={{display: { sm: 'none'},  pl:"36px" }}
-          >
+          > 
             <CategoryIcon/>
             <Typography variant='h6' sx={{pl:"10px"}}>All Category</Typography>
           </IconButton>
@@ -134,20 +133,73 @@ console.log(categories);
         <Box  sx={{mt:"10px"}}>
           <SearchBreadcrumb/>
         </Box>
+{/* Category ehlel */}
+        <Card sx={{ maxWidth: 345 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image="/static/images/cards/paella.jpg"
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the mussels,
+          if you like.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>
+            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
+            aside for 10 minutes.
+          </Typography>
+          <Typography>
+            Set aside off of the heat to let rest for 10 minutes, and then serve.
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+{/* category tugsgul */}
+
+        
       </AppBar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -171,7 +223,7 @@ console.log(categories);
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />       
+        <Toolbar />     
       </Box>
     </Box>
   );
