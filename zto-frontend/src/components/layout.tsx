@@ -1,11 +1,11 @@
-import Footer from "./Footer"
+import MinFooter from "./MinFooter/index"
 import ResponsiveAppBar from "./Navbar"
 
 const Layout  = ({children}:any)=>{
     return <>
     <ResponsiveAppBar/>
     {children}
-    <Footer/>
+  
     </>
 }
 

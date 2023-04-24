@@ -16,6 +16,7 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import Navbar from "../../components/Navbar/index"
 import Footer from '@/components/Footer';
+import MinFooter from '@/components/MinFooter';
 
 
 const tiers = [
@@ -148,6 +149,7 @@ function PricingContent() {
           ))}
         </Grid>
       </Container>
+      <MinFooter/>
     </React.Fragment>
   );
 }

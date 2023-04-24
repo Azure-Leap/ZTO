@@ -17,7 +17,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from 'next/link';
 import { AuthContext } from '@/context/UserContext';
 
-const pages = [{ title: 'About', link: "/about" }, { title: 'Pricing', link: '/pricing' }, { title: 'Help', link: '/help' }];
+const pages = [{ title: 'About', link: "/NavAbout" }, { title: 'Pricing', link: '/pricing' }, { title: 'Help', link: '/help' }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {

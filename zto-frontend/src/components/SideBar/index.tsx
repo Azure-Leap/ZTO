@@ -2,30 +2,23 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import { FormGroup, FormControlLabel, Checkbox, Card, CardHeader, Avatar, CardMedia, CardContent, CardActions, Collapse } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import Navbar from "../Navbar";
 import SearchBreadcrumb from '../Search';
 import axios  from 'axios';
-import { red } from '@mui/material/colors';
+import MinFooter from '../MinFooter';
+import Category from '../Category';
 
 
 const webtype = ['All templates', 'Website', 'One page', 'eStore'];
@@ -57,7 +50,6 @@ export default function ResponsiveDrawer(props: Props) {
       console.log("ERR", err);
     }
   }
-
   useEffect(()=>{
      getCategory()
   }, [])
@@ -92,6 +84,7 @@ console.log(categories);
   );
   const container = window !== undefined ? () => window().document.body : undefined;
   return (
+    <Box>
     <Box sx={{ display: 'flex' }}>
       <AppBar
         position="fixed"
@@ -118,60 +111,7 @@ console.log(categories);
         <Box  sx={{mt:"10px"}}>
           <SearchBreadcrumb/>
         </Box>
-{/* Category ehlel */}
-        <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
 
-{/* category tugsgul */}
-
-        
       </AppBar>
       <Box
         component="nav"
@@ -210,6 +150,10 @@ console.log(categories);
       >
         <Toolbar />     
       </Box>
+   
     </Box>
+    <Category/>
+       <MinFooter/>
+       </Box>
   );
 }

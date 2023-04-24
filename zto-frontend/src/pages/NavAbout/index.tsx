@@ -6,10 +6,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import MinFooter from '../MinFooter';
-const About = () => {
+import MinFooter from '../../components/MinFooter';
+const NavAbout = () => {
   return (
-    <Box sx={{marginBottom:"20", marginTop:"10px", height:"95vh"}}>
+    <Box sx={{ height:"89vh"}}>
       <Typography variant='h3' sx={{textAlign:"center", marginTop:"40px", marginBottom:"40px"}}>Бидний тухай</Typography>
     <div className="Aboutprofile-container">
       <div className="Aboutprofile-card">
@@ -101,7 +101,8 @@ const About = () => {
     </Box>
       </div>
     </div>
+    <MinFooter/>
     </Box>
   )
 }
-export default About
+export default NavAbout
