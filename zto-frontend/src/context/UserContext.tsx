@@ -2,15 +2,18 @@ import React, { ReactNode, SetStateAction, createContext, useContext, useState }
 
 type authContextType = {
   user: boolean;
- 
+  isSignIn:boolean;
   login: () => void;
   logout: () => void;
  
   setUser?: SetStateAction<any>
+  setIsSignIn?: SetStateAction<any>
 };
 
 const authContextDefaultValues: authContextType = {
   user: false,
+  isSignIn:false,
+  setIsSignIn: ()=>{},
   setUser:()=>{},
   login: () => {},
   logout: () => {},
@@ -28,7 +31,7 @@ type Props = {
 
 export function AuthProvider({ children }: any):any {
   const [user, setUser] = useState<boolean>(false);
-  // const [isSignIn, setIsSignIn] = useState<boolean>(false);
+  const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
     const login = () => {
         setUser(true);
@@ -42,10 +45,11 @@ export function AuthProvider({ children }: any):any {
 
     const value = {
         user,
+        isSignIn,
         login,
         logout,
-        setUser
-       
+        setUser,    
+       setIsSignIn
     };
   return (
       <>

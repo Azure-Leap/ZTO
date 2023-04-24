@@ -42,7 +42,7 @@ interface Props {
 export default function ResponsiveDrawer(props: Props) {
   const [categories, setCategories] = useState([]);
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -90,12 +90,9 @@ console.log(categories);
       </List>
     </div>
   );
-
   const container = window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* <CssBaseline /> */}
       <AppBar
         position="fixed"
         sx={{
@@ -181,14 +178,13 @@ console.log(categories);
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },

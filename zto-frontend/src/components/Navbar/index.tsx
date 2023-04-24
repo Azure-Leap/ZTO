@@ -21,7 +21,7 @@ const pages = [{ title: 'About', link: "/about" }, { title: 'Pricing', link: '/p
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
-  const {user}= React.useContext(AuthContext)
+  const {user, setIsSignIn}= React.useContext(AuthContext)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -191,13 +191,13 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             {!user?
             <Box>
-              <Button sx={{ color: "#000", fontWeight: "600" }}>
+              <Button sx={{ color: "#000", fontWeight: "600" }} onClick={()=>setIsSignIn(true)}>
 
                 <Link href='/login'>
                   Login
                 </Link>
               </Button>
-              <Button variant="outlined" sx={{ fontWeight: "600" }} >
+              <Button variant="outlined" sx={{ fontWeight: "600" }} onClick={()=>setIsSignIn(false)}>
                 <Link href='/login' >
                   Sign Up
                 </Link>
