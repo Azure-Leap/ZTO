@@ -14,60 +14,13 @@ const Footer = () => {
       <Box
         sx={{
           display: "flex",
-          width: "100wh",
-          justifyContent: "center",
-          gap: "16vh",
-          paddingBottom: "3vh",
-          paddingTop: "3vh",
-        }}
-      >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
           justifyContent: "space-around",
           padding: "3vh",
           borderTop: 1,
           marginBottom: `0.5vh`,
         }}
       >
-        <Box sx={{ display: "flex", gap: "3vh" }}>
+        <Box sx={{ display: "flex", gap: "3vh" , fontSize: '1.5rem'}}>
           <FaFacebook />
           <FaTwitter />
           <FaInstagram />

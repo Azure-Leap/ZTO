@@ -11,8 +11,9 @@ export class AuthService {
   }
     async signIn(@Param('email, pass') email: string, pass:string) {
       console.log("email",email, pass);
-
+      // const checked = bicryp.compateHash(pass, user.pass);
     const user = await this.usersService.findOne(email);
+
     if (user?.password !== pass) {
        
       throw new UnauthorizedException({message:"Email eswel nuuts ug buruu bna"});
@@ -25,4 +26,5 @@ export class AuthService {
     }
     // return result;
   }
+ 
 }

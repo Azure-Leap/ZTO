@@ -69,13 +69,13 @@ console.log(categories);
       <List/>
       <List>
         <Typography >Categories</Typography>
-        {categories.map((item, index) => (
+        {categories.map((item:any, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <Image src={"item.image"} alt='Picture' width={25} height={25} />
+                <Image src={item.image} alt='Picture' width={25} height={25} />
               </ListItemIcon>
-              <ListItemText primary={"item.title"} />
+              <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}

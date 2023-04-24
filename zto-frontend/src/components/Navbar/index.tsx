@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,13 +15,13 @@ import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from 'next/link';
-import { AuthContext } from '@/context/UserContext';
+import { AuthContext } from '../../context/UserContext';
 
 const pages = [{ title: 'About', link: "/NavAbout" }, { title: 'Pricing', link: '/pricing' }, { title: 'Help', link: '/help' }];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
-  const {user, setIsSignIn}= React.useContext(AuthContext)
+  const {user, setIsSignIn} = useContext(AuthContext)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -191,16 +191,22 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             {!user?
             <Box>
-              <Button sx={{ color: "#000", fontWeight: "600" }} onClick={()=>setIsSignIn(true)}>
+              <Button sx={{ color: "#000", fontWeight: "600" }} onClick={()=>{
+                console.log("SIGNIN");
+                setIsSignIn(false)
+              }}>
 
-                <Link href='/login'>
+                {/* <Link href='/login'> */}
                   Login
-                </Link>
+                {/* </Link> */}
               </Button>
-              <Button variant="outlined" sx={{ fontWeight: "600" }} onClick={()=>setIsSignIn(false)}>
-                <Link href='/login' >
+              <Button variant="outlined" sx={{ fontWeight: "600" }} onClick={()=>{
+                console.log("SIGNUP"); 
+                setIsSignIn(true);
+                }} >
+                {/* <Link href='/login' > */}
                   Sign Up
-                </Link>
+                {/* </Link> */}
               </Button>
             </Box> :
             <Box>
