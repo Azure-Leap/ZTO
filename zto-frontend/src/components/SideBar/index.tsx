@@ -17,31 +17,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import { FormGroup, FormControlLabel, Checkbox } from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import { FormGroup, FormControlLabel, Checkbox, Card, CardHeader, Avatar, CardMedia, CardContent, CardActions, Collapse } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import Navbar from "../Navbar";
 import SearchBreadcrumb from '../Search';
 import axios  from 'axios';
-import { title } from 'process';
+import { red } from '@mui/material/colors';
+
 
 const webtype = ['All templates', 'Website', 'One page', 'eStore'];
-export const categoryData = [
-  { name: 'All', icon: "https://www.motocms.com/website-templates/images/category/all.svg" },
-  { name: 'Business & Corporate ', icon: "https://www.motocms.com/website-templates/images/category/business.svg" },
-  { name: 'Industry', icon: "https://www.motocms.com/website-templates/images/category/industry.svg" },
-  { name: 'Medical & Healthcare', icon: "https://www.motocms.com/website-templates/images/category/medical.svg" },
-  { name: 'Creative', icon: "https://www.motocms.com/website-templates/images/category/creative.svg" },
-  { name: 'Food & Restaurant', icon: "https://www.motocms.com/website-templates/images/category/food.svg" },
-  { name: 'Fashion & Beauty', icon: "https://www.motocms.com/website-templates/images/category/fashion.svg" },
-  { name: 'Hotel & Travel', icon: "https://www.motocms.com/website-templates/images/category/hotel.svg" },
-  { name: 'Sports & Entertainment', icon: "https://www.motocms.com/website-templates/images/category/sport.svg" },
-  { name: 'Society & People', icon: "https://www.motocms.com/website-templates/images/category/society.svg" },
-  { name: ' Home & Services', icon: "https://www.motocms.com/website-templates/images/category/home.svg" },
-  { name: ' Technology', icon: "https://www.motocms.com/website-templates/images/category/technology.svg" },
-  { name: 'Holidays & Events', icon: "https://www.motocms.com/website-templates/images/category/holidays.svg" },
-]
-
-
 const drawerWidth = 300;
 
 interface Props {
@@ -94,13 +81,13 @@ console.log(categories);
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <Image src={item.image} alt='Picture' width={25} height={25} />
+                <Image src={"item.image"} alt='Picture' width={25} height={25} />
               </ListItemIcon>
-              <ListItemText primary={item.title} />
+              <ListItemText primary={"item.title"} />
             </ListItemButton>
           </ListItem>
         ))}
-      </List> 
+      </List>
     </div>
   );
 
@@ -126,7 +113,7 @@ console.log(categories);
             edge="start"
             onClick={handleDrawerToggle}
             sx={{display: { sm: 'none'},  pl:"36px" }}
-          >
+          > 
             <CategoryIcon/>
             <Typography variant='h6' sx={{pl:"10px"}}>All Category</Typography>
           </IconButton>
@@ -134,6 +121,60 @@ console.log(categories);
         <Box  sx={{mt:"10px"}}>
           <SearchBreadcrumb/>
         </Box>
+{/* Category ehlel */}
+        <Card sx={{ maxWidth: 345 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image="/static/images/cards/paella.jpg"
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the mussels,
+          if you like.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>
+            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
+            aside for 10 minutes.
+          </Typography>
+          <Typography>
+            Set aside off of the heat to let rest for 10 minutes, and then serve.
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+{/* category tugsgul */}
+
+        
       </AppBar>
       <Box
         component="nav"
@@ -171,7 +212,7 @@ console.log(categories);
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />       
+        <Toolbar />     
       </Box>
     </Box>
   );
