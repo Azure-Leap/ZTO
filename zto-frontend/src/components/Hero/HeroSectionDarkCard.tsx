@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
-import { Image } from '@mui/icons-material';
+import Image from 'next/image';
 
 
 const catType = [
@@ -124,6 +124,9 @@ const catType = [
     typefour: "₹88,952",
   },
 ];
+
+const img = require('../../assets/img/undraw_Static_website_re_x70h.png')
+
 export default function DarkCard() {    
   return (
     <Grid>
@@ -140,7 +143,7 @@ export default function DarkCard() {
       }}
     >
       <Box>
-        <img src={`${card.imageURL}`} alt="" width={310} height={260}/>
+        <Image src={img} alt="" width={310} height={260}/>
       </Box>
       <Box>
         <Box

@@ -18,7 +18,7 @@ const steps = [
 
 export default function WebSteppers() {
   return (
-    <Box sx={{backgroundColor:"black", minHeight:'100vh', py:'30px'}}>
+    <Box sx={{backgroundColor:"black", py:'20px'}}>
        <Container>
     <Box sx={{ width:'100%', textAlign:"center" , my: "20px" , pt: "10px" }}>
       <Typography sx={{color:"white"}} variant='h3'>Хэрхэн вэбсайттай болох вэ?</Typography>

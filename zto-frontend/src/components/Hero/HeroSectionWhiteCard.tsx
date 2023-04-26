@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Grid, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import Image from 'next/image';
 
 const catType = [
     {
@@ -122,6 +123,8 @@ const catType = [
     },
   ];
 
+  const img = require('../../assets/img/undraw_building_websites_i78t.png')
+
 export default function Category() {    
   return (
     <Grid>
@@ -138,7 +141,7 @@ export default function Category() {
       }}
     >
        <Box>
-        <img src={`${card.imageURL}`} alt="" width={310} height={260}/>
+        <Image src={img} alt="" width={310} height={260}/>
       </Box>
       <Box>
         <Box
