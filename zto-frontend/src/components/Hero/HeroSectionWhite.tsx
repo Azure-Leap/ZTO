@@ -1,11 +1,16 @@
 import React from "react";
 import Box from "@mui/material/Box";
+<<<<<<< HEAD
 import Typography from "../Hero/Typography";
 import Button from "./Button";
 import WhiteCard from "./whiteCard";
 import Image from "next/image";
 
 const img = require("../../assets/img/fitnrss.jpg");
+=======
+import WhiteCard from "./HeroSectionWhiteCard";
+import { Typography, Button } from "@mui/material";
+>>>>>>> Card
 
 const HeroSectionWhite = () => {
   return (
@@ -19,6 +24,7 @@ const HeroSectionWhite = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+<<<<<<< HEAD
       <Image src={img} alt="increase priority" style={{ display: "none" }} />
       <Typography className="htitle" align="center" variant="h2" marginTop={10}>
         Өөрийн зүйлийг өөрөө бүтээ.
@@ -48,6 +54,17 @@ const HeroSectionWhite = () => {
         color="inherit"
         sx={{ mt: 2 }}
       >
+=======
+      <Typography variant="h3" sx={{color:"black", marginTop:"5%"}}>
+        Өөрийн зүйлийг өөрөө бүтээ.
+      </Typography>
+      <Typography  variant="h4" sx={{color:"black", marginTop:"2%"}}
+      >
+        Хүссэн загвараа эндээс ол
+      </Typography>
+   
+      <Typography  variant="h5" sx={{color:"black", marginTop:"2%", marginBottom:"3%"}}>
+>>>>>>> Card
         Туршаад үз таалагдана.
       </Typography>
       <div className="bounce__css">
