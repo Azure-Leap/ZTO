@@ -42,7 +42,6 @@ export default function BasicGrid() {
       <Grid container spacing={1} justifyContent={'space-between'}>
         {dataW.map((w, idx)=>
        <Grid key={idx} item xs={12} sm={3} md={2} lg={2} fontWeight={600} sx={{borderRadius:"20px", border: '1px solid',  p:3, my:'30px', backgroundColor:"#000620", color:"#fff"}}>
-        {/* <Box sx={{borderRadius:"50%"}}> */}
         <Box>{w.icon}</Box>
           <Typography variant='h4' >{w.name}</Typography>
         {/* </Box> */}
