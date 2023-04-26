@@ -24,7 +24,8 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-} */
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -33,8 +34,7 @@ a {
 /* * {
   cursor: none;
 } */
-.mainpic img
-.cursor {
+.mainpic img .cursor {
   background-color: #4158d0;
   background-image: linear-gradient(
     43deg,
@@ -127,7 +127,6 @@ a {
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body,
 input {
@@ -522,15 +521,15 @@ form.sign-in-form {
   }
 }
 
-
-
-
-
 .Aboutbody {
   /* background-color: #EA9684; */
   font-family: Arial, Helvetica, sans-serif;
-  background: rgb(255,154,158);
-  background: linear-gradient(13deg, rgba(255,154,158,1) 0%, rgba(250,208,196,1) 100%);
+  background: rgb(255, 154, 158);
+  background: linear-gradient(
+    13deg,
+    rgba(255, 154, 158, 1) 0%,
+    rgba(250, 208, 196, 1) 100%
+  );
 }
 
 .Abouttop-card {
@@ -558,8 +557,8 @@ form.sign-in-form {
   height: 4px;
   background-color: #000;
   margin-bottom: 6px;
-  opacity: .5;
-  transition: .4s;
+  opacity: 0.5;
+  transition: 0.4s;
 }
 
 .Abouttop-card .Aboutmenu-icon .Aboutitem1 {
@@ -587,7 +586,7 @@ form.sign-in-form {
   font-size: 50px;
   font-weight: 800;
   color: #000;
-  opacity: .5;
+  opacity: 0.5;
   bottom: 140px;
   line-height: 50px;
   text-align: center;
@@ -608,7 +607,8 @@ form.sign-in-form {
   width: 10%;
 }
 
-.Aboutmiddle-card, .Aboutfooter {
+.Aboutmiddle-card,
+.Aboutfooter {
   margin: 5px 25px;
 }
 
@@ -624,49 +624,57 @@ form.sign-in-form {
   /* padding: 7%; */
   font-size: 20px;
   margin: 0 5%;
-  color: rgba(0, 0, 0, .9);
+  color: rgba(0, 0, 0, 0.9);
 }
 
-.facebook:hover {color:#3b5999;}
-.twitter:hover {color: #55acee;}
-.google:hover {color: #dd4b39;}
-.github:hover {color: #302f2f;}
-.linkedin:hover {color: #0077B5;}
+.facebook:hover {
+  color: #3b5999;
+}
+.twitter:hover {
+  color: #55acee;
+}
+.google:hover {
+  color: #dd4b39;
+}
+.github:hover {
+  color: #302f2f;
+}
+.linkedin:hover {
+  color: #0077b5;
+}
 
 .Aboutfooter .Aboutlinks {
-  border-top: 2px solid rgba(0, 0, 0, .1);
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-top: 10px;
   padding: 8px 0;
 }
 
-.Aboutfooter .Aboutlinks  address {
+.Aboutfooter .Aboutlinks address {
   font-size: 15px;
 }
-.Aboutfooter .Aboutlinks a { 
+.Aboutfooter .Aboutlinks a {
   text-decoration: none;
   font-weight: 600;
-  color: rgba(0, 0, 0, .9);
+  color: rgba(0, 0, 0, 0.9);
 }
 /* ANIMATION */
 @keyframes rotate {
   0% {
-      transform-origin: left bottom;
-      transform: rotate3d(0, 0, 1, 45deg);
-      opacity: 0;
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0;
   }
   100% {
-      transform-origin: left bottom;
-      transform: none;
-      opacity: 1;
+    transform-origin: left bottom;
+    transform: none;
+    opacity: 1;
   }
 }
 .Aboutprofile-container {
   display: flex;
   align-items: center;
   justify-content: center;
-
- 
 }
 .Aboutmain {
   width: 340px;
@@ -685,7 +693,7 @@ form.sign-in-form {
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  transition:.3s;
+  transition: 0.3s;
   overflow: hidden;
   background-color: #f1f1f1;
   font-size: 16px;
@@ -718,16 +726,16 @@ form.sign-in-form {
 }
 @media screen and (max-width: 1000px) {
   .Aboutprofile-name {
-      font-size: 18px;
+    font-size: 18px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .Aboutprofile-card {
-      padding: 20px 15px;
+    padding: 20px 15px;
   }
 
   .Aboutprofile-name {
-      font-size: 16px;
+    font-size: 16px;
   }
 }

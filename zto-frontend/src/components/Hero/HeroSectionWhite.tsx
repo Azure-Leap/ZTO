@@ -5,7 +5,7 @@ import Button from "./Button";
 import WhiteCard from "./whiteCard";
 import Image from "next/image";
 
-const img = require('../../assets/img/fitnrss.jpg')
+const img = require("../../assets/img/fitnrss.jpg");
 
 const HeroSectionWhite = () => {
   return (
@@ -20,24 +20,17 @@ const HeroSectionWhite = () => {
       }}
     >
       <Image src={img} alt="increase priority" style={{ display: "none" }} />
-      <Typography
-        className="htitle"
-        align="center"
-        variant="h2"
-        marginTop={10}
-        marginLight={180}
-      >
+      <Typography className="htitle" align="center" variant="h2" marginTop={10}>
         Өөрийн зүйлийг өөрөө бүтээ.
       </Typography>
       <Typography
         className="title"
         variant="h5"
-        marginLight={180}
         sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
       >
         Хүссэн загвараа эндээс ол
       </Typography>
-      <Box sx={{ marginLight: 180 }}>
+      <Box>
         <Button
           id="apple"
           variant="contained"
@@ -51,7 +44,6 @@ const HeroSectionWhite = () => {
       </Box>
       <Typography
         className="mintitle"
-        marginLight={180}
         variant="body2"
         color="inherit"
         sx={{ mt: 2 }}
