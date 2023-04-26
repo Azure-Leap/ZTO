@@ -81,7 +81,7 @@ const Footer = () => {
         </Box>
       </Box>
     </Box>
-  )
+  );
 };
 
 export default Footer;
