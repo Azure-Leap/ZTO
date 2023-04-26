@@ -1,7 +1,10 @@
 import React from "react";
-
 import { Box, Grid, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import Image from "next/image";
+
+const whiteImg = require('../../assets/img/business.png')
+
 const Cardninedata = ({ card }) => {
   return (
     <Grid
@@ -21,7 +24,7 @@ const Cardninedata = ({ card }) => {
           height: "280px",
         }}
       >
-        <img src={`${card.imageURL}`} alt="" width={350} className="CardImg" />
+        <Image src={whiteImg} alt="" width={350} className="CardImg" />
       </Box>
       <Box>
         <Box

@@ -27,8 +27,8 @@ const Help = () => {
         <Typography variant='h3' >Тусламж үйлчилгээ</Typography>
         <Container>
         <Grid container spacing={2} my={'30px'} maxWidth={'100%'} columns={14}>
-          {datas.map((data)=>         
-          <Grid item xs={12} sm={12} md={6} lg={4} sx={{ borderRadius:"20px", boxShadow: 5, fontSize:'.5rem', m:'20px', p:'20px', maxWidth:"100%", ":hover":{backgroundColor:"#eeeeee"}}}>
+          {datas.map((data, idx)=>         
+          <Grid key={idx} item xs={12} sm={12} md={6} lg={4} sx={{ borderRadius:"20px", boxShadow: 5, fontSize:'.5rem', m:'20px', p:'20px', maxWidth:"100%", ":hover":{backgroundColor:"#eeeeee"}}}>
             <Box>{data.icon}</Box>
             <Typography variant='h4'>
             {data.title}

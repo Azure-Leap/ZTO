@@ -1,22 +1,20 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Box, Button, Container, Typography } from "@mui/material";
-// Import Swiper styles
+
 import "swiper/css";
 import "swiper/css/pagination";
 
+const temImg = require('../../assets/img/technology.jpg')
 
-// import required modules
-// import { Pagination } from "swiper";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function App() {
     return (
-        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff"}}>
+        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff", minHeight:'100vh'}}>
             <Container>
              <Box textAlign={"center"}>
                 <Typography variant="h2" fontSize={'4rem'} fontWeight={600} >Та өөрийн бизнест тохирсон вэб сайтаа эндээс олоорой</Typography>
@@ -68,13 +66,12 @@ researched and tailored for every industry — or start from a blank canvas on o
                 >
                     {itemData.map((item, idx) => (
 
-                        <SwiperSlide key={idx} >
-                          
-                                <img                             
-                                    src={item.image}
-                                    alt="Illustration of a person carrying ideas for a professional website design"
-                                    width={'100%'}
-                                    height={'520px'} 
+                        <SwiperSlide key={idx} >                         
+                                <Image                            
+                                    src={temImg}
+                                    alt=" Illustration of a person carrying ideas for a professional website design"
+                                    style={{ width: '100%'}}
+                                    height={600}
                                 />
                             <Link href={'/'} >
                                 {item.title}
@@ -90,34 +87,34 @@ researched and tailored for every industry — or start from a blank canvas on o
 
 const itemData = [
     {
-        image: 'https://static.wixstatic.com/media/0784b1_5a7b4554103544dfb0cd5545fa46b78b~mv2.jpg/v1/fit/w_1276,h_820,q_90/0784b1_5a7b4554103544dfb0cd5545fa46b78b~mv2.webp',
+        image: '',
         title: 'Store',
     },
 
     {
-        image: '/image/Landing Page (1).jpg',
+        image: '',
         title: 'Food',
     },
     {
-        image: '/image/Home.jpg',
+        image: '',
         title: 'Blog',
     },
     {
-        image: '/image/fitnrss.jpg',
+        image:'',
         title: 'Fitness',
     },
 
     {
-        image: '/image/business.png',
+        image: '',
         title: 'Business',
     },
 
     {
-        image: '/image/technology.jpg',
+        image: '',
         title: 'Technology',
     },
     {
-        image: '/image/Landing Page.jpg',
+        image: '',
         title: 'Blog',
     },
 

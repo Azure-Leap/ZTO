@@ -1,10 +1,10 @@
-import React from 'react'
-import SideBar from '../../components/SideBar'
+import React from 'react';
+import Category from '../../components/Categories'
 
 const WebsiteTemplates = () => {
   return (
     <>
-    <SideBar/>
+    <Category/>
     </>
   )
 }

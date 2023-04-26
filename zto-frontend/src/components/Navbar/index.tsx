@@ -196,17 +196,17 @@ function ResponsiveAppBar() {
                 setIsSignIn(false)
               }}>
 
-                {/* <Link href='/login'> */}
+                <Link href='/auth'> 
                   Login
-                {/* </Link> */}
+               </Link>
               </Button>
               <Button variant="outlined" sx={{ fontWeight: "600" }} onClick={()=>{
                 console.log("SIGNUP"); 
                 setIsSignIn(true);
                 }} >
-                {/* <Link href='/login' > */}
+                <Link href='/auth' >
                   Sign Up
-                {/* </Link> */}
+                 </Link>
               </Button>
             </Box> :
             <Box>
