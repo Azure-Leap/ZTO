@@ -1,6 +1,11 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import Image from "next/image";
+
+const cardImg=require('../../assets/img/Home.jpg')
+const cardImg2=require('../../assets/img/Landing Page (1).jpg')
+
 const Cardninedata = ({ card }) => {
   return (
     <Grid
@@ -19,7 +24,7 @@ const Cardninedata = ({ card }) => {
           height: "280px",
         }}
       >
-        <img src={`${card.imageURL}`} alt="" width={'100%'} className="CardImg" />
+        <Image src={cardImg2} alt="" width={'100%'} className="CardImg" />
       </Box>
       <Box>
         {" "}
@@ -86,8 +91,7 @@ const Cardnine = () => {
   const coti = [
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      imageURL:{cardImg},
       time: "3Days 4 Nights",
       rating: "4.7",
 
@@ -98,8 +102,7 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1680695919961-9a47baa429ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      imageURL:{cardImg2},
       time: "3Days 4 Nights",
       rating: "4.7",
       typeone: "Tour combo with return airport transfer",
@@ -109,20 +112,7 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-      time: "3Days 4 Nights",
-      rating: "4.7",
-
-      typeone: "Tour combo with return airport transfer",
-      typetwo: "City Tour",
-      typethree: "Curious Corner",
-      typefour: "₹88,952",
-    },
-    {
-      ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1681069693474-605332820d67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      imageURL:"",
       time: "3Days 4 Nights",
       rating: "4.7",
 
@@ -133,8 +123,18 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1653140296827-ecff35bfa281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      imageURL:"",
+            time: "3Days 4 Nights",
+      rating: "4.7",
+
+      typeone: "Tour combo with return airport transfer",
+      typetwo: "City Tour",
+      typethree: "Curious Corner",
+      typefour: "₹88,952",
+    },
+    {
+      ner: "Swiss Apls",
+      imageURL:"",
       time: "3Days 4 Nights",
       rating: "4.7",
 
@@ -145,8 +145,7 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      imageURL:"",
       time: "3Days 4 Nights",
       rating: "4.7",
 
@@ -157,8 +156,7 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1680695919961-9a47baa429ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      imageURL:"",
       time: "3Days 4 Nights",
       rating: "4.7",
       typeone: "Tour combo with return airport transfer",
@@ -168,20 +166,7 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-      time: "3Days 4 Nights",
-      rating: "4.7",
-
-      typeone: "Tour combo with return airport transfer",
-      typetwo: "City Tour",
-      typethree: "Curious Corner",
-      typefour: "₹88,952",
-    },
-    {
-      ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1681069693474-605332820d67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      imageURL:"",
       time: "3Days 4 Nights",
       rating: "4.7",
 
@@ -192,8 +177,18 @@ const Cardnine = () => {
     },
     {
       ner: "Swiss Apls",
-      imageURL:
-        "https://images.unsplash.com/photo-1653140296827-ecff35bfa281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      imageURL:"",
+      time: "3Days 4 Nights",
+      rating: "4.7",
+
+      typeone: "Tour combo with return airport transfer",
+      typetwo: "City Tour",
+      typethree: "Curious Corner",
+      typefour: "₹88,952",
+    },
+    {
+      ner: "Swiss Apls",
+      imageURL:"",
       time: "3Days 4 Nights",
       rating: "4.7",
 

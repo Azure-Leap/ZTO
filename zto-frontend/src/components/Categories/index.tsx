@@ -18,11 +18,12 @@ import Navbar from "../Navbar";
 import SearchBreadcrumb from '../Search';
 import axios  from 'axios';
 import MinFooter from '../MinFooter';
-import Category from '../Category';
+import Website from '../Websities';
 
 
 const webtype = ['All templates', 'Website', 'One page', 'eStore'];
-const drawerWidth = 300;
+const drawerWidth =250;
+
 
 interface Props {
   /**
@@ -61,14 +62,14 @@ console.log(categories);
       <Typography fontWeight={600} pl={"16px"} >Web types</Typography>
         <FormGroup>
           {webtype.map((text, index)=>(
-           <ListItem>
-            <FormControlLabel key={index}  control={<Checkbox />} label={text} />
+           <ListItem  key={index}>
+            <FormControlLabel  control={<Checkbox />} label={text} />
           </ListItem>
           ))}
         </FormGroup>
       <List/>
       <List>
-        <Typography >Categories</Typography>
+        <Typography  fontWeight={600} pl={"16px"}>Categories</Typography>
         {categories.map((item:any, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
@@ -89,20 +90,20 @@ console.log(categories);
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
+          width: { sm: `calc(100% - 150px)` },
+          ml: { sm: '150px' },
           backgroundColor:"#fff",
           boxShadow: "none"
         }}
       >
-        <Box sx={{backgroundColor:"#000"}}>          
+        <Box sx={{backgroundColor:"#000624"}}>          
           <Navbar/>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            edge="start"
+            edge="end"
             onClick={handleDrawerToggle}
-            sx={{display: { sm: 'none'},  pl:"36px" }}
+            sx={{display: { sm: 'none'},  pl:"36px"}}
           > 
             <CategoryIcon/>
             <Typography variant='h6' sx={{pl:"10px"}}>All Category</Typography>
@@ -152,7 +153,7 @@ console.log(categories);
       </Box>
    
     </Box>
-    <Category/>
+    <Website/>
        <MinFooter/>
        </Box>
   );

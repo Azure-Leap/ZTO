@@ -7,14 +7,18 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MinFooter from '../MinFooter';
+import Image from 'next/image';
+
+const aboutImg = require('../../assets/img/store.jpg')
+
 const About = () => {
   return (
-    <Box sx={{marginBottom:"20", marginTop:"10px", height:"95vh"}}>
+    <Box sx={{marginBottom:"20", marginTop:"10px", minHeight:'100vh'}}>
       <Typography variant='h3' sx={{textAlign:"center", marginTop:"40px", marginBottom:"40px"}}>Бидний тухай</Typography>
     <div className="Aboutprofile-container">
       <div className="Aboutprofile-card">
     <Box className="Abouttop-card">
-      <img src="https://images.pexels.com/photos/15006072/pexels-photo-15006072.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="user picture"/>
+      <Image src={aboutImg} alt="user picture" width={500} height={600}/>
       <Box className="Aboutmenu-icon">
         <Box className="Aboutmenu Aboutitem1"></Box>
         <Box className="Aboutmenu Aboutitem2"></Box>  
@@ -44,7 +48,7 @@ const About = () => {
       <div className="Aboutprofile-card">
      
     <Box className="Abouttop-card">
-      <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGljfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="user picture"/>
+    <Image src={aboutImg} alt="user picture" width={500} height={600}/>
       <Box className="Aboutmenu-icon">
         <Box className="Aboutmenu Aboutitem1"></Box>
         <Box className="Aboutmenu Aboutitem2"></Box>
@@ -73,7 +77,7 @@ const About = () => {
       </div>
       <div className="Aboutprofile-card">
     <Box className="Abouttop-card">
-      <img src="https://cdn.pixabay.com/photo/2023/01/29/10/09/street-7752940__480.jpg" alt="user picture"/>
+    <Image src={aboutImg} alt="user picture" width={500} height={600}/>
       <Box className="Aboutmenu-icon">
         <Box className="Aboutmenu Aboutitem1"></Box>
         <Box className="Aboutmenu Aboutitem2"></Box>

@@ -3,6 +3,10 @@ import Box from "@mui/material/Box";
 import Typography from "../Hero/Typography";
 import Button from "./Button";
 import WhiteCard from "./whiteCard";
+import Image from "next/image";
+
+const img = require('../../assets/img/fitnrss.jpg')
+
 const HeroSectionWhite = () => {
   return (
     <Box
@@ -15,7 +19,7 @@ const HeroSectionWhite = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <img style={{ display: "none" }} alt="increase priority" />
+      <Image src={img} alt="increase priority" style={{ display: "none" }} />
       <Typography
         className="htitle"
         align="center"

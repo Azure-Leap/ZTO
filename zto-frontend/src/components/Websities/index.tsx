@@ -1,11 +1,11 @@
-import * as React from 'react';
+import  React, {useState} from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid, Link } from '@mui/material';
+import { Grid, Link, TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -14,6 +14,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Pagination from '@mui/material/Pagination';
+
 
 const catType = [{ name: 'Ecommerce', price:"500$", text:"Chiropractic Website Design", imageURL:"https://images.unsplash.com/photo-1681999683665-6902894af42c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60" }, 
  { name: "Website" , category:"Website", price:"40$", button:"", rating:"4.5", text:"Liquor Store Website Template", imageURL:"https://images.unsplash.com/photo-1682195620288-712f0b970b55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"}, 
@@ -30,28 +31,38 @@ const catType = [{ name: 'Ecommerce', price:"500$", text:"Chiropractic Website D
  { name: 'eStore', category:"Nice", price:"99$", button:"", rating:"2.3", text:"Best Kindergarten Website Design", imageURL:"https://images.unsplash.com/photo-1682017812985-9961980f20d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"},
 ]
 
-export default function Category() {    
+export default function Category() {  
+  const [webList, setWebList] =useState(catType);
+  const searchWeb = (e:any) =>{
+    console.log("fff", e.target.value);
+    const filterCat = catType.filter((web)=>web.category?.toLowerCase().includes(e.target.value));
+    setWebList(filterCat);
+  }
   return (
-    <Grid>
+    <Grid >
   <Paper
-      sx={{ p: '2px 4px', display: 'flex', flexDirection:"row", alignItems: 'center', width: "78%" , marginLeft:"20%", marginTop:"-3%", marginBottom:"2%"}}
+      sx={{ p: '2px 4px', display: 'flex', flexDirection:"row", alignItems: 'center', width: "78%" , marginLeft:"20%", marginTop:"-3%", marginBottom:"2%", sm:{width:'60%'}, md:{width:"50%"}}}
     >
       <IconButton sx={{ p: '10px' }}>
         <MenuIcon />
       </IconButton>
-      <InputBase
+      <TextField
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search zto template"
-        inputProps={{ 'aria-label': 'search zto template' }}
+        // inputProps={{ 'aria-label': 'search zto template' }}      
+        onChange={searchWeb}
       />
+   
       <IconButton  color="primary" type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
-      </IconButton>
+      </IconButton >
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
     </Paper>
 
+  
+
 <Grid sx={{display:"flex", flexWrap:"wrap", marginLeft:"20%"}}>
-    {catType.map((type) => (
+    {webList.map((type) => (
         <MenuItem key={type.name}>
         <Card sx={{width:"450px"}}>
       <CardMedia

@@ -3,41 +3,51 @@ import React, { SetStateAction, useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
+import { Alert, Snackbar } from "@mui/material";
 
 const Login = () => {
   const history = useRouter();
-  const { setUser, isSignIn, setIsSignIn } = useContext(AuthContext);
+  const { setUser, isSignIn, setIsSignIn,  message, setMessage  } = useContext(AuthContext);
   console.log("signin", isSignIn);
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState();
-  const [userName, setUserName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [message, setMessage] = useState('');
-
+  const [username, setUserName] = useState();
+  const [phone_number, setPhoneNumber] = useState();
+  const [alert, setAlert] = useState(false);
+  const [status, setStatus] = useState(false);
 
   const handleClick = async (e: any) => {
     try {
       e.preventDefault()
-      const res = await axios.post('http://localhost:9010/auth/login', { email, password, userName, phoneNumber })
-      console.log(res.data.user);
+      const res = await axios.post('http://localhost:9010/auth/login', { email, password})
+      console.log(res);
       setUser(res.data.user);
-      // setMessage(res.statusText)    
+      setMessage(res.data.message)
+      console.log(res.data.message);
+      setAlert(true)
+      setStatus(true)
       history.push("/")  
       
       // navigate('/dashboard', { replace: true });
     } catch (error: any) {
       console.log(error);
-      setMessage(error);
+      // setMessage(error)
+      setStatus(false)
+      setAlert(true)
     }
   };
 
-  const handleSignup = async (e:any)=>{
+  const signup = async (e:any)=>{
     try{
       e.preventDefault()
-      const res = await axios.post('http://localhost:9010/users/register', {email, password, userName, phoneNumber})
+      const res = await axios.post('http://localhost:9010/users/register', {email, password, username, phone_number})
+      // console.log(res);
+      // setMessage(res.data.message)
       console.log(res);
-      setMessage(res.statusText)
+      setAlert(true)
+      setStatus(true)
+      history.push("/auth")  
     }catch(err){
       console.log("err",err);
     }
@@ -45,6 +55,16 @@ const Login = () => {
 
   return (
     <div>
+      <Snackbar
+        open={alert}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        autoHideDuration={3000}
+        onClose={() => {
+          setAlert(false);
+        }}
+      >
+        <Alert severity={status?"success":"error"}>{message}</Alert>
+      </Snackbar>
     
       <div className={`container ${isSignIn? "sign-up-mode": ""}`}>
         <div className="forms-container">
@@ -98,7 +118,7 @@ const Login = () => {
                   <i className="fas fa-lock"></i>
                   <input type="phone number" placeholder="phone number" onChange={(e: any) => setPhoneNumber(e.target.value)} />
                 </div>
-                <input type="button" className="btn" value="Sign up" onClick={()=>handleSignup}/>
+                <input type="button" className="btn" value="Sign up" onClick={signup}/>
                 <p className="social-text">Or Sign up with social platforms</p>
                 <div className="social-media">
                   <a href="#" className="social-icon">
@@ -138,7 +158,7 @@ const Login = () => {
                   Sign up
                 </button>
               </div>
-              <img src="img/log.svg" className="image" alt="" />
+              {/* <img src="img/log.svg" className="image" alt="" /> */}
             </div> 
             <div className="panel right-panel">
               <div className="content">
@@ -158,7 +178,7 @@ const Login = () => {
                   Sign in
                 </button>
               </div>
-              <img src="img/register.svg" className="image" alt="" />
+              {/* <img src="img/register.svg" className="image" alt="" /> */}
             </div> 
         </div>
       </div>
