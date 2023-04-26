@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import {Container, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText}from '@mui/material';
-import Typography from '../Hero/Typography';
+import {Typography} from '@mui/material';
 import { BorderBottom } from '@mui/icons-material';
 import PsychologyIcon from '@mui/icons-material/Psychology';;
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';

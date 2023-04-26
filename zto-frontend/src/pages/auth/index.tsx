@@ -3,7 +3,7 @@ import React, { SetStateAction, useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
-import { Alert, Snackbar } from "@mui/material";
+import { Alert, Snackbar, Box, Typography } from "@mui/material";
 
 const Login = () => {
   const history = useRouter();
@@ -54,7 +54,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <Box>
       <Snackbar
         open={alert}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -65,26 +65,27 @@ const Login = () => {
       >
         <Alert severity={status?"success":"error"}>{message}</Alert>
       </Snackbar>
-    
-      <div className={`container ${isSignIn? "sign-up-mode": ""}`}>
-        <div className="forms-container">
-          <div className="signin-signup">
-        
-              <form   className="sign-in-form"  >
-                <h2 className="title">Sign in</h2>
+      <Box className={`container ${isSignIn? "sign-up-mode": ""}`} sx={{position:"relative", width:"100%", backgroundColor:"#fff", minHeight:"93vh", overflow:"hidden"}}>
+        <Box className="forms-container" sx={{position:"absolute", width:"100%", height:"100%", top:"0", left:"0"}}>
 
-                <div className="input-field">
+          
+          <Box className="signin-signup" sx={{position:"absolute", top:"50%", left:"75%", width:"50%", display:"grid"}} >
+              <form   className="sign-in-form" >
+
+                <Typography variant="h4"  sx={{color:"#444", marginBottom:"10px"}}>Sign in</Typography>
+
+                <Box className="input-field">
                   <i className="fas fa-user"></i>
                   <input type="text" placeholder="Email or phone number" onChange={(e: any) => setEmail(e.target.value)} />
-                </div>
-                <div className="input-field">
+                </Box>
+                <Box className="input-field">
                   <i className="fas fa-lock"></i>
                   <input type="password" placeholder="Password" onChange={(e: any) => setPassword(e.target.value)} />
-                </div>
+                </Box>
                 {/* <button >Log in</button> */}
                 <input type="button" value="Login" className="btn solid" onClick={handleClick} />
                 <p className="social-text">Or Sign in with social platforms</p>
-                <div className="social-media">
+                <Box className="social-media">
                   <a href="#" className="social-icon">
                   <i className="fa-brands fa-facebook"></i>
                   </a>
@@ -97,30 +98,29 @@ const Login = () => {
                   <a href="#" className="social-icon">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                </div>
+                </Box>
               </form> 
-             
               <form className="sign-up-form" >
-                <h2 className="title">Sign up</h2>
-                <div className="input-field">
+              <Typography variant="h4"  sx={{color:"#444", marginBottom:"10px"}}>Sign up</Typography>
+                <Box className="input-field">
                   <i className="fas fa-user"></i>
                   <input type="text" placeholder="Username" onChange={(e: any) => setUserName(e.target.value)} />
-                </div>
-                <div className="input-field">
+                </Box>
+                <Box className="input-field">
                   <i className="fas fa-envelope"></i>
                   <input type="email" placeholder="Email" onChange={(e: any) => setEmail(e.target.value)} />
-                </div>
-                <div className="input-field">
+                </Box>
+                <Box className="input-field">
                   <i className="fas fa-lock"></i>
                   <input type="password" placeholder="Password" onChange={(e: any) => setPassword(e.target.value)}/>
-                </div>
-                <div className="input-field">
+                </Box>
+                <Box className="input-field">
                   <i className="fas fa-lock"></i>
                   <input type="phone number" placeholder="phone number" onChange={(e: any) => setPhoneNumber(e.target.value)} />
-                </div>
+                </Box>
                 <input type="button" className="btn" value="Sign up" onClick={signup}/>
                 <p className="social-text">Or Sign up with social platforms</p>
-                <div className="social-media">
+                <Box className="social-media">
                   <a href="#" className="social-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
                   </a>
@@ -133,16 +133,16 @@ const Login = () => {
                   <a href="#" className="social-icon">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                </div>
+                </Box>
               </form> 
               
-          </div>
-        </div>
+          </Box>
+        </Box>
 
-        <div className="panels-container">
+        <Box className="panels-container">
       
-            <div className="panel left-panel">
-              <div className="content">
+            <Box className="panel left-panel">
+              <Box className="content">
                 <h3>New here ?</h3>
                 <p>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -157,11 +157,11 @@ const Login = () => {
                 >
                   Sign up
                 </button>
-              </div>
+              </Box>
               {/* <img src="img/log.svg" className="image" alt="" /> */}
-            </div> 
-            <div className="panel right-panel">
-              <div className="content">
+            </Box> 
+            <Box className="panel right-panel">
+              <Box className="content">
                 <h3>One of us ?</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
@@ -177,12 +177,12 @@ const Login = () => {
                 >
                   Sign in
                 </button>
-              </div>
+              </Box>
               {/* <img src="img/register.svg" className="image" alt="" /> */}
-            </div> 
-        </div>
-      </div>
-    </div>
+            </Box> 
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
