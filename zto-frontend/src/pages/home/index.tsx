@@ -6,7 +6,8 @@ import WebSteppers from "@/components/process";
 import { Container } from "@mui/material";
 import SecondSection from "@/components/secondSection";
 import About from "@/components/About";
-import Footer from "../../components/Footer/index"
+import Footer from "../../components/Footer/index";
+import ChatGPT from "@/components/ChatGPT";
 
 export default function Home() {
   return (
@@ -17,9 +18,10 @@ export default function Home() {
         {/* <CustomCursor /> */}
         <SecondSection />
         <TemplateList />
-        <About/>
+        <About />
         <WebSteppers />
-        <Footer/>
+        <ChatGPT />
+        <Footer />
       </main>
     </>
   );

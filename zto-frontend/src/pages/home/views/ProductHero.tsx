@@ -21,7 +21,7 @@ export default function ProductHero() {
     };
   }
   return (
-    <ProductHeroLayout sxBackground={{}}>
+    <ProductHeroLayout sxBackground={{ width: "100%" }}>
       <HeroSectionDark />
       <HeroSectionWhite />
     </ProductHeroLayout>

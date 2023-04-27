@@ -111,7 +111,6 @@ a {
   box-sizing: border-box;
 }
 
-
 body,
 input {
   font-family: "Poppins", sans-serif;
@@ -450,15 +449,15 @@ form.sign-in-form {
   }
 }
 
-
-
-
-
 .Aboutbody {
   /* background-color: #EA9684; */
   font-family: Arial, Helvetica, sans-serif;
-  background: rgb(255,154,158);
-  background: linear-gradient(13deg, rgba(255,154,158,1) 0%, rgba(250,208,196,1) 100%);
+  background: rgb(255, 154, 158);
+  background: linear-gradient(
+    13deg,
+    rgba(255, 154, 158, 1) 0%,
+    rgba(250, 208, 196, 1) 100%
+  );
 }
 
 .Abouttop-card {
@@ -486,8 +485,8 @@ form.sign-in-form {
   height: 4px;
   background-color: #000;
   margin-bottom: 6px;
-  opacity: .5;
-  transition: .4s;
+  opacity: 0.5;
+  transition: 0.4s;
 }
 
 .Abouttop-card .Aboutmenu-icon .Aboutitem1 {
@@ -515,7 +514,7 @@ form.sign-in-form {
   font-size: 50px;
   font-weight: 800;
   color: #000;
-  opacity: .5;
+  opacity: 0.5;
   bottom: 140px;
   line-height: 50px;
   text-align: center;
@@ -536,7 +535,8 @@ form.sign-in-form {
   width: 10%;
 }
 
-.Aboutmiddle-card, .Aboutfooter {
+.Aboutmiddle-card,
+.Aboutfooter {
   margin: 5px 25px;
 }
 
@@ -555,11 +555,21 @@ form.sign-in-form {
   color: rgba(0, 0, 0, 0.9);
 }
 
-.facebook:hover {color:#3b5999;}
-.twitter:hover {color: #55acee;}
-.google:hover {color: #dd4b39;}
-.github:hover {color: #302f2f;}
-.linkedin:hover {color: #0077B5;}
+.facebook:hover {
+  color: #3b5999;
+}
+.twitter:hover {
+  color: #55acee;
+}
+.google:hover {
+  color: #dd4b39;
+}
+.github:hover {
+  color: #302f2f;
+}
+.linkedin:hover {
+  color: #0077b5;
+}
 
 .Aboutfooter .Aboutlinks {
   border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -568,7 +578,7 @@ form.sign-in-form {
   padding: 8px 0;
 }
 
-.Aboutfooter .Aboutlinks  address {
+.Aboutfooter .Aboutlinks address {
   font-size: 15px;
 }
 .Aboutfooter .Aboutlinks a {
@@ -593,8 +603,6 @@ form.sign-in-form {
   display: flex;
   align-items: center;
   justify-content: center;
-
- 
 }
 .Aboutmain {
   width: 340px;
@@ -613,7 +621,7 @@ form.sign-in-form {
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  transition:.3s;
+  transition: 0.3s;
   overflow: hidden;
   background-color: #f1f1f1;
   font-size: 16px;
