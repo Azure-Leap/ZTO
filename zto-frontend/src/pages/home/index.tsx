@@ -1,5 +1,6 @@
 import NavAppBar from "../../components/Navbar";
 import ProductHero from "@/pages/home/views/ProductHero";
+
 import TemplateList from "@/components/templateCard";
 import WebSteppers from "@/components/process";
 import { Container } from "@mui/material";

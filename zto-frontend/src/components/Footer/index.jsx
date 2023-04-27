@@ -11,53 +11,7 @@ import {
 const Footer = () => {
   return (
     <Box>
-      <Box
-        sx={{
-          display: "flex",
-          width: "100wh",
-          justifyContent: "center",
-          gap: "16vh",
-          paddingBottom: "3vh",
-          paddingTop: "3vh",
-        }}
-      >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-          <Typography>Product</Typography>
-        </Box>
-      </Box>
+      
       <Box
         sx={{
           display: "flex",
@@ -65,6 +19,7 @@ const Footer = () => {
           padding: "3vh",
           borderTop: 1,
           marginBottom: `0.5vh`,
+          fontSize:'2rem'
         }}
       >
         <Box sx={{ display: "flex", gap: "3vh" }}>
@@ -81,7 +36,7 @@ const Footer = () => {
         </Box>
       </Box>
     </Box>
-  )
+  );
 };
 
 export default Footer;

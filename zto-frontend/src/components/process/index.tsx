@@ -64,6 +64,22 @@ export default function WebSteppers() {
           </Grid>
         </Box>
       </Container>
+    <Box sx={{backgroundColor:"black", py:'20px'}}>
+       <Container>
+    <Box sx={{ width:'100%', textAlign:"center" , my: "20px" , pt: "10px" }}>
+      <Typography sx={{color:"white"}} variant='h3'>Хэрхэн вэбсайттай болох вэ?</Typography>
+      <Grid sx={{color:"white"}}  container spacing={2}  >
+          {steps.map((e, idx) => (
+        <Grid key={idx} item xs={12} sm={12} md={6} lg={4} my={5} >
+          <Box>{e.icon}</Box>
+          <Typography variant='h5'>{e.title}</Typography>
+          <Typography>{e.text}</Typography>         
+        </Grid>
+     
+         ))}
+      </Grid>
+    </Box>
+    </Container>
     </Box>
   );
 }
