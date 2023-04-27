@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Bind, Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { AppService } from './app.service';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller()
 export class AppController {
@@ -9,4 +10,11 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Post('upload')
+@UseInterceptors(FileInterceptor('file'))
+@Bind(UploadedFile())
+uploadFile(file) {
+  console.log(file);
+}
 }

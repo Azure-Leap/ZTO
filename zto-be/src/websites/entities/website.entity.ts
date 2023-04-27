@@ -2,16 +2,16 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
 
 @Schema({timestamps:true})
-export class Websities{
+export class Websites{
     @Prop({ required: true })
     name: String;
     @Prop({required:true})
-    web_id: Number;
-    @Prop([String, { required: true }] )
+    webType: String;
+    @Prop( { required: true } )
     image: [String];
     @Prop({ required: true })
     demoLink: String;
-    @Prop({ required: true })
+    @Prop()
     editLink: String;
     @Prop({ required: true })
     detail:String;
@@ -21,4 +21,4 @@ export class Websities{
     category:String;
 }
 
-export const WebsiteSchema = SchemaFactory.createForClass(Websities);
+export const WebsiteSchema = SchemaFactory.createForClass(Websites);
