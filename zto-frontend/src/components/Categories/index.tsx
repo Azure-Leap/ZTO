@@ -32,7 +32,7 @@ import MinFooter from "../MinFooter";
 import Website from "../Websities";
 
 const webtype = ["All templates", "Website", "One page", "eStore"];
-const drawerWidth = 250;
+const drawerWidth = 200;
 
 interface Props {
   /**
@@ -53,7 +53,8 @@ export default function ResponsiveDrawer(props: Props) {
 
   const getCategory = async () => {
     try {
-      const res = await axios.get("https://zto-server.onrender.com/categories");
+      // const res = await axios.get("https://zto-server.onrender.com/categories");
+      const res = await axios.get("http://localhost:9010/categories");
 
       setCategories(res.data);
     } catch (err) {
@@ -125,7 +126,7 @@ export default function ResponsiveDrawer(props: Props) {
               </Typography>
             </IconButton>
           </Box>
-          <Box sx={{ mt: "10px" }}>
+          <Box sx={{ mt: "10px", pl:'10%' }}>
             <SearchBreadcrumb />
           </Box>
         </AppBar>
