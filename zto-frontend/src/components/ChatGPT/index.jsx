@@ -1,11 +1,13 @@
 import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FaArrowRight, FaArrowsAltH } from "react-icons/fa";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 
 const ChatPot = () => {
   const [isOpenChat, setIsOpenChat] = useState(false);
+
+  const messagesEndRef = useRef(null);
 
   const [messages, setMessage] = useState([
     "Сайн байна уу?",
@@ -36,6 +38,11 @@ const ChatPot = () => {
       setNewMess(inputValue);
     }
   };
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView();
+  }, [messages]);
+
   if (isOpenChat == true) {
     return (
       <Box
@@ -111,7 +118,7 @@ const ChatPot = () => {
             {messages.map((message, idx) => {
               return (
                 <Typography
-                key={idx}
+                  key={idx}
                   variant="p"
                   sx={{
                     border: 1,
@@ -125,6 +132,8 @@ const ChatPot = () => {
                 </Typography>
               );
             })}
+
+            <div ref={messagesEndRef}></div>
           </Box>
         </Box>
         <Button
