@@ -16,11 +16,16 @@ const ChatPot = () => {
   const [newMess, setNewMess] = useState();
 
   const sendMessage = () => {
-    setMessage([
-      ...messages,
-      newMess,
-      "Серверийг засаж байгаа тул түр хүлээнэ үү.",
-    ]);
+    if (newMess) {
+      setMessage([
+        ...messages,
+        newMess,
+        "Серверийг засаж байгаа тул түр хүлээнэ үү.",
+      ]);
+      setNewMess("");
+    } else {
+      return;
+    }
   };
 
   const sendDefaultMessage = () => {
@@ -168,6 +173,7 @@ const ChatPot = () => {
             label="Have a question?"
             variant="outlined"
             onChange={newMessage}
+            value={newMess}
           />
           <Button
             sx={{ display: "flex", alignItems: "center" }}
