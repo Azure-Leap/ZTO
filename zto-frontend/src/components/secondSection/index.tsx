@@ -28,7 +28,7 @@ const dataW=[
   {name:'When', icon:<UpdateIcon style={{ height: '60px', width: '60px'}}/>, text:"Танд интернет байвал  хэзээ ч хандах боломжтой"}
 ]
 
-const img=require('../../assets/img/undraw_building_websites_i78t.png')
+const img=require('../../assets/img/undraw_building_websites_i78t.svg')
 
 export default function BasicGrid() {
   return (

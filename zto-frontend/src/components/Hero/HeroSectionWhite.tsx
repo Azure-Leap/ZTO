@@ -10,7 +10,7 @@ const HeroSectionWhite = () => {
       className="side"
       sx={{
         backgroundImage:
-          "url(https://images.unsplash.com/photo-1587981860944-9bc9573ed9d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGNsb3VkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60)",
+          "url(https://pinecone.mn/background.webp)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

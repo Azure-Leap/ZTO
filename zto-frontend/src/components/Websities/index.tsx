@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid, Link, TextField } from '@mui/material';
+import { Grid, Link, TextField, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -14,7 +14,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Pagination from '@mui/material/Pagination';
-
 
 const catType = [{ name: 'Ecommerce', price:"500$", text:"Chiropractic Website Design", imageURL:"https://images.unsplash.com/photo-1681999683665-6902894af42c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60" }, 
  { name: "Website" , category:"Website", price:"40$", button:"", rating:"4.5", text:"Liquor Store Website Template", imageURL:"https://images.unsplash.com/photo-1682195620288-712f0b970b55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"}, 
@@ -48,56 +47,37 @@ export default function Category() {
       </IconButton>
       <TextField
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search zto template"
-        // inputProps={{ 'aria-label': 'search zto template' }}      
+        placeholder="Search zto template" 
         onChange={searchWeb}
       />
-   
       <IconButton  color="primary" type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton >
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
     </Paper>
-
-  
-
 <Grid sx={{display:"flex", flexWrap:"wrap", marginLeft:"20%"}}>
     {webList.map((type) => (
         <MenuItem key={type.name}>
-        <Card sx={{width:"450px"}}>
-      <CardMedia
-      sx={{
-        "&:hover":  { scale: "120%", opacity:"0.5", } ,
-  }}
+     <Card className='WebSitecard' sx={{borderRadius:"15px", width:"300px", overflow:"hidden"}} >
+  <Box className='WebSiteimg-cont' sx={{overflow:"hidden", position:"relative"}}>
+    <span className='WebSitedrop-down-window'>
+      <Box sx={{display:"flex", flexDirection:"column", gap:"40px"}}>
+        <Button sx={{bgcolor:"red", color:"black", width:"150px"}}>View</Button>
+        <Button sx={{bgcolor:"green", color:"black"}}>Edit</Button>
+      </Box>
+    </span>
+    <CardMedia
+    sx={{"&:hover":{filter:"blur(1.5px)", transform:"scale(1)", opacity:"0.2",}}}
         component="img"
-        height="150"       
-        src={`${type.imageURL}`}
+        height="300"       
+        src={type.imageURL}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div"   >
-        {type.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        {type.text}
-        </Typography>
-      </CardContent>
-      <CardActions sx={{display:"flex", justifyContent:"space-between"}}>
-      <Typography variant="h6" color="green">
-        {type.price}
-        </Typography>
-    <Grid sx={{display:"flex", gap:"20px"}}>    
-      
-     <Link href='http://127.0.0.1:5500/zto-frontend/src/pages/Template/index.html'><Button variant="contained" color="warning">
-        Demo
-        </Button></Link>
-        
-     
-        <Button variant="contained" color="success">
-        Share
-        </Button>
-    </Grid>
-        </CardActions>
-            </Card>
+  </Box>
+  <Box className='WebSitecontent-cont'>
+    <span className='WebSitecard-header'>{type.name}</span>
+    <span className='WebSitecard-body'>{type.price}</span>
+  </Box>
+</Card>
         </MenuItem>
       ))}
 </Grid>

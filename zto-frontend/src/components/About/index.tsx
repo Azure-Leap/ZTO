@@ -1,99 +1,64 @@
-import React from 'react'
-import { Box } from '@mui/system'
-import { Grid, Typography } from '@mui/material'
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Image from 'next/image';
-import MenuItem from '@mui/material/MenuItem';
 
-const aboutImg = require('../../assets/img/store.jpg')
+import React from 'react'
+import { Grid, Box, Typography } from '@mui/material'
+import { CardMedia } from '@mui/material';
+
+
 const catType = [
   {
     Id:"3",
     Name: "Munkhtur",
-    imageURL:
-      "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    About: "text",
-    Contact: "4.7",
-    Type1:"jdsjflkds",
-    Type2:"fjsldjf",
-    Type1Text:"fkldsjflsdfkdsjfldsl",
-    Type2Text:"slkfdsjfjdslfksd"
-
+    About:".",
+    Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
-    Id:"2",
-    Name: "Tuwshin",
-    imageURL:
-    "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-  About: "3Days 4 Nights",
-  Contact: "4.7",
-  Type1:"jdsjflkds",
-  Type2:"fjsldjf",
-  Type1Text:"fkldsjflsdfkdsjfldsl",
-    Type2Text:"slkfdsjfjdslfksd"
-
+    Id:"3",
+    Name: "Ekhntuwshin",
+    About:" .",
+    Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
-    Id:"1",
+    Id:"3",
     Name: "Angarag",
-    imageURL:
-    "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-  About: "3Days 4 Nights",
-  Contact: "4.7",
-  Type1:"jdsjflkds",
-  Type2:"fjsldjf",
-  Type1Text:"fkldsjflsdfkdsjfldsl",
-    Type2Text:"slkfdsjfjdslfksd"
+    About:" .",
+    Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
 ];
-export default function About() {    
+const About = () => {
   return (
-    <Grid sx={{marginBottom:"20", marginTop:"10px", minHeight:'100vh'}}>
-       <Typography variant='h3' sx={{textAlign:"center", marginTop:"40px", marginBottom:"40px"}}>Бидний тухай</Typography>
-       <Box className="Aboutprofile-container" sx={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-    {catType.map((card) => (
-        <MenuItem key={card.Id}>
-        <Grid>
-      <Box className="Aboutprofile-card" sx={{width:"400px", display:"flex", flexDirection:"column", borderRadius:"4px", transition:"3s", overflow:"hidden", backgroundColor:"#f1f1f1", fontSize:"16px", lineHeight:"22px", color:"#000", boxShadow:"-5px -5px 25px rgba(0, 0, 0, 0.705)"}}>
-    <Box className="Abouttop-card">
-      <Image src={aboutImg} alt="user picture" width={400} height={260}/>
-      <Box className="Aboutmenu-icon">
-        <Box className="Aboutmenu Aboutitem1"></Box>
-        <Box className="Aboutmenu Aboutitem2"></Box>  
-      </Box>
-      <Box className="Aboutmiddle-card" sx={{margin:"5px 25px"}}>
-      <Typography className='Abouth2'></Typography>
-    </Box>
-    </Box>
-    <Box className="Aboutmiddle-card" sx={{margin:"5px 25px"}}>
-      <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>Name:</Typography>
-      <Box className='Aboutpara'>{card.Name}:</Box>
-    </Box>
-    <Box className="Aboutmiddle-card" sx={{margin:"5px 25px"}}>
-      <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>About:</Typography>
-      <Box className='Aboutpara'>{card.About}</Box>
-    </Box>
-    <Box className="Aboutfooter" sx={{margin:"5px 25px", textAlign:"justify"}}>
-      <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>Contact:</Typography>
-      <Box className="flex" sx={{display:"flex"}}> 
-      <a href="#" className="social-icon facebook"><FacebookOutlinedIcon sx={{width:"100px"}}/></a> 
-      <a href="#" className="social-icon Instagram"><InstagramIcon  sx={{width:"100px"}}/></a>
-      <a href="#" className="social-icon github"><GitHubIcon sx={{width:"100px"}}/></a>
-      <a href="#" className="social-icon linkedin"><LinkedInIcon  sx={{width:"100px"}}/></a>
-      </Box>
-      <Box className="Aboutlinks">
-        <address>{card.Type1}: <a href="" target="_blank">{card.Type1Text}</a></address>
-        <address>{card.Type2}: <a href="">{card.Type2Text}</a></address>
-      </Box>
-  </Box>
-      </Box>
-    </Grid>
-        </MenuItem>
-      ))}
-      </Box>
-</Grid> 
-  );
+    <Grid ><Grid sx={{display:"flex",  justifyContent:"space-between", margin:"240px", position:"relative"}}>
+    <Grid>
+              <Typography variant='h2' sx={{position:"sticky", top:"200px"}} className=''>Бидний тухай</Typography></Grid>
+      <Grid  sx={{display:"flex", flexDirection:"column", gap:"90px"}}>{catType.map((card) => (
+            <Grid key={card.Id}>
+            <Grid>
+            <Box sx={{display:"flex", justifyContent:"space-between"}}>
+            <Box sx={{width:"600px", display:"flex", flexDirection:"column", gap:"30px"}}>
+              <Box sx={{borderLeft:"solid 2px green", }}>  <Box sx={{marginLeft:"30px"}}> <Typography variant='h4'>
+                {card.Name}
+             </Typography></Box>
+             <Box> 
+               <Typography sx={{marginLeft:"30px", marginTop:"30px"}}>
+                {card.About}
+             </Typography>
+             </Box></Box>
+             <Box>    <CardMedia
+              component="img"
+              height="400"
+              sx={{borderRadius:"120px 20px 80px 20px"}}
+              image="https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+              alt="green iguana"
+            /></Box>
+            </Box>
+          </Box>
+        </Grid>
+            </Grid>
+          ))}</Grid>
+        
+    </Grid> </Grid>
+
+  )
 }
+export default About
+
+
