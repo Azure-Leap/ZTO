@@ -4,7 +4,7 @@ import { FaArrowRight, FaArrowsAltH } from "react-icons/fa";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 
-const index = () => {
+const ChatPot = () => {
   const [isOpenChat, setIsOpenChat] = useState(false);
 
   const [messages, setMessage] = useState([
@@ -108,9 +108,10 @@ const index = () => {
               padding: 2,
             }}
           >
-            {messages.map((message) => {
+            {messages.map((message, idx) => {
               return (
                 <Typography
+                key={idx}
                   variant="p"
                   sx={{
                     border: 1,
@@ -189,4 +190,4 @@ const index = () => {
   }
 };
 
-export default index;
+export default ChatPot;

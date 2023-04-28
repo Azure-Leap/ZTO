@@ -36,11 +36,11 @@ export default function WebCard({changeState}:any) {
     getWebsite()
   }, [changeState]);
 
-  const searchWeb = (e: any) => {
-    console.log("fff", e.target.value);
-    const filterCat = template.filter((web) => web.name?.toLowerCase().includes(e.target.value));
-    setWebList(filterCat);
-  }
+  // const searchWeb = (e: any) => {
+  //   console.log("fff", e.target.value);
+  //   const filterCat = template.filter((web) => web.name?.toLowerCase().includes(e.target.value));
+  //   setWebList(filterCat);
+  // }
 
   // console.log("web", webList);
 
@@ -56,7 +56,7 @@ export default function WebCard({changeState}:any) {
           sx={{ ml: 1, flex: 1 }}
           placeholder="Search zto template"
           // inputProps={{ 'aria-label': 'search zto template' }}      
-          onChange={searchWeb}
+          // onChange={searchWeb}
         />
 
         <IconButton color="primary" type="button" sx={{ p: '10px' }} aria-label="search">
@@ -68,7 +68,7 @@ export default function WebCard({changeState}:any) {
 
 
       <Grid sx={{ display: "flex", flexWrap: "wrap", marginLeft: "20%" }}>
-        {template.map((item, idx) => (
+        {/* {template.map((item, idx) => (
           <MenuItem key={idx}>
             <Card sx={{ width: "450px" }}>
               <CardMedia
@@ -88,7 +88,7 @@ export default function WebCard({changeState}:any) {
               </Link>
             </Card>
           </MenuItem>
-        ))}
+        ))} */}
       </Grid>
       <Pagination sx={{ marginLeft: "50%" }} count={100} color="primary" />
     </Grid>
