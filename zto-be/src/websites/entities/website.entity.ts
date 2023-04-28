@@ -1,12 +1,13 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
+import { Category } from "src/categories/entities/category.entity";
 
 @Schema({timestamps:true})
 export class Websities{
     @Prop({ required: true })
     name: String;
-    @Prop({required:true})
-    web_id: Number;
+    @Prop({required:true, default: 'Website'})
+    webType: String;
     @Prop([String, { required: true }] )
     image: [String];
     @Prop({ required: true })
@@ -17,8 +18,8 @@ export class Websities{
     detail:String;
     @Prop({ required: true })
     price: Number;
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'category' })
-    category:String;
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Category' })
+    category:Category[];
 }
 
 export const WebsiteSchema = SchemaFactory.createForClass(Websities);

@@ -44,6 +44,7 @@ interface Props {
 
 export default function ResponsiveDrawer(props: Props) {
   const [categories, setCategories] = useState([]);
+  const [changeState, setChangeState] = useState(false);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -53,13 +54,24 @@ export default function ResponsiveDrawer(props: Props) {
 
   const getCategory = async () => {
     try {
-      const res = await axios.get("https://zto-server.onrender.com/categories");
-
+      const res = await axios.get("http://localhost:9010/categories");
       setCategories(res.data);
     } catch (err) {
       console.log("ERR", err);
     }
   };
+
+  const filterCategory = async (id:string)=>{
+    try{
+      const res = await axios.get(`http://localhost:9010/websites/filter/${id}`);
+      console.log("filt", res.data);
+      setChangeState(!changeState)
+    }catch(err){
+      console.log("ERROR", err);
+    }
+
+  }
+
   useEffect(() => {
     getCategory();
   }, []);
@@ -85,7 +97,7 @@ export default function ResponsiveDrawer(props: Props) {
         </Typography>
         {categories.map((item: any, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={()=>filterCategory(item._id)}>
               <ListItemIcon>
                 <Image src={item.image} alt="Picture" width={25} height={25} />
               </ListItemIcon>
@@ -177,7 +189,7 @@ export default function ResponsiveDrawer(props: Props) {
           <Toolbar />
         </Box>
       </Box>
-      <Website />
+      <Website changeState={changeState} />
       <MinFooter />
     </Box>
   );
