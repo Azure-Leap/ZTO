@@ -4,6 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { Alert, Snackbar, Box, Typography } from "@mui/material";
+import { FaFacebook, FaGoogle, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Login = () => {
   const history = useRouter();
@@ -105,16 +106,16 @@ const Login = () => {
               <p className="social-text">Or Sign in with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
-                  <i className="fa-brands fa-facebook"></i>
+                  <FaFacebook />
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-twitter"></i>
+                  <FaGoogle />
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-google"></i>
+                  <FaTwitter />
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
+                  <FaLinkedinIn />
                 </a>
               </div>
             </form>
@@ -162,19 +163,16 @@ const Login = () => {
               <p className="social-text">Or Sign up with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  ></svg>
+                  <FaFacebook />
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-twitter"></i>
+                  <FaGoogle />
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-google"></i>
+                  <FaTwitter />
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
+                  <FaLinkedinIn />
                 </a>
               </div>
             </form>

@@ -3,10 +3,14 @@ import { CategoriesService } from './categories.service';
 import { CategoriesController } from './categories.controller';
 import { CategorySchema } from './entities/category.entity';
 import { MongooseModule } from '@nestjs/mongoose';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Module({
-  imports:[MongooseModule.forFeature([{name:'Category', schema:CategorySchema}])],
+  imports: [
+    MongooseModule.forFeature([{ name: 'Category', schema: CategorySchema }]),
+  ],
   controllers: [CategoriesController],
-  providers: [CategoriesService]
+  providers: [CategoriesService, CloudinaryService],
+  exports:[CategoriesService]
 })
 export class CategoriesModule {}
