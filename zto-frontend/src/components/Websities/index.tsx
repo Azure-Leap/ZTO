@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid, Link, TextField } from '@mui/material';
+import { Grid, Link, TextField, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -36,13 +36,13 @@ export default function WebCard({changeState}:any) {
     getWebsite()
   }, [changeState]);
 
-  // const searchWeb = (e: any) => {
-  //   console.log("fff", e.target.value);
-  //   const filterCat = template.filter((web) => web.name?.toLowerCase().includes(e.target.value));
-  //   setWebList(filterCat);
-  // }
+  const searchWeb = (e: any) => {
+    console.log("fff", e.target.value);
+    const filterCat = template.filter((web) => web.name?.toLowerCase().includes(e.target.value));
+    setWebList(filterCat);
+  }
 
-  // console.log("web", webList);
+  console.log("web", webList);
 
   return (
     <Grid >
@@ -65,30 +65,38 @@ export default function WebCard({changeState}:any) {
         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       </Paper>
 
-
-
       <Grid sx={{ display: "flex", flexWrap: "wrap", marginLeft: "20%" }}>
-        {/* {template.map((item, idx) => (
+         {template.map((item, idx) => (
           <MenuItem key={idx}>
             <Card sx={{ width: "450px" }}>
-              <CardMedia
-                // sx={{
-                //   "&:hover": { scale: "120%", opacity: "0.5", },
-                // }}
+            <Box className="box-wrapper">
+  <figure className="shape-box shape-box_half">
+  <CardMedia
                 component="img"
                 height="250"
                 src={item.image[0]}
               />
-              <Typography>{item.name}</Typography>
-              <Link href={item.demoLink}>
+    <div className="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+    <figcaption>
+      <div className="show-cont">
+     
+        <Typography className="card-main-title">{item.name}</Typography>
+        <Typography className="card-no">{item.price}</Typography>
+      </div>
+      <Typography className="card-content">text</Typography>
+              <Link className="read-more-btn" href={item.demoLink}>
                 Demo
               </Link>
-              <Link href={item.editLink} sx={{ml:"20px"}}>
+              <Link className="read-more-btn" href={item.editLink} sx={{ml:"20px"}}>
                 Edit
               </Link>
+    </figcaption>
+    <span className="after"></span>
+  </figure>
+</Box>
             </Card>
           </MenuItem>
-        ))} */}
+        ))} 
       </Grid>
       <Pagination sx={{ marginLeft: "50%" }} count={100} color="primary" />
     </Grid>
