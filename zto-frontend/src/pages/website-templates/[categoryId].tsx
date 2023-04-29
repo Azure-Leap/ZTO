@@ -16,7 +16,6 @@ const WebsiteTemplates = () => {
     </>
   );
 };
-
 export async function getServerSideProps({ query }: any) {
   const res = await fetch(`http://localhost:9010/categories/${query.id}`);
   const data = await res.json();

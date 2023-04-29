@@ -8,6 +8,7 @@ import SecondSection from "@/components/secondSection";
 import About from "@/components/About";
 import Footer from "../../components/Footer/index";
 import ChatGPT from "@/components/ChatGPT";
+import TemplateHome from "../editPage/onepirate/TemplateHome";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <ChatGPT />
         <Footer />
       </main>
+      <TemplateHome/>
     </>
   );
 }
