@@ -31,7 +31,6 @@ export default function WebCard({changeState}:any) {
       console.log("ERR", err);
     }
   }
-
   useEffect(() => {
     getWebsite()
   }, [changeState]);
