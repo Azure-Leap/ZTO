@@ -13,15 +13,15 @@ import TemplateHome from "../editPage/onepirate/TemplateHome";
 export default function Home() {
   return (
     <>
-      <main className="bg-white">
+      <main className="bg-white, absolute">
         {/* <NavAppBar /> */}
         <ProductHero />
         {/* <CustomCursor /> */}
         <SecondSection />
         <TemplateList />
         <About />
-        <WebSteppers />
         <ChatGPT />
+        <WebSteppers />
         <Footer />
       </main>
       {/* <TemplateHome/> */}
