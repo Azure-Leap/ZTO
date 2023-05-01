@@ -30,10 +30,12 @@
     "node-sass": "^7.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-draggable": "^4.4.5",
     "react-final-form": "^6.5.9",
     "react-icons": "^4.8.0",
     "sass": "^1.62.0",
-    "swiper": "^9.2.2"
+    "swiper": "^9.2.2",
+    "typescript-react-draggable": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
