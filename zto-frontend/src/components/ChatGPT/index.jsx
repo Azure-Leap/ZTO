@@ -53,11 +53,16 @@ const ChatPot = () => {
       <Box
         sx={{
           width: "15%",
-          height: "100%",
+          height: "100wh",
           border: 1,
           borderRadius: "19px",
           margin: "20px",
           marginLeft: "80%",
+          position: "fixed",
+
+          bottom: 70,
+          right: 60,
+          zIndex: "999999",
         }}
       >
         <Box
@@ -70,8 +75,6 @@ const ChatPot = () => {
             display: "flex",
             paddingLeft: "5%",
             position: "relative",
-            top: 0,
-            left: 0,
             alignItems: "center",
           }}
         >
@@ -141,31 +144,33 @@ const ChatPot = () => {
             <div ref={messagesEndRef}></div>
           </Box>
         </Box>
-        <Button
-          sx={{
-            margin: 1,
-            border: 1,
-            borderRadius: "20px",
-            backgroundColor: "white",
-            color: "black",
-            ":hover": {
-              backgroundColor: "#007FFD",
-              color: "white",
-            },
-          }}
-          onClick={sendDefaultMessage}
-        >
-          Хэрхэн веб сайт худалдаж авах вэ?
-        </Button>
+        <Box sx={{ backgroundColor: "#000" }}>
+          <Button
+            sx={{
+              margin: 1,
+              border: 1,
+              borderRadius: "20px",
+              backgroundColor: "white",
+              color: "black",
+              ":hover": {
+                backgroundColor: "#007FFD",
+                color: "white",
+              },
+            }}
+            onClick={sendDefaultMessage}
+          >
+            Хэрхэн веб сайт худалдаж авах вэ?
+          </Button>
+        </Box>
         <Box
           sx={{
             display: "flex",
-            backgroundColor: "#FFF",
             padding: 2,
             borderEndStartRadius: "20px",
             borderEndEndRadius: "20px",
             borderTop: 1,
-            borderTopColor: "#007FFF",
+            borderTopColor: "#000",
+            backgroundColor: "white",
           }}
         >
           <TextField
@@ -174,6 +179,7 @@ const ChatPot = () => {
             variant="outlined"
             onChange={newMessage}
             value={newMess}
+            sx={{ color: "#fff" }}
           />
           <Button
             sx={{ display: "flex", alignItems: "center" }}
@@ -194,11 +200,15 @@ const ChatPot = () => {
           flexDirection: "column",
           alignItems: "center",
           ":hover": { cursor: "pointer" },
+          position: "fixed",
+          bottom: 70,
+          right: 60,
+          zIndex: 9999999999,
         }}
       >
         <ModeCommentOutlinedIcon
           onClick={() => setIsOpenChat(!isOpenChat)}
-          sx={{ width: "10%", height: "10vh" }}
+          sx={{ width: "5vh", height: "5vh", color: "#7f7f7f " }}
         />
       </Box>
     );
