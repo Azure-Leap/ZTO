@@ -55,11 +55,10 @@ const ChatPot = () => {
           width: "15%",
           height: "100wh",
           border: 1,
-          borderRadius: "19px",
+          borderRadius: "21px",
           margin: "20px",
           marginLeft: "80%",
           position: "fixed",
-
           bottom: 70,
           right: 60,
           zIndex: "999999",
@@ -68,10 +67,10 @@ const ChatPot = () => {
         <Box
           sx={{
             width: "100wh",
-            backgroundColor: "#000",
+            backgroundColor: "#FFFFFA",
             height: "3vh",
-            borderTopLeftRadius: "18px",
-            borderTopRightRadius: "18px",
+            borderTopLeftRadius: "19px",
+            borderTopRightRadius: "19px",
             display: "flex",
             paddingLeft: "5%",
             position: "relative",
@@ -80,7 +79,7 @@ const ChatPot = () => {
         >
           <Avatar
             sx={{
-              width: "10%",
+              width: "9%",
               height: "80%",
             }}
           ></Avatar>
@@ -89,7 +88,7 @@ const ChatPot = () => {
               padding: 2,
               display: "flex",
               alignItems: "center",
-              color: "#FFF",
+              color: "#101314",
             }}
             variant="span"
           >
@@ -99,18 +98,18 @@ const ChatPot = () => {
             sx={{
               ":hover": { cursor: "pointer" },
               marginLeft: "40%",
-              color: "#FFF",
+              color: "#101314",
             }}
             onClick={() => setIsOpenChat(!isOpenChat)}
           />
         </Box>
         <Box
           sx={{
+            border: 1,
             width: "100%",
             height: "30vh",
             gap: "10px",
-            borderTop: 1,
-            backgroundColor: "#FFF",
+            backgroundColor: "#101314",
             overflow: "scroll",
             borderBottom: 1,
           }}
@@ -121,6 +120,7 @@ const ChatPot = () => {
               flexDirection: "column",
               gap: "10px",
               padding: 2,
+              backgroundColor: "#101314",
             }}
           >
             {messages.map((message, idx) => {
@@ -130,9 +130,10 @@ const ChatPot = () => {
                   variant="p"
                   sx={{
                     border: 1,
+                    borderColor: "#36454F",
                     borderRadius: "10px",
                     color: "white",
-                    backgroundColor: "#007FFF",
+                    backgroundColor: "#36454F",
                     padding: 2,
                   }}
                 >
@@ -144,17 +145,24 @@ const ChatPot = () => {
             <div ref={messagesEndRef}></div>
           </Box>
         </Box>
-        <Box sx={{ backgroundColor: "#000" }}>
+        <Box
+          sx={{
+            borderTop: 1,
+            borderBottom: 1,
+            borderBottomColor: "#FFFFFA",
+            borderTopColor: "#FFFFFA",
+            backgroundColor: "#101314",
+          }}
+        >
           <Button
             sx={{
               margin: 1,
-              border: 1,
               borderRadius: "20px",
               backgroundColor: "white",
               color: "black",
               ":hover": {
-                backgroundColor: "#007FFD",
-                color: "white",
+                backgroundColor: "#36454F",
+                color: "#FFFFFA",
               },
             }}
             onClick={sendDefaultMessage}
@@ -169,8 +177,8 @@ const ChatPot = () => {
             borderEndStartRadius: "20px",
             borderEndEndRadius: "20px",
             borderTop: 1,
-            borderTopColor: "#000",
-            backgroundColor: "white",
+            borderTopColor: "#101314",
+            backgroundColor: "#36454F",
           }}
         >
           <TextField
@@ -179,14 +187,37 @@ const ChatPot = () => {
             variant="outlined"
             onChange={newMessage}
             value={newMess}
-            sx={{ color: "#fff" }}
+            sx={{
+              input: {
+                color: "#FFFFFA",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#101314",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#FFFFFA",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#FFFFFA",
+                },
+              },
+            }}
+            InputLabelProps={{
+              style: { color: "#fff" },
+            }}
           />
-          <Button
-            sx={{ display: "flex", alignItems: "center" }}
-            onClick={sendMessage}
-          >
-            send
-            <FaArrowRight />
+          <Button onClick={sendMessage}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                color: "#FFFFFA",
+              }}
+            >
+              send
+              <FaArrowRight />
+            </Box>
           </Button>
         </Box>
       </Box>
