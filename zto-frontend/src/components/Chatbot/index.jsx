@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaArrowRight, FaArrowsAltH } from "react-icons/fa";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import CloseIcon from "@mui/icons-material/Close";
+import AddReactionIcon from '@mui/icons-material/AddReaction';
 
 const ChatPot = () => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -226,6 +227,9 @@ const ChatPot = () => {
     return (
       <Box
         sx={{
+          backgroundColor:"#000",
+          borderRadius:"50%",
+         pt:"10px",
           marginLeft: "80%",
           display: "flex",
           flexDirection: "column",
@@ -234,12 +238,14 @@ const ChatPot = () => {
           position: "fixed",
           bottom: 70,
           right: 60,
+          width:60,
+          height:60,
           zIndex: 9999999999,
         }}
       >
-        <ModeCommentOutlinedIcon
+        <AddReactionIcon
           onClick={() => setIsOpenChat(!isOpenChat)}
-          sx={{ width: "5vh", height: "5vh", color: "#7f7f7f " }}
+          sx={{ width: "5vh", height: "5vh", color: "orange" }}
         />
       </Box>
     );

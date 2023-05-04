@@ -6,6 +6,7 @@ import DarkCard from "./HeroSectionDarkCard";
 const HeroSectionDark = () => {
   return (
     <Box
+      // position={"relative"}
       id="left-side"
       className="side"
       sx={{
@@ -14,21 +15,19 @@ const HeroSectionDark = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundColor: "black",
+        maxWidth: "100%",
       }}
     >
-      <Typography variant="h3" sx={{ marginTop: "5%" }}>
-        Өөрийн зүйлийг өөрөө бүтээ.
-      </Typography>
-      <Typography variant="h4" sx={{ marginTop: "2%" }}>
-        Хүссэн загвараа эндээс ол
-      </Typography>
-
-      <Typography variant="h5" sx={{ marginTop: "2%", marginBottom: "3%" }}>
-        Туршаад үз таалагдана.
-      </Typography>
-      <div className="bounce__css">
-        <DarkCard />
-      </div>
+      <Box>
+      <Box sx={{ p:"30px",  textAlign:'center', width:"100%", color:"#fff" }}>
+          <Typography variant="h3">Өөрийн зүйлийг өөрөө бүтээ.</Typography>
+          <Typography variant="h4" sx={{my:"10px"}}>Хүссэн загвараа эндээс ол</Typography>
+          <Typography variant="h5">Туршаад үз таалагдана.</Typography>
+        </Box>
+        <div className="bounce__css">
+          <DarkCard />
+        </div>
+      </Box>
     </Box>
   );
 };
