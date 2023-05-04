@@ -7,8 +7,8 @@ const ProductHeroLayoutRoot = styled("section")(({ theme }) => ({
   color: theme.palette.common.white,
   position: "relative",
   [theme.breakpoints.up("sm")]: {
-    height: "100vh",
-    minHeight: 500,
+    height: "92vh",
+    minHeight: 400,
     maxHeight: 1200,
   },
 }));
@@ -23,9 +23,9 @@ export default function ProductHeroLayout(
   const { sxBackground, children } = props;
 
   return (
-    <ProductHeroLayoutRoot>
+    <ProductHeroLayoutRoot >
       {children}
-      <Box />
+      {/* <Box /> */}
     </ProductHeroLayoutRoot>
   );
 }

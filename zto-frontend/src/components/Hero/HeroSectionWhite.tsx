@@ -13,24 +13,21 @@ const HeroSectionWhite = () => {
           "url(https://pinecone.mn/background.webp)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        maxWidth:"100%"
       }}
     >
-      <Typography variant="h3" sx={{ color: "black", marginTop: "5%" }}>
-        Өөрийн зүйлийг өөрөө бүтээ.
-      </Typography>
-      <Typography variant="h4" sx={{ color: "black", marginTop: "2%" }}>
-        Хүссэн загвараа эндээс ол
-      </Typography>
+      <Box sx={{ color:"#000"}}>
 
-      <Typography
-        variant="h5"
-        sx={{ color: "black", marginTop: "2%", marginBottom: "3%" }}
-      >
-        Туршаад үз таалагдана.
-      </Typography>
-      <div className="bounce__css">
-        <WhiteCard />
-      </div>
+        <Box sx={{ p:"30px",  textAlign:'center', width:"100%" }}>
+          <Typography variant="h3">Өөрийн зүйлийг өөрөө бүтээ.</Typography>
+          <Typography variant="h4" sx={{my:"10px"}} >Хүссэн загвараа эндээс ол</Typography>
+          <Typography variant="h5">Туршаад үз таалагдана.</Typography>
+        </Box>
+        <div className="bounce__css">
+          <WhiteCard />
+        </div>
+      </Box>
+      
     </Box>
   );
 };

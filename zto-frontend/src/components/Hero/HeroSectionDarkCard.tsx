@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { Grid, Box } from '@mui/material';
-import MenuItem from '@mui/material/MenuItem';
-import Image from 'next/image';
-
+import * as React from "react";
+import { Grid, Box } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import Image from "next/image";
 
 const catType = [
   {
@@ -125,84 +124,81 @@ const catType = [
   },
 ];
 
-const img = require('../../assets/img/undraw_Static_website_re_x70h.png')
+const img = require("../../assets/img/undraw_Static_website_re_x70h.png");
 
-export default function DarkCard() {    
+export default function DarkCard() {
   return (
-    <Grid>
-<Grid sx={{display: "flex", gap: "0.5%", padding: "20px", width: "1920px" }}>
-    {catType.map((card) => (
+    <Grid sx={{ display: "flex", gap: "0.5%" }}>
+      {catType.map((card) => (
         <MenuItem key={card.time}>
-        <Grid
-      sx={{
-        padding: "10px ",
-        width: "100%",
-        borderRadius: "16px",
-        boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
-        background: "black",
-      }}
-    >
-      <Box>
-        <Image src={img} alt="" width={310} height={260}/>
-      </Box>
-      <Box>
-        <Box
-          sx={{
-            color: "white",
-            fontSize: "28px",
-          }}
-        >
-          <Box
+          <Grid
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              color: "white",
+              padding: "10px ",
+              width: "100%",
+              borderRadius: "16px",
+              boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
+              background: "black",
             }}
           >
-            <Box sx={{ color: "white" }}> {card.ner}</Box>
             <Box>
-             
-              {card.rating}
+              <Image src={img} alt="" width={310} height={260} />
             </Box>
-          </Box>
+            <Box>
+              <Box
+                sx={{
+                  color: "white",
+                  fontSize: "28px",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    color: "white",
+                  }}
+                >
+                  <Box sx={{ color: "white" }}> {card.ner}</Box>
+                  <Box>{card.rating}</Box>
+                </Box>
 
-          <Box sx={{ fontSize: "18px", marginBottom: "5%" }}> {card.time}</Box>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            color: "white",
-            textABoxgn: "center",
-            marginBottom: "5%",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            fontSize: "18px",
-            marginBottom: "5%",
-            color: "white",
-          }}  
-        >
-          <Box>{card.typeone}</Box>
-          <Box>{card.typetwo}</Box>
-          <Box>{card.typethree}</Box>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            color: "white",
-            gap: "20% ",
-          }}
-        >
-          <Box>{card.typefour}</Box>
-          
-        </Box>
-      </Box>
-    </Grid>
+                <Box sx={{ fontSize: "18px", marginBottom: "5%" }}>
+                  {" "}
+                  {card.time}
+                </Box>
+              </Box>
+              {/* <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  color: "white",
+                  textABoxgn: "center",
+                  marginBottom: "5%",
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  fontSize: "18px",
+                  marginBottom: "5%",
+                  color: "white",
+                }}
+              >
+                <Box>{card.typeone}</Box>
+                <Box>{card.typetwo}</Box>
+                <Box>{card.typethree}</Box>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  color: "white",
+                  gap: "20% ",
+                }}
+              >
+                <Box>{card.typefour}</Box>
+              </Box> */}
+            </Box>
+          </Grid>
         </MenuItem>
       ))}
-</Grid>
     </Grid>
   );
 }

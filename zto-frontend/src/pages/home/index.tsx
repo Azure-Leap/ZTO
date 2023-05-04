@@ -1,14 +1,15 @@
 import NavAppBar from "../../components/Navbar";
 import ProductHero from "@/pages/home/views/ProductHero";
-
+import Chatbot from "../../components/Chatbot"
 import TemplateList from "@/components/templateCard";
 import WebSteppers from "@/components/process";
 import { Container } from "@mui/material";
 import SecondSection from "@/components/secondSection";
 import About from "@/components/About";
 import Footer from "../../components/Footer/index";
-import ChatGPT from "@/components/ChatGPT";
+
 import TemplateHome from "../editPage/onepirate/TemplateHome";
+import Payment from "@/components/Payment";
 
 export default function Home() {
   return (
@@ -20,8 +21,9 @@ export default function Home() {
         <SecondSection />
         <TemplateList />
         <About />
-        <ChatGPT />
+        <Chatbot/>
         <WebSteppers />
+        <Payment/>
         <Footer />
       </main>
       {/* <TemplateHome/> */}

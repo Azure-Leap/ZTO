@@ -142,7 +142,7 @@ export default function EditForm() {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 name="titleSize"
-                value={inputVal[comp].size}
+                // value={inputVal[comp].size}
                 label="Color"
                 onChange={change}
               >
