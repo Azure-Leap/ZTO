@@ -54,6 +54,7 @@ a {
   animation: bounce__move_css linear 40s forwards infinite;
   transform-style: preserve-3d;
 }
+
 @keyframes bounce__move_css {
   0%,
   100% {
@@ -71,6 +72,21 @@ a {
     filter: hue-rotate(360deg);
   }
 }
+
+.bounceTemplate:hover{
+  transform: translateY(-100%);
+  transition-duration: 3s;
+  z-index: 11;
+  overflow-x:hidden;
+}
+
+/* @keyframes bounce__move_css {
+
+
+  100% {
+    -webkit-transform: translateY(-50%);
+  }
+} */
 .side {
   display: grid;
   overflow: hidden;
