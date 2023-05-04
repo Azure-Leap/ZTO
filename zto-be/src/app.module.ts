@@ -11,6 +11,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CloudinaryService } from './cloudinary/cloudinary.service';
+import { TemplatesModule } from './templates/templates.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CloudinaryService } from './cloudinary/cloudinary.service';
     AuthModule,
     UsersModule,
     CloudinaryModule,
+    TemplatesModule,
   ],
   controllers: [AppController],
   providers: [AppService, CloudinaryService],

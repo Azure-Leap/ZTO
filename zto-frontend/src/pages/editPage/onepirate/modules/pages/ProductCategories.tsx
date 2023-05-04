@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
+import { TextField } from '@mui/material';
 
 const ImageBackdrop = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -101,7 +102,9 @@ const images = [
   },
 ];
 
-export default function ProductCategories() {
+export default function ProductCategories({formats, inputVal, change, handleClick}:any ) {
+ 
+
   return (
     <Container component="section" sx={{ mt: 8, mb: 4 }}>
       <Typography variant="h4" marked="center" align="center" component="h2">
@@ -128,7 +131,7 @@ export default function ProductCategories() {
               }}
             />
             <ImageBackdrop className="imageBackdrop" />
-            <Box
+            <Box onClick={handleClick}
               sx={{
                 position: 'absolute',
                 left: 0,
@@ -140,16 +143,38 @@ export default function ProductCategories() {
                 justifyContent: 'center',
                 color: 'common.white',
               }}
+              
             >
-              <Typography
+              <TextField
+                name="title"
+                value={inputVal.title}
+                variant="outlined"
+                onChange={change}
+                sx={{
+                  height: "200px",
+                  width: "100%",
+                  "& fieldset": { border: "none" },
+                  fontStyle: formats.includes("italic") ? "italic" : "normal",
+                  input: {
+                    textAlign: "center",
+                    color: inputVal.titleColor,
+                    fontSize: inputVal.titleSize,
+                    fontWeight: formats.includes("bold") ? 900 : 400,
+                    textDecoration: formats.includes("underlined")
+                      ? "underline"
+                      : "normal",
+                  },
+                }}
+              />
+              {/* <Typography
                 component="h3"
                 variant="h6"
                 color="inherit"
                 className="imageTitle"
               >
-                {image.title}
+                {image.title} */}
                 <div className="imageMarked" />
-              </Typography>
+              {/* </Typography> */}
             </Box>
           </ImageIconButton>
         ))}
