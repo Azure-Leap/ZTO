@@ -3,7 +3,7 @@ import ResponsiveAppBar from "./Navbar"
 
 const Layout  = ({children}:any)=>{
     return <>
-    {/* <ResponsiveAppBar/> */}
+    <ResponsiveAppBar/>
     {children}
   
     </>

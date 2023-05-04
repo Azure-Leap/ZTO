@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Category from "../../components/Categories";
 import { useRouter } from "next/router";
+import WebTemlate from "./webTemlate";
 
 const WebsiteTemplates = () => {
   const router: any = useRouter();
@@ -12,17 +13,10 @@ const WebsiteTemplates = () => {
   // data={catgory}
   return (
     <>
-      <Category />
+      <WebTemlate />
     </>
   );
 };
-export async function getServerSideProps({ query }: any) {
-  const res = await fetch(`http://localhost:9010/categories/${query.id}`);
-  const data = await res.json();
 
-  return {
-    props: { category: data.data },
-  };
-}
 
 export default WebsiteTemplates;
