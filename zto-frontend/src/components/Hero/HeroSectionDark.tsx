@@ -6,7 +6,7 @@ import DarkCard from "./HeroSectionDarkCard";
 const HeroSectionDark = () => {
   return (
     <Box
-      // position={"relative"}
+      position={"relative"}
       id="left-side"
       className="side"
       sx={{
