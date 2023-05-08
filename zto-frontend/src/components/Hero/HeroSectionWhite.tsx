@@ -18,7 +18,7 @@ const HeroSectionWhite = () => {
     >
       <Box sx={{ color:"#000"}}>
 
-        <Box sx={{ p:"30px",  textAlign:'center', width:"100%" }}>
+        <Box sx={{}}>
           <Typography variant="h3">Өөрийн зүйлийг өөрөө бүтээ.</Typography>
           <Typography variant="h4" sx={{my:"10px"}} >Хүссэн загвараа эндээс ол</Typography>
           <Typography variant="h5">Туршаад үз таалагдана.</Typography>

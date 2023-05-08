@@ -80,7 +80,7 @@ a {
 
 .side {
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
   overflow: hidden;
   place-items: center;
   position: absolute;
