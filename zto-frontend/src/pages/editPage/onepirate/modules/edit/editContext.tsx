@@ -35,13 +35,7 @@ const EditProvider = ({children}:any) => {
    useEffect(()=>{
       getHeaders()
     },[])
-      // const change = (e: any) => {
-      //   const newChangeVal = { ...inputVal  }
-      //   newChangeVal[componentName] = {...newChangeVal[componentName], [e.target.name]: e.target.value};
-      //   console.log(newChangeVal);
-        
-      //   setInputVal(newChangeVal);
-      // };
+   
 
   return (
     <EditContext.Provider value={{inputVal, setInputVal, componentName, setComponentName, currentPosition, onDrag, isLoading }} >{children}</EditContext.Provider>

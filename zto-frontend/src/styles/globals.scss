@@ -1,0 +1,175 @@
+
+.containerNeflex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.logo {
+    position: relative;
+    overflow: hidden;
+    height: 520px;
+    width: 360px;
+
+    .uno,
+    .due,
+    .tre {
+        position: absolute;
+        background: #b00612;
+        height: 100%;
+        width: 120px;
+    }
+
+    .uno {
+        left: 0;
+        opacity: 0;
+    }
+
+    .due {
+        left: 0;
+        background: #e50815;
+        box-shadow: 0 0 20px black;
+        opacity: 0;
+        transform: skewX(25.4deg);
+        transform-origin: top left;
+        z-index: 1;
+    }
+
+    .tre {
+        right: 0;
+        opacity: 0;
+    }
+
+    &::before {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        display: block;
+        background: black;
+        border-top-left-radius: 50% 100%;
+        border-top-right-radius: 50% 100%;
+        content: "";
+        transform: translateX(-50%);
+        height: 30px;
+        width: 120%;
+        z-index: 10;
+    }
+}
+
+@keyframes uno {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes due {
+    0% {
+        opacity: 0;
+        transform: skewX(25.4deg) translate(0%, -100%);
+    }
+    5% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: skewX(25.4deg) translate(0%, 0%);
+    }
+}
+
+@keyframes tre {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes scaleup {
+    80% {
+        opacity: 0;
+        transform: scale(10);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#replay {
+    display: none;
+
+    &:checked {
+        ~ .Neflex.--play {
+            display: none;
+        }
+
+        ~ .Neflex.--reload {
+            display: block;
+            animation: 3s 3.5s fadein ease-out both;
+        }
+
+        ~ .logo {
+            animation: 2s 1.5s scaleup ease-in both;
+
+            > .uno {
+                animation: 0.4s uno both;
+            }
+
+            > .due {
+                animation: 0.4s 0.4s due both;
+            }
+
+            > .tre {
+                animation: 0.4s 0.8s tre both;
+            }
+        }
+    }
+}
+
+.Neflex {
+    position: absolute;
+    display: block;
+    animation: 0.8s fadein ease-out both;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 16px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 2;
+
+    &.--reload {
+        display: none;
+    }
+
+    &__sub {
+        color: cadetblue;
+        font-size: 20px;
+        letter-spacing: 8px;
+        text-transform: lowercase;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

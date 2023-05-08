@@ -58,7 +58,6 @@ const ProductHero = ({ handleClick, change }: any) => {
           <div
             className="box"
             onClick={(e) => {
-              // console.log("Click",e.target.name);
               handleClick(e);
             }}
           >

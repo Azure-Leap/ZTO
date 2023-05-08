@@ -8,16 +8,16 @@ import WebsiteTemlatesCard from './WebsiteTemlatesCard'
 
 const WebTemlate = () => {
   return (
-    <Grid sx={{textAlign:"center", margin:"0% 12% 0% 12%"}}>
+    <Grid sx={{textAlign:"center", margin:"0% 11% 0% 11%"}}>
       <Typography variant='h3' sx={{padding:"100px 0px 20px 0px"}}>
           WEBSITE TEMPLATES
       </Typography>
-      <Typography sx={{margin:"40px 300px 40px 300px"}}>
+      <Typography sx={{margin:"40px 300px 40px 300px", }}>
           Choose the Microweber template, which fits for your website.
           Each template is a perfect example of how your website will look like.
           You can expand and modify the template or even start from scratch.
       </Typography>
-    <Grid container spacing={0}  item xs={12} sx={{display:"flex", flexDirection:"row",  justifyContent:"space-around", marginTop:"30px",gap:"60px" }}>
+    <Grid container spacing={0}  item xs={12} sx={{display:"flex", flexDirection:"row",  justifyContent:"space-around", marginTop:"30px",gap:"50px" }}>
           <CategoriesHead/>
           <WebsiteTemlatesCard/>
     </Grid>
