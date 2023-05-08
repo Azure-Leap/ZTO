@@ -10,7 +10,7 @@ const Login = () => {
   const history = useRouter();
   const { setUser, isSignIn, setIsSignIn, message, setMessage } =
     useContext(AuthContext);
-  console.log("signin", isSignIn);
+
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();

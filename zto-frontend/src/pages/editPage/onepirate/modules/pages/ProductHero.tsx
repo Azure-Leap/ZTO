@@ -1,9 +1,10 @@
-import * as React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import ProductHeroLayout from "./ProductHeroLayout";
 import Typography from "../components/Typography";
 import Button from "../components/Button";
 import {
+  Box,
   FormControl,
   FormHelperText,
   Input,
@@ -11,183 +12,172 @@ import {
   TextField,
   makeStyles,
 } from "@mui/material";
+import { EditContext } from "../edit/editContext";
+import axios from "axios";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400";
 
-interface AppState {
-  activeDrags: number;
-  deltaPosition: {
-    x: number;
-    y: number;
-  };
-  controlledPosition: {
-    x: number;
-    y: number;
-  };
-}
+const ProductHero = ({ handleClick, change }: any) => {
+  
+  const { inputVal, setInputVal, currentPosition, onDrag, isLoading } =
+    useContext(EditContext);
 
-class ProductHero extends React.Component<{}, AppState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      activeDrags: 0,
-      deltaPosition: { x: 0, y: 0 },
-      controlledPosition: { x: -400, y: 200 },
-    };
-  }
+  //   const getHeaders=async()=>{
+  //     const res = await axios("http://localhost:8008/headers");
+  //     console.log("resh", res.data);
+  //     setInputVal(res.data)
+  //     // setData(res.data)
+  //   };
 
-  handleDrag = (e: any, ui: any) => {
-    const { x, y } = this.state.deltaPosition;
-    this.setState({
-      deltaPosition: {
-        x: x + ui.deltaX,
-        y: y + ui.deltaY,
-      },
-    });
-  };
+  //  useEffect(()=>{
+  //     getHeaders()
+  //   },[])
 
-  onStart = () => {
-    this.setState({ activeDrags: ++this.state.activeDrags });
-  };
-
-  onStop = () => {
-    this.setState({ activeDrags: --this.state.activeDrags });
-  };
-
-  adjustXPos = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const { x, y } = this.state.controlledPosition;
-    this.setState({ controlledPosition: { x: x - 10, y } });
-  };
-
-  adjustYPos = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const { controlledPosition } = this.state;
-    const { x, y } = this.state.controlledPosition;
-    this.setState({ controlledPosition: { x, y: y - 10 } });
-  };
-
-  onControlledDrag = (e: any, position: any) => {
-    const { x, y } = position;
-    this.setState({ controlledPosition: { x, y } });
-  };
-
-  onControlledDragStop = (e: any, position: any) => {
-    const { x, y } = position;
-    this.setState({ controlledPosition: { x, y } });
-  };
-
-  render() {
-    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
-    const { deltaPosition, controlledPosition } = this.state;
-    const { formats, inputVal, change, handleClick }: any = this.props;
-
-    return (
-      <ProductHeroLayout
-        sxBackground={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundColor: "#7fc7d9", // Average color of the background image.
-          backgroundPosition: "center",
-        }}
-      >
-        <img
-          style={{ display: "none" }}
-          src={backgroundImage}
-          alt="increase priority"
-        />
-        <div>
-          <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-            <div
-              className="box"
-              style={{ width: "1200px" }}
-              onClick={(e)=>{
-                console.log("Click",e.target.name);
-                handleClick(e)
+  return !isLoading?(
+    <ProductHeroLayout
+      sxBackground={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundColor: "#7fc7d9", // Average color of the background image.
+        backgroundPosition: "center",
+      }}
+    >
+      <img
+        style={{ display: "none" }}
+        src={backgroundImage}
+        alt="increase priority"
+      />
+      <div>
+        <Draggable
+          position={{
+            x: currentPosition.xRate,
+            y: currentPosition.yRate,
+          }}
+          onDrag={onDrag}
+        >
+          <div
+            className="box"
+            onClick={(e) => {
+              // console.log("Click",e.target.name);
+              handleClick(e);
+            }}
+          >
+            <TextField
+              name="title"
+              value={inputVal[0].title}
+              variant="outlined"
+              onChange={change}
+              sx={{
+                height: "200px",
+                width: "100%",
+                "& fieldset": { border: "none" },
+                // fontStyle: formats.includes("italic") ? "italic" : "normal",
+                input: {
+                  textAlign: "center",
+                  color: inputVal[0].color,
+                  fontSize: inputVal[0].size,
+                  fontWeight: inputVal[0].bold,
+                },
               }}
-            >
-              <TextField
-                name="title"
-                value={inputVal.title}
-                variant="outlined"
-                onChange={change}
-                sx={{
-                  height: "200px",
-                  width: "100%",
-                  "& fieldset": { border: "none" },
-                  fontStyle: formats.includes("italic") ? "italic" : "normal",
-                  input: {
-                    textAlign: "center",
-                    color: inputVal.titleColor,
-                    fontSize: inputVal.titleSize,
-                    fontWeight: formats.includes("bold") ? 600 : 400,
-                    textDecoration: formats.includes("underlined")
-                      ? "underline"
-                      : "normal",
-                  },
-                }}
-              />
+            />
+          </div>
+        </Draggable>
+        {/* <Draggable
+          position={{
+            x: currentPosition.xRate,
+            y: currentPosition.yRate,
+          }}
+          onDrag={onDrag}
+        > */}
+          <div
+            className="box"
+            onClick={(e) => {
+              // console.log("Click",e.target.name);
+              handleClick(e);
+            }}
+          >
+            <TextField
+              name="p1"
+              // value={inputVal.p1.text}
+              variant="outlined"
+              onChange={change}
+              sx={{
+                height: "200px",
+                width: "100%",
+                "& fieldset": { border: "none" },
+                input: {
+                  textAlign: "center",
+                  // color: inputVal.p1.color,
+                  // fontSize: inputVal.p1.size,
+                  // fontWeight: inputVal.p1.bold,
+                },
+              }}
+            />
+          </div>
+        {/* </Draggable> */}
+        {/* <Draggable
+          position={{
+            x: currentPosition.xRate,
+            y: currentPosition.yRate,
+          }}
+          onDrag={onDrag}
+        > */}
+ 
+            {/* <Button  color="secondary"
+        variant="contained"
+        size="large"
+        sx={{ minWidth: 100 }} 
+        onClick = {handleClick} > */}
+         <div className="box" onClick={handleClick}>
+            <TextField
+            
+              name="button"
+              // value={inputVal.button.title}
+              variant="outlined"
+              onChange={change}
+              sx={{
+                "& fieldset": { border: "none" },
+                input: {
+                  textAlign: "center",
+                  // color: inputVal.button.color,
+                  // fontSize: inputVal.button.size,
+                  // fontWeight: inputVal.button.bold,
+                },
+              }}
+            />
             </div>
-          </Draggable>
-          <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-            <div className="box" style={{ width: "1200px" }} id="" onClick={handleClick}>
-              <TextField
-                name="text"
-                value={inputVal.text}
-                variant="outlined"
-                onChange={change}
-                sx={{
-                  width: "100%",
-                  fontStyle: formats.includes("italic") ? "italic" : "normal",
-                  color: "white",
-                  "& fieldset": { border: "none" },
-                }}
-              />
-            </div>
-          </Draggable>
-          <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-            <div className="box" id="page1-btn" onClick={handleClick}>
-              <TextField
-              
-                name="btn"
-                value={inputVal.btn}
-                variant="outlined"
-                onChange={change}
-                sx={{
-                  width: "100%",
-                  fontStyle: formats.includes("italic") ? "italic" : "normal",
-                  "& fieldset": { border: "none" },
-                  input: {
-                    textAlign: "center",
-                    color: inputVal.btnColor,
-                    fontSize: inputVal.btnSize,
-                    fontWeight: formats.includes("bold") ? 900 : 400,
-                    textDecoration: formats.includes("underlined")
-                      ? "underline"
-                      : "normal",
-                  },
-                }}
-              />
-            </div>
-          </Draggable>
-          <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-            <div className="box">
-              <Typography
-                variant="body2"
-                align="center"
-                color="inherit"
-                sx={{ mt: 2 }}
-              >
-                Discover the experience
-              </Typography>
-            </div>
-          </Draggable>
-        </div>
-      </ProductHeroLayout>
-    );
-  }
-}
+            {/* </Button> */}
+        {/* </Draggable> */}
+        {/* <Draggable
+          position={{
+            x: currentPosition.xRate,
+            y: currentPosition.yRate,
+          }}
+          onDrag={onDrag}
+        > */}
+          <div className="box" onClick={handleClick}>
+            <TextField
+              name="p2"
+              // value={inputVal.p2.text}
+              variant="outlined"
+              onChange={change}
+              sx={{
+                height: "200px",
+                width: "100%",
+                "& fieldset": { border: "none" },
+                input: {
+                  // textAlign: "center",
+                  // color: inputVal.p2.color,
+                  // fontSize: inputVal.p2.size,
+                  // fontWeight: inputVal.p2.bold,
+                },
+              }}
+            />
+          </div>
+        {/* </Draggable> */}
+      </div>
+    </ProductHeroLayout>
+  ):<h1>Loading...</h1>;
+};
 
 export default ProductHero;
