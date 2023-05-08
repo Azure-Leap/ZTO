@@ -37,13 +37,10 @@ a {
     -webkit-transform-origin: center bottom;
     transform-origin: center bottom
 }
-
-
-
 .side {
   display: grid;
   overflow: hidden;
-  place-items: center;
+
   position: absolute;
 }
 #left-side {

@@ -172,7 +172,6 @@ export default function Category() {
                     justifyContent: "space-between",
                     color: "black",
                     textABoxgn: "center",
-                    marginBottom: "5%",
                   }}
                 ></Box>
                 <Box
