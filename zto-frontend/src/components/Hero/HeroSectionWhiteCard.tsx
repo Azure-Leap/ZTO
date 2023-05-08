@@ -128,7 +128,7 @@ const img = require("../../assets/img/undraw_building_websites_i78t.png");
 
 export default function Category() {
   return (
-      <Grid sx={{ display: "flex", gap: "0.5%", width:"2000px" }}>
+      <Grid sx={{ display: "flex", gap: "0.5%", width:"100vw"  }}>
         {catType.map((card) => (
           <MenuItem key={card.time} >
             <Grid
@@ -161,7 +161,7 @@ export default function Category() {
                     <Box>{card.rating}</Box>
                   </Box>
 
-                  <Box sx={{ fontSize: "18px", marginBottom: "5%" }}>
+                  <Box sx={{ fontSize: "18px", }}>
                     {" "}
                     {card.time}
                   </Box>
@@ -177,7 +177,7 @@ export default function Category() {
                 <Box
                   sx={{
                     fontSize: "18px",
-                    marginBottom: "5%",
+                    marginTop:"15%",
                     color: "black",
                   }}
                 >

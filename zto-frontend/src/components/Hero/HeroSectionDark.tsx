@@ -19,7 +19,7 @@ const HeroSectionDark = () => {
         maxWidth: "100%",
       }}
     >
-      <Box sx={{ color:"#fff", textAlign:"center", marginTop:"5%" }}>
+      <Box sx={{ color:"#fff", textAlign:"center", marginTop:"5%"}}>
           <Typography variant="h3">Өөрийн зүйлийг өөрөө бүтээ.</Typography>
           <Typography variant="h4" sx={{my:"10px"}}>Хүссэн загвараа эндээс ол</Typography>
           <Typography variant="h5">Туршаад үз таалагдана.</Typography>

@@ -34,7 +34,7 @@ export default function BasicGrid() {
   return (
     <Box >
     <Container>
-    <Box sx={{textAlign:'center', mt:"80px" }}>
+    <Box sx={{textAlign:'center'}}>
       <Box sx={{ mx:'35%' }}>
         <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px' }}>5W</Typography>
         <Typography variant='h3' sx={{pl:'100px'}} >Solution</Typography>
