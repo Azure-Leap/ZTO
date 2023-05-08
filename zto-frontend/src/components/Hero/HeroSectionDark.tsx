@@ -1,10 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Container } from "@mui/material";
 import DarkCard from "./HeroSectionDarkCard";
 
 const HeroSectionDark = () => {
   return (
+
     <Box
       position={"relative"}
       id="left-side"
@@ -29,6 +30,7 @@ const HeroSectionDark = () => {
         </div>
       
     </Box>
+
   );
 };
 

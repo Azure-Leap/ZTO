@@ -32,7 +32,7 @@ const img=require('../../assets/img/undraw_building_websites_i78t.svg')
 
 export default function BasicGrid() {
   return (
-    <Box sx={{minHeight:'100vh'}}>
+    <Box >
     <Container>
     <Box sx={{textAlign:'center', mt:"80px" }}>
       <Box sx={{ mx:'35%' }}>

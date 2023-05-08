@@ -14,7 +14,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function App() {
     return (
-        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff", minHeight:'100vh'}}>
+        <Box sx={{ py: "30px", backgroundColor: "#000", color: "#ffffff"}}>
             <Container>
              <Box textAlign={"center"}>
                 <Typography variant="h2" fontSize={'4rem'} fontWeight={600} >Та өөрийн бизнест тохирсон вэб сайтаа эндээс олоорой</Typography>

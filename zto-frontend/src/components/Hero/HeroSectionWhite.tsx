@@ -1,10 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import WhiteCard from "./HeroSectionWhiteCard";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Container } from "@mui/material";
 
 const HeroSectionWhite = () => {
   return (
+
     <Box
       id="right-side"
       className="side"

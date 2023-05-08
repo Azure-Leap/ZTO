@@ -128,7 +128,7 @@ const img = require("../../assets/img/undraw_Static_website_re_x70h.png");
 
 export default function DarkCard() {
   return (
-    <Grid sx={{ display: "flex", gap: "0.5%" }}>
+    <Grid sx={{ display: "flex", gap: "0.5%", width:"2000px" }}>
       {catType.map((card) => (
         <MenuItem key={card.time}>
           <Grid
@@ -161,12 +161,12 @@ export default function DarkCard() {
                   <Box>{card.rating}</Box>
                 </Box>
 
-                <Box sx={{ fontSize: "18px", marginBottom: "5%" }}>
+                <Box sx={{ fontSize: "18px",}}>
                   {" "}
                   {card.time}
                 </Box>
               </Box>
-              {/* <Box
+              <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -194,7 +194,7 @@ export default function DarkCard() {
                 }}
               >
                 <Box>{card.typefour}</Box>
-              </Box> */}
+              </Box>
             </Box>
           </Grid>
         </MenuItem>
