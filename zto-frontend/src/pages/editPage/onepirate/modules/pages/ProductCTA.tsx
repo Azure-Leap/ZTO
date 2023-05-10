@@ -1,4 +1,4 @@
-import  React, {useEffect, useState} from 'react';
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -6,11 +6,9 @@ import Typography from '../components/Typography';
 import TextField from '../components/TextField';
 import Snackbar from '../components/Snackbar';
 import Button from '../components/Button';
-import axios from 'axios';
 
 function ProductCTA() {
-  const [open, setOpen] = useState(false);
-  const [offers, setOffers] = useState([]);
+  const [open, setOpen] = React.useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,37 +19,25 @@ function ProductCTA() {
     setOpen(false);
   };
 
-  const getOffers = async () => {
-    const res = await axios("http://localhost:8008/offers");
-    console.log("off", res.data);
-    setOffers(res.data);
-  };
-
-  useEffect(() => {
-    getOffers();
-  }, []);
-
   return (
     <Container component="section" sx={{ mt: 10, display: 'flex' }}>
-     {offers.map((x, idx)=>
-      <Grid container key={idx} >
-      
+      <Grid container>
         <Grid item xs={12} md={6} sx={{ zIndex: 1 }}>
           <Box
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              bgcolor: '#F39C12',
+              bgcolor: 'warning.main',
               py: 8,
               px: 3,
             }}
           >
             <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 400 }}>
               <Typography variant="h2" component="h2" gutterBottom>
-               {x.title}
+                Receive offers
               </Typography>
               <Typography variant="h5">
-              {x.text}
+                Taste the holidays of the everyday close to home.
               </Typography>
               <TextField
                 noBorder
@@ -65,7 +51,7 @@ function ProductCTA() {
                 variant="contained"
                 sx={{ width: '100%' }}
               >
-                {x.btn}
+                Keep me updated
               </Button>
             </Box>
           </Box>
@@ -89,7 +75,7 @@ function ProductCTA() {
           />
           <Box
             component="img"
-            src={x.img}
+            src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750"
             alt="call to action"
             sx={{
               position: 'absolute',
@@ -102,7 +88,7 @@ function ProductCTA() {
             }}
           />
         </Grid>
-      </Grid>)}
+      </Grid>
       <Snackbar
         open={open}
         closeFunc={handleClose}

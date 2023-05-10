@@ -22,7 +22,7 @@ export class AuthService {
         const data = {email:user.email, sub:user._id}
         return {sucess:true,
           access_token: await this.jwtService.signAsync(data), user
-        }
+}
       } catch (error) {
         console.log("aldaa garlaa bariad avlaa daa");
         return {sucess: false, message: error.message};

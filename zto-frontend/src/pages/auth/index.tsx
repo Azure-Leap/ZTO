@@ -12,8 +12,8 @@ const Login = () => {
     useContext(AuthContext);
 
 
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("sunny@gmail.com");
+  const [password, setPassword] = useState("sunny12345");
   const [username, setUserName] = useState();
   const [phone_number, setPhoneNumber] = useState();
   const [alert, setAlert] = useState(false);
@@ -23,11 +23,12 @@ const Login = () => {
     try {
       e.preventDefault();
       const res = await axios.post(
-        "https://zto-server.onrender.com/auth/login",
+        "http://localhost:9010/auth/login",
         { email, password }
       );
       console.log(res);
       setUser(res.data.user);
+      localStorage.setItem("user", JSON.stringify(res.data.user.user))
       setMessage(res.data.message);
       console.log(res.data.message);
       setAlert(true);
@@ -85,6 +86,7 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="Email or phone number"
+                  value={email}
                   onChange={(e: any) => setEmail(e.target.value)}
                 />
               </div>
@@ -93,6 +95,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="Password"
+                  value={password}
                   onChange={(e: any) => setPassword(e.target.value)}
                 />
               </div>

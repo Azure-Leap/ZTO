@@ -3,13 +3,13 @@ import mongoose from "mongoose";
 import { Category } from "src/categories/entities/category.entity";
 
 @Schema({timestamps:true})
-export class Websities{
+export class Website{
     @Prop({ required: true })
     name: String;
     @Prop({required:true, default: 'Website'})
     webType: String;
-    @Prop([String, { required: true }] )
-    image: [String];
+    @Prop( { required: true } )
+    image: String;
     @Prop({ required: true })
     demoLink: String;
     @Prop({ required: true })
@@ -17,9 +17,9 @@ export class Websities{
     @Prop({ required: true })
     detail:String;
     @Prop({ required: true })
-    price: Number;
+    price: string;
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Category' })
     category:Category[];
 }
 
-export const WebsiteSchema = SchemaFactory.createForClass(Websities);
+export const WebsiteSchema = SchemaFactory.createForClass(Website);

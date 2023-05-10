@@ -13,28 +13,18 @@ import EditForm from "./modules/edit/editForm";
 
 function Index({handleClick, change}:any) {
   
-  // const getHeaders=async()=>{
-  //   const res = await axios("http://localhost:8008/headers");
-  //   console.log("res", res.data);
-  // };
-
-
-  // React.useEffect(()=>{
-  //   getHeaders()
-  // },[])
-
 
   return (
 
       <React.Fragment>
         <Box>
-          {/* <AppAppBar /> */}
-          <ProductHero handleClick={handleClick}  change={change}/>
-          <ProductValues handleClick={handleClick}  change={change} />
-          <ProductCategories />
-          <ProductHowItWorks />
-          <ProductCTA />
-          <ProductSmokingHero />
+          <AppAppBar />
+          <ProductHero handleClick={handleClick} change={change} />
+          <ProductValues handleClick={handleClick} change={change}/>
+          <ProductCategories handleClick={handleClick} change={change}/>
+          <ProductHowItWorks handleClick={handleClick} change={change}/>
+          <ProductCTA handleClick={handleClick} change={change}/>
+          <ProductSmokingHero handleClick={handleClick} change={change}/>
           <AppFooter />
         </Box>
       </React.Fragment>
@@ -42,14 +32,6 @@ function Index({handleClick, change}:any) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const res = await axios("http://localhost:8008/headers");
-//   console.log("res", res);
-//   // const data = await res.json();
-//   return {
-//     props: {
-//      res
-//     },
-//   };}
+
 
 export default withRoot(Index);

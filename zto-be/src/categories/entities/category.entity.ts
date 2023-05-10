@@ -4,7 +4,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 export class Category {
   @Prop({ required: true })
   title: string;
-  @Prop({ required: true })
+  @Prop()
   image: string;
   @Prop()
   description: string;

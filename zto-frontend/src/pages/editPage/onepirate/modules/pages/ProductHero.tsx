@@ -1,40 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import Draggable from "react-draggable";
-import ProductHeroLayout from "./ProductHeroLayout";
-import Typography from "../components/Typography";
+import * as React from "react";
 import Button from "../components/Button";
-import {
-  Box,
-  FormControl,
-  FormHelperText,
-  Input,
-  InputLabel,
-  TextField,
-  makeStyles,
-} from "@mui/material";
+import Typography from "../components/Typography";
+import ProductHeroLayout from "./ProductHeroLayout";
+import { Box, TextField } from "@mui/material";
 import { EditContext } from "../edit/editContext";
-import axios from "axios";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400";
 
-const ProductHero = ({ handleClick, change }: any) => {
-  
-  const { inputVal, setInputVal, currentPosition, onDrag, isLoading } =
-    useContext(EditContext);
+export default function ProductHero({ handleClick , change}:any) {
+  const {inputVal }= React.useContext(EditContext)
 
-  //   const getHeaders=async()=>{
-  //     const res = await axios("http://localhost:8008/headers");
-  //     console.log("resh", res.data);
-  //     setInputVal(res.data)
-  //     // setData(res.data)
-  //   };
-
-  //  useEffect(()=>{
-  //     getHeaders()
-  //   },[])
-
-  return !isLoading?(
+  return (
     <ProductHeroLayout
       sxBackground={{
         backgroundImage: `url(${backgroundImage})`,
@@ -42,141 +19,102 @@ const ProductHero = ({ handleClick, change }: any) => {
         backgroundPosition: "center",
       }}
     >
+      {/* Increase the network loading priority of the background image. */}
       <img
         style={{ display: "none" }}
         src={backgroundImage}
         alt="increase priority"
       />
-      <div>
-        <Draggable
-          position={{
-            x: currentPosition.xRate,
-            y: currentPosition.yRate,
+    
+      <div onClick={handleClick}>
+      <Typography color="inherit" align="center" variant="h2" marked="center">
+        <TextField
+          name="title"
+          value={inputVal.title.p}
+          variant="outlined"
+          onChange={change}
+          sx={{
+            "& fieldset": { border: "none" },
+            input: {
+              textAlign: "center",
+              color: inputVal.title.color,
+              fontSize: inputVal.title.size,
+              fontWeight: inputVal.title.bold,
+            },
           }}
-          onDrag={onDrag}
-        >
-          <div
-            className="box"
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
-            <TextField
-              name="title"
-              value={inputVal[0].title}
-              variant="outlined"
-              onChange={change}
-              sx={{
-                height: "200px",
-                width: "100%",
-                "& fieldset": { border: "none" },
-                // fontStyle: formats.includes("italic") ? "italic" : "normal",
-                input: {
-                  textAlign: "center",
-                  color: inputVal[0].color,
-                  fontSize: inputVal[0].size,
-                  fontWeight: inputVal[0].bold,
-                },
-              }}
-            />
-          </div>
-        </Draggable>
-        {/* <Draggable
-          position={{
-            x: currentPosition.xRate,
-            y: currentPosition.yRate,
+        />
+      </Typography>
+      </div>
+      <Typography
+        color="inherit"
+        align="center"
+        variant="h5"
+        sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
+      >
+        <TextField
+          name="text"
+          value={inputVal.text.p}
+          variant="outlined"
+          onClick={handleClick}
+          onChange={change}
+          sx={{
+            width:"800px",
+            "& fieldset": { border: "none" },
+            input: {
+              textAlign: "center",
+              color: inputVal.text.color,
+              fontSize: inputVal.text.size,
+              fontWeight: inputVal.text.bold,
+            },
           }}
-          onDrag={onDrag}
-        > */}
-          <div
-            className="box"
-            onClick={(e) => {
-              // console.log("Click",e.target.name);
-              handleClick(e);
-            }}
-          >
-            <TextField
-              name="p1"
-              // value={inputVal.p1.text}
-              variant="outlined"
-              onChange={change}
-              sx={{
-                height: "200px",
-                width: "100%",
-                "& fieldset": { border: "none" },
-                input: {
-                  textAlign: "center",
-                  // color: inputVal.p1.color,
-                  // fontSize: inputVal.p1.size,
-                  // fontWeight: inputVal.p1.bold,
-                },
-              }}
-            />
-          </div>
-        {/* </Draggable> */}
-        {/* <Draggable
-          position={{
-            x: currentPosition.xRate,
-            y: currentPosition.yRate,
-          }}
-          onDrag={onDrag}
-        > */}
- 
-            {/* <Button  color="secondary"
+        />
+      </Typography>
+      <Button
+        color="secondary"
         variant="contained"
         size="large"
-        sx={{ minWidth: 100 }} 
-        onClick = {handleClick} > */}
-         <div className="box" onClick={handleClick}>
-            <TextField
-            
-              name="button"
-              // value={inputVal.button.title}
-              variant="outlined"
-              onChange={change}
-              sx={{
-                "& fieldset": { border: "none" },
-                input: {
-                  textAlign: "center",
-                  // color: inputVal.button.color,
-                  // fontSize: inputVal.button.size,
-                  // fontWeight: inputVal.button.bold,
-                },
-              }}
-            />
-            </div>
-            {/* </Button> */}
-        {/* </Draggable> */}
-        {/* <Draggable
-          position={{
-            x: currentPosition.xRate,
-            y: currentPosition.yRate,
+        component="a"
+        // href="/premium-themes/onepirate/sign-up/"
+        sx={{ minWidth: 200 }}
+      >
+         <TextField
+          name="button"
+          value={inputVal.button.p}
+          variant="outlined"
+          onClick={handleClick}
+          onChange={change}
+          sx={{
+            // width:"800px",
+            "& fieldset": { border: "none" },
+            input: {
+              textAlign: "center",
+              color: inputVal.button.color,
+              fontSize: inputVal.button.size,
+              fontWeight: inputVal.button.bold,
+            },
           }}
-          onDrag={onDrag}
-        > */}
-          <div className="box" onClick={handleClick}>
-            <TextField
-              name="p2"
-              // value={inputVal.p2.text}
-              variant="outlined"
-              onChange={change}
-              sx={{
-                height: "200px",
-                width: "100%",
-                "& fieldset": { border: "none" },
-                input: {
-                  // textAlign: "center",
-                  // color: inputVal.p2.color,
-                  // fontSize: inputVal.p2.size,
-                  // fontWeight: inputVal.p2.bold,
-                },
-              }}
-            />
-          </div>
-        {/* </Draggable> */}
-      </div>
-    </ProductHeroLayout>
-  ):<h1>Loading...</h1>;
-};
+        />
+      </Button>
+      <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
+      <TextField
+          name="p1"
+          value={inputVal.p1.p}
+          variant="outlined"
+          onClick={handleClick}
+          onChange={change}
+          sx={{
+            width:"400px",
+            "& fieldset": { border: "none" },
+            input: {
 
-export default ProductHero;
+              textAlign: "center",
+              color: inputVal.p1.color,
+              fontSize: inputVal.p1.size,
+              fontWeight: inputVal.p1.bold,
+            },
+          }}
+        />
+      </Typography>
+    </ProductHeroLayout>
+  );
+}
