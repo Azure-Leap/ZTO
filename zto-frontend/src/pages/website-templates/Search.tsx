@@ -5,14 +5,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 
-const Search = () => {
+const Search = ({searchWeb}:any) => {
   return (
     <>
-    <Paper sx={{ p: '2px 4px', display: 'flex', flexDirection:"row", alignItems: 'center', width: "100%" }}>
+    <Paper sx={{ p: '2px 4px', display: 'flex',  alignItems: 'center', width: "70%", mx:"auto", mb:"30px" }}>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search zto template"
         inputProps={{ 'aria-label': 'search zto template' }}
+        onChange={searchWeb}
       />
       <IconButton  color="primary" type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />

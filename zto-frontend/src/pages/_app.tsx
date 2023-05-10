@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
   const {pathname} = useRouter()
-  console.log(pathname, "pathhh--------")
 
   if(pathname === "/auth"){
     return <AuthProvider> 

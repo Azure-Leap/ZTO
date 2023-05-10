@@ -13,8 +13,7 @@ const rightLink = {
 function AppAppBar() {
   return (
     <div>
-      <AppBar >
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar sx={{ justifyContent: 'space-between' , backgroundColor:"#28282a" }}>
           <Box sx={{ flex: 1 }} />
           <Link
             variant="h6"
@@ -45,8 +44,6 @@ function AppAppBar() {
             </Link>
           </Box>
         </Toolbar>
-      </AppBar>
-      <Toolbar />
     </div>
   );
 }

@@ -1,14 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import Draggable from "react-draggable";
-import ProductHeroLayout from "./ProductHeroLayout";
-import Typography from "../components/Typography";
-import Button from "../components/Button";
+import * as React from "react";
+import { Theme } from "@mui/material/styles";
+import { SxProps } from "@mui/system";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import { Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
-import axios from "axios";
+import Typography from "../components/Typography";
 import { TextField } from "@mui/material";
 import { EditContext } from "../edit/editContext";
 
@@ -19,106 +15,202 @@ const item: SxProps<Theme> = {
   px: 5,
 };
 
-interface AppState {
-  activeDrags: number;
-  deltaPosition: {
-    x: number;
-    y: number;
-  };
-  controlledPosition: {
-    x: number;
-    y: number;
-  };
+function ProductValues({ handleClick , change }: any) {
+  const { inputVal  } = React.useContext(EditContext);
+
+  return (
+    <Box
+      component="section"
+      sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
+    >
+      <Container sx={{ mt: 15, mb: 30, display: "flex", position: "relative" }}>
+        <Box
+          component="img"
+          src="/static/themes/onepirate/productCurvyLines.png"
+          alt="curvy lines"
+          sx={{ pointerEvents: "none", position: "absolute", top: -180 }}
+        />
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={4}>
+            <Box sx={item}>
+              <Box
+                component="img"
+                src="https://mui.com/static/themes/onepirate/productValues1.svg"
+                alt="suitcase"
+                sx={{ height: 55 }}
+              />
+              <Typography variant="h6" sx={{ my: 5 }}>
+                <TextField
+                  name="valTit1"
+                  value={inputVal.valTit1.p}
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.valTit1.color,
+                      fontSize: inputVal.valTit1.size,
+                      fontWeight: inputVal.valTit1.bold,
+                    },
+                  }}
+                />
+              </Typography>
+              <Typography variant="h5">
+              <TextField
+                  name="valText1"
+                  value={inputVal.valText1.p}
+                  variant="outlined"
+                  rows={4}
+                  multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    // "& .MuiInputBase-input": {
+                    //   overflow: "hidden",
+                    //   textOverflow: "ellipsis"
+                    // },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.valText1.color,
+                      fontSize: inputVal.valText1.size,
+                      fontWeight: inputVal.valText1.bold,
+                    },
+                  }}/>
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box sx={item}>
+              <Box
+                component="img"
+                src="https://mui.com/static/themes/onepirate/productValues2.svg"
+                alt="graph"
+                sx={{ height: 55 }}
+              />
+              <Typography variant="h6" sx={{ my: 5 }}>
+              <TextField
+                  name="valTit2"
+                  value={inputVal.valTit2.p}
+                  variant="outlined"
+                  rows={4}
+                  // multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    // "& .MuiInputBase-input": {
+                    //   overflow: "hidden",
+                    //   textOverflow: "ellipsis"
+                    // },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.valTit2.color,
+                      fontSize: inputVal.valTit2.size,
+                      fontWeight: inputVal.valTit2.bold,
+                    },
+                  }}/>
+              </Typography>
+              {/* <Typography variant="h5">
+                {
+                  "Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… "
+                }
+                {"your Sundays will not be alike."}
+              </Typography> */}
+              <TextField
+                  name="valText2"
+                  value={inputVal.valText2.p}
+                  variant="outlined"
+                  rows={4}
+                  // multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    // "& .MuiInputBase-input": {
+                    //   overflow: "hidden",
+                    //   textOverflow: "ellipsis"
+                    // },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.valText2.color,
+                      fontSize: inputVal.valText2.size,
+                      fontWeight: inputVal.valText2.bold,
+                    },
+                  }}/>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box sx={item}>
+              <Box
+                component="img"
+                src="https://mui.com/static/themes/onepirate/productValues3.svg"
+                alt="clock"
+                sx={{ height: 55 }}
+              />
+              <Box onClick={handleClick}>
+              <Typography variant="h6" sx={{ my: 5 }} >
+              <TextField
+                  name="valTit3"
+                  value={inputVal.valTit3.p}
+                  variant="outlined"
+                  fullWidth
+                  rows={4}
+                  // multiline                 
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    // "& .MuiInputBase-input": {
+                    //   overflow: "hidden",
+                    //   textOverflow: "ellipsis"
+                    // },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.valTit3.color,
+                      fontSize: inputVal.valTit3.size,
+                      fontWeight: inputVal.valTit3.bold,
+                    },
+                  }}/>
+              </Typography>
+              </Box>
+              <Typography variant="h5">
+              <TextField
+                  name="valText3"
+                  value={inputVal.valText3.p}
+                  variant="outlined"
+                  rows={4}
+                  // multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    // "& .MuiInputBase-input": {
+                    //   overflow: "hidden",
+                    //   textOverflow: "ellipsis"
+                    // },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.valText3.color,
+                      fontSize: inputVal.valText3.size,
+                      fontWeight: inputVal.valText3.bold,
+                    },
+                  }}/>
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
 }
-const ProductValues = ({ change, handleClick }: any) => {
-  const [data, setData] = useState([]);
-  const { inputVal } = useContext(EditContext);
-
-  const getAbouts = async () => {
-    const res = await axios("http://localhost:8008/abouts");
-    console.log("ab", res.data);
-    setData(res.data);
-  };
-
-  useEffect(() => {
-    getAbouts();
-  }, []);
-
-//   return (
-//     <div>
-//       <Box
-//         component="section"
-//         sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
-//       >
-//         <Container
-//           sx={{ mt: 15, mb: 30, display: "flex", position: "relative" }}
-//         >
-//           <Grid container spacing={5}>
-//             {data.map((e, idx) => (
-//               <Grid item xs={12} md={4}>
-//                 <Box sx={item}>
-//                   {/* <Draggable onDrag={handleDrag} {...dragHandlers}> */}
-//                   <div className="box">
-//                     <Box
-//                       component="img"
-//                       src={e.icon}
-//                       alt="suitcase"
-//                       sx={{ height: 55 }}
-//                     />
-//                     <Box onClick={handleClick}>
-//                       <TextField
-//                         name="valtit"
-//                         value={inputVal.valtit.tit}
-//                         onChange={change}
-//                         sx={{
-//                           height: "200px",
-//                           width: "100%",
-//                           "& fieldset": { border: "none" },
-//                           input: {
-//                             textAlign: "center",
-//                             color: inputVal.valtit.color,
-//                             fontSize: inputVal.valtit.size,
-//                           },
-//                         }}
-//                       />
-//                     </Box>
-
-//                     <Box
-//                       component="form"
-//                       sx={{
-//                         "& .MuiTextField-root": { m: 1, width: "25ch" },
-//                       }}
-//                       noValidate
-//                       autoComplete="off"
-//                       onClick={handleClick}
-//                     >
-//                       <TextField
-//                         id="ooutlined-textarea"
-//                         multiline
-//                         rows={4}
-//                         name="valtext"
-//                         value={inputVal.valtext.text}
-//                         onChange={change}
-//                         sx={{
-//                           "& fieldset": { border: "none" },
-//                           input: {
-//                             textAlign: "center",
-//                             color: inputVal.valtext.color,
-//                             fontSize: inputVal.valtext.size,
-//                           },
-//                         }}
-//                       />
-//                     </Box>
-//                   </div>
-//                   {/* </Draggable> */}
-//                 </Box>
-//               </Grid>
-//             ))}
-//           </Grid>
-//         </Container>
-//       </Box>
-//     </div>
-//   );
- };
 
 export default ProductValues;

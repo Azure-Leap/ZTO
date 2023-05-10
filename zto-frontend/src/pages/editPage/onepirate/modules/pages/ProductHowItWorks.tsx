@@ -1,28 +1,26 @@
-import * as React from "react";
-import { Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import Button from "../components/Button";
-import Typography from "../components/Typography";
-import axios from "axios";
-import { TextField } from "@mui/material";
-import Draggable from "react-draggable";
-import { EditContext } from "../edit/editContext";
+import * as React from 'react';
+import { Theme } from '@mui/material/styles';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import Button from '../components/Button';
+import Typography from '../components/Typography';
+import { EditContext } from '../edit/editContext';
+import { TextField } from '@mui/material';
 
 const item: SxProps<Theme> = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   px: 5,
 };
 
 const number = {
   fontSize: 24,
-  fontFamily: "default",
-  color: "secondary.main",
-  fontWeight: "medium",
+  fontFamily: 'default',
+  color: 'secondary.main',
+  fontWeight: 'medium',
 };
 
 const image = {
@@ -30,36 +28,21 @@ const image = {
   my: 4,
 };
 
-function ProductHowItWorks() {
-  const [work, setWork] = React.useState([]);
-  const { currentPosition, onDrag } = React.useContext(EditContext);
-
-  const getWork = async () => {
-    try {
-      const res = await axios("http://localhost:8008/works");
-      console.log("cate", res.data);
-      setWork(res.data);
-    } catch (err) {
-      console.log("ERROR", err);
-    }
-  };
-  React.useEffect(() => {
-    getWork();
-  }, []);
-
+function ProductHowItWorks({handleClick, change}:any) {
+  const {inputVal} = React.useContext(EditContext)
   return (
     <Box
       component="section"
-      sx={{ display: "flex", bgcolor: "secondary.light", overflow: "hidden" }}
+      sx={{ display: 'flex', bgcolor: 'secondary.light', overflow: 'hidden' }}
     >
       <Container
         sx={{
           mt: 10,
           mb: 15,
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <Box
@@ -67,80 +50,131 @@ function ProductHowItWorks() {
           src="/static/themes/onepirate/productCurvyLines.png"
           alt="curvy lines"
           sx={{
-            pointerEvents: "none",
-            position: "absolute",
+            pointerEvents: 'none',
+            position: 'absolute',
             top: -180,
             opacity: 0.7,
           }}
         />
-        <Draggable
-          position={{ x: currentPosition.xRate, y: currentPosition.yRate }}
-          onDrag={onDrag}
-        >
-          <Typography
-            variant="h4"
-            marked="center"
-            component="h2"
-            sx={{ mb: 14 }}
-          >
-            How it works
-          </Typography>
-        </Draggable>
+        <Typography variant="h4" marked="center" component="h2" sx={{ mb: 14 }}>
+        <TextField
+                  name="workTit"
+                  value={inputVal.workTit.p}
+                  variant="outlined"
+                  fullWidth
+                  rows={4}
+                  // multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "600px",
+                    "& fieldset": { border: "none" },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.workTit.color,
+                      fontSize: inputVal.workTit.size,
+                      fontWeight: inputVal.workTit.bold,
+                    },
+                  }}/>
+        </Typography>
         <div>
           <Grid container spacing={5}>
-            {work.map((x, idx): any => (
-              <Grid key={idx} item xs={12} md={4}>
-                <Box sx={item}>
-                  <Draggable
-                    position={{
-                      x: currentPosition.xRate,
-                      y: currentPosition.yRate,
-                    }}
-                    onDrag={onDrag}
-                  >
-                    <Box sx={number}>{x.number}.</Box>
-                  </Draggable>
-                  <Draggable
-                    position={{
-                      x: currentPosition.xRate,
-                      y: currentPosition.yRate,
-                    }}
-                    onDrag={onDrag}
-                  >
-                    <Box
-                      component="img"
-                      src={x.icon}
-                      alt="suitcase"
-                      sx={image}
-                    />
-                   </Draggable>
-                   <Draggable
-                    position={{
-                      x: currentPosition.xRate,
-                      y: currentPosition.yRate,
-                    }}
-                    onDrag={onDrag}
-                  >
-
-                    <TextField
-                      name="title"
-                      value={"inputVal.title.title"}
-                      variant="outlined"
-                      // onChange={change}
-                      sx={{
-                        height: "200px",
-                        width: "100%",
-                        "& fieldset": { border: "none" },
-                        input: {
-                          textAlign: "center",
-                        },
-                      }}
-                    />
-                   </Draggable>
-
-                </Box>
-              </Grid>
-            ))}
+            <Grid item xs={12} md={4}>
+              <Box sx={item}>
+                <Box sx={number}>1.</Box>
+                <Box
+                  component="img"
+                  src="https://mui.com/static/themes/onepirate/productHowItWorks1.svg"
+                  alt="suitcase"
+                  sx={image}
+                />
+                <Typography variant="h5" align="center">
+                <TextField
+                  name="workP1"
+                  value={inputVal.workP1.p}
+                  variant="outlined"
+                  fullWidth
+                  rows={4}
+                  // multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "600px",
+                    "& fieldset": { border: "none" },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.workP1.color,
+                      fontSize: inputVal.workP1.size,
+                      fontWeight: inputVal.workP1.bold,
+                    },
+                  }}/>
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={item}>
+                <Box sx={number}>2.</Box>
+                <Box
+                  component="img"
+                  src="https://mui.com/static/themes/onepirate/productHowItWorks2.svg"
+                  alt="graph"
+                  sx={image}
+                />
+                <Typography variant="h5" align="center">
+                <TextField
+                  name="workP2"
+                  value={inputVal.workP2.p}
+                  variant="outlined"
+                  fullWidth
+                  rows={4}
+                  multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.workP2.color,
+                      fontSize: inputVal.workP2.size,
+                      fontWeight: inputVal.workP2.bold,
+                    },
+                  }}/>
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={item}>
+                <Box sx={number}>3.</Box>
+                <Box
+                  component="img"
+                  src="https://mui.com/static/themes/onepirate/productHowItWorks3.svg"
+                  alt="clock"
+                  sx={image}
+                />
+                <Typography variant="h5" align="center">
+                <TextField
+                  name="workP3"
+                  value={inputVal.workP3.p}
+                  variant="outlined"
+                  fullWidth
+                  rows={4}
+                  multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "400px",
+                    "& fieldset": { border: "none" },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.workP3.color,
+                      fontSize: inputVal.workP3.size,
+                      fontWeight: inputVal.workP3.bold,
+                    },
+                  }}/>
+                </Typography>
+              </Box>
+            </Grid>
           </Grid>
         </div>
         <Button

@@ -59,8 +59,8 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 
 
 
-export default function ProductCategories() {
-  const {currentPosition, onDrag} = useContext(EditContext)
+export default function ProductCategories(handleClick, change) {
+  const {currentPosition, onDrag, inputVal} = useContext(EditContext)
   const [cate, setCate]= useState([]);
 
 const getCat = async()=>{
@@ -79,11 +79,34 @@ useEffect(()=>{
 
   return (
     <Container component="section" sx={{ mt: 8, mb: 4 }}>
-      <Draggable position={{x:currentPosition.xRate, y:currentPosition.yRate}} onDrag={onDrag} >
+      {/* <Draggable position={{x:currentPosition.xRate, y:currentPosition.yRate}} onDrag={onDrag} > */}
       <Typography variant="h4" marked="center" align="center" component="h2">
-        For all tastes and all desires
+      <TextField
+                  name="catTit"
+                  value={inputVal.catTit.p}
+                  variant="outlined"
+                  id="outlined-multiline-flexible"
+                  fullWidth
+                  rows={4}
+                  // multiline
+                  onClick={handleClick}
+                  onChange={change}
+                  sx={{
+                    width: "600px",
+                    "& fieldset": { border: "none" },
+                    // "& .MuiInputBase-input": {
+                    //   overflow: "hidden",
+                    //   textOverflow: "ellipsis"
+                    // },
+                    input: {
+                      textAlign: "center",
+                      color: inputVal.catTit.color,
+                      fontSize: inputVal.catTit.size,
+                      fontWeight: inputVal.catTit.bold,
+                    },
+                  }}/>
       </Typography>
-      </Draggable>
+      {/* </Draggable> */}
       {/* <Draggable position={{x:currentPosition.xRate, y:currentPosition.yRate}} onDrag={onDrag} > */}
 
       <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
@@ -122,27 +145,7 @@ useEffect(()=>{
               }}
               
             >
-              {/* <TextField
-                name="title"
-                value='{inputVal.title}'
-                variant="outlined"
-                onChange={change}
-                sx={{
-                  height: "200px",
-                  width: "100%",
-                  "& fieldset": { border: "none" },
-                  fontStyle: formats.includes("italic") ? "italic" : "normal",
-                  input: {
-                    textAlign: "center",
-                    color: inputVal.titleColor,
-                    fontSize: inputVal.titleSize,
-                    fontWeight: formats.includes("bold") ? 900 : 400,
-                    textDecoration: formats.includes("underlined")
-                      ? "underline"
-                      : "normal",
-                  },
-                }}
-              /> */}
+            
               <Typography
                 component="h3"
                 variant="h6"

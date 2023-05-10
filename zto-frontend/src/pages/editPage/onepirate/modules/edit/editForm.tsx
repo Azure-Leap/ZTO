@@ -167,8 +167,7 @@ export default function EditForm() {
         )}
       </Popper>
       {/* <ProductHero handleClick={handleClick} /> */}
-      <TemplateHome handleClick={handleClick} change={change} />
-      {/* <ProductHero formats={formats} inputVal={inputVal} change={change} handleClick={handleClick} /> */}
+      <TemplateHome handleClick={handleClick} change={change}  />
     </Box>
   );
 }
