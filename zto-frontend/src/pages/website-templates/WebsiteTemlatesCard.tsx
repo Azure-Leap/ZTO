@@ -62,7 +62,7 @@ const WebsiteTemlatesCard = () => {
     {Temp.map((Template) => (
     <Grid sx={{background:"white", boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset", '&:hover': {scale:"1.06 ", overflowY:"hidden",}}}>
       <Box>
-      <Box className="bounceTemplate" sx={{ backgroundImage:`url(${Template.Image})`, backgroundRepeat:"no-repeat",  width:"660px", height:"500px", backgroundPosition:'center 0', display:'block',boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"}}></Box>
+      <Box className="bounceTemplate" sx={{ backgroundImage:`url(${Template.Image})`, backgroundRepeat:"no-repeat",  width:"600px", height:"500px", backgroundPosition:'center 0', display:'block',boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"}}></Box>
       </Box>
             <Box sx={{display:"flex", flexDirection:"column", gap:"20px", padding:"20px", textAlign:"left"}}>
             <Typography variant='h6'>
