@@ -2,203 +2,204 @@ import * as React from "react";
 import { Grid, Box } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
-import { relative } from "path";
+import {Button} from "@mui/material";
 
 const catType = [
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1681066471028-dec0c78b729c?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+      "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1661956601030-fdfb9c7e9e2f?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=742&q=80",
-    time: "3Days 4 Nights",
-    rating: "4.7",
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
-  },
-  {
-    ner: "Swiss Apls",
-    imageURL:
-      "https://plus.unsplash.com/premium_photo-1680704120525-2e1adbe7281a?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1681025243141-25cd6f243a13?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1661956602153-23384936a1d3?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1681121882740-561016c015dd?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1661956600654-edac218fea67?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
   {
-    ner: "Swiss Apls",
+    ner: "Editorial",
     imageURL:
-      "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    time: "3Days 4 Nights",
-    rating: "4.7",
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
-  },
-  {
-    ner: "Swiss Apls",
-    imageURL:
-      "https://images.unsplash.com/photo-1661956601030-fdfb9c7e9e2f?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=742&q=80",
-    time: "3Days 4 Nights",
-    rating: "4.7",
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
-  },
-  {
-    ner: "Swiss Apls",
-    imageURL:
-      "https://plus.unsplash.com/premium_photo-1680704120525-2e1adbe7281a?ixBoxb=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-    time: "3Days 4 Nights",
-    rating: "4.7",
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
 
-    typeone: "Tour combo with return airport transfer",
-    typetwo: "City Tour",
-    typethree: "Curious Corner",
-    typefour: "₹88,952",
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
+  },
+  {
+    ner: "Editorial",
+    imageURL:
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
+
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
+  },
+  {
+    ner: "Editorial",
+    imageURL:
+    "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
+
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
+  },
+  {
+    ner: "Editorial",
+    imageURL:
+       "https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg",
+    time: "WunderUI - design system",
+    rating: "USD",
+
+    typeone: "By Klywebmedia",
+    typetwo: "from",
+    typethree: "89",
+    typefour: "View Product",
   },
 ];
 
-const img = require("../../assets/img/undraw_building_websites_i78t.png");
+const img = require("../../assets/img/screenshot.jpg");
 
-export default function Category() {
+export default function DarkCard() {
   return (
-      <Grid sx={{ display: "flex", gap: "0.5%", width:"100vw"  }}>
-        {catType.map((card) => (
-          <MenuItem key={card.time} >
-            <Grid
+    <Grid sx={{ display: "flex", gap: "0.5%", width:"100vw" }}>
+      {catType.map((card) => (
+        <MenuItem key={card.time}>
+          <Grid
+            sx={{
+            
+              width: "100%",
+              borderRadius: "16px",
+              boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
+              background: "white",
+            }}
+          >
+            <Box>
+            <Box
               sx={{
-                padding: "10px ",
-                width: "100%",
-                borderRadius: "16px",
-                boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
-                background: "white",
+                backgroundImage: `url(https://packages.microweberapi.com/meta/microweber-templates-template-photography/611/screenshot.jpg)`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize:"cover",
+                width: "400px",
+                height: "350px",
+                backgroundPosition: "center 0",
+                display: "block",
+                borderRadius:"20px 20px 0px 0px"
               }}
-            >
+            ></Box>
+            </Box>
+            <Box >
+            <Box sx={{borderBottom:"solid 2px gray"}}>
+              <Box sx={{padding:"20px"}}>
+              <Box sx={{fontSize:"15px"}}>
+                Editorial
+              </Box>
+              <Box sx={{fontSize:"25px"}}>
+                WunderUI-design system
+              </Box>
+              </Box>
+            </Box>
+      <Box sx={{borderBottom:"solid 2px gray"}}>
+      <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between" , alignItems:"center", padding:"20px" }}>
+            <Box sx={{display:"flex", flexDirection:"row", gap:"10px" }}>
               <Box>
-                <Image src={img} alt="" width={310} height={260} />
+                By
               </Box>
               <Box>
-                <Box
-                  sx={{
-                    color: "black",
-                    fontSize: "28px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      color: "black",
-                    }}
-                  >
-                    <Box sx={{ color: "black" }}> {card.ner}</Box>
-                    <Box>{card.rating}</Box>
-                  </Box>
-
-                  <Box sx={{ fontSize: "18px", }}>
-                    {" "}
-                    {card.time}
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    color: "black",
-                    textABoxgn: "center",
-                  }}
-                ></Box>
-                <Box
-                  sx={{
-                    fontSize: "18px",
-                    marginTop:"15%",
-                    color: "black",
-                  }}
-                >
-                  <Box>{card.typeone}</Box>
-                  <Box>{card.typetwo}</Box>
-                  <Box>{card.typethree}</Box>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    color: "black",
-                    gap: "20% ",
-                  }}
-                >
-                  <Box>{card.typefour}</Box>
-                </Box>
+                ZTO
               </Box>
-            </Grid>
-          </MenuItem>
-        ))}
-      </Grid>
-   
+          </Box>
+            <Box sx={{display:"flex", flexDirection:"row", gap:"10px", alignContent:"center", alignItems:"center" }}>
+                <Box>
+                  from
+                </Box>
+                <Box sx={{fontSize:"30px"}}>
+                  34.9
+                </Box>
+                <Box sx={{fontSize:"10px"}}>
+                  USD
+                </Box>
+            </Box>
+            </Box>
+      </Box>
+            <Button sx={{color:"black", padding:"20px"}}>
+              View Product
+            </Button>
+            
+            </Box>
+            
+          </Grid>
+        </MenuItem>
+      ))}
+    </Grid>
   );
 }
