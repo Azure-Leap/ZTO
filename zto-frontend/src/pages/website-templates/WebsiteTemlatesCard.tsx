@@ -5,65 +5,6 @@ import { Button } from "@mui/material";
 import axios from "axios";
 import Search from "./Search";
 
-// const Temp = [
-//     {
-//       id:"1",
-//       Name:"Digital",
-//       Type:"blog",
-//       Image:"https://templatemo.com/screenshots/full-template-577-liberty-market.jpg"
-//     },
-//     {
-//       id:"1",
-//       Name:"Photography",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-photography/611/screenshot.jpg"
-//     },
-//     { id:"2",
-//       Name:"Business",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg"
-//     },
-//     { id:"3",
-//       Name:"Services",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-ziza/611/screenshot.jpg"
-//     },
-//     { id:"4",
-//       Name:"Story",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-banking/611/screenshot.jpg"
-//     },
-//     { id:"5",
-//       Name:"Events",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-photography/611/screenshot.jpg"
-//     },
-//     { id:"6",
-//       Name:"Nutrition",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-ziza/611/screenshot.jpg"
-//     },
-//     { id:"7",
-//       Name:"Travel",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg"
-//     },
-//     { id:"8",
-//       Name:"Blog",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-ziza/611/screenshot.jpg"
-//     },
-//     { id:"9",
-//       Name:"Hotel",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-photography/611/screenshot.jpg"
-//     },
-//     { id:"10",
-//       Name:"Education",
-//       Type:"blog",
-//       Image:"https://packages.microweberapi.com/meta/microweber-templates-template-ziza/611/screenshot.jpg"
-//     },
-//     ]
 const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, templatesFilter }:any) => {
   // console.log("templates", templates);
  const [webList, setWebList] = useState([...templates])

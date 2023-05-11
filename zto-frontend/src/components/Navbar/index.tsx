@@ -21,9 +21,10 @@ const pages = [{ title: 'About', link: "/NavAbout" }, { title: 'Pricing', link: 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
-  const {user, setIsSignIn} = useContext(AuthContext)
+  const {user, setIsSignIn, setUser} = useContext(AuthContext)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElTem, setAnchorElTem] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -31,15 +32,28 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
+  const handleOpenTem = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElTem(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+   setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handleCloseTem = () => {
+    setAnchorElTem(null);
+  };
 
+ const handleLogout = (oper)=>{
+     if(oper === "Logout"){
+      setUser(null);
+      localStorage.removeItem("user");
+     }
+ }
+  
   const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     '& .MuiBadge-badge': {
       right: -3,
@@ -83,21 +97,21 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Products</Typography>
+              <MenuItem 
+              onClick={handleCloseNavMenu}
+              >
+                <Link href='/website-templates/All%20templates' >Products</Link>
               </MenuItem>
 
               {pages.map((page, idx) => (
                 <MenuItem key={idx} onClick={handleCloseNavMenu}>
                   <Link href={page.link}>{page.title}</Link>
-                  {/* <Link textAlign="center">{page}</Link> */}
                 </MenuItem>
 
               ))}
             </Menu>
 
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' } }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -117,8 +131,8 @@ function ResponsiveAppBar() {
             ZTO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-            <Tooltip title="Open settings">
-              <Button onClick={handleOpenUserMenu} sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
+            <Tooltip title="Open product">
+              <Button onClick={handleOpenTem} sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
                 Products
               </Button>
             </Tooltip>
@@ -134,22 +148,21 @@ function ResponsiveAppBar() {
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'left',
               }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              open={Boolean(anchorElTem)}
+              onClose={handleCloseTem}
             >
               {webTypes.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
                   <Link href={`/website-templates${(setting.link)}`}>
                     {setting.name}
                   </Link>
-                  {/* <Link href={setting.link} underline="none" textAlign="center">{setting.name}</Link> */}
                 </MenuItem>
               ))}
             </Menu>
@@ -218,7 +231,7 @@ function ResponsiveAppBar() {
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user.name} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -238,7 +251,7 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={()=> handleLogout(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
