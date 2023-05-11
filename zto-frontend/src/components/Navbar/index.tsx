@@ -185,18 +185,16 @@ function ResponsiveAppBar() {
                 component="a"
                 href="/"
                 sx={{
-                  mr: 2,
                   fontFamily: 'monospace',
                   fontWeight: 700,
                   letterSpacing: '.3rem',
                   color: 'inherit',
-                  textDecoration: 'none',
-
+                  textDecoration: 'none'
                 }}
               >
                 ZTO.MN
               </Typography>
-              <Typography>web building</Typography>
+              <Typography>Web building</Typography>
 
             </Box>
 

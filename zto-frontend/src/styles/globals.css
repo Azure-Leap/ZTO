@@ -738,13 +738,18 @@ form.sign-in-form {
 /* catcss end */
 .bounceTemplate{
   background-size: 100% auto;
+  
 }
 .bounceTemplate:hover{
   background-position: center 100%;
-  transition: background-position 15s;
+  transition: background-position 8s;
 }
 
-
+.undur{
+  height: 29px;
+  border-radius: 10px;
+  width: 200px;
+}
 
 
 

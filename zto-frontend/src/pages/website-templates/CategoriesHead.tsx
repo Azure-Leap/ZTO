@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Box, Button, Typography } from "@mui/material";
+import { Grid, Box, Button, Typography, Container } from "@mui/material";
 // import Button from '../editPage/onepirate/modules/components/Button'
 import Search from "./Search";
 import axios from "axios";
@@ -17,6 +17,13 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
       .catch((err) => {});
   }, []);
 
+  const searchWeb = (e: any) => {
+    console.log("fff", e.target.value);
+    const filterWeb = templates.filter((web:any) => web.name?.toLowerCase().includes(e.target.value))
+      setTemplatesFilter(filterWeb) ;
+      // setTemplates(templatesFilter)
+  }
+
   const filterCat = (id :string) => {
     const filterCat = templates.filter((tem:any) => tem?.category._id === id);
     
@@ -24,6 +31,7 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
   };
 
   return (
+    
     <Grid
       sx={{
         position: "sticky",
@@ -33,12 +41,14 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
         flexDirection: "row",
         justifyContent: "space-around",
         mt: "30px",
-        width: "100%",
+        width:  "100%",
         zIndex: "11",
         backgroundColor: "transparent",
         backdropFilter: "saturate(100%) blur(80px)",
+        display:"flex"
       }}
     >
+      <Box sx={{marginLeft:"5%"}}>   
       <Button
           sx={{
             height: "20px",
@@ -74,6 +84,18 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
           {category.title}
         </Button>
       ))}
+      </Box>
+      <Box   sx={{
+            height: "50px",
+            
+            width:"400px",
+            backgroundColor: "none",
+            color: "black",
+            fontSize: "17px",
+          }}>
+          <Search searchWeb = {searchWeb}/>
+        </Box>
+     
     </Grid>
   );
 };

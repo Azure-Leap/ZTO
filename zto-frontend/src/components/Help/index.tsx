@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
 import MarkChatReadIcon from '@mui/icons-material/MarkChatRead';
 import HelpIcon from '@mui/icons-material/Help';
+import Search from '@/pages/website-templates/Search';
 
 const datas=[
   {title: "И-Мэйлээр 7/24", text:"Системтэй холбоотой бүх төрлийн ерөнхий асуулт болон тулгарсан асуудлыг мэйлээр хүлээн авч богино хугацаанд шийдэж өгөх болно. Хувийн шинжтэй имэйлд бид хариу өгөхгүй болохыг анхаарна уу! support@greensoft.mn" , icon:<MarkEmailReadIcon sx={{fontSize:'3rem', color:'#000640'}} />},
@@ -13,16 +14,15 @@ const datas=[
 const Help = () => {
   return (
     <>
-      <Box textAlign={'center'} sx={{ backgroundColor: "#000624", color: "#fff", height: "50vh", py: "50px" }}>
+      <Box textAlign={'center'} sx={{ backgroundColor: "#000624", color: "#fff", height: "25vh", py: "50px" }}>
         <Typography variant='h2'>Танд тусламж хэрэгтэй байна уу?</Typography>
         <Typography variant='h6'>Бид нараас асуух зүйлээ асууна уу?</Typography>
-        <Box sx={{ mx: "auto", my: "50px", border: '1px black solid', width: "650px", borderRadius: "30px", backgroundColor: "#fff", color: '#000' }} >
-          <SearchIcon sx={{ fontSize: "2.5rem", mt: "10px", color: "#0f62e6" }} />
-          {/* <TextField id="standard-basic" placeholder="Search" type="search"  variant="standard"  sx={{width:"600px",  px:'15px', border:'none'}} /> */}
-          <TextField id="standard-basic" placeholder="Search" type="search" sx={{ width: "600px", px: '15px', border: 'none' }} />
+        <Box sx={{margin:"60px 280px 0px 280px"}}>
+        <Search/>
         </Box>
+      
       </Box>
-      <Box textAlign={'center'} py={'50px'}>
+      <Box textAlign={'center'} py={'50px'} sx={{height:"50vh"}}>
         <Typography variant='h3' >Тусламж үйлчилгээ</Typography>
         <Container>
         <Grid container spacing={2} my={'30px'} maxWidth={'100%'} columns={14}>
