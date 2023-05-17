@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaArrowRight, FaArrowsAltH } from "react-icons/fa";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import CloseIcon from "@mui/icons-material/Close";
-import AddReactionIcon from '@mui/icons-material/AddReaction';
+import AddReactionIcon from "@mui/icons-material/AddReaction";
 
 const ChatPot = () => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -11,8 +11,8 @@ const ChatPot = () => {
   const messagesEndRef = useRef(null);
 
   const [messages, setMessage] = useState([
-    "Сайн байна уу?",
-    "Танд юугаар туслах уу?",
+    { message: "Сайн байна уу?", owner: "bot" },
+    { message: "Танд юугаар туслах уу?", owner: "bot" },
   ]);
   const [newMess, setNewMess] = useState();
 
@@ -20,10 +20,10 @@ const ChatPot = () => {
     if (newMess) {
       setMessage([
         ...messages,
-        newMess,
-        "Серверийг засаж байгаа тул түр хүлээнэ үү.",
+        { message: newMess, owner: "user" },
+        { message: "Серверийг засаж байгаа тул түр хүлээнэ үү.", owner: "bot" },
       ]);
-      setNewMess("");
+      setNewMess(``);
     } else {
       return;
     }
@@ -32,8 +32,11 @@ const ChatPot = () => {
   const sendDefaultMessage = () => {
     setMessage([
       ...messages,
-      "Хэрхэн веб сайт худалдаж авах вэ?",
-      `Та доорх "Хэрхэн вэбсайттай болох вэ? " хэсэгтэй танилцана уу.`,
+      { message: "Хэрхэн веб сайт худалдаж авах вэ?", owner: "user" },
+      {
+        message: `Та доорх "Хэрхэн вэбсайттай болох вэ? " хэсэгтэй танилцана уу.`,
+        owner: "bot",
+      },
     ]);
   };
 
@@ -53,93 +56,128 @@ const ChatPot = () => {
     return (
       <Box
         sx={{
-          width: "15%",
+          width: "20%",
           height: "100wh",
           border: 1,
           borderRadius: "21px",
           margin: "20px",
           marginLeft: "80%",
           position: "fixed",
-          bottom: 70,
-          right: 60,
+          bottom: 10,
+          right: 10,
           zIndex: "999999",
         }}
       >
         <Box
           sx={{
             width: "100wh",
-            backgroundColor: "#FFFFFA",
-            height: "3vh",
+            backgroundColor: "#000624",
+            height: "5vh",
             borderTopLeftRadius: "19px",
             borderTopRightRadius: "19px",
             display: "flex",
             paddingLeft: "5%",
+            paddingRight: "5%",
             position: "relative",
             alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          <Avatar
-            sx={{
-              width: "9%",
-              height: "80%",
-            }}
-          ></Avatar>
-          <Typography
-            sx={{
-              padding: 2,
-              display: "flex",
-              alignItems: "center",
-              color: "#101314",
-            }}
-            variant="span"
-          >
-            ZtoBot
-          </Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Avatar
+              sx={{
+                width: "30%",
+                height: 28,
+              }}
+            ></Avatar>
+            <Typography
+              sx={{
+                padding: 2,
+                display: "flex",
+                alignItems: "center",
+                color: "#FFF",
+              }}
+              variant="span"
+            >
+              ZtoBot
+            </Typography>
+          </Box>
           <CloseIcon
             sx={{
               ":hover": { cursor: "pointer" },
-              marginLeft: "40%",
-              color: "#101314",
+              color: "#FFFFFA",
             }}
             onClick={() => setIsOpenChat(!isOpenChat)}
           />
         </Box>
         <Box
           sx={{
-            border: 1,
             width: "100%",
-            height: "30vh",
-            gap: "10px",
-            backgroundColor: "#101314",
+            height: "50vh",
             overflow: "scroll",
-            borderBottom: 1,
+            backgroundColor: "#f0f4f7",
           }}
         >
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-              padding: 2,
-              backgroundColor: "#101314",
+              gap: "5px",
             }}
           >
-            {messages.map((message, idx) => {
+            {messages.map((mess, idx) => {
               return (
-                <Typography
+                <Box
                   key={idx}
-                  variant="p"
                   sx={{
-                    border: 1,
-                    borderColor: "#36454F",
                     borderRadius: "10px",
                     color: "white",
-                    backgroundColor: "#36454F",
-                    padding: 2,
+                    padding: 1,
+                    display: "flex",
+                    // flexDirection: "column",
+                    justifyContent:
+                      mess.owner == "bot" ? "flex-start" : "flex-end",
                   }}
                 >
-                  {message}
-                </Typography>
+                  {mess.owner == "bot" ? (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        marginRight: 1,
+                        gap: 1,
+                      }}
+                    >
+                      <Avatar
+                        sx={{
+                          marginTop: 1,
+                        }}
+                      ></Avatar>
+                      <Box
+                        sx={{
+                          marginRight: 2,
+                          backgroundColor: "#FFFFFF",
+                          padding: 2,
+                          borderRadius: 3,
+                          color: "#506c7f",
+                          display: "inline-block",
+                        }}
+                      >
+                        <Typography>{mess.message}</Typography>
+                      </Box>
+                    </Box>
+                  ) : (
+                    <Box
+                      sx={{
+                        marginLeft: 4,
+                        borderRadius: 3,
+                        backgroundColor: "#cad3dc",
+                        color: "#39586f",
+                        padding: 2,
+                        display: "inline-block",
+                      }}
+                    >
+                      <Typography>{mess.message}</Typography>
+                    </Box>
+                  )}
+                </Box>
               );
             })}
 
@@ -147,23 +185,25 @@ const ChatPot = () => {
           </Box>
         </Box>
         <Box
+          boxShadow={3}
           sx={{
-            borderTop: 1,
             borderBottom: 1,
             borderBottomColor: "#FFFFFA",
-            borderTopColor: "#FFFFFA",
-            backgroundColor: "#101314",
+            backgroundColor: "#000624",
           }}
         >
           <Button
             sx={{
               margin: 1,
-              borderRadius: "20px",
+              borderRadius: 3,
               backgroundColor: "white",
               color: "black",
+              border: 1,
               ":hover": {
-                backgroundColor: "#36454F",
+                backgroundColor: "#000624",
                 color: "#FFFFFA",
+                border: 1,
+                borderColor: "#fffffa",
               },
             }}
             onClick={sendDefaultMessage}
@@ -174,21 +214,20 @@ const ChatPot = () => {
         <Box
           sx={{
             display: "flex",
-            padding: 2,
+            padding: 1,
             borderEndStartRadius: "20px",
             borderEndEndRadius: "20px",
-            borderTop: 1,
-            borderTopColor: "#101314",
-            backgroundColor: "#36454F",
+            backgroundColor: "#000624",
           }}
         >
           <TextField
             id="outlined-basic"
-            label="Have a question?"
+            label="Танд асуух асуулт байна уу?"
             variant="outlined"
             onChange={newMessage}
             value={newMess}
             sx={{
+              width: "80%",
               input: {
                 color: "#FFFFFA",
               },
@@ -216,7 +255,6 @@ const ChatPot = () => {
                 color: "#FFFFFA",
               }}
             >
-              send
               <FaArrowRight />
             </Box>
           </Button>
@@ -227,9 +265,9 @@ const ChatPot = () => {
     return (
       <Box
         sx={{
-          backgroundColor:"#000",
-          borderRadius:"50%",
-         pt:"10px",
+          backgroundColor: "#000",
+          borderRadius: "50%",
+          pt: "10px",
           marginLeft: "80%",
           display: "flex",
           flexDirection: "column",
@@ -238,8 +276,8 @@ const ChatPot = () => {
           position: "fixed",
           bottom: 70,
           right: 60,
-          width:60,
-          height:60,
+          width: 60,
+          height: 60,
           zIndex: 9999999999,
         }}
       >
