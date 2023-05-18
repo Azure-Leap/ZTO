@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
 import MenuItem from '@mui/material/MenuItem';
+import MinFooter from '@/components/MinFooter';
 
 const aboutImg = require('../../assets/img/store.jpg')
 const catType = [
@@ -94,6 +95,7 @@ export default function About() {
         </MenuItem>
       ))}
       </Box>
+      <MinFooter/>
 </Grid> 
   );
 }

@@ -37,7 +37,7 @@ const datas = [
 ];
 const logoImg = require("../../assets/img/zto-logo.png");
 
-const Footer = () => {
+const MinFooter = () => {
   return (
     <Box
       sx={{
@@ -93,7 +93,6 @@ const Footer = () => {
         </Grid>
       </Container>
     </Box>
-  );
+  )
 };
-
-export default Footer;
+export default MinFooter;
