@@ -3,19 +3,28 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Response, Request } from 'express';
+import { MailerService } from '@nestjs-modules/mailer';
+import * as bcrypt from 'bcrypt';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService , private readonly mailerServer:MailerService) {}
 
   @Post('/register')
   async create(@Req() req:Request, @Res() res:Response, @Body() createUserDto: CreateUserDto) {
-    const user= await this.usersService.create(createUserDto);
-    const {username, email, password, phone_number} = user
+
+    const {username, email, password, phone_number} = createUserDto
+
+    const hashedPassword = await bcrypt.hash(password as string, 10);
     try{
       if(!username||!email||!password){
         res.status(400).json({message:"Username, email, password bichne uu?"})
       }
+      const input  = {
+        ... createUserDto,
+        password: hashedPassword,
+      }
+      const user= await this.usersService.create(input);
       res.status(200).json({message: "Hereglegch amjilttai burtgegdlee", user})
     }catch(error){
       res.status(400).json({message:'Hereglegch amjiltgui burtgegdlee',error: error.message})
@@ -43,4 +52,10 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
+
+  // @Post('/forget-password')
+  // async forgetPassword(@Req() req:Request, @Res() res:Response , email:string) {
+  //   console.log(email);
+  //   return  await this.mailerServer.sendMail();
+  // }
 }

@@ -22,13 +22,13 @@ export function AuthProvider({ children }:any):JSX.Element {
   const [user, setUser] = useState(null);
   const [isSignIn, setIsSignIn] = useState(false);
   const [message, setMessage] = useState('');
-
+  
   
 
   useEffect(()=>{
-    const s = localStorage.getItem("user");
-  
-    setUser(JSON.parse(s));
+    const userParse = localStorage.getItem("user");
+    console.log("pp", userParse);
+    setUser(JSON.parse(userParse));
   },[]);
 
    

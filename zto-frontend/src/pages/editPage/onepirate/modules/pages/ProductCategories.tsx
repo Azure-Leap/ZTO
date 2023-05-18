@@ -1,13 +1,9 @@
-import  React, {useContext, useEffect, useState} from 'react';
+import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
-import { TextField } from '@mui/material';
-import axios from 'axios';
-import { EditContext } from '../edit/editContext';
-import Draggable from 'react-draggable';
 
 const ImageBackdrop = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -57,60 +53,62 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
+const images = [
+  {
+    url: 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400',
+    title: 'Snorkeling',
+    width: '40%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400',
+    title: 'Massage',
+    width: '20%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400',
+    title: 'Hiking',
+    width: '40%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400',
+    title: 'Tour',
+    width: '38%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?auto=format&fit=crop&w=400',
+    title: 'Gastronomy',
+    width: '38%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=400',
+    title: 'Shopping',
+    width: '24%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&w=400',
+    title: 'Walking',
+    width: '40%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400',
+    title: 'Fitness',
+    width: '20%',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400',
+    title: 'Reading',
+    width: '40%',
+  },
+];
 
-
-export default function ProductCategories(handleClick, change) {
-  const {currentPosition, onDrag, inputVal} = useContext(EditContext)
-  const [cate, setCate]= useState([]);
-
-const getCat = async()=>{
-  try{
-    const res = await axios('http://localhost:8008/categories');
-    console.log("cate", res.data);
-    setCate(res.data)
-  }catch(err){
-    console.log("ERROR", err);
-  }
-}
-useEffect(()=>{
-  getCat()
-},[]);
- 
-
+export default function ProductCategories() {
   return (
-    <Container component="section" sx={{ mt: 8, mb: 4 }}>
-      {/* <Draggable position={{x:currentPosition.xRate, y:currentPosition.yRate}} onDrag={onDrag} > */}
+    <Container  id='productCategories' component="section" sx={{ mt: 8, mb: 4 }}>
       <Typography variant="h4" marked="center" align="center" component="h2">
-      <TextField
-                  name="catTit"
-                  value={inputVal.catTit.p}
-                  variant="outlined"
-                  id="outlined-multiline-flexible"
-                  fullWidth
-                  rows={4}
-                  // multiline
-                  onClick={handleClick}
-                  onChange={change}
-                  sx={{
-                    width: "600px",
-                    "& fieldset": { border: "none" },
-                    // "& .MuiInputBase-input": {
-                    //   overflow: "hidden",
-                    //   textOverflow: "ellipsis"
-                    // },
-                    input: {
-                      textAlign: "center",
-                      color: inputVal.catTit.color,
-                      fontSize: inputVal.catTit.size,
-                      fontWeight: inputVal.catTit.bold,
-                    },
-                  }}/>
+        For all tastes and all desires
       </Typography>
-      {/* </Draggable> */}
-      {/* <Draggable position={{x:currentPosition.xRate, y:currentPosition.yRate}} onDrag={onDrag} > */}
-
       <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
-        {cate.map((image):any => (
+        {images.map((image) => (
           <ImageIconButton
             key={image.title}
             style={{
@@ -126,12 +124,11 @@ useEffect(()=>{
                 bottom: 0,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 40%',
-                backgroundImage: `url(${image.imgUrl})`,
+                backgroundImage: `url(${image.url})`,
               }}
             />
-            
             <ImageBackdrop className="imageBackdrop" />
-            <Box 
+            <Box
               sx={{
                 position: 'absolute',
                 left: 0,
@@ -143,9 +140,7 @@ useEffect(()=>{
                 justifyContent: 'center',
                 color: 'common.white',
               }}
-              
             >
-            
               <Typography
                 component="h3"
                 variant="h6"
@@ -159,8 +154,6 @@ useEffect(()=>{
           </ImageIconButton>
         ))}
       </Box>
-      {/* </Draggable> */}
-
     </Container>
   );
 }

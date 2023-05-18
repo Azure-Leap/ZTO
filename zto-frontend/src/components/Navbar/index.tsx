@@ -16,12 +16,18 @@ import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from 'next/link';
 import { AuthContext } from '../../context/UserContext';
+import { useRouter } from 'next/router';
+import { CartContext } from '@/context/CartContext';
 
 const pages = [{ title: 'About', link: "/NavAbout" }, { title: 'Pricing', link: '/pricing' }, { title: 'Help', link: '/help' }];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [ 'Dashboard',   'Logout'];
 const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "Website", link: "/website" }, { name: "One page", link: "/one-page" }, { name: 'eStore', link: "/eStore" }]
 function ResponsiveAppBar() {
+  const history = useRouter();
+
   const {user, setIsSignIn, setUser} = useContext(AuthContext)
+  const {cartItems} = useContext(CartContext);
+  console.log( cartItems, "-----------------")
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [anchorElTem, setAnchorElTem] = React.useState<null | HTMLElement>(null);
@@ -46,11 +52,15 @@ function ResponsiveAppBar() {
   const handleCloseTem = () => {
     setAnchorElTem(null);
   };
+  const logOut = ()=>{
+    setUser(null);
+      localStorage.removeItem("user");
+      history.push("/");
+  }
 
  const handleLogout = (oper)=>{
      if(oper === "Logout"){
-      setUser(null);
-      localStorage.removeItem("user");
+      logOut();
      }
  }
   
@@ -64,7 +74,7 @@ function ResponsiveAppBar() {
   }));
 
   return (
-    <AppBar position="static" sx={{ textAlign: "center", backgroundColor: "#fff", color: "#000" }}>
+    <AppBar position="sticky" sx={{ textAlign: "center", backgroundColor: "transparent", color: "#000", backdropFilter:"blur(50px)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
@@ -183,7 +193,7 @@ function ResponsiveAppBar() {
                 variant="h6"
                 noWrap
                 component="a"
-                href="/"
+                href="/home"
                 sx={{
                   mr: 2,
                   fontFamily: 'monospace',
@@ -223,15 +233,19 @@ function ResponsiveAppBar() {
               </Button>
             </Box> :
             <Box>
-           <IconButton aria-label="cart" sx={{px:'20px'}} >
-              <StyledBadge badgeContent={4} color="secondary">
-                <ShoppingCartIcon/>
-              </StyledBadge>
-            </IconButton>
+              <Link href="/cart">
+                  <IconButton aria-label="cart" sx={{px:'20px'}} >
+                    {cartItems?.length > 0 ? 
+                      <StyledBadge badgeContent={cartItems.length} color="secondary">
+                        <ShoppingCartIcon sx={{color:"#000"}}/>
+                      </StyledBadge> : 0 }
+   
+                    </IconButton>
+              </Link>
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user.name} src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user.name} src={user.profileImg} sx={{color:"#000", backgroundColor:"transparent"}} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -250,8 +264,12 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={()=> handleLogout(setting)}>
+              <MenuItem>
+                <Link href='/profile'>Profile</Link>
+
+              </MenuItem>
+              {settings.map((setting, idx) => (
+                <MenuItem key={idx} onClick={()=> handleLogout(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -13,11 +13,13 @@ const MinFooter = () => {
     <Box >
       <Box
         sx={{
-            marginTop:"150px",
+            // marginTop:"10px",
           display: "flex",
           justifyContent: "space-around",
           padding: "3vh",
           borderTop: 1,
+          backgroundColor:"#000010",
+          color:"white"
         
         }}
       >

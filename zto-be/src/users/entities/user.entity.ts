@@ -1,9 +1,13 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 @Schema({timestamps:true})
-export class Users {
-    @Prop()
+export class User {
+    @Prop({required: true})
     username: String;
+    @Prop()
+    gender: String;
+    @Prop({default: "https://res.cloudinary.com/dso5fsmob/image/upload/v1684228158/w5jkw5vx8fupimlyhrc3.png"})
+    profileImg: String;
     @Prop({required: true})
     email: String;
     @Prop({required: true})
@@ -16,4 +20,4 @@ export class Users {
     address: String;
 }
 
-export const UserSchema = SchemaFactory.createForClass(Users)
+export const UserSchema = SchemaFactory.createForClass(User)

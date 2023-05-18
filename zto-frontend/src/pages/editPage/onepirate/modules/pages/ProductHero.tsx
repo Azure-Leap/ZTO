@@ -12,7 +12,8 @@ export default function ProductHero({ handleClick , change}:any) {
   const {inputVal }= React.useContext(EditContext)
 
   return (
-    <ProductHeroLayout
+    <Box id="productHero">
+    <ProductHeroLayout 
       sxBackground={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundColor: "#7fc7d9", // Average color of the background image.
@@ -116,5 +117,6 @@ export default function ProductHero({ handleClick , change}:any) {
         />
       </Typography>
     </ProductHeroLayout>
+    </Box>
   );
 }
