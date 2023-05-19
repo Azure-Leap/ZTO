@@ -18,6 +18,7 @@ const Login = () => {
   const [phone_number, setPhoneNumber] = useState();
   const [alert, setAlert] = useState(false);
   const [status, setStatus] = useState(false);
+  // const [forgetPass, setForgetPass] = useState(false);
 
   const handleClick = async (e: any) => {
     try {
@@ -26,7 +27,7 @@ const Login = () => {
         "http://localhost:9010/auth/login",
         { email, password }
       );
-      console.log(res);
+      console.log("firstUser",res.data.user);
       setUser(res.data.user);
       localStorage.setItem("user", JSON.stringify(res.data.user.user))
       setMessage(res.data.message);
@@ -48,7 +49,7 @@ const Login = () => {
     try {
       e.preventDefault();
       const res = await axios.post(
-        "https://zto-server.onrender.com/users/register",
+        "http://localhost:9010/users/register",
         { email, password, username, phone_number }
       );
       // console.log(res);
@@ -56,7 +57,7 @@ const Login = () => {
       console.log(res);
       setAlert(true);
       setStatus(true);
-      history.push("/auth");
+      setIsSignIn(true)
     } catch (err) {
       console.log("err", err);
     }
@@ -76,8 +77,10 @@ const Login = () => {
       </Snackbar>
 
       <div className={`container ${isSignIn ? "sign-up-mode" : ""}`}>
+        
         <div className="forms-container">
           <div className="signin-signup">
+           
             <form className="sign-in-form">
               <h2 className="title">Sign in</h2>
 
@@ -106,6 +109,7 @@ const Login = () => {
                 className="btn solid"
                 onClick={handleClick}
               />
+              <a href="#forgetPass">Forget passwort?</a>
               <p className="social-text">Or Sign in with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">

@@ -23,7 +23,7 @@ const EditProvider = ({children}:any) => {
     button:{p:"REGISTER", color:"#FFF", size:"1rem", bold:"600"},
     p1:{p:"Discover the experience", color:"#FFF", size:"1rem", bold:"400"},
     valTit1:{p:"THE BEST LUXURY HOTELS", color:"#000", size:"1rem", bold:"600"},
-    valText1:{p:"From the latest trendy boutique hotel to the iconic palace with XXL pool, go for a mini-vacation just a few subway stops away from your home.", color:"#000", size:"1rem", bold:"400"},
+    valText1:{p:"From the latest trendy boutique hotel  to the iconic palace with XXL pool, go for a mini-vacation just a few subway stops away from your home.", color:"#000", size:"1rem", bold:"400"},
     valTit2:{p:"NEW EXPERIENCES", color:"#000", size:"1rem", bold:"600"},
     valText2:{p:"Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… your Sundays will not be alike.", color:"#000", size:"1rem", bold:"400"},
     valTit3:{p:"EXCLUSIVE RATES", color:"#000", size:"1rem", bold:"600"},

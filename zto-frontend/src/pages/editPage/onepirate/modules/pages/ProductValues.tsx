@@ -19,7 +19,7 @@ function ProductValues({ handleClick , change }: any) {
   const { inputVal  } = React.useContext(EditContext);
 
   return (
-    <Box
+    <Box id="productValues"
       component="section"
       sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
     >
@@ -50,6 +50,7 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
+                   
                     input: {
                       textAlign: "center",
                       color: inputVal.valTit1.color,
@@ -65,16 +66,13 @@ function ProductValues({ handleClick , change }: any) {
                   value={inputVal.valText1.p}
                   variant="outlined"
                   rows={4}
-                  multiline
+                  // multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    // "& .MuiInputBase-input": {
-                    //   overflow: "hidden",
-                    //   textOverflow: "ellipsis"
-                    // },
+                    
                     input: {
                       textAlign: "center",
                       color: inputVal.valText1.color,
@@ -105,10 +103,7 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    // "& .MuiInputBase-input": {
-                    //   overflow: "hidden",
-                    //   textOverflow: "ellipsis"
-                    // },
+                    
                     input: {
                       textAlign: "center",
                       color: inputVal.valTit2.color,
@@ -117,27 +112,18 @@ function ProductValues({ handleClick , change }: any) {
                     },
                   }}/>
               </Typography>
-              {/* <Typography variant="h5">
-                {
-                  "Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… "
-                }
-                {"your Sundays will not be alike."}
-              </Typography> */}
+              <Typography variant="h5">
               <TextField
                   name="valText2"
                   value={inputVal.valText2.p}
                   variant="outlined"
                   rows={4}
-                  // multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    // "& .MuiInputBase-input": {
-                    //   overflow: "hidden",
-                    //   textOverflow: "ellipsis"
-                    // },
+                    
                     input: {
                       textAlign: "center",
                       color: inputVal.valText2.color,
@@ -145,6 +131,8 @@ function ProductValues({ handleClick , change }: any) {
                       fontWeight: inputVal.valText2.bold,
                     },
                   }}/>
+              </Typography>
+             
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -163,15 +151,10 @@ function ProductValues({ handleClick , change }: any) {
                   variant="outlined"
                   fullWidth
                   rows={4}
-                  // multiline                 
                   onChange={change}
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    // "& .MuiInputBase-input": {
-                    //   overflow: "hidden",
-                    //   textOverflow: "ellipsis"
-                    // },
                     input: {
                       textAlign: "center",
                       color: inputVal.valTit3.color,
@@ -187,16 +170,12 @@ function ProductValues({ handleClick , change }: any) {
                   value={inputVal.valText3.p}
                   variant="outlined"
                   rows={4}
-                  // multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    // "& .MuiInputBase-input": {
-                    //   overflow: "hidden",
-                    //   textOverflow: "ellipsis"
-                    // },
+                    
                     input: {
                       textAlign: "center",
                       color: inputVal.valText3.color,
