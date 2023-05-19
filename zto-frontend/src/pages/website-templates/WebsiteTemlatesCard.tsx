@@ -27,28 +27,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
 
   // }
 
-  // const updateCard = (product: { _id: any; price: any }, type: string) => {
-  //   const localCard = localStorage.getItem("card") as string;
-  //   const prev = JSON.parse(localCard);
-  //   let items: any[] = [];
-  //   if (prev) {
-  //     items = [...prev];
-  //   }
-
-  //   const prevProductIdx = items?.findIndex((item) => item?.product?._id === product?._id);
-
-  //   console.log(type);
-  //   if (prevProductIdx > -1) {
-  //     const cnt = type === "inc" ? items[prevProductIdx].quantity + 1 : items[prevProductIdx].quantity - 1;
-  //     if (cnt < 0) return;
-  //     items[prevProductIdx].quantity = cnt;
-  //     items[prevProductIdx].totalPrice = cnt * items[prevProductIdx].product.price;
-  //   } else {
-  //     items.push({ product, quantity: 1, totalPrice: product.price });
-  //   }
-  //   localStorage.setItem("card", JSON.stringify(items));
-  //   setCartItems(items);
-  // };
+ 
 
 
   return isLoading&&templates? (
@@ -99,7 +78,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
               >
                 {template.category?.title}
               </Typography>
-              <IconButton  onClick={()=> addCart(template)} >
+              <IconButton  onClick={()=> addCart(template, "inc")} >
                 <AddShoppingCartIcon sx={{color:"green", fontSize:"1.5rem"}}/>
               </IconButton>
             </Box>

@@ -10,8 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 const CartWeb = () => {
-  const {  cartItems }:any = useContext(CartContext);
-  const [count, setCount] = useState(1)
+  const {  cartItems, setCartItems, addCart }:any = useContext(CartContext);
   // const { user } = useContext(AuthContext);
   
   // const getCarts = async () => {
@@ -41,9 +40,6 @@ const CartWeb = () => {
 
   // }
   
-  const deleteCart= ()=>{
-  }
-
   // useEffect(() => {
   //   getCarts();
   // }, [changeState]);
@@ -54,12 +50,46 @@ const CartWeb = () => {
     
   // }
 
+  const removeCart=(id:any)=>{
+    console.log(id)
+    const filteredItems = cartItems?.filter((e:any )=>e.template._id !== id);
+    console.log(filteredItems )
+    localStorage.setItem("cart", JSON.stringify(filteredItems));
+     setCartItems(filteredItems)
+  }
+
+  // console.log("hi,---", cartItems);
+  // const niilberShirheg = cartItems?.reduce((acc: any, item: any) => acc + item.quantity, 0);
+
+  // console.log(niilberShirheg, "shirheg");
+  // const niilberUne = cartItems?.reduce((acc: any, item: any) => acc + item.quantity * item.product.price, 0);
+
+  // console.log(niilberUne, "niilberune");
+
+   
+  // console.log("hi,---", cartItems);
+  // const niilberShirheg = cartItems?.reduce((acc: any, item: any) => acc + item.quantity, 0);
+
+  // console.log(niilberShirheg, "shirheg");
+  // const niilberUne = cartItems?.reduce((acc: any, item: any) => acc + item.quantity * item.product.price, 0);
+
+// const deleteItem = ()=>{
+//   console.log("de", cartItems);
+//   localStorage.removeItem("cart", cartItems );
+//   setCartItems(cartItems)
+// }
+
+const orderTotal = cartItems.reduce((ac, cur)=> ac += cur.totalPrice, 0)
+
+console.log(orderTotal, "ordertotal")
   return (
     <>
     <Container>
         <Grid container
               spacing={2} marginY={"15px"}  >
-          <Grid item xs={12} sm={12} md={7} lg={8}>           
+                {/* <Button onClick={()=>deleteItem(cartItems)} >delete</Button> */}
+          <Grid item xs={12} sm={12} md={7} lg={8}>  
+                   
             {cartItems?.map((item :any, idx:any)=>
             <Grid key={idx}
               container
@@ -92,7 +122,7 @@ const CartWeb = () => {
                     <Box
                     className="bounceTemplate"
                     sx={{
-                      backgroundImage: `url(${item?.image})`,
+                      backgroundImage: `url(${item?.template.image})`,
                       backgroundRepeat: "no-repeat",
                       width: "100%",
                       height: "100%",
@@ -106,18 +136,28 @@ const CartWeb = () => {
                 </Box>
               </Grid>
               <Grid item xs={4} mr={2} mt={10}>
-                <Typography variant="h3" sx={{fontWeight:600, }}>{item?.name}</Typography>
-                <Typography variant="h6" sx={{fontSize: "0.9rem"}}>Website type: {item?.webType}</Typography>
-                <Typography variant="h5" sx={{my:"10px"}}><span style={{fontSize:"1.3rem", fontWeight:"600"}}>Price:</span> {item?.price}$</Typography>
-                <Typography variant="body1"> <span style={{fontSize:"1.3rem", fontWeight:"600"}}> Description:</span>  {item?.detail}</Typography>
+                <Typography variant="h4" sx={{fontWeight:600, }}>{item?.template.name}</Typography>
+                <Typography variant="h6" sx={{fontSize: "0.9rem"}}>Website type: {item?.template.webType}</Typography>
+                <Typography variant="h5" sx={{my:"10px"}}><span style={{fontSize:"1.3rem", fontWeight:"600"}}>Price:</span> {item?.template.price}$</Typography>
+                <Typography variant="body1"> <span style={{fontSize:"1.3rem", fontWeight:"600"}}> Description:</span>  {item?.template.detail}</Typography>
                 <Box>
                   <Typography variant="h5" mt={"10px"} >Quantity</Typography>
-                  <Box>
+                  <Box sx={{display:"flex", textAlign:"center", fontSize:"1.5rem"}}>
+                    <Box sx={{border:"1px solid black", width:"40px", height:"40px"}}
+                    onClick={()=> addCart(item.template, "inc")}
+                    >+</Box>
+                    <Typography sx={{border:"1px solid black", width:"40px", height:"40px"}} >{item.quantity}</Typography>
+                    <Box sx={{border:"1px solid black", width:"40px", height:"40px"}}
+                      onClick={()=> addCart(item.template, "-")}
+                    >-</Box>
 
                   </Box>
                 </Box>
+                <Typography variant="h5" sx={{fontWeight:400, mt:"10px" }}>Total price: {item?.totalPrice} $</Typography>
                 <Box sx={{mt:"50px", float:"right"}}>
-                  <IconButton aria-label="delete" sx={{fontSize:"1.5rem"}} onClick={deleteCart} >
+                  <IconButton aria-label="delete" sx={{fontSize:"1.5rem"}} 
+                  onClick={()=>removeCart(item.template._id)}
+                  >
                     <DeleteIcon sx={{color:"red"}} /> <Typography>Remove</Typography>
                   </IconButton>
                   {/* <IconButton aria-label="delete" sx={{fontSize:"1.5rem"}} onClick={()=>deleteCart(item._id)} >
@@ -131,13 +171,12 @@ const CartWeb = () => {
           </Grid>
           <Grid item xs={12} sm={12} md={4} lg={3.3} sx={{ m:"25px"  }}>        
               <Box sx={{ textAlign:"center",  px:"10px" ,  backgroundColor:"#FFF",  border:"1px solid #ffc400", height:"300px",  borderRadius:"20px",
-                               boxShadow:
-                               "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+                boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
                   
             }}>
                 <Typography variant="h6"  >Order total</Typography>
                 <hr/>
-                <Typography variant="h3">200$</Typography>
+                <Typography variant="h3">{orderTotal}$</Typography>
                 <Button variant="contained"  sx={{mt:"20px", backgroundColor:"orange", width:"100%", fontWeight:600}}>Checkout now</Button>
                 <Typography variant="body1" my={"10px"}> *By proceeding with your purchase you agree with these Terms of Use.</Typography>
               </Box>

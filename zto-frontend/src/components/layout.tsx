@@ -2,10 +2,12 @@ import MinFooter from "./MinFooter/index"
 import ResponsiveAppBar from "./Navbar"
 
 const Layout  = ({children}:any)=>{
-    return <div className=" h-screen flex flex-col justify-between">
+    return <div 
+    // className=" h-screen flex flex-col justify-between"
+    >
     <ResponsiveAppBar/>
     {children}
-    <MinFooter/>
+    {/* <MinFooter/> */}
     </div>
 }
 
