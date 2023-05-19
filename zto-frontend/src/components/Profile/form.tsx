@@ -16,6 +16,7 @@ import React, { useContext, useState } from "react";
 
 const FromInfo = () => {
   const {user}:any = useContext(AuthContext);
+   console.log("userPro", user);
 
   const [email, setEmail] = useState(user?.email);
   const [password, setPassword] = useState(user?.password);

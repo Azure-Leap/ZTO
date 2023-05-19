@@ -7,7 +7,8 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import DoNotDisturbOnIcon from '@mui/icons-material/DoNotDisturbOn';
 import NotStartedIcon from '@mui/icons-material/NotStarted';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';+
+import Link from "next/link";
 
 const CartWeb = () => {
   const {  cartItems, setCartItems, addCart }:any = useContext(CartContext);
@@ -177,7 +178,9 @@ console.log(orderTotal, "ordertotal")
                 <Typography variant="h6"  >Order total</Typography>
                 <hr/>
                 <Typography variant="h3">{orderTotal}$</Typography>
-                <Button variant="contained"  sx={{mt:"20px", backgroundColor:"orange", width:"100%", fontWeight:600}}>Checkout now</Button>
+                <Link href="/Payment">
+                  <Button variant="contained"  sx={{mt:"20px", backgroundColor:"orange", width:"100%", fontWeight:600}} >Checkout now</Button>
+                </Link>
                 <Typography variant="body1" my={"10px"}> *By proceeding with your purchase you agree with these Terms of Use.</Typography>
               </Box>
 

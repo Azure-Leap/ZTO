@@ -24,7 +24,7 @@ const ProfileImg = () => {
             src={user?.profileImg}
             width={250}
             height={250}
-            alt={user.name}
+            alt={user?.name}
             style={{
               borderRadius: "50%",
             }}
@@ -40,7 +40,7 @@ const ProfileImg = () => {
         </Box>
         <Box sx={{ textAlign: "center", mt: "45px" }}>
           <Typography gutterBottom variant="h5" component="div">
-            {user.name}
+            {user?.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Senior Software Engineer
