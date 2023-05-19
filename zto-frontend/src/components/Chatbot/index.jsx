@@ -74,7 +74,7 @@ const ChatPot = () => {
     return (
       <Box
         sx={{
-          width: "20%",
+          width: "18%",
           height: "100wh",
           borderRadius: "21px",
           margin: "20px",
@@ -89,7 +89,7 @@ const ChatPot = () => {
         <Box
           sx={{
             width: "100wh",
-            backgroundColor: "#000624",
+            backgroundColor: "#3e8dee",
             height: "5vh",
             borderTopLeftRadius: "19px",
             borderTopRightRadius: "19px",
@@ -152,7 +152,7 @@ const ChatPot = () => {
         <Box
           sx={{
             width: "100%",
-            height: "45vh",
+            height: "35vh",
             overflow: "scroll",
             backgroundColor: "#f0f4f7",
           }}
@@ -228,7 +228,7 @@ const ChatPot = () => {
           sx={{
             borderBottom: 1,
             borderBottomColor: "#FFFFFA",
-            backgroundColor: "#000624",
+            backgroundColor: "#3e8dee",
             display: "flex",
             justifyContent: "flex-end",
           }}
@@ -240,8 +240,9 @@ const ChatPot = () => {
               backgroundColor: "white",
               color: "black",
               border: 1,
+              borderColor: "#3e8dee",
               ":hover": {
-                backgroundColor: "#000624",
+                backgroundColor: "#3e8dee",
                 color: "#FFFFFA",
                 border: 1,
                 borderColor: "#fffffa",
