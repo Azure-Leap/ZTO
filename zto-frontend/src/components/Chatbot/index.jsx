@@ -1,6 +1,9 @@
 import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
 import React, { useState, useRef, useEffect } from "react";
-import { FaArrowRight, FaArrowsAltH } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { BsFillSendFill } from "react-icons/bs";
+import { FiMinus } from "react-icons/fi";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
@@ -52,13 +55,27 @@ const ChatPot = () => {
     messagesEndRef.current?.scrollIntoView();
   }, [messages]);
 
+  const keyDownHandler = (event) => {
+    console.log("pressed:", event.key);
+    if (event.key == "Enter") {
+      event.preventDefault();
+      sendMessage();
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      keyDownHandler();
+    }
+  };
+  // document.removeEventListener("keydown", keyDownHandler);
+
   if (isOpenChat == true) {
     return (
       <Box
         sx={{
           width: "20%",
           height: "100wh",
-          border: 1,
           borderRadius: "21px",
           margin: "20px",
           marginLeft: "80%",
@@ -66,6 +83,7 @@ const ChatPot = () => {
           bottom: 10,
           right: 10,
           zIndex: "999999",
+          boxShadow: 10,
         }}
       >
         <Box
@@ -80,40 +98,61 @@ const ChatPot = () => {
             paddingRight: "5%",
             position: "relative",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar
-              sx={{
-                width: "30%",
-                height: 28,
-              }}
-            ></Avatar>
-            <Typography
-              sx={{
-                padding: 2,
-                display: "flex",
-                alignItems: "center",
-                color: "#FFF",
-              }}
-              variant="span"
-            >
-              ZtoBot
-            </Typography>
-          </Box>
-          <CloseIcon
+          <Box
             sx={{
               ":hover": { cursor: "pointer" },
               color: "#FFFFFA",
             }}
-            onClick={() => setIsOpenChat(!isOpenChat)}
-          />
+          >
+            <FiMinus onClick={() => setIsOpenChat(!isOpenChat)} />
+          </Box>
+        </Box>
+        <Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "#fffffa",
+              padding: 1,
+              paddingX: 3,
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Box sx={{ display: "flex" }}>
+              <Avatar
+                sx={{
+                  width: "38%",
+                  height: 28,
+                }}
+              ></Avatar>
+              <Typography
+                sx={{
+                  padding: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#101314",
+                }}
+                variant="span"
+              >
+                ZtoBot
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <RiArrowDropDownLine
+                style={{ height: 30, width: 30 }}
+                onClick={() => console.log("DROPDOWNNNN")}
+              />
+            </Box>
+          </Box>
         </Box>
         <Box
           sx={{
             width: "100%",
-            height: "50vh",
+            height: "45vh",
             overflow: "scroll",
             backgroundColor: "#f0f4f7",
           }}
@@ -190,6 +229,8 @@ const ChatPot = () => {
             borderBottom: 1,
             borderBottomColor: "#FFFFFA",
             backgroundColor: "#000624",
+            display: "flex",
+            justifyContent: "flex-end",
           }}
         >
           <Button
@@ -213,51 +254,66 @@ const ChatPot = () => {
         </Box>
         <Box
           sx={{
-            display: "flex",
             padding: 1,
-            borderEndStartRadius: "20px",
-            borderEndEndRadius: "20px",
-            backgroundColor: "#000624",
+            backgroundColor: "#fffffa",
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10,
           }}
         >
-          <TextField
-            id="outlined-basic"
-            label="Танд асуух асуулт байна уу?"
-            variant="outlined"
-            onChange={newMessage}
-            value={newMess}
+          <Box
             sx={{
-              width: "80%",
-              input: {
-                color: "#FFFFFA",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "#101314",
-                },
-                "&:hover fieldset": {
-                  borderColor: "#FFFFFA",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "#FFFFFA",
-                },
-              },
+              display: "flex",
+              padding: 1,
+              borderEndStartRadius: "2px",
+              borderEndEndRadius: "2px",
+              backgroundColor: "#fffffa",
+              borderBottom: 1,
+              borderBottomColor: "#8da0b2",
             }}
-            InputLabelProps={{
-              style: { color: "#fff" },
-            }}
-          />
-          <Button onClick={sendMessage}>
-            <Box
+          >
+            <TextField
+              id="outlined-basic"
+              label="Танд асуух асуулт байна уу?"
+              variant="outlined"
+              onChange={newMessage}
+              value={newMess}
               sx={{
-                display: "flex",
-                alignItems: "center",
-                color: "#FFFFFA",
+                width: "80%",
+                height: "70%",
+                input: {
+                  color: "#101314",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderBottom: "none",
+                    borderTop: "none",
+                    borderLeft: "none",
+                    borderRight: "none",
+                  },
+                  "&:hover fieldset": {
+                    borderBottomColor: "none",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderBottomColor: "none",
+                  },
+                },
               }}
-            >
-              <FaArrowRight />
-            </Box>
-          </Button>
+              InputLabelProps={{
+                style: { color: "#8da0b2" },
+              }}
+            />
+            <Button onClick={sendMessage}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#FFFFFA",
+                }}
+              >
+                <BsFillSendFill style={{ color: "#101314" }} />
+              </Box>
+            </Button>
+          </Box>
         </Box>
       </Box>
     );
@@ -267,17 +323,16 @@ const ChatPot = () => {
         sx={{
           backgroundColor: "#000",
           borderRadius: "50%",
-          pt: "10px",
           marginLeft: "80%",
           display: "flex",
-          flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
           ":hover": { cursor: "pointer" },
           position: "fixed",
           bottom: 70,
           right: 60,
-          width: 60,
-          height: 60,
+          width: 70,
+          height: 70,
           zIndex: 9999999999,
         }}
       >
