@@ -16,6 +16,7 @@ import DoNotDisturbOnIcon from "@mui/icons-material/DoNotDisturbOn";
 import NotStartedIcon from "@mui/icons-material/NotStarted";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import Layout from "@/components/layout";
 
 const CartWeb = () => {
   const { cartItems, setCartItems, addCart }: any = useContext(CartContext);
@@ -92,7 +93,7 @@ const CartWeb = () => {
 
   // console.log(orderTotal, "ordertotal");
   return (
-    <>
+    <Layout>
       <Container>
         <Grid container spacing={2} marginY={"15px"}>
           {/* <Button onClick={()=>deleteItem(cartItems)} >delete</Button> */}
@@ -278,7 +279,7 @@ const CartWeb = () => {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </Layout>
   );
 };
 

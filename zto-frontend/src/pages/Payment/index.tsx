@@ -3,6 +3,7 @@ import PayStep from "@/components/PayStep";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import StepTwo from "@/components/PayStep/StepTwo";
 import StepThree from "@/components/PayStep/StepThree";
+import Layout from "@/components/layout";
 
 const index = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -31,6 +32,7 @@ const index = () => {
 
   
   return (
+    <Layout>
     <Box className="paymentBody">
       <Box
         sx={{
@@ -60,6 +62,7 @@ const index = () => {
         </Box>
       </Box>
     </Box>
+    </Layout>
   );
 };
 

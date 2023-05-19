@@ -5,6 +5,7 @@ import {Pagination} from '@mui/material'
 import CategoriesHead from './CategoriesHead'
 import WebsiteTemlatesCard from './WebsiteTemlatesCard'
 import axios from 'axios'
+import Layout from '@/components/layout'
 
 
 const WebTemlate = () => {
@@ -28,6 +29,7 @@ const WebTemlate = () => {
     getTemp()
   },[] )
   return (
+    <Layout>
     <Grid sx={{textAlign:"center", margin:"0% 11% 0% 11%"}}>
       <Typography variant='h3' sx={{padding:"100px 0px 20px 0px"}}>
           WEBSITE TEMPLATES
@@ -43,6 +45,7 @@ const WebTemlate = () => {
     </Grid>
           <Pagination sx={{marginLeft:"35%", marginTop:"2%"}} count={100} color="primary" />
     </Grid>
+    </Layout>
   )
 }
 

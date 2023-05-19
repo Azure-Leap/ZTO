@@ -10,6 +10,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Card from '@mui/material/Card';
 import MinFooter from '@/components/MinFooter';
+import Layout from '@/components/layout';
 
 interface Column {
   id: 'name' | 'code' | 'population' | 'size' | 'density';
@@ -94,7 +95,7 @@ const index = () => {
     setPage(0);
   };
   return (
-    <>
+    <Layout>
     <Container>
        <Grid sx={{textAlign:"center"}}>
       <Box>
@@ -261,8 +262,7 @@ functional and beautiful</Typography>
 <Button sx={{backgroundColor:"black", color:"white", margin:"5% 5% 5% 5%", borderRadius:"20px", width:"200px"}}>Go Home!</Button>
     </Grid>
     </Container>
-     <MinFooter/>
-</>
+</Layout>
    
   )
 }

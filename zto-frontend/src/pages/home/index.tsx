@@ -7,10 +7,12 @@ import { Container } from "@mui/material";
 import SecondSection from "@/components/secondSection";
 import About from "@/components/About";
 import Footer from "../../components/Footer/index";
+import Layout from "@/components/layout";
 
 export default function Home() {
   return (
     <>
+    <Layout>
       <main className="bg-white, absolute">
         <ProductHero />
         {/* <CustomCursor /> */}
@@ -21,6 +23,7 @@ export default function Home() {
         <WebSteppers />
         <Footer />
       </main>
+      </Layout>
     </>
   );
 }

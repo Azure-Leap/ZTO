@@ -8,6 +8,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
 import MenuItem from '@mui/material/MenuItem';
 import MinFooter from '@/components/MinFooter';
+import Layout from '@/components/layout';
 
 const aboutImg = require('../../assets/img/store.jpg')
 const catType = [
@@ -52,6 +53,7 @@ const catType = [
 ];
 export default function About() {    
   return (
+    <Layout>
     <Grid sx={{marginBottom:"20", marginTop:"10px", minHeight:'100vh'}}>
        <Typography variant='h3' sx={{textAlign:"center", marginTop:"40px", marginBottom:"40px"}}>Бидний тухай</Typography>
        <Box className="Aboutprofile-container" sx={{display:"flex", alignItems:"center", justifyContent:"center"}}>
@@ -95,7 +97,7 @@ export default function About() {
         </MenuItem>
       ))}
       </Box>
-      <MinFooter/>
 </Grid> 
+</Layout>
   );
 }
