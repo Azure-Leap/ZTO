@@ -7,20 +7,13 @@ import { useRouter } from "next/router";
 import CartProvider from "@/context/CartContext";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const {pathname} = useRouter()
-
-  if(pathname == "/auth" || pathname == "/editPage"){
-    return <AuthProvider> 
-       <Component {...pageProps} />
-     </AuthProvider>
-  }else{
-
-  return <AuthProvider>
-          <CartProvider>
-          <Layout>       
-              <Component {...pageProps} />
-            </Layout>
-          </CartProvider>
-        </AuthProvider>
-  }
+  return (
+    <AuthProvider>
+      <CartProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </CartProvider>
+    </AuthProvider>
+  );
 }
