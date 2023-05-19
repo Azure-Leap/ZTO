@@ -236,7 +236,7 @@ function ResponsiveAppBar() {
                     {cartItems?.length > 0 ? 
                       <StyledBadge badgeContent={cartItems.length} color="secondary">
                         <ShoppingCartIcon sx={{color:"#000"}}/>
-                      </StyledBadge> : 0 }
+                      </StyledBadge> : <ShoppingCartIcon sx={{color:"#000"}}/> }
    
                     </IconButton>
               </Link>

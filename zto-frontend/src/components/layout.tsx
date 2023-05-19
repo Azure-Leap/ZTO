@@ -7,7 +7,7 @@ const Layout  = ({children}:any)=>{
     >
     <ResponsiveAppBar/>
     {children}
-    <MinFooter/>
+    {/* <MinFooter/> */}
     </div>
 }
 
