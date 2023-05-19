@@ -11,6 +11,8 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CloudinaryService } from './cloudinary/cloudinary.service';
+import { MailerModule, MailerService } from '@nestjs-modules/mailer';
+import { CartsModule } from './carts/carts.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { CloudinaryService } from './cloudinary/cloudinary.service';
     AuthModule,
     UsersModule,
     CloudinaryModule,
+    MailerModule,
+    CartsModule
   ],
   controllers: [AppController],
   providers: [AppService, CloudinaryService],

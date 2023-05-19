@@ -4,6 +4,7 @@ import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { AuthGuard } from './auth.guard';
 import { Request, Response } from 'express';
+import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -20,6 +21,7 @@ export class AuthController {
     res.status(200).json({message:'Hereglegch amjilttai newterlee', user})
    }
   }
+ 
 
   @UseGuards(AuthGuard)
   @Get("profile")

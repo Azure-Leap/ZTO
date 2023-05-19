@@ -1,11 +1,13 @@
-import React from "react";
-import Home from "./home";
+import React, { useEffect } from "react";
+import Home from ".";
+import { useRouter } from "next/router";
 
 const index = () => {
-  
-  return <div>
-    <Home/>
-  </div>;
+  const router = useRouter()
+  useEffect(()=>{
+    router.push('./home')
+  }, [])
+  return <></>
 };
 
 export default index;

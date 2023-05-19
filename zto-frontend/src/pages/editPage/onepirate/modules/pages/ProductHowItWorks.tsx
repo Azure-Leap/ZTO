@@ -31,7 +31,7 @@ const image = {
 function ProductHowItWorks({handleClick, change}:any) {
   const {inputVal} = React.useContext(EditContext)
   return (
-    <Box
+    <Box id='productHowItWork'
       component="section"
       sx={{ display: 'flex', bgcolor: 'secondary.light', overflow: 'hidden' }}
     >
@@ -63,7 +63,6 @@ function ProductHowItWorks({handleClick, change}:any) {
                   variant="outlined"
                   fullWidth
                   rows={4}
-                  // multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{
@@ -93,9 +92,6 @@ function ProductHowItWorks({handleClick, change}:any) {
                   name="workP1"
                   value={inputVal.workP1.p}
                   variant="outlined"
-                  fullWidth
-                  rows={4}
-                  // multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{
@@ -125,9 +121,7 @@ function ProductHowItWorks({handleClick, change}:any) {
                   name="workP2"
                   value={inputVal.workP2.p}
                   variant="outlined"
-                  fullWidth
                   rows={4}
-                  multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{
@@ -157,9 +151,7 @@ function ProductHowItWorks({handleClick, change}:any) {
                   name="workP3"
                   value={inputVal.workP3.p}
                   variant="outlined"
-                  fullWidth
                   rows={4}
-                  multiline
                   onClick={handleClick}
                   onChange={change}
                   sx={{

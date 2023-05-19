@@ -11,6 +11,8 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
     "@ckeditor/ckeditor5-react": "^6.0.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.17",
     "@mui/icons-material": "^5.11.16",
@@ -30,11 +32,14 @@
     "node-sass": "^7.0.3",
     "path": "^0.12.7",
     "react": "18.2.0",
+    "react-avatar-edit": "^1.2.0",
     "react-dom": "18.2.0",
     "react-draggable": "^4.4.5",
     "react-final-form": "^6.5.9",
     "react-icons": "^4.8.0",
     "react-is": "^18.2.0",
+    "react-scroll": "^1.8.9",
+    "react-slick": "^0.29.0",
     "sass": "^1.62.0",
     "swiper": "^9.2.2",
     "typescript-react-draggable": "^1.0.0"

@@ -1,21 +1,37 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Box, Link, CircularProgress } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
+import { Grid, Box, Link, CircularProgress, IconButton } from "@mui/material";
 import Typography from "../editPage/onepirate/modules/components/Typography";
 import { Button } from "@mui/material";
 import axios from "axios";
 import Search from "./Search";
-import {Container} from "@mui/material";
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { AuthContext } from "@/context/UserContext";
+import { CartContext } from "@/context/CartContext";
 
 const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, templatesFilter }:any) => {
   // console.log("templates", templates);
+  // const {user} = useContext(AuthContext)
  const [webList, setWebList] = useState([...templates])
+ const {addCart, setCartItems}:any =useContext(CartContext)
 
  
   console.log('weblist',templates);
+
+  // const addCart = async(id:any)=>{
+  //   try{
+  //     const res = await axios.post("http://localhost:9010/carts", {user:user._id, website:id});
+  //     console.log("ca", res.data);
+  //   }catch(err){
+  //     console.log("err", err);
+  //   }
+
+  // }
+
+ 
+
+
   return isLoading&&templates? (
-<Container>
-<Box> 
+      <Box> 
         {!templatesFilter.length && <Box>Олдсонгүй</Box>}
   
        <Box sx={{display:"flex", gap:"40px", flexDirection:"row",flexWrap:"wrap",}}>
@@ -50,18 +66,22 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
             }}
           >
             <Typography variant="h6">{template?.name}</Typography>
-            <Typography
-              sx={{
-                background: "gray",
-                width: "80px",
-                textAlign:"center",
-                padding: "2px",
-                opacity: "0.5",
-                borderRadius: "5px",
-              }}
-            >
-              {template.category?.title}
-            </Typography>
+            <Box sx={{display:"flex", justifyContent:"space-between"}}>
+              <Typography
+                sx={{
+                  background: "gray",
+                  width: "80px",
+                  padding: "2px",
+                  opacity: "0.5",
+                  borderRadius: "5px",
+                }}
+              >
+                {template.category?.title}
+              </Typography>
+              <IconButton  onClick={()=> addCart(template, "inc")} >
+                <AddShoppingCartIcon sx={{color:"green", fontSize:"1.5rem"}}/>
+              </IconButton>
+            </Box>
             <Box sx={{ display: "flex", gap: "10px" }}>
               <Link
                 href={template.demoLink}
@@ -75,7 +95,8 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
               >
                 PREVIEW
               </Link>
-              <Button
+              <Link
+              href={template.editLink}
                 sx={{
                   background: "gray",
                   border: "solid 2px gray",
@@ -85,8 +106,8 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
                   borderRadius: "0",
                 }}
               >
-                EDIT
-              </Button>
+                Edit
+              </Link>
               <Button
                 sx={{
                   background: "gray",
@@ -103,12 +124,13 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
           </Box>
         </Grid>
       ))}
-</Box>
-       </Box>
-</Container>
-  ):<Box sx={{ display: 'flex' }}>
+      </Box>
+      </Box>
+  ):<Box sx={{ display: 'flex', height:'100vh' }}>
   <CircularProgress />
 </Box>
+
+  
 };
 
 export default WebsiteTemlatesCard;
