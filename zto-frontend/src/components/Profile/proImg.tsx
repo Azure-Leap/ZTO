@@ -1,12 +1,12 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import axios from "axios";
 import { AuthContext } from "@/context/UserContext";
 
 const Avatar = dynamic(() => import("react-avatar-edit"), {
-  ssr: false
-}) 
+  ssr: false,
+});
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -45,7 +45,7 @@ const UploadImg = ({ open, handleClose }: any) => {
     const res = await axios.post(`http://localhost:9010/upload`, form);
     if (res) {
       console.log("prokkk", res);
-      const updateUser = { ...user, profileImg: res?.data?.secure_url};
+      const updateUser = { ...user, profileImg: res?.data?.secure_url };
       const res2 = await axios.put(
         `http://localhost:9010/users/${user._id}`,
         updateUser
