@@ -89,7 +89,7 @@ const ChatPot = () => {
         <Box
           sx={{
             width: "100wh",
-            backgroundColor: "#3e8dee",
+            backgroundColor: "#3e80ee",
             height: "5vh",
             borderTopLeftRadius: "19px",
             borderTopRightRadius: "19px",
@@ -140,12 +140,6 @@ const ChatPot = () => {
               >
                 ZtoBot
               </Typography>
-            </Box>
-            <Box sx={{}}>
-              <RiArrowDropDownLine
-                style={{ height: 30, width: 30 }}
-                onClick={() => console.log("DROPDOWNNNN")}
-              />
             </Box>
           </Box>
         </Box>
@@ -228,7 +222,7 @@ const ChatPot = () => {
           sx={{
             borderBottom: 1,
             borderBottomColor: "#FFFFFA",
-            backgroundColor: "#3e8dee",
+            backgroundColor: "#3e80ee",
             display: "flex",
             justifyContent: "flex-end",
           }}
@@ -264,7 +258,6 @@ const ChatPot = () => {
           <Box
             sx={{
               display: "flex",
-              padding: 1,
               borderEndStartRadius: "2px",
               borderEndEndRadius: "2px",
               backgroundColor: "#fffffa",
@@ -303,7 +296,18 @@ const ChatPot = () => {
                 style: { color: "#8da0b2" },
               }}
             />
-            <Button onClick={sendMessage}>
+            <Box
+              sx={{
+                height: "100wh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                ":hover": {
+                  cursor: "pointer",
+                },
+              }}
+              onClick={sendMessage}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -313,7 +317,7 @@ const ChatPot = () => {
               >
                 <BsFillSendFill style={{ color: "#101314" }} />
               </Box>
-            </Button>
+            </Box>
           </Box>
         </Box>
       </Box>
