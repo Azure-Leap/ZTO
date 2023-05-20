@@ -1582,3 +1582,10 @@ content: '';
   -o-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
+.box {
+  position: absolute;
+  background-color: hotpink;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+}

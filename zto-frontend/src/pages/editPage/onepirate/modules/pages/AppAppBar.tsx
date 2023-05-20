@@ -3,6 +3,10 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import AppBar from '../components/AppBar';
 import Toolbar from '../components/Toolbar';
+import Onepirate from '../Moves/Navbar/Onepirate';
+
+import Singin from '..//Moves/Navbar/Singin';
+import Singup from '../Moves/Navbar/Signup';
 
 const rightLink = {
   fontSize: 16,
@@ -15,6 +19,7 @@ function AppAppBar() {
     <div>
         <Toolbar sx={{ justifyContent: 'space-between' , backgroundColor:"#28282a" }}>
           <Box sx={{ flex: 1 }} />
+         
           <Link
             variant="h6"
             underline="none"
@@ -22,7 +27,7 @@ function AppAppBar() {
             href="/premium-themes/onepirate/"
             sx={{ fontSize: 24 }}
           >
-            {'onepirate'}
+         <Onepirate/>
           </Link>
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
             <Link
@@ -32,7 +37,7 @@ function AppAppBar() {
               href="/premium-themes/onepirate/sign-in/"
               sx={rightLink}
             >
-              {'Sign In'}
+          <Singin/>
             </Link>
             <Link
               variant="h6"
@@ -40,7 +45,7 @@ function AppAppBar() {
               href="/premium-themes/onepirate/sign-up/"
               sx={{ ...rightLink, color: 'secondary.main' }}
             >
-              {'Sign Up'}
+              <Singup/>
             </Link>
           </Box>
         </Toolbar>

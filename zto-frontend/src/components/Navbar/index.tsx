@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useEffect, useState, useMemo } from 'react';
+import React, {useContext, } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -76,6 +76,7 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            
             <IconButton
               size="large"
               aria-label="account of current user"
