@@ -81,6 +81,7 @@ const ChatPot = () => {
           marginLeft: "80%",
           position: "fixed",
           bottom: 10,
+          backgroundColor:"white",
           right: 10,
           zIndex: "999999",
           boxShadow: 10,
@@ -89,7 +90,7 @@ const ChatPot = () => {
         <Box
           sx={{
             width: "100wh",
-            backgroundColor: "#3e80ee",
+            backgroundColor: "#98d6fb",
             height: "5vh",
             borderTopLeftRadius: "19px",
             borderTopRightRadius: "19px",
@@ -193,7 +194,7 @@ const ChatPot = () => {
                           display: "inline-block",
                         }}
                       >
-                        <Typography>{mess.message}</Typography>
+                        <Typography sx={{fontSize:"14px"}}>{mess.message}</Typography>
                       </Box>
                     </Box>
                   ) : (
@@ -207,7 +208,7 @@ const ChatPot = () => {
                         display: "inline-block",
                       }}
                     >
-                      <Typography>{mess.message}</Typography>
+                      <Typography sx={{fontSize:"14px"}}>{mess.message}</Typography>
                     </Box>
                   )}
                 </Box>
@@ -220,9 +221,9 @@ const ChatPot = () => {
         <Box
           boxShadow={3}
           sx={{
-            borderBottom: 1,
+           
             borderBottomColor: "#FFFFFA",
-            backgroundColor: "#3e80ee",
+            backgroundColor: "#98d6fb",
             display: "flex",
             justifyContent: "flex-end",
           }}
@@ -230,16 +231,20 @@ const ChatPot = () => {
           <Button
             sx={{
               margin: 1,
+              width:"100%",
               borderRadius: 3,
+              height:"50px",
               backgroundColor: "white",
               color: "black",
               border: 1,
+              fontSize:"12px",
               borderColor: "#3e8dee",
               ":hover": {
-                backgroundColor: "#3e8dee",
-                color: "#FFFFFA",
+                backgroundColor: "#E0FFFF",
+                color: "black",
                 border: 1,
                 borderColor: "#fffffa",
+                
               },
             }}
             onClick={sendDefaultMessage}
@@ -249,7 +254,6 @@ const ChatPot = () => {
         </Box>
         <Box
           sx={{
-            padding: 1,
             backgroundColor: "#fffffa",
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
@@ -257,6 +261,7 @@ const ChatPot = () => {
         >
           <Box
             sx={{
+             justifyContent:"space-between",
               display: "flex",
               borderEndStartRadius: "2px",
               borderEndEndRadius: "2px",
@@ -265,6 +270,7 @@ const ChatPot = () => {
               borderBottomColor: "#8da0b2",
             }}
           >
+            <Box sx={{padding:1}}>
             <TextField
               id="outlined-basic"
               label="Танд асуух асуулт байна уу?"
@@ -272,8 +278,10 @@ const ChatPot = () => {
               onChange={newMessage}
               value={newMess}
               sx={{
-                width: "80%",
+                
                 height: "70%",
+                padding:"5px",
+                height:"50px",
                 input: {
                   color: "#101314",
                 },
@@ -293,9 +301,11 @@ const ChatPot = () => {
                 },
               }}
               InputLabelProps={{
-                style: { color: "#8da0b2" },
+                style: { color: "#8da0b2" , fontSize:"14px"},
               }}
             />
+            </Box>
+         
             <Box
               sx={{
                 height: "100wh",
@@ -304,19 +314,22 @@ const ChatPot = () => {
                 justifyContent: "center",
                 ":hover": {
                   cursor: "pointer",
+                  backgroundColor:"#FFF5EE"
                 },
               }}
               onClick={sendMessage}
             >
-              <Box
+              <Button   
                 sx={{
                   display: "flex",
-                  alignItems: "center",
                   color: "#FFFFFA",
-                }}
-              >
+                  height:"20px"
+               
+                }}>
+           
                 <BsFillSendFill style={{ color: "#101314" }} />
-              </Box>
+           
+              </Button>
             </Box>
           </Box>
         </Box>

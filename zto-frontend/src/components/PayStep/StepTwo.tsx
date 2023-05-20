@@ -67,7 +67,7 @@ const onCvvFocus = () => {
               <Box className="flex-vertical-center">
                 <i className="ai-bitcoin-fill size-xl pr-sm f-main-color"></i>
                 <span className="title">
-                  <strong>AceCoin</strong><span>Pay</span>
+                  <strong>ZTO</strong><span>Pay</span>
                 </span>
               </Box>
             </Box>
