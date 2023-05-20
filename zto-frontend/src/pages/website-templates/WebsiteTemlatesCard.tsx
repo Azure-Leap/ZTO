@@ -34,9 +34,10 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
       <Box> 
         {!templatesFilter.length && <Box>Олдсонгүй</Box>}
   
-       <Box sx={{display:"flex", gap:"40px", flexDirection:"row",flexWrap:"wrap",}}>
+       <Box sx={{display:"flex", gap:"40px", flexDirection:"row",  flexWrap:"wrap", alignContent:"center", alignItems:"center",  justifyContent:"space-around"}}>
 {templatesFilter.map((template:any, idx:any) => (
         <Grid  key={idx} 
+        className="WEB"
           sx={{
             mb:"40px",
             background: "white",
@@ -48,6 +49,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
           <Box
               className="bounceTemplate"
               sx={{
+                zIndex:"2",
                 backgroundImage: `url(${template.image})`,
                 backgroundRepeat: "no-repeat",
                 width: "555px",
@@ -58,6 +60,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
             ></Box>
           <Box
             sx={{
+              
               display: "flex",
               flexDirection: "column",
               gap: "20px",
@@ -65,15 +68,16 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
               textAlign: "left",
             }}
           >
-            <Typography variant="h6">{template?.name}</Typography>
             <Box sx={{display:"flex", justifyContent:"space-between"}}>
               <Typography
+              className="BAT"
                 sx={{
                   background: "gray",
                   width: "80px",
                   padding: "2px",
                   opacity: "0.5",
                   borderRadius: "5px",
+                  textAlign:"center"
                 }}
               >
                 {template.category?.title}
@@ -82,8 +86,9 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
                 <AddShoppingCartIcon sx={{color:"green", fontSize:"1.5rem"}}/>
               </IconButton>
             </Box>
-            <Box sx={{ display: "flex", gap: "10px" }}>
+            <Box  sx={{ display: "flex", gap: "30px" }}>
               <Link
+              className="BUT"
                 href={template.demoLink}
                 sx={{
                   border: "solid 2px black",
@@ -91,11 +96,13 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
                   width: "80px",
                   padding: "13px",
                   borderRadius: "0",
+                  textAlign:"center"
                 }}
               >
                 PREVIEW
               </Link>
               <Link
+              className="BUT"
               href={template.editLink}
                 sx={{
                   background: "gray",
@@ -104,22 +111,11 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
                   width: "150px",
                   padding: "13px",
                   borderRadius: "0",
+                  textAlign:"center"
                 }}
               >
                 Edit
               </Link>
-              <Button
-                sx={{
-                  background: "gray",
-                  border: "solid 2px gray",
-                  color: "white",
-                  width: "150px",
-                  padding: "13px",
-                  borderRadius: "0",
-                }}
-              >
-                BUY
-              </Button>
             </Box>
           </Box>
         </Grid>

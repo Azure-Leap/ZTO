@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef, useEffect, useState, useMemo } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -63,7 +63,6 @@ function ResponsiveAppBar() {
       logOut();
      }
  }
-  
   const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     '& .MuiBadge-badge': {
       right: -3,
@@ -72,12 +71,10 @@ function ResponsiveAppBar() {
       padding: '0 4px',
     },
   }));
-
   return (
     <AppBar position="sticky" sx={{ textAlign: "center", backgroundColor: "transparent", color: "#000", backdropFilter:"blur(50px)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -117,10 +114,8 @@ function ResponsiveAppBar() {
                 <MenuItem key={idx} onClick={handleCloseNavMenu}>
                   <Link href={page.link}>{page.title}</Link>
                 </MenuItem>
-
               ))}
             </Menu>
-
           </Box>
           <Typography
             variant="h5"
@@ -186,7 +181,6 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 1.5, display: { xs: 'none', md: 'flex' }, }}>
             <Box sx={{ textAlign: "center" }}>
               <Typography
@@ -205,9 +199,7 @@ function ResponsiveAppBar() {
                 ZTO.MN
               </Typography>
               <Typography>Web building</Typography>
-
             </Box>
-
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {!user?
@@ -216,7 +208,6 @@ function ResponsiveAppBar() {
                 console.log("SIGNIN");
                 setIsSignIn(false)
               }}>
-
                 <Link href='/auth'> 
                   Login
                </Link>
@@ -237,7 +228,6 @@ function ResponsiveAppBar() {
                       <StyledBadge badgeContent={cartItems.length} color="secondary">
                         <ShoppingCartIcon sx={{color:"#000"}}/>
                       </StyledBadge> : 0 }
-   
                     </IconButton>
               </Link>
 
@@ -264,7 +254,6 @@ function ResponsiveAppBar() {
             >
               <MenuItem>
                 <Link href='/profile'>Profile</Link>
-
               </MenuItem>
               {settings.map((setting, idx) => (
                 <MenuItem key={idx} onClick={()=> handleLogout(setting)}>

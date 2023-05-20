@@ -6,6 +6,11 @@ import Layout from "@/components/layout";
 import { useRouter } from "next/router";
 import CartProvider from "@/context/CartContext";
 
+
+
+
+
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
