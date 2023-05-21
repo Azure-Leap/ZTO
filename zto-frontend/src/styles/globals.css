@@ -40,7 +40,6 @@ a {
 .side {
   display: grid;
   overflow: hidden;
-
   position: absolute;
 }
 #left-side {
@@ -1588,4 +1587,58 @@ content: '';
   height: 60px;
   width: 60px;
   cursor: pointer;
+}
+.TemplateBlue{
+  color:blue
+}
+
+
+
+
+.TemplateMove {
+  animation: TemplateMove_css linear 30s forwards infinite;
+  transform-style: preserve-3d;
+  margin-top: 3%;
+
+
+}
+@keyframes TemplateMove_css {
+  0%,
+  100% {
+    -webkit-transform: translateY(5%);
+  }
+  50% {
+    -webkit-transform: translateY(-30%);
+  }
+}
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+.TemplateMoveTwo {
+  animation: TemplateMoveTwo_css linear 30s forwards infinite;
+  transform-style: preserve-3d;
+  margin-top: 3%;
+  
+}
+@keyframes TemplateMoveTwo_css {
+  0%,
+  100% {
+    -webkit-transform: translateY(-30%);
+  }
+  50% {
+    -webkit-transform: translateY(5%);
+  }
+}
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
