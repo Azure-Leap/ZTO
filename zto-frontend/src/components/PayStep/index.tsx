@@ -13,12 +13,7 @@ export default function App({ activeStep, nextStep, prevStep }: any): any {
         borderRadius: "15px",
       }}
     >
-      {/* <Stepper
-        activeStep={activeStep}
-        sx={{ background: "white", borderRadius: "20px", padding: 2 }}
-      >
-       
-      </Stepper> */}
+
       <Box sx={{ display: "flex", justifyContent: "space-around" }}>
         <Button
           sx={{

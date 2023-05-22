@@ -14,7 +14,8 @@ const HeroSectionWhite = () => {
           "url(https://pinecone.mn/background.webp)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        maxWidth:"100%"
+        maxWidth:"100%",
+       
       }}
     >
       <Box sx={{ color:"#000"}}>

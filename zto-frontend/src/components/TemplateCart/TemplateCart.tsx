@@ -3,7 +3,7 @@ import { Box, Grid, Typography, Link, Container } from '@mui/material'
 import { CardMedia } from '@mui/material';
 import Cart from './Cart';
 
-const Lol = () => {
+const TemplateCart = () => {
   return (
     <Grid sx={{width:"100%",  height:"86vh", backgroundColor:"#F0FFFF", zIndex:"10", overflow:"hidden"}}>
         <Grid sx={{ display:"flex"}}>
@@ -152,4 +152,4 @@ const Lol = () => {
   )
 }
 
-export default Lol
+export default TemplateCart

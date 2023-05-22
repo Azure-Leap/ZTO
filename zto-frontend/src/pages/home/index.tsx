@@ -3,25 +3,31 @@ import ProductHero from "@/pages/home/views/ProductHero";
 import Chatbot from "../../components/Chatbot"
 import TemplateList from "@/components/templateCard";
 import WebSteppers from "@/components/process";
-import { Container } from "@mui/material";
 import SecondSection from "@/components/secondSection";
 import About from "@/components/About";
 import Footer from "../../components/Footer/index";
-import Lol from "@/components/TemplateCart/Lol";
+import TemplateCart from "@/components/TemplateCart/TemplateCart";
+import {Box} from "@mui/material";
 
 export default function Home() {
   return (
     <>
       <main className="bg-white, absolute">
+        <Box>
         <ProductHero />
+        </Box>
+   
         {/* <CustomCursor /> */}
-        <SecondSection />
+        <Box sx={{marginTop:{lg:"0px", xs:"10px"}}}>  <SecondSection /></Box>
+      
         {/* <TemplateList /> */}
-        <Lol/>
+        <TemplateCart/>
         <About />
         <Chatbot/>
         <WebSteppers />
         <Footer />
+  
+      
       </main>
     </>
   );

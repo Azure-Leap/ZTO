@@ -17,6 +17,7 @@ const HeroSectionDark = () => {
         backgroundRepeat: "no-repeat",
         backgroundColor: "black",
         maxWidth: "100%",
+        
       }}
     >
       <Box sx={{ color:"#fff", textAlign:"center", marginTop:"5%"}}>

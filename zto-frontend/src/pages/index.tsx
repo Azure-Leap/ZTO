@@ -6,6 +6,7 @@ import WebSteppers from "@/components/process";
 import SecondSection from "@/components/secondSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import TemplateCart from "@/components/TemplateCart/TemplateCart";
 
 export default function Home() {
   return (
@@ -14,8 +15,8 @@ export default function Home() {
         <ProductHero />
         {/* <CustomCursor /> */}
         <SecondSection />
-      
-        <TemplateList />
+      <TemplateCart/>
+        {/* <TemplateList /> */}
         <About />
         <Chatbot />
         <WebSteppers />

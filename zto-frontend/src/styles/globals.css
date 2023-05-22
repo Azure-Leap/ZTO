@@ -1472,7 +1472,7 @@ content: '';
 @keyframes bounceInRight {
   0% {
     opacity: 0;
-    transform: translateX(2000px);
+    transform: translateX(40px);
   }
 
   60% {

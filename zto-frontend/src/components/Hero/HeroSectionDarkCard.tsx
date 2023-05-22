@@ -131,13 +131,13 @@ const img = require("../../assets/img/screenshot.jpg");
 
 export default function DarkCard() {
   return (
-    <Grid sx={{ display: "flex", gap: "0.5%", width:"100vw" }}>
+    <Grid sx={{ display:"flex" , gap: "0.5%", width:"100vw" }}>
       {catType.map((card) => (
         <MenuItem key={card.time}>
           <Grid
             sx={{
             
-              width: "100%",
+              width: {lg: "100%", sm: "30%"},
               borderRadius: "16px",
               boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
               background: "black",
@@ -149,8 +149,8 @@ export default function DarkCard() {
                 backgroundImage: `url(https://packages.microweberapi.com/meta/microweber-templates-template-tony/611/screenshot.jpg)`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize:"cover",
-                width: "400px",
-                height: "350px",
+                width: {lg:"450px", sm: "150px"},
+                height: {lg: "350px", sm:"75px"},
                 backgroundPosition: "center 0",
                 display: "block",
                 borderRadius:"20px 20px 0px 0px"

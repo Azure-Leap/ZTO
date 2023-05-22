@@ -61,7 +61,7 @@ export default function BasicGrid() {
     <Box >
     <Container>
     <Box sx={{textAlign:'center'}}>
-      <Box sx={{ mx:'35%' }}>
+      <Box sx={{ mx:{lg:"35%"} }}>
         <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px' }}>5W</Typography>
         <Typography variant='h3' sx={{pl:'100px'}} >   <Test/></Typography>
       </Box>   
