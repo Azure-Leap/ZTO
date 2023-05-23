@@ -13,9 +13,7 @@ import EditForm from "./modules/edit/editForm";
 
 function Index({handleClick, change}:any) {
   
-
   return (
-
       <React.Fragment>
         <Box>
           <AppAppBar />
