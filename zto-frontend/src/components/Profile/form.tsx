@@ -15,30 +15,36 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 
 const FromInfo = () => {
-  const {user}:any = useContext(AuthContext);
+  const {user, setUser, changeUser, setChangeUser}:any = useContext(AuthContext);
    console.log("userPro", user);
 
-  const [email, setEmail] = useState(user?.email);
-  const [password, setPassword] = useState(user?.password);
-  const [username, setUserName] = useState(user?.username);
-  const [phone_number, setPhoneNumber] = useState(user?.phone_number);
-  const [gender, setGender] = useState(user?.gender);
-  const [role, setRole] = useState(user?.role);
-  const [address, setAddress] = useState(user?.address);
+  // const [email, setEmail] = useState(user?.email);
+  // const [password, setPassword] = useState(user?.password);
+  // const [username, setUserName] = useState(user?.username);
+  // const [phone_number, setPhoneNumber] = useState(user?.phone_number);
+  // const [gender, setGender] = useState(user?.gender);
+  // const [role, setRole] = useState(user?.role);
+  // const [address, setAddress] = useState(user?.address);
 
   const updateUser = async(id:any)=>{
-    console.log("id", id);
+    // console.log("ooid", id);
     try{
-      const res = await axios.put(`http://localhost:9010/users/${id}`, user );
+      const res = await axios.put(`http://localhost:9010/users/${id}`, user  );  
+      console.log("update user");   
+      setChangeUser(!changeUser)
+      
     }catch(err){
       console.log("err", err);
     }
-
   }
+
+  const handleChange = (e:any) => {
+      setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
 
   return (
     <>
-      <form >
         <Typography variant="h3" sx={{color:"#262b40"}}>
           General Information
         </Typography>
@@ -48,10 +54,10 @@ const FromInfo = () => {
               placeholder="Enter user name"
               label='User name'
               variant="outlined"
-              value={username}
+              name="username"
+              value={user?.username}
               fullWidth
-              required
-              onChange={(e) => setUserName(e.target.value)}
+              onChange={handleChange}
             />
           </Grid>
           <Grid xs={12} sm={6} item>
@@ -61,9 +67,9 @@ const FromInfo = () => {
               placeholder="Enter password"
               variant="outlined"
               fullWidth
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              name="password"
+              value={user?.password}
+              onChange={handleChange}
             />
           </Grid>
           <Grid item xs={12}>
@@ -71,24 +77,22 @@ const FromInfo = () => {
               type="email"
               label='Email'
               placeholder="Enter email"
-              value={email}
+              name="email"
+              value={user?.email}
               variant="outlined"
               fullWidth
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              onChange={handleChange}
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
-              type="text"
-              label='Phone number'
-              placeholder="Enter phone number"
-              value={phone_number}
+          <TextField
+              label="phone number"
               variant="outlined"
-              fullWidth
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              required
+              name="phone_number"
+              value={user?.phone_number}
+              onChange={handleChange}
             />
+            
           </Grid>
           <Grid xs={12} sm={6} item>
             <FormControl fullWidth>
@@ -96,9 +100,10 @@ const FromInfo = () => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={gender}
+                name="gender"
+                value={user?.gender}
                 label="gender"
-                onChange={(e) => setGender(e.target.value)}
+                onChange={handleChange}
               >
                 <MenuItem value={"Male"}>Male</MenuItem>
                 <MenuItem value={"female"}>Female</MenuItem>
@@ -112,9 +117,10 @@ const FromInfo = () => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={role}
+                name="role"
+                value={user?.role}
                 label="role"
-                onChange={(e) => setRole(e.target.value)}
+                onChange={handleChange}
               >
                 <MenuItem value={"Admin"}>Admin</MenuItem>
                 <MenuItem value={"User"}>User</MenuItem>
@@ -125,10 +131,11 @@ const FromInfo = () => {
             <TextField
               type="text"
               placeholder="Enter address"
-              value={address}
+              name="address"
+              value={user?.address}
               variant="outlined"
               fullWidth
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={handleChange}
               required
             />
           </Grid>
@@ -157,7 +164,7 @@ const FromInfo = () => {
             </Button>
           </Grid>
         </Grid>
-      </form>
+
     </>
   );
 };

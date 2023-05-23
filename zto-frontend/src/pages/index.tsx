@@ -1,29 +1,10 @@
-import NavAppBar from "@/components/Navbar";
-import ProductHero from "@/pages/home/views/ProductHero";
-import Chatbot from "@/components/Chatbot";
-import TemplateList from "@/components/templateCard";
-import WebSteppers from "@/components/process";
-import { Container } from "@mui/material";
-import SecondSection from "@/components/secondSection";
-import About from "@/components/About";
-import Footer from "@/components/Footer";
-import Layout from "@/components/layout";
+import Home from "./home";
 
-export default function Home() {
+
+export default function index() {
   return (
     <>
-    <Layout>
-      <main className="bg-white, absolute">
-        <ProductHero />
-        {/* <CustomCursor /> */}
-        <SecondSection />
-        <TemplateList />
-        <About />
-        <Chatbot />
-        <WebSteppers />
-        <Footer />
-      </main>
-      </Layout>
+    <Home/>
     </>
   );
 }

@@ -1,8 +1,18 @@
-import React from 'react'
-import { Box, TextField, Button, Typography, Input } from "@mui/material";
+import React, { useContext } from 'react'
+import { Box, TextField, Button, Typography, Input, IconButton } from "@mui/material";
 import { useState } from 'react';
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import axios from 'axios';
+import { CartContext } from '@/context/CartContext';
+
 
 const StepTwo = () => {
+  const {orders}:any = useContext(CartContext)
+  console.log("payOrder", orders)
+
+  // const {cartItems}:any =useContext(CartContext);
+	// console.log(cartItems, "payCart");
+
   const [cardNumber, setCardNumber] = useState("2417 3125 3544 3546");
 const [cvvNumber, setCvvNumber] = useState("327");
 const [expiryMonth, setExpiryMonth] = useState("09");
@@ -20,29 +30,16 @@ const formatCardNumber = (cardNumber: string) => {
   return groups ? groups.join(" ") : "";
 };
 
-const handleFullNameChange = (event: any) => {
-  setFullName(event.target.value);
-};
 
-const handleCvvNumberChange = (event: any) => {
-  setCvvNumber(event.target.value);
-};
-
-const handleExpiryMonthChange = (event: any) => {
-  setExpiryMonth(event.target.value);
-};
-
-const handleExpiryYearChange = (event: any) => {
-  setExpiryYear(event.target.value);
-};
-
-const handlePasswordChange = (event: any) => {
-  setPassword(event.target.value);
-};
 
 const onCvvFocus = () => {
   setIsFlip(!isFlip);
 };
+
+// const addPayment = async()=>{
+//  const res = await axios.post("http://localhost:9010/payments", {cartNumber} )
+// }
+
   return (
            <Box
            sx={{     margin: "auto",
@@ -60,6 +57,9 @@ const onCvvFocus = () => {
           >
 			<Box>
     <Box sx={{  backgroundColor:"white", padding:"20px"}} className="p-5 bod-3">
+        <IconButton href='/website-templates/cart'>
+          <ArrowCircleLeftOutlinedIcon />
+        </IconButton>
       <Box className="row">
         <Box  className="col-lg-8 col-md-12">
           <form>
@@ -67,7 +67,7 @@ const onCvvFocus = () => {
               <Box className="flex-vertical-center">
                 <i className="ai-bitcoin-fill size-xl pr-sm f-main-color"></i>
                 <span className="title">
-                  <strong>AceCoin</strong><span>Pay</span>
+                  <strong>ZTO</strong><span>Pay</span>
                 </span>
               </Box>
             </Box>
@@ -102,13 +102,16 @@ const onCvvFocus = () => {
                 <Box className="card-property-value flex-vertical-center">
                   <Box className="input-container half-width">
                     <input   value={expiryMonth}
-                    onChange={handleExpiryMonthChange}
+                    onChange={(e)=>setExpiryMonth(e.target.value)}
+                    // onChange={handleExpiryMonthChange}
                     maxLength={2} className="numbers month-own" data-def="00" type="text" data-bound="mm_mock" placeholder="MM" />
                   </Box>
                   <span className="m-md">/</span>
                   <Box className="input-container half-width">
                     <input  value={expiryYear}
-                    onChange={handleExpiryYearChange}
+                     onChange={(e)=>setExpiryYear(e.target.value)}
+
+                    // onChange={handleExpiryYearChange}
                     maxLength={2} className="numbers year-own" data-def="01" type="text" data-bound="yy_mock" placeholder="YYYY" />
                   </Box>
                 </Box>
@@ -124,7 +127,8 @@ const onCvvFocus = () => {
                     <input     
                       maxLength={3}
                   value={cvvNumber}
-                  onChange={handleCvvNumberChange}
+                  onChange={(e)=>setCvvNumber(e.target.value)}
+                  // onChange={handleCvvNumberChange}
                   onFocus={onCvvFocus}
                   onBlur={onCvvFocus} id="cvc" placeholder="Card CVV"  type="password" />
                     <i id="cvc_toggler" data-target="cvc" className="ai-eye-open pointer"></i>
@@ -140,7 +144,8 @@ const onCvvFocus = () => {
                 <Box className="card-property-value">
                   <Box className="input-container">
                     <input      value={fullName}
-                  onChange={handleFullNameChange}
+                    onChange={(e)=>setFullName(e.target.value)}
+                  // onChange={handleFullNameChange}
                   maxLength={25} id="name" data-bound="name_mock" data-def="Mr. Cardholder" type="text" className="uppercase" placeholder="CARDHOLDER NAME" />
                     <i className="ai-person"></i>
                   </Box>
@@ -154,7 +159,9 @@ const onCvvFocus = () => {
                 <Box className="card-property-value">
                   <Box className="input-container">
                     <input     value={password}
-                  onChange={handlePasswordChange}
+                    onChange={(e)=>setPassword(e.target.value)}
+
+                  // onChange={handlePasswordChange}
                   maxLength={8} id="phone" type="text" placeholder="Your Mobile No." />
                     <i className="ai-phone"></i>
                   </Box>
@@ -199,10 +206,11 @@ const onCvvFocus = () => {
                 </strong>
                 <Box className="size-md pb-md">
                   <strong>
-                  <Input
+                  <Input 
                   sx={{color:"white", outline:"none", border:"none", }}
                     type="text"
                     value={cardNumber}
+                    onChange={(e)=>setCardNumber(e.target.value)}
                     className="text-white text-base font-bold outline-none bg-transparent border-none"
                   />
                   </strong>
@@ -227,7 +235,7 @@ const onCvvFocus = () => {
             <ul className="purchase-props">
               <li className="flex-between">
                 <span>Company</span>
-                <strong>Apple</strong>
+                <strong>ZTO LLC</strong>
               </li>
               <li className="flex-between">
                 <span>Order number</span>
@@ -235,7 +243,7 @@ const onCvvFocus = () => {
               </li>
               <li className="flex-between">
                 <span>Product</span>
-                <strong>MacBook Air</strong>
+                <strong>IPhone</strong>
               </li>
               <li className="flex-between">
                 <span>VAT (20%)</span>
@@ -248,7 +256,7 @@ const onCvvFocus = () => {
             <Box className="flex-fill flex-vertical">
               <Box className="total-label f-secondary-color">You have to Pay</Box>
               <Box>
-                <strong>549</strong>
+                <strong>{}</strong>
                 <small>.99 <span className="f-secondary-color">USD</span></small>
               </Box>
             </Box>

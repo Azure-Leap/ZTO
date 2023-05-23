@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PayStep from "@/components/PayStep";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import StepTwo from "@/components/PayStep/StepTwo";
 import StepThree from "@/components/PayStep/StepThree";
 import Layout from "@/components/layout";
+import { CartContext } from "@/context/CartContext";
 
 const index = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -46,12 +47,7 @@ const index = () => {
 
           <StepThree/>
    
-        ) : activeStep === 2 ? (
-          
-		fdf
-        ) : (
-          <></>
-        )}
+        ) : activeStep === 2 }
 
         <Box >
           <PayStep

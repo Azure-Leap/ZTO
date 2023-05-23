@@ -17,7 +17,7 @@ export class Website{
     @Prop({ required: true })
     detail:String;
     @Prop({ required: true })
-    price: string;
+    price: Number;
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Category' })
     category:Category[];
 }
