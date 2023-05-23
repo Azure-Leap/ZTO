@@ -29,6 +29,6 @@
     "ehlel/modules/components/Handlemove.jsx",
     "ehlel/modules/components/whiteCard.jsx",
     "src/pages/auth/login.tsx"
-, "src/pages/website-templates/Login.jsx"  ],
+, "src/pages/website-templates/Login.jsx", "src/components/Lol/dsdsd.js"  ],
   "exclude": ["node_modules"]
 }

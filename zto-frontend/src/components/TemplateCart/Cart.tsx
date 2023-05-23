@@ -48,7 +48,7 @@ const Cart = () => {
         <Box sx={{ overflow:"hidden", fontSize:"1rem",gap:"80px",transformOrigin:"center center", left:"10%",lineHeight:"1.5", letterSpacing:"0", position:"absolute", zIndex:"100", display:"flex", transform:"translateX(-40%) rotateZ(-30deg) rotateX(8deg) rotateY(8deg);"}}>
 <Box className='TemplateMove'sx={{display:"flex", flexDirection:"column", gap:"50px" }} > 
     {catType.map((card) => (
-            <Grid key={card.Id}><Link  sx={{ position:"relative", display:"block", width:"400px", height:"200px", boxShadow:"rgba(61, 71, 82, 0.25) 0px 4px 20px",objectFit:"cover", borderWidth:"6px", borderStyle:"solid 2px", borderImage:"initial"}}   aria-label="Go to MUI Store" href="https://mui.com/store/items/berry-react-material-admin/?utm_source=marketing&amp;utm_medium=referral&amp;utm_campaign=home-cta" target="_blank" >
+            <Grid key={card.Id}><Link  sx={{ position:"relative", display:"block", width:{lg:"400px", sm: "200px"}, height:"200px", boxShadow:"rgba(61, 71, 82, 0.25) 0px 4px 20px",objectFit:"cover", borderWidth:"6px", borderStyle:"solid 2px", borderImage:"initial"}}   aria-label="Go to MUI Store" href="https://mui.com/store/items/berry-react-material-admin/?utm_source=marketing&amp;utm_medium=referral&amp;utm_campaign=home-cta" target="_blank" >
           
           <CardMedia
 component="img"

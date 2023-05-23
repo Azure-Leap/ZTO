@@ -18,19 +18,19 @@ const HeroSectionWhite = () => {
        
       }}
     >
-      <Box sx={{ color:"#000"}}>
+      
 
-        <Box sx={{textAlign:"center", marginTop:"5%"}}>
-          <Typography variant="h3">Өөрийн зүйлийг өөрөө бүтээ.</Typography>
-          <Typography variant="h4" sx={{my:"10px"}} >Хүссэн загвараа эндээс ол</Typography>
-          <Typography variant="h5">Туршаад үз таалагдана.</Typography>
+        <Box sx={{textAlign:"center", marginTop:"5%", color:"#000"}}>
+          <Typography sx={{fontSize:{lg:"54px", xs:"22px"}}}>Өөрийн зүйлийг өөрөө бүтээ.</Typography>
+          <Typography sx={{my:"13px", fontSize:{lg:"34px", xs:"18px"}}} >Хүссэн загвараа эндээс ол</Typography>
+          <Typography sx={{my:"13px", fontSize:{lg:"24px", xs:"14px"}}} >Туршаад үз таалагдана.</Typography>
         </Box>
         <div className="bounce__css">
           <WhiteCard />
         </div>
       </Box>
       
-    </Box>
+    
   );
 };
 

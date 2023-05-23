@@ -7,13 +7,13 @@ const TemplateCart = () => {
   return (
     <Grid sx={{width:"100%",  height:"86vh", backgroundColor:"#F0FFFF", zIndex:"10", overflow:"hidden"}}>
         <Grid sx={{ display:"flex"}}>
-        <Grid sx={{ width:"50%", height:"86vh", backgroundColor:"white", zIndex:"2", padding:"0% 0% 0% 20%", boxShadow: " 50px 0px 100px 80px white ", backgroundBlendMode:"color-burn"}}>
+        <Grid sx={{ width:{lg:"50%", sm:"100%"} , height:{lg:"86vh", sm:"100vh"}, backgroundColor:"white", zIndex:"2", padding:"0% 0% 0% 20%", boxShadow: " 50px 0px 100px 80px white ", backgroundBlendMode:"color-burn"}}>
             <Box sx={{marginBottom:"50px"}}>
                 <Typography sx={{color:"blue", fontWeight:"bold"}}>
                     Product
                 </Typography>
                 <Box sx={{display:"flex"}}>
-                    <Typography variant='h4' sx={{color:"#191970", fontWeight:"bold"}}>
+                    <Typography variant='h4' sx={{color:"#191970", fontWeight:"bold" , fontSize:{sm: "24px"}}}>
                     Every component you need <span className='TemplateBlue'> is ready for production </span>
                     </Typography>
                 </Box>
@@ -22,7 +22,7 @@ const TemplateCart = () => {
                 </Typography>
                
             </Box>
-            <Box sx={{display:"flex", flexDirection:"column", gap:"30px"}}>
+            <Box sx={{display:"flex", flexDirection:"column", gap:{lg:"50px", sm:"30px"}}}>
             <Box sx={{display:"flex", alignContent:"center", alignItems:"center", cursor:"pointer", gap:"20px", "&:hover": {
           background: "#F0F8FF",
           borderRadius:"20px"},}}>

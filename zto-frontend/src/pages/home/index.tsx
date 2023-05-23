@@ -18,7 +18,7 @@ export default function Home() {
         </Box>
    
         {/* <CustomCursor /> */}
-        <Box sx={{marginTop:{lg:"0px", xs:"10px"}}}>  <SecondSection /></Box>
+        <Box>  <SecondSection /></Box>
       
         {/* <TemplateList /> */}
         <TemplateCart/>
