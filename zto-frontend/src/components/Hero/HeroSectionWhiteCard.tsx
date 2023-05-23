@@ -137,7 +137,7 @@ export default function DarkCard() {
           <Grid
             sx={{
             
-              width: "100%",
+              width: {lg:"400px", xs:"250px"},
               borderRadius: "16px",
               boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
               background: "white",
@@ -149,8 +149,8 @@ export default function DarkCard() {
                 backgroundImage: `url(https://packages.microweberapi.com/meta/microweber-templates-template-photography/611/screenshot.jpg)`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize:"cover",
-                width: "400px",
-                height: "350px",
+                width: "100%",
+                height: {lg:"350px" , xs: "150px"},
                 backgroundPosition: "center 0",
                 display: "block",
                 borderRadius:"20px 20px 0px 0px"

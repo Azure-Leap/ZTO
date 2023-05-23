@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,8 +25,8 @@ const webTypes = [{ name: 'All templates', link: "/All templates" }, { name: "We
 function ResponsiveAppBar() {
   const history = useRouter();
 
-  const {user, setIsSignIn, setUser} = useContext(AuthContext)
-  const {cartItems} = useContext(CartContext);
+  const {user, setIsSignIn, setUser}:any = useContext(AuthContext)
+  const {cartItems}:any = useContext(CartContext);
   console.log( cartItems, "-----------------")
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -58,12 +58,11 @@ function ResponsiveAppBar() {
       history.push("/");
   }
 
- const handleLogout = (oper)=>{
+ const handleLogout = (oper:any)=>{
      if(oper === "Logout"){
       logOut();
      }
  }
-  
   const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     '& .MuiBadge-badge': {
       right: -3,
@@ -72,13 +71,12 @@ function ResponsiveAppBar() {
       padding: '0 4px',
     },
   }));
-
   return (
     <AppBar position="sticky" sx={{ textAlign: "center", backgroundColor: "transparent", color: "#000", backdropFilter:"blur(50px)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -117,10 +115,8 @@ function ResponsiveAppBar() {
                 <MenuItem key={idx} onClick={handleCloseNavMenu}>
                   <Link href={page.link}>{page.title}</Link>
                 </MenuItem>
-
               ))}
             </Menu>
-
           </Box>
           <Typography
             variant="h5"
@@ -186,7 +182,6 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 1.5, display: { xs: 'none', md: 'flex' }, }}>
             <Box sx={{ textAlign: "center" }}>
               <Typography
@@ -205,9 +200,7 @@ function ResponsiveAppBar() {
                 ZTO.MN
               </Typography>
               <Typography>Web building</Typography>
-
             </Box>
-
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {!user?
@@ -216,7 +209,6 @@ function ResponsiveAppBar() {
                 console.log("SIGNIN");
                 setIsSignIn(false)
               }}>
-
                 <Link href='/auth'> 
                   Login
                </Link>
@@ -264,7 +256,6 @@ function ResponsiveAppBar() {
             >
               <MenuItem>
                 <Link href='/profile'>Profile</Link>
-
               </MenuItem>
               {settings.map((setting, idx) => (
                 <MenuItem key={idx} onClick={()=> handleLogout(setting)}>

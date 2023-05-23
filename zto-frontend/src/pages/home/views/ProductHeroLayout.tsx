@@ -6,10 +6,10 @@ import Box from "@mui/material/Box";
 const ProductHeroLayoutRoot = styled("section")(({ theme }) => ({
   color: theme.palette.common.white,
   position: "relative",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("xs")]: {
     height: "95vh",
-    minHeight: 400,
-    maxHeight: 1200,
+    minHeight: 200,
+    maxHeight: 1000,
   },
 }));
 

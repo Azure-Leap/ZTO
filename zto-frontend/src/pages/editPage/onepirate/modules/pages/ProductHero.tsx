@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useRef } from 'react';
 import Button from "../components/Button";
 import Typography from "../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
@@ -10,6 +10,7 @@ const backgroundImage =
 
 export default function ProductHero({ handleClick, change }: any) {
   const { inputVal }: any = React.useContext(EditContext);
+
 
   return (
     <Box id="productHero">
@@ -33,7 +34,7 @@ export default function ProductHero({ handleClick, change }: any) {
             align="center"
             variant="h2"
             marked="center"
-          >
+          > 
             <TextField
               name="title"
               value={inputVal.title.p}

@@ -35,7 +35,7 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
     <Grid
       sx={{
         position: "sticky",
-        top: "0px",
+        top: "65px",
         height: "80px",
         alignItems: "center",
         flexDirection: "row",
