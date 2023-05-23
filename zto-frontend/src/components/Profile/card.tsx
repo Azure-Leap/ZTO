@@ -47,7 +47,7 @@ const ProfileImg = () => {
       </Box>
       <Box sx={{ textAlign: "center", mt: "45px" }}>
         <Typography gutterBottom variant="h5" component="div">
-          {user.name}
+          {user?.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Senior Software Engineer

@@ -22,8 +22,8 @@ const style = {
 };
 
 const UploadImg = ({ open, handleClose }: any) => {
-  const { user, setUser } = useContext(AuthContext);
-  console.log("pooo", user);
+  const { user, setUser }:any = useContext(AuthContext);
+  // console.log("pooo", user);
   const [preview, setPreview] = useState(null);
   const [src, setSrc] = useState(null);
 
@@ -31,12 +31,12 @@ const UploadImg = ({ open, handleClose }: any) => {
     setPreview(null);
   };
 
-  const onCrop = (view) => {
+  const onCrop = (view:any )=> {
     setPreview(view);
   };
 
   useEffect(() => {
-    console.log("pp", preview);
+    // console.log("pp", preview);
   }, [preview]);
 
   const onFileLoad = async (file: any) => {
@@ -44,7 +44,7 @@ const UploadImg = ({ open, handleClose }: any) => {
     form.append("file", file);
     const res = await axios.post(`http://localhost:9010/upload`, form);
     if (res) {
-      console.log("prokkk", res);
+      // console.log("prokkk", res);
       const updateUser = { ...user, profileImg: res?.data?.secure_url };
       const res2 = await axios.put(
         `http://localhost:9010/users/${user._id}`,

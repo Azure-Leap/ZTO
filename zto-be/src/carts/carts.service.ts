@@ -9,14 +9,20 @@ import { Website } from 'src/websites/entities/website.entity';
 @Injectable()
 export class CartsService {
   constructor(@InjectModel("Cart") private readonly cartModel: Model<Cart>){}
- async create(createCartDto: CreateCartDto) {
-  console.log('create',createCartDto );
 
+ async create(createCartDto: CreateCartDto) {
+    console.log("object cart", createCartDto);
+  //   if (!createCartDto.cartItems) {
+  //     return  await this.cartModel.create(createCartDto);
+  // }else{
+  // }
+
+    // const user = await this.cartModel.findCart()
     return  await this.cartModel.create(createCartDto);
   }
 
   async findAll() {
-    return  await this.cartModel.find().populate("user").populate("website").exec();
+    return  await this.cartModel.find().populate("user_id").exec();
   }
 
   async findOne(id: string) {
@@ -24,7 +30,8 @@ export class CartsService {
   }
 
   async findOneByUserId(user_id: string) {
-      return await this.cartModel.find({user: user_id}).populate('user').populate("website").exec();
+    console.log(user_id);
+      return await this.cartModel.findOne({user_id: user_id}).populate('user_id').exec();
   }
 
   async update(id: string, updateCartDto: UpdateCartDto) {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Grid, Box, Link, CircularProgress, IconButton } from "@mui/material";
+import { Grid, Box, Link, CircularProgress, IconButton, Stack, Alert, Snackbar } from "@mui/material";
 import Typography from "../editPage/onepirate/modules/components/Typography";
 import { Button } from "@mui/material";
 import axios from "axios";
@@ -10,32 +10,27 @@ import { CartContext } from "@/context/CartContext";
 
 const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, templatesFilter }:any) => {
   // console.log("templates", templates);
-  // const {user} = useContext(AuthContext)
- const [webList, setWebList] = useState([...templates])
- const {addCart, setCartItems}:any =useContext(CartContext)
-
- 
-  console.log('weblist',templates);
-
-  // const addCart = async(id:any)=>{
-  //   try{
-  //     const res = await axios.post("http://localhost:9010/carts", {user:user._id, website:id});
-  //     console.log("ca", res.data);
-  //   }catch(err){
-  //     console.log("err", err);
-  //   }
-
-  // }
-
- 
+  const {user}:any = useContext(AuthContext)
+  const {changeState, setChangeState, setAlert, alert, addCart}:any = useContext(CartContext)
 
 
-  return isLoading&&templates? (
+  return isLoading && templates ? (
       <Box> 
         {!templatesFilter.length && <Box>Олдсонгүй</Box>}
-  
-       <Box sx={{display:"flex", gap:"40px", flexDirection:"row",  flexWrap:"wrap", alignContent:"center", alignItems:"center",  justifyContent:"space-around"}}>
-{templatesFilter.map((template:any, idx:any) => (
+        <Snackbar
+        open={alert}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        autoHideDuration={2000}
+        onClose={() => {
+          setAlert(false);
+        }}
+      >
+          <Alert severity="error">Та эхлээд нэвтэрнэ үү!</Alert>
+
+      </Snackbar>
+
+       <Box sx={{display:"flex", gap:"40px", flexDirection:"row",flexWrap:"wrap",}}>
+          {templatesFilter.map((template:any, idx:any) => (
         <Grid  key={idx} 
         className="WEB"
           sx={{
@@ -83,6 +78,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
                 {template.category?.title}
               </Typography>
               <IconButton  onClick={()=> addCart(template, "inc")} >
+              {/* <IconButton onClick={()=> addCart(template._id, template.price)} > */}
                 <AddShoppingCartIcon sx={{color:"green", fontSize:"1.5rem"}}/>
               </IconButton>
             </Box>
@@ -122,8 +118,8 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
       ))}
       </Box>
       </Box>
-  ):<Box sx={{ display: 'flex', height:'100vh' }}>
-  <CircularProgress />
+  ) : <Box sx={{ display: 'flex', height:'100vh' }}>
+  <CircularProgress /> 
 </Box>
 
   

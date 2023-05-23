@@ -1,55 +1,121 @@
-import React, { createContext, useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { AuthContext } from './UserContext';
+import { useRouter } from 'next/router';
 
 export const CartContext = createContext({}) as any;
 
 const CartProvider = ({children}:any):JSX.Element => {
     const [cartItems, setCartItems] = useState<any[]>([]);
-   
-  // const addCart = (item:any)=>{
-  //   const findItem = cartItems?.find(e=>e._id !== item._id) ;
-    
-  //   let newItems:any[] = cartItems?.length > 0 ? [...cartItems]: []
-  //    newItems.push(item)
-  //   setCartItems(newItems)
-  //   localStorage.setItem('cart', JSON.stringify(newItems))
-  // }
+    const [orders, setOrders] = useState<any[]>([]);
+    const [payments, setPayments] = useState<any[]>([]);
+    const [changeState, setChangeState] = useState(false);
+    const [alert, setAlert] = useState(false)
+    const {user}:any = useContext(AuthContext)
 
-  const addCart = (template:any, type:string) => {
-    // localStorage.removeItem('cart')
+    const router = useRouter()
+
+  const addCart = async(template:any, type:string, ) => {
     const localCard = localStorage.getItem("cart") as string;
     const prev = JSON.parse(localCard);
     let items: any[] = [];
     if (prev) {
       items = [...prev];
     }
-
     const prevProductIdx = items?.findIndex((item) => item?.template?._id === template?._id);
-
-    console.log("o", prevProductIdx);
-    console.log(type);
+    // console.log("o", prevProductIdx);
+    // console.log(type);
     if (prevProductIdx > -1) {
       const cnt = type === "inc" ? items[prevProductIdx].quantity + 1 : items[prevProductIdx].quantity - 1;
       if (cnt < 0) return;
       items[prevProductIdx].quantity = cnt;
       items[prevProductIdx].totalPrice = cnt * items[prevProductIdx].template.price;
     } else {
-      items.push({ template, quantity: 1, totalPrice:template.price });
+      items.push({ template,  totalPrice:template.price });
     }
     localStorage.setItem("cart", JSON.stringify(items));
-    setCartItems(items);
-  };
+    setCartItems(items) 
+   
+  }
   
  
 
+  const createCart = async () =>{
+      console.log("object,", user);
+      if(!user){
+          // setAlert(true)
+          return;
+        //  router.replace("/auth")
+      }
+      console.log("Bainaa");
+      // console.log("rr", user)
+     
+      try{
+        const getCart = localStorage.getItem("cart") as string;
+       if (getCart) {
+        const value = JSON.parse(getCart);
+        const sumPrice = value?.reduce(
+          (ac: any, cur: any) => (ac += cur.totalPrice),
+          0
+        );
+        const res = await axios.post("http://localhost:9010/carts", {user_id:user._id, cartItem: value, totalPrice: sumPrice});
+        console.log("ca", res.data);
+        setChangeState(!changeState)
+        localStorage.removeItem("cart");
+       }
+      }catch(err){
+        console.log("err", err);
+      }
+    
+  }
 
-
-  useEffect(()=>{
-    const prev = localStorage.getItem('cart') as string
-    setCartItems(JSON.parse(prev))
-  },[])
+  const getCarts = async () => {
+    console.log("object,", user);
+    if(user){
+      try {
+        const res = await axios.get(
+          `http://localhost:9010/carts/user/${user._id}`
+        );
+        console.log(";;", res.data);
+        setCartItems(res.data);
+        // localStorage.setItem("cart", JSON.stringify(res.data))
   
+      } catch (err) {
+        console.log("err", err);
+      }
+    }  else{
+      const prev = localStorage.getItem('cart') as string
+     if(prev){
+      setCartItems(JSON.parse(prev))   
+     }
+    }
+  };
+
+  useEffect(() => {
+    console.log("UECI")
+    createCart();
+    getCarts();
+  }, [user]);
+
+ const getOrders = async()=>{
+  if(user?._id){
+    try{
+        const res = await axios.get(`http://localhost:9010/orders/user/${user._id}`)
+        console.log("orderGET", res)
+        setOrders(res.data)
+        setChangeState(!changeState)
+    }catch(err){
+      console.log("ERR", err)
+    }
+  }
+ }
+ useEffect(()=>{
+  getOrders()
+ },[user])
+
+
   return (
-    <CartContext.Provider value={{cartItems, setCartItems, addCart  }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{cartItems, setCartItems, changeState, setChangeState ,  alert, setAlert,  addCart,  orders}}>{children}</CartContext.Provider>
   )
 }
 

@@ -5,12 +5,12 @@ import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { Alert, Snackbar, Box, Typography } from "@mui/material";
 import { FaFacebook, FaGoogle, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { CartContext } from "@/context/CartContext";
 
 const Login = () => {
   const history = useRouter();
-  const { setUser, isSignIn, setIsSignIn, message, setMessage } =
+  const { setUser, isSignIn, setIsSignIn, message, setMessage }:any =
     useContext(AuthContext);
-
 
   const [email, setEmail] = useState("sunny@gmail.com");
   const [password, setPassword] = useState("sunny12345");
@@ -27,15 +27,15 @@ const Login = () => {
         "http://localhost:9010/auth/login",
         { email, password }
       );
-      console.log("firstUser",res.data.user);
-      setUser(res.data.user);
+      console.log("firstUser",res.data.user.user);
+      setUser(res.data.user.user);
       localStorage.setItem("user", JSON.stringify(res.data.user.user))
       setMessage(res.data.message);
       console.log(res.data.message);
       setAlert(true);
       setStatus(true);
       history.push("/");
-
+      
       // navigate('/dashboard', { replace: true });
     } catch (error: any) {
       console.log(error);
@@ -58,6 +58,7 @@ const Login = () => {
       setAlert(true);
       setStatus(true);
       setIsSignIn(true)
+
     } catch (err) {
       console.log("err", err);
     }

@@ -29,16 +29,15 @@ export function AuthProvider({ children }: any): JSX.Element {
   const [user, setUser] = useState(null);
   const [isSignIn, setIsSignIn] = useState(false);
   const [message, setMessage] = useState("");
-
+  const [changeUser, setChangeUser]=useState(false)
   useEffect(() => {
     const userParse = localStorage.getItem("user") || ""; //json string || undefined
-    console.log("pp", userParse);
     userParse && setUser(JSON.parse(userParse)); // to object
-  }, []);
+  }, [changeUser]);
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, isSignIn, setIsSignIn, message, setMessage }}
+      value={{ user, setUser, isSignIn, setIsSignIn, message, setMessage, changeUser, setChangeUser }}
     >
       {children}
     </AuthContext.Provider>

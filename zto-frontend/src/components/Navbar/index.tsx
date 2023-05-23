@@ -27,7 +27,7 @@ function ResponsiveAppBar() {
 
   const {user, setIsSignIn, setUser}:any = useContext(AuthContext)
   const {cartItems}:any = useContext(CartContext);
-  console.log( cartItems, "-----------------")
+  // console.log( cartItems, "-----------------")
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [anchorElTem, setAnchorElTem] = React.useState<null | HTMLElement>(null);
@@ -138,7 +138,7 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, mr: 1 }}>
             <Tooltip title="Open product">
-              <Button onClick={handleOpenTem} sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
+              <Button href='/website-templates/All%20templates' onClick={handleOpenTem} sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
                 Products
               </Button>
             </Tooltip>
@@ -148,7 +148,7 @@ function ResponsiveAppBar() {
                  </Link>
               </Button> */}
 
-            <Menu
+            {/* <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -171,7 +171,7 @@ function ResponsiveAppBar() {
                   </Link>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
             {pages.map((page, idx) => (
               <Button
                 key={idx}
@@ -209,6 +209,14 @@ function ResponsiveAppBar() {
                 console.log("SIGNIN");
                 setIsSignIn(false)
               }}>
+                 <IconButton href='/website-templates/cart' aria-label="cart" sx={{px:'20px'}} >
+                    {cartItems?.length > 0 ? 
+                      <StyledBadge badgeContent={cartItems.length} color="secondary">
+                        <ShoppingCartIcon sx={{color:"#000"}}/>
+                      </StyledBadge> : <ShoppingCartIcon sx={{color:"#000"}}/> }   
+                  </IconButton>
+
+
                 <Link href='/auth'> 
                   Login
                </Link>
@@ -223,16 +231,15 @@ function ResponsiveAppBar() {
               </Button>
             </Box> :
             <Box>
-              <Link href="/cart">
-                  <IconButton aria-label="cart" sx={{px:'20px'}} >
-                    {cartItems?.length > 0 ? 
-                      <StyledBadge badgeContent={cartItems.length} color="secondary">
+                 <IconButton href='/website-templates/cart' aria-label="cart" sx={{px:'20px'}} >
+                    {cartItems?.cartItem?.length > 0 ? 
+                      <StyledBadge badgeContent={cartItems?.cartItem?.length} color="secondary">
                         <ShoppingCartIcon sx={{color:"#000"}}/>
                       </StyledBadge> : <ShoppingCartIcon sx={{color:"#000"}}/> }
    
-                    </IconButton>
-              </Link>
+                  </IconButton>
 
+             
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt={user.name} src={user.profileImg} sx={{color:"#000", backgroundColor:"transparent"}} />

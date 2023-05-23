@@ -9,8 +9,9 @@ export class CartsController {
 
   @Post()
   create(@Body() createCartDto: CreateCartDto) {
+
     // db-s tuhain user umnu n card uusgsn bnuu ?
-    // const hisCard = this.cartsService.findOneByUserId(createCartDto.user._id);
+    // const hisCard = this.cartsService.findCart();
 
     //tiim bol tuhain item (template)-tai ijliig nemj bnu ?
 
