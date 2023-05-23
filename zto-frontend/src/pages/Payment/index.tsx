@@ -29,7 +29,6 @@ const index = () => {
     }
   };
 
-  
   return (
     <Box className="paymentBody">
       <Box
@@ -39,19 +38,16 @@ const index = () => {
         }}
       >
         {activeStep === 0 ? (
-         <StepTwo/>
+          <StepTwo />
         ) : activeStep === 1 ? (
-
-          <StepThree/>
-   
+          <StepThree />
         ) : activeStep === 2 ? (
-          
-		fdf
+          <></>
         ) : (
           <></>
         )}
 
-        <Box >
+        <Box>
           <PayStep
             activeStep={activeStep}
             nextStep={nextStep}

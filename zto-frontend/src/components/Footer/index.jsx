@@ -45,6 +45,7 @@ const MinFooter = () => {
         borderTop: "1px solid #979a9b",
         color: "#040e3f",
         py: "20px",
+        pb: "45px",
       }}
     >
       <Container>
@@ -54,11 +55,16 @@ const MinFooter = () => {
           justifyContent={"space-between"}
           sx={{ fontSize: "1.3rem", mt: "30px" }}
         >
-          <Grid item xs={12} sm={6} md={4} lg={4} textAlign={'center'} >
-           
-            <Image src={logoImg} alt="logo" height={150} width={150} style={{ borderRadius:"50%"}} />
+          <Grid item xs={12} sm={6} md={4} lg={4} textAlign={"center"}>
+            <Image
+              src={logoImg}
+              alt="logo"
+              height={150}
+              width={150}
+              style={{ borderRadius: "50%" }}
+            />
 
-            <Typography >
+            <Typography>
               Вэб сайтын эрин үед <br /> Энгийнээр, шинэлэг шийдье. <br />{" "}
               ZTO.MN
             </Typography>
@@ -93,6 +99,6 @@ const MinFooter = () => {
         </Grid>
       </Container>
     </Box>
-  )
+  );
 };
 export default MinFooter;

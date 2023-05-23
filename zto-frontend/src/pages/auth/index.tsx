@@ -5,12 +5,12 @@ import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { Alert, Snackbar, Box, Typography } from "@mui/material";
 import { FaFacebook, FaGoogle, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import FootNav from "@/components/FootNav";
 
 const Login = () => {
   const history = useRouter();
-  const { setUser, isSignIn, setIsSignIn, message, setMessage } =
+  const { setUser, isSignIn, setIsSignIn, message, setMessage }: any =
     useContext(AuthContext);
-
 
   const [email, setEmail] = useState("sunny@gmail.com");
   const [password, setPassword] = useState("sunny12345");
@@ -23,13 +23,13 @@ const Login = () => {
   const handleClick = async (e: any) => {
     try {
       e.preventDefault();
-      const res = await axios.post(
-        "http://localhost:9010/auth/login",
-        { email, password }
-      );
-      console.log("firstUser",res.data.user);
+      const res = await axios.post("http://localhost:9010/auth/login", {
+        email,
+        password,
+      });
+      console.log("firstUser", res.data.user);
       setUser(res.data.user);
-      localStorage.setItem("user", JSON.stringify(res.data.user.user))
+      localStorage.setItem("user", JSON.stringify(res.data.user.user));
       setMessage(res.data.message);
       console.log(res.data.message);
       setAlert(true);
@@ -48,16 +48,18 @@ const Login = () => {
   const signup = async (e: any) => {
     try {
       e.preventDefault();
-      const res = await axios.post(
-        "http://localhost:9010/users/register",
-        { email, password, username, phone_number }
-      );
+      const res = await axios.post("http://localhost:9010/users/register", {
+        email,
+        password,
+        username,
+        phone_number,
+      });
       // console.log(res);
       // setMessage(res.data.message)
       console.log(res);
       setAlert(true);
       setStatus(true);
-      setIsSignIn(true)
+      setIsSignIn(true);
     } catch (err) {
       console.log("err", err);
     }
@@ -77,10 +79,8 @@ const Login = () => {
       </Snackbar>
 
       <div className={`container ${isSignIn ? "sign-up-mode" : ""}`}>
-        
         <div className="forms-container">
           <div className="signin-signup">
-           
             <form className="sign-in-form">
               <h2 className="title">Sign in</h2>
 
@@ -229,6 +229,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <FootNav />
     </div>
   );
 };
