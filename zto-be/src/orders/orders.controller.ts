@@ -26,6 +26,12 @@ export class OrdersController {
       return this.ordersService.findOneByUserId(user_id);
   }
 
+  @Put('/payment/:order_id')
+  updatePaymentOrder(@Param('order_id') order_id:string, @Body() updatePayment: UpdateOrderDto ){
+    console.log("oo", order_id)
+    return this.ordersService.findByIdAndUpdatePayment(order_id, updatePayment)
+  }
+
   @Put(':id')
   update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
     return this.ordersService.update(id, updateOrderDto);

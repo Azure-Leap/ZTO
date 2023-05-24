@@ -20,9 +20,9 @@ export class OrdersService {
   async findOne(id: string) {
     return await this.orderModel.findById(id);
   }
+ 
 
   async findOneByUserId(user_id: string) {
-    console.log("ord",user_id);
       return await this.orderModel.findOne({user_id: user_id}).populate('user_id').populate("cart_id").exec();
   }
  async update(id: string, updateOrderDto: UpdateOrderDto) {
@@ -31,5 +31,10 @@ export class OrdersService {
 
   async remove(id: string) {
     return  await this.orderModel.findByIdAndDelete(id) ;
+  }
+
+  async findByIdAndUpdatePayment(order_id:string, updatePayment: UpdateOrderDto){
+    console.log("oo", order_id)
+    return await this.orderModel.findByIdAndUpdate( {_id:order_id} ,{...updatePayment})
   }
 }

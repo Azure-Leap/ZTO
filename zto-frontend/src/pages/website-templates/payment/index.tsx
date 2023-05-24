@@ -6,7 +6,7 @@ import StepThree from "@/components/PayStep/StepThree";
 import Layout from "@/components/layout";
 import { CartContext } from "@/context/CartContext";
 
-const index = () => {
+const PaymentPage = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const [valueObj, setValueObj] = useState({});
@@ -62,4 +62,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default PaymentPage;
