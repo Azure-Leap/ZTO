@@ -8,7 +8,6 @@ export const CartContext = createContext({}) as any;
 const CartProvider = ({children}:any):JSX.Element => {
     const [cartItems, setCartItems] = useState<any[]>([]);
     const [orders, setOrders] = useState<any[]>([]);
-    const [payments, setPayments] = useState<any[]>([]);
     const [changeState, setChangeState] = useState(false);
     const [alert, setAlert] = useState(false)
     const {user}:any = useContext(AuthContext)

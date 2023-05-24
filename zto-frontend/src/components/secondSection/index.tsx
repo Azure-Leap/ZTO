@@ -34,9 +34,10 @@ const dataW=[
 const img=require('../../assets/img/undraw_building_websites_i78t.svg')
 
 export default function BasicGrid() {
+
   useEffect(() => {
     const doAnimations = () => {
-      const offset = $(window).scrollTop() + $(window).height();
+      const offset = window ? $(window)?.scrollTop() : 0 + window ? $(window).height() : 0;
       const $animatables = $('.animatable');
 
       if ($animatables.length === 0) {
@@ -97,7 +98,6 @@ export default function BasicGrid() {
         </Grid>
       </Grid>
     </Box>
-
     </Container>
     </Box>
   );

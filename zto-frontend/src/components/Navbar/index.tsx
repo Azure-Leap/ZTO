@@ -264,6 +264,9 @@ function ResponsiveAppBar() {
               <MenuItem>
                 <Link href='/profile'>Profile</Link>
               </MenuItem>
+              <MenuItem>
+                <Link href='/website-templates/orderDetail'>order detail</Link>
+              </MenuItem>
               {settings.map((setting, idx) => (
                 <MenuItem key={idx} onClick={()=> handleLogout(setting)}>
                   <Typography textAlign="center">{setting}</Typography>

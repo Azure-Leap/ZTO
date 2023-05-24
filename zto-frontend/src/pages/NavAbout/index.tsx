@@ -27,7 +27,7 @@ const catType = [
   },
   {
     Id:"2",
-    Name: "Tuwshin",
+    Name: "Enkhtuvshin",
     imageURL:
     "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
   About: "3Days 4 Nights",

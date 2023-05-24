@@ -82,7 +82,7 @@ const rows = [
   createData('Brazil', 'BR', 210147125, 8515767),
 ];
 
-const index = () => {
+const PricePage = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -267,4 +267,4 @@ functional and beautiful</Typography>
   )
 }
 
-export default index
+export default PricePage

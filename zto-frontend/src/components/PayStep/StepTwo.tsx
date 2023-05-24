@@ -4,21 +4,21 @@ import { useState } from 'react';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import axios from 'axios';
 import { CartContext } from '@/context/CartContext';
+import { AuthContext } from '@/context/UserContext';
 
 
 const StepTwo = () => {
-  const {orders}:any = useContext(CartContext)
-  console.log("payOrder", orders)
+  const {user}:any = useContext(AuthContext)
+  const {cartItems, orders}:any =useContext(CartContext);
+  const {cartItem} = cartItems
 
-  // const {cartItems}:any =useContext(CartContext);
-	// console.log(cartItems, "payCart");
 
   const [cardNumber, setCardNumber] = useState("2417 3125 3544 3546");
 const [cvvNumber, setCvvNumber] = useState("327");
 const [expiryMonth, setExpiryMonth] = useState("09");
 const [expiryYear, setExpiryYear] = useState("22");
-const [password, setPassword] = useState("adjsbj");
-const [fullName, setFullName] = useState("Jonathan Micheal");
+const [mobileNumber, setMobileNumber] = useState("adjsbj");
+const [cardName, setCardName] = useState("Jonathan Micheal");
 const [isFlip, setIsFlip] = useState(false);
 
 const handleCardNumberChange = (event: any) => {
@@ -36,9 +36,27 @@ const onCvvFocus = () => {
   setIsFlip(!isFlip);
 };
 
-// const addPayment = async()=>{
-//  const res = await axios.post("http://localhost:9010/payments", {cartNumber} )
+const updateOrder = async(id:any)=>{
+  console.log("hh", id)
+  if(user._id === orders?.user_id?._id){
+    try{
+      const res = await axios.put(`http://localhost:9010/orders/payment/${id}`, { payment: { cardNumber, cvvNumber, expiryMonth, expiryYear, cardName, mobileNumber,amount: orders.totalAmount, status:"SUCCESS" }} )
+      console.log(",,;",res)
+    }catch(err){
+      console.log("ERR", err)
+    }
+  }
+}
+
+// const updateOrder= async(id:any)=>{
+//   try{
+//     const res = await axios.put(`http://localhost:9010/orders/${id}`, {payment: "SUCCESS"})
+//   }catch(err){
+//     console.log("ERR", err)
+//   }
 // }
+
+const vatPrice = Math.floor(cartItems?.totalPrice*0.1)
 
   return (
            <Box
@@ -143,8 +161,8 @@ const onCvvFocus = () => {
                 </Box>
                 <Box className="card-property-value">
                   <Box className="input-container">
-                    <input      value={fullName}
-                    onChange={(e)=>setFullName(e.target.value)}
+                    <input      value={cardName}
+                    onChange={(e)=>setCardName(e.target.value)}
                   // onChange={handleFullNameChange}
                   maxLength={25} id="name" data-bound="name_mock" data-def="Mr. Cardholder" type="text" className="uppercase" placeholder="CARDHOLDER NAME" />
                     <i className="ai-person"></i>
@@ -158,8 +176,8 @@ const onCvvFocus = () => {
                 </Box>
                 <Box className="card-property-value">
                   <Box className="input-container">
-                    <input     value={password}
-                    onChange={(e)=>setPassword(e.target.value)}
+                    <input     value={mobileNumber}
+                    onChange={(e)=>setMobileNumber(e.target.value)}
 
                   // onChange={handlePasswordChange}
                   maxLength={8} id="phone" type="text" placeholder="Your Mobile No." />
@@ -169,7 +187,10 @@ const onCvvFocus = () => {
               </Box>
             </Box>
             <Box sx={{width:"500px"}} className="action flex-center">
-              <button    type="submit" className="b-main-color pointer">
+              <button    type="submit" className="b-main-color pointer" 
+              onClick={()=>updateOrder(orders._id)
+              }
+              >
                 Pay Now
               </button>
             </Box>
@@ -201,7 +222,7 @@ const onCvvFocus = () => {
               <Box>
                 <strong>
                   <Box id="name_mock" className="size-md pb-sm uppercase ellipsis">
-                  <h3>{fullName}</h3>
+                  <h3>{cardName}</h3>
                   </Box>
                 </strong>
                 <Box className="size-md pb-md">
@@ -241,13 +262,15 @@ const onCvvFocus = () => {
                 <span>Order number</span>
                 <strong>429252965</strong>
               </li>
-              <li className="flex-between">
+                {cartItem?.map((t:any, idx:any)=>
+              <li key={idx} className="flex-between">
                 <span>Product</span>
-                <strong>IPhone</strong>
+                <strong >{t.template.name}</strong>
               </li>
+                )}
               <li className="flex-between">
-                <span>VAT (20%)</span>
-                <strong>$100.00</strong>
+                <span>VAT (10%)</span>
+                <strong>{vatPrice}</strong>
               </li>
             </ul>
           </Box>
@@ -256,8 +279,8 @@ const onCvvFocus = () => {
             <Box className="flex-fill flex-vertical">
               <Box className="total-label f-secondary-color">You have to Pay</Box>
               <Box>
-                <strong>{}</strong>
-                <small>.99 <span className="f-secondary-color">USD</span></small>
+                <strong>{cartItems?.totalPrice + vatPrice}<span className="f-secondary-color">USD</span></strong>
+                {/* <small>.99 <span className="f-secondary-color">USD</span></small> */}
               </Box>
             </Box>
             <i className="ai-coin size-lg"></i>

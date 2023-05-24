@@ -1,5 +1,6 @@
 import { AuthContext } from "@/context/UserContext";
 import {
+  Box,
   Button,
   Checkbox,
   FormControl,
@@ -18,13 +19,6 @@ const FromInfo = () => {
   const {user, setUser, changeUser, setChangeUser}:any = useContext(AuthContext);
    console.log("userPro", user);
 
-  // const [email, setEmail] = useState(user?.email);
-  // const [password, setPassword] = useState(user?.password);
-  // const [username, setUserName] = useState(user?.username);
-  // const [phone_number, setPhoneNumber] = useState(user?.phone_number);
-  // const [gender, setGender] = useState(user?.gender);
-  // const [role, setRole] = useState(user?.role);
-  // const [address, setAddress] = useState(user?.address);
 
   const updateUser = async(id:any)=>{
     // console.log("ooid", id);
@@ -44,7 +38,7 @@ const FromInfo = () => {
 
 
   return (
-    <>
+    <Box sx={{backgroundColor:"#f2f2f2", border:"1px solid #979a9b", padding:"30px", borderRadius:"15px"}}>
         <Typography variant="h3" sx={{color:"#262b40"}}>
           General Information
         </Typography>
@@ -165,7 +159,7 @@ const FromInfo = () => {
           </Grid>
         </Grid>
 
-    </>
+    </Box>
   );
 };
 

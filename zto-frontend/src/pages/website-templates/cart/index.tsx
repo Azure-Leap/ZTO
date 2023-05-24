@@ -45,8 +45,8 @@ const CartWeb = () => {
     console.log(cartItems, "p")
     if(user && cartItems.cartItem){
       try{
-        const res = await  axios.post("http://localhost:9010/orders", {user_id:user._id, cart_id:cartItems._id, totalAmount:cartItems.totalPrice } )
-        console.log("orders", res.data)
+        const res = await  axios.post("http://localhost:9010/orders", {user_id:user._id, cart_id:cartItems._id, totalAmount:cartItems.totalPrice} )
+        console.log("orders", res.data) 
         setChangeState(!changeState)
       }catch(err){
         console.log("ERR", err)

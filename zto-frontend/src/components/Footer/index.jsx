@@ -21,7 +21,7 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Image from "next/image";
 
 const pages = [
-  { title: "Products", link: "/All templetes" },
+  { title: "Products", link: "/website-templates/All%20templates" },
   { title: "About", link: "/NavAbout" },
   { title: "Pricing", link: "/pricing" },
   { title: "Help", link: "/help" },
@@ -52,7 +52,7 @@ const MinFooter = () => {
           container
           spacing={2}
           justifyContent={"space-between"}
-          sx={{ fontSize: "1.3rem", mt: "30px" }}
+          sx={{ fontSize: "1.3rem", mt: "30px", textAlign:'center' }}
         >
           <Grid item xs={12} sm={6} md={4} lg={4} textAlign={'center'} >
            
@@ -79,7 +79,7 @@ const MinFooter = () => {
               </Box>
             ))}
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={4} sx={{ ml: "20px" }}>
+          <Grid item xs={12} sm={6} md={4} lg={4}>
             <Typography variant="h5" fontWeight={600}>
               Contact
             </Typography>
