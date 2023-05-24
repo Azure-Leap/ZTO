@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import { AuthContext } from "@/context/UserContext";
+import { BASE_API_URL } from "@/utils/variables";
 
 const Avatar = dynamic(() => import("react-avatar-edit"), {
   ssr: false,
@@ -22,7 +23,7 @@ const style = {
 };
 
 const UploadImg = ({ open, handleClose }: any) => {
-  const { user, setUser }:any = useContext(AuthContext);
+  const { user, setUser }: any = useContext(AuthContext);
   // console.log("pooo", user);
   const [preview, setPreview] = useState(null);
   const [src, setSrc] = useState(null);
@@ -31,7 +32,7 @@ const UploadImg = ({ open, handleClose }: any) => {
     setPreview(null);
   };
 
-  const onCrop = (view:any )=> {
+  const onCrop = (view: any) => {
     setPreview(view);
   };
 
@@ -42,12 +43,12 @@ const UploadImg = ({ open, handleClose }: any) => {
   const onFileLoad = async (file: any) => {
     const form = new FormData();
     form.append("file", file);
-    const res = await axios.post(`http://localhost:9010/upload`, form);
+    const res = await axios.post(`${BASE_API_URL}/upload`, form);
     if (res) {
       // console.log("prokkk", res);
       const updateUser = { ...user, profileImg: res?.data?.secure_url };
       const res2 = await axios.put(
-        `http://localhost:9010/users/${user._id}`,
+        `${BASE_API_URL}/users/${user._id}`,
         updateUser
       );
       setUser(res2.data.user);

@@ -24,7 +24,7 @@ const Login = () => {
   const handleClick = async (e: any) => {
     try {
       e.preventDefault();
-      const res = await axios.post("BASE_API_URL/auth/login", {
+      const res = await axios.post(`${BASE_API_URL}/auth/login`, {
         email,
         password,
       });
@@ -49,7 +49,7 @@ const Login = () => {
   const signup = async (e: any) => {
     try {
       e.preventDefault();
-      const res = await axios.post(`BASE_API_URL/users/register`, {
+      const res = await axios.post(`${BASE_API_URL}/users/register`, {
         email,
         password,
         username,

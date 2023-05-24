@@ -15,6 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
+import { BASE_API_URL } from "@/utils/variables";
 
 export default function WebCard({ changeState }: any) {
   const [template, setTemplates] = useState([]);
@@ -23,7 +24,7 @@ export default function WebCard({ changeState }: any) {
 
   const getWebsite = async () => {
     try {
-      const res = await axios.get("http://localhost:9010/websites");
+      const res = await axios.get(`${BASE_API_URL}/websites`);
       console.log(res.data);
       setTemplates(res.data);
     } catch (err) {

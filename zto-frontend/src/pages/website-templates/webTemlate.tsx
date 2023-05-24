@@ -6,6 +6,7 @@ import CategoriesHead from "./CategoriesHead";
 import WebsiteTemlatesCard from "./WebsiteTemlatesCard";
 import axios from "axios";
 import Layout from "@/components/layout";
+import { BASE_API_URL } from "@/utils/variables";
 
 const WebTemlate = () => {
   const [templates, setTemplates] = useState([]);
@@ -14,7 +15,7 @@ const WebTemlate = () => {
 
   const getTemp = async () => {
     try {
-      const res = await axios.get("http://localhost:9010/websites");
+      const res = await axios.get(`${BASE_API_URL}/websites`);
       console.log("tem", res.data);
       setTemplates(res.data);
       setTemplatesFilter(res.data);
