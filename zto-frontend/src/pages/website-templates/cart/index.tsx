@@ -22,10 +22,11 @@ import Layout from "@/components/layout";
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import Link from "next/link";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import EmptyCart from "./emptyCart";
 
 
 const CartWeb = () => {
-  const { cartItems, setCartItems, changeState, setChangeState , alert, setAlert }: any = useContext(CartContext);
+  const { cartItems, setCartItems, changeState, setChangeState , alert, setAlert, orderId, setOrderId }: any = useContext(CartContext);
   const { user }:any = useContext(AuthContext);
   
   const deleteCart = async(id:any)=>{
@@ -42,17 +43,17 @@ const CartWeb = () => {
   }
 
   const createOrder = async()=>{
-    console.log(cartItems, "p")
-    if(user && cartItems.cartItem){
+    if(user && cartItems.cartItem ){
       try{
-        const res = await  axios.post("http://localhost:9010/orders", {user_id:user._id, cart_id:cartItems._id, totalAmount:cartItems.totalPrice} )
-        console.log("orders", res.data) 
+        const res = await  axios.post("http://localhost:9010/orders", {user_id:user._id, cart_id:cartItems._id, totalAmount:cartItems.totalPrice,} )
+        console.log("order res", res.data) 
         setChangeState(!changeState)
+        setOrderId('')
       }catch(err){
         console.log("ERR", err)
       }
     }else{
-      setAlert(true)
+      setAlert(true);
     }
   }
 
@@ -86,10 +87,11 @@ const CartWeb = () => {
           <Alert severity="success">Захиалга цуцлагдлаа</Alert>
 
       </Snackbar>
+      {!cartItems ? <EmptyCart/> :
         <Grid container spacing={2} marginY={"15px"}>
           {cartItems.cartItem ?
           <Grid item xs={12} sm={12} md={7} lg={8}>    
-            ({cartItems.cartItem.map((item: any, idx: any) => (
+            {cartItems.cartItem.map((item: any, idx: any) => (
               <Grid
                 key={idx}
                 container
@@ -189,11 +191,11 @@ const CartWeb = () => {
                   </Box>
                 </Grid>
               </Grid>
-            ))} )          
+            ))}       
           </Grid> 
           : 
           <Grid item xs={12} sm={12} md={7} lg={8}>    
-            ({cartItems.map((item: any, idx: any) => (
+            {cartItems.map((item: any, idx: any) => (
               <Grid
                 key={idx}
                 container
@@ -289,7 +291,7 @@ const CartWeb = () => {
                   </Box>
                 </Grid>
               </Grid>
-            ))} )          
+            ))}          
           </Grid>
           }        
           <Grid item xs={12} sm={12} md={4} lg={3.3} sx={{ m: "25px" }}>
@@ -329,7 +331,7 @@ const CartWeb = () => {
               </Typography>
             </Box>
           </Grid>
-        </Grid>        
+        </Grid> }       
       </Container>
     </Layout>
   );

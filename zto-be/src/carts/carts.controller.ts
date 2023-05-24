@@ -30,8 +30,8 @@ export class CartsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.cartsService.findOne(id);
+  findOne(@Param('id') _id: string) {
+    return this.cartsService.findOne({_id});
   }
 
   @Get('/user/:user_id')

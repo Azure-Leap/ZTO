@@ -33,12 +33,18 @@ class PaymentCard{
 export class Order {
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
     user_id:User[];
+    
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Cart' })
     cart_id:Cart[];
+
+    @Prop()
+    websites: [];
+
     @Prop()
     totalAmount:number;
+
     @Prop()
     payment: Payment
-}
+} 
 
 export const OrderSchema = SchemaFactory.createForClass(Order)
