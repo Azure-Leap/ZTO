@@ -11,6 +11,7 @@ const CartProvider = ({children}:any):JSX.Element => {
     const [changeState, setChangeState] = useState(false);
     const [alert, setAlert] = useState(false)
     const {user}:any = useContext(AuthContext)
+    const [orderId, setOrderId] = useState('')
 
     const router = useRouter()
 
@@ -77,6 +78,7 @@ const CartProvider = ({children}:any):JSX.Element => {
         );
         console.log(";;", res.data);
         setCartItems(res.data);
+    
         // localStorage.setItem("cart", JSON.stringify(res.data))
   
       } catch (err) {
@@ -97,10 +99,11 @@ const CartProvider = ({children}:any):JSX.Element => {
   }, [user]);
 
  const getOrders = async()=>{
+
   if(user?._id){
     try{
         const res = await axios.get(`http://localhost:9010/orders/user/${user._id}`)
-        console.log("orderGET", res)
+        setOrderId(res.data._id)
         setOrders(res.data)
         setChangeState(!changeState)
     }catch(err){
@@ -108,13 +111,14 @@ const CartProvider = ({children}:any):JSX.Element => {
     }
   }
  }
+
  useEffect(()=>{
   getOrders()
  },[user])
 
 
   return (
-    <CartContext.Provider value={{cartItems, setCartItems, changeState, setChangeState ,  alert, setAlert,  addCart,  orders}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{cartItems, setCartItems, changeState, setChangeState ,  alert, setAlert,  addCart,  orders, orderId, setOrderId}}>{children}</CartContext.Provider>
   )
 }
 
