@@ -5,10 +5,10 @@ import Cart from './Cart';
 
 const TemplateCart = () => {
   return (
-    <Grid sx={{width:"100%",  backgroundColor:"#F0FFFF", zIndex:"10", overflow:"hidden"}}>
+    <Grid sx={{width:{lg:"100%", xs:"100vh"},  backgroundColor:"#F0FFFF", zIndex:"10", overflow:"hidden"}}>
         <Grid sx={{ display:"flex", flexDirection:{lg:"row", xs:"column"}}}>
-        <Grid sx={{width:{lg:"50%", xs:"100%"},  backgroundColor:"white", zIndex:"2", padding:"0% 0% 0% 20%", boxShadow: " 50px 0px 100px 80px white ", backgroundBlendMode:"color-burn"}}>
-            <Box sx={{marginBottom:"50px", textAlign:{lg:"left", xs:"center"}, width:{lg:"400px", xs:"250px"}}}>
+        <Grid sx={{width:{lg:"100vh", xs:"100vh"},  backgroundColor:"white", zIndex:"2", padding:"0% 0% 0% 20%", boxShadow: " 50px 0px 100px 80px white ", backgroundBlendMode:"color-burn"}}>
+            <Box sx={{marginBottom:"50px", textAlign:{lg:"left", xs:"center"}, width:{lg:"400px", xs:"70vh"}}}>
                 <Typography sx={{color:"blue", fontWeight:"bold"}}>
                     Product
                 </Typography>

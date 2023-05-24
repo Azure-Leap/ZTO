@@ -15,7 +15,10 @@ const HeroSectionDark = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundColor: "black",
-        maxWidth: "100%",
+        
+        width:{lg:"100%", xs:"100vh"},
+   
+        
      
       }}
     >

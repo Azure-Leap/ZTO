@@ -14,7 +14,7 @@ const HeroSectionWhite = () => {
           "url(https://pinecone.mn/background.webp)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        maxWidth:"100%",
+        width:{lg:"100%", xs:"100vh"}
        
       }}
     >

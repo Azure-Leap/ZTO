@@ -45,6 +45,7 @@ const MinFooter = () => {
         borderTop: "1px solid #979a9b",
         color: "#040e3f",
         py: "20px",
+        width:{lg:"100%", xs:"100vh"}
       }}
     >
       <Container>

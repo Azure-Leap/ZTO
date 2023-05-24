@@ -26,7 +26,7 @@ const catType = [
 ];
 const About = () => {
   return (
-    <Grid ><Grid sx={{display:{lg: "flex", xm:"flow"}, textAlign:{lg:"left", xs:"center"}, justifyContent:"space-between", margin:{lg:"240px", xs:"50px"}}}>
+    <Grid sx={{width:{lg:"100%", xs:"100vh"}}} ><Grid sx={{display:{lg: "flex", xm:"flow"}, textAlign:{lg:"left", xs:"center"}, justifyContent:"space-between", margin:{lg:"240px", xs:"50px"}}}>
     <Grid>
             <Typography variant='h2' sx={{position:"sticky", top:"200px", marginBottom:{lg:"0", xs:"20px"} }}>Бидний тухай</Typography></Grid>
       <Grid sx={{display:"flex", flexDirection:"column", gap:"90px"}}>{catType.map((card) => (

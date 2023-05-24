@@ -33,10 +33,10 @@ const img=require('../../assets/img/undraw_building_websites_i78t.svg')
 export default function BasicGrid() {
 
   return (
-    <Box >
+    <Box sx={{width:{lg:"100%", xs:"100vh"}}} >
     <Container>
     <Box sx={{textAlign:'center'}}>
-      <Box sx={{ marginTop:{lg:"5%", xs:"-40%"} }}>
+      <Box sx={{ marginTop:{lg:"5%", xs:"-25%"} }}>
         <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px', marginLeft:{lg:"25%", xs:"10%" }}}>5W</Typography>
         <Typography variant='h3' sx={{pl:'100px'}} > <Test/></Typography>
       </Box>   
