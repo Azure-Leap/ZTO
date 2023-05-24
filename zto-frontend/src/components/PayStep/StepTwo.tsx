@@ -9,7 +9,7 @@ import { AuthContext } from '@/context/UserContext';
 
 const StepTwo = () => {
   const {user}:any = useContext(AuthContext)
-  const {cartItems, orders}:any =useContext(CartContext);
+  const {cartItems, orders, setOrderId}:any =useContext(CartContext);
   const {cartItem} = cartItems
 
 
@@ -188,7 +188,10 @@ const vatPrice = Math.floor(cartItems?.totalPrice*0.1)
             </Box>
             <Box sx={{width:"500px"}} className="action flex-center">
               <button    type="submit" className="b-main-color pointer" 
-              onClick={()=>updateOrder(orders._id)
+              onClick={()=>{
+                // updateOrder(orders._id);
+                setOrderId('')
+              }
               }
               >
                 Pay Now

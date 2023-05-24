@@ -25,8 +25,8 @@ export class CartsService {
     return  await this.cartModel.find().populate("user_id").exec();
   }
 
-  async findOne(id: string) {
-    return await this.cartModel.findById(id)
+  async findOne({_id}) {
+    return await this.cartModel.findById({_id})
   }
 
   async findOneByUserId(user_id: string) {

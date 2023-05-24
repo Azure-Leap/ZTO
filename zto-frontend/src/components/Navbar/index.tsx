@@ -122,7 +122,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -142,36 +142,6 @@ function ResponsiveAppBar() {
                 Products
               </Button>
             </Tooltip>
-            {/* <Button  sx={{ my: 2, color: "#000", display: 'block', fontWeight: "600" }}>
-            <Link href='/pricing' > 
-                Pricing  
-                 </Link>
-              </Button> */}
-
-            {/* <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElTem)}
-              onClose={handleCloseTem}
-            >
-              {webTypes.map((setting) => (
-                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  <Link href={`/website-templates${(setting.link)}`}>
-                    {setting.name}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu> */}
             {pages.map((page, idx) => (
               <Button
                 key={idx}
