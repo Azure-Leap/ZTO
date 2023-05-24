@@ -10,23 +10,23 @@ function isEmail(string: string) {
   return re.test(string);
 }
 
-export function email(value: string) {
-  return value && !isEmail(value.trim()) ? 'Invalid email' : null;
-}
+export const email = (value: string) => {
+  return value && !isEmail(value.trim()) ? "Invalid email" : null;
+};
 
 function isDirty(value: string | number) {
   return value || value === 0;
 }
 
-export function required(
+export const required = (
   requiredFields: readonly string[],
-  values: Record<string, string>,
-): Record<string, string> {
+  values: Record<string, string>
+): Record<string, string> => {
   return requiredFields.reduce(
     (fields, field) => ({
       ...fields,
-      ...(isDirty(values[field]) ? undefined : { [field]: 'Required' }),
+      ...(isDirty(values[field]) ? undefined : { [field]: "Required" }),
     }),
-    {},
+    {}
   );
-}
+};

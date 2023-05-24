@@ -4,7 +4,7 @@ import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import FormatColorFillIcon from "@mui/icons-material/FormatColorFill";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -39,14 +39,17 @@ const fontSizes = [
   { number: "52", code: "4rem" },
 ];
 
-
 export default function EditForm() {
   // const [formats, setFormats] = useState([]);
-  const { setComponentName, componentName, inputVal, setInputVal } = useContext(EditContext);
+  const { setComponentName, componentName, inputVal, setInputVal }: any =
+    useContext(EditContext);
 
   const change = (e: any) => {
-    const newChangeVal = { ...inputVal  }
-    newChangeVal[componentName] = {...newChangeVal[componentName], [e.target.name]: e.target.value};
+    const newChangeVal = { ...inputVal };
+    newChangeVal[componentName] = {
+      ...newChangeVal[componentName],
+      [e.target.name]: e.target.value,
+    };
     console.log(newChangeVal);
     setInputVal(newChangeVal);
   };
@@ -59,7 +62,7 @@ export default function EditForm() {
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event: any) => {
     console.log("==", event.target.name);
     const name = event.target.name;
     setComponentName(name);
@@ -96,9 +99,9 @@ export default function EditForm() {
                 // aria-label="text formatting"
                 sx={{ height: "50px" }}
               >
-                <ToggleButton value="bold" name="bold" aria-label="bold" >
-                <FormatBoldIcon/>
-                <Select
+                <ToggleButton value="bold" name="bold" aria-label="bold">
+                  <FormatBoldIcon />
+                  <Select
                     sx={{ "& fieldset": { border: "none" } }}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -107,17 +110,15 @@ export default function EditForm() {
                     onChange={change}
                   >
                     {[800, 600, 500, 400].map((bold, idx) => (
-                      <MenuItem key={idx} value={bold}> 
+                      <MenuItem key={idx} value={bold}>
                         {bold}
                       </MenuItem>
                     ))}
                   </Select>
                 </ToggleButton>
-               
+
                 <ToggleButton value="color" aria-label="color">
-                  <FormatColorFillIcon
-                          id="demo-simple-select-label"
-                        />
+                  <FormatColorFillIcon id="demo-simple-select-label" />
 
                   <Select
                     sx={{ "& fieldset": { border: "none" } }}
@@ -128,7 +129,7 @@ export default function EditForm() {
                     onChange={change}
                   >
                     {colors.map((color, idx) => (
-                      <MenuItem key={idx} value={color.code} >
+                      <MenuItem key={idx} value={color.code}>
                         {color.name}
                       </MenuItem>
                     ))}
@@ -167,7 +168,7 @@ export default function EditForm() {
         )}
       </Popper>
       {/* <ProductHero handleClick={handleClick} /> */}
-      <TemplateHome handleClick={handleClick} change={change}  />
+      <TemplateHome handleClick={handleClick} change={change} />
     </Box>
   );
 }

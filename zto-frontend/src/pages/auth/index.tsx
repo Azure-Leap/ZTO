@@ -6,10 +6,11 @@ import { NextRouter, useRouter } from "next/router";
 import { Alert, Snackbar, Box, Typography } from "@mui/material";
 import { FaFacebook, FaGoogle, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { CartContext } from "@/context/CartContext";
+import { BASE_API_URL } from "../../utils/variables";
 
 const Login = () => {
   const history = useRouter();
-  const { setUser, isSignIn, setIsSignIn, message, setMessage }:any =
+  const { setUser, isSignIn, setIsSignIn, message, setMessage }: any =
     useContext(AuthContext);
 
   const [email, setEmail] = useState("sunny@gmail.com");
@@ -23,19 +24,19 @@ const Login = () => {
   const handleClick = async (e: any) => {
     try {
       e.preventDefault();
-      const res = await axios.post(
-        "http://localhost:9010/auth/login",
-        { email, password }
-      );
-      console.log("firstUser",res.data.user.user);
+      const res = await axios.post("BASE_API_URL/auth/login", {
+        email,
+        password,
+      });
+      console.log("firstUser", res.data.user.user);
       setUser(res.data.user.user);
-      localStorage.setItem("user", JSON.stringify(res.data.user.user))
+      localStorage.setItem("user", JSON.stringify(res.data.user.user));
       setMessage(res.data.message);
       console.log(res.data.message);
       setAlert(true);
       setStatus(true);
       history.push("/");
-      
+
       // navigate('/dashboard', { replace: true });
     } catch (error: any) {
       console.log(error);
@@ -48,17 +49,18 @@ const Login = () => {
   const signup = async (e: any) => {
     try {
       e.preventDefault();
-      const res = await axios.post(
-        "http://localhost:9010/users/register",
-        { email, password, username, phone_number }
-      );
+      const res = await axios.post(`BASE_API_URL/users/register`, {
+        email,
+        password,
+        username,
+        phone_number,
+      });
       // console.log(res);
       // setMessage(res.data.message)
       console.log(res);
       setAlert(true);
       setStatus(true);
-      setIsSignIn(true)
-
+      setIsSignIn(true);
     } catch (err) {
       console.log("err", err);
     }
@@ -78,10 +80,8 @@ const Login = () => {
       </Snackbar>
 
       <div className={`container ${isSignIn ? "sign-up-mode" : ""}`}>
-        
         <div className="forms-container">
           <div className="signin-signup">
-           
             <form className="sign-in-form">
               <h2 className="title">Sign in</h2>
 
