@@ -49,8 +49,6 @@ export default function Test() {
       if (container) observer.unobserve(container);
     };
   }, [ref, options]);
-
-
   
   return (
     <Grid>

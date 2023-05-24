@@ -35,36 +35,13 @@ const img=require('../../assets/img/undraw_building_websites_i78t.svg')
 
 export default function BasicGrid() {
 
-  useEffect(() => {
-    const doAnimations = () => {
-      const offset = window ? $(window)?.scrollTop() : 0 + window ? $(window).height() : 0;
-      const $animatables = $('.animatable');
-
-      if ($animatables.length === 0) {
-        $(window).off('scroll', doAnimations);
-      }
-
-      $animatables.each(function (i: number) {
-        const $animatable = $(this);
-        if ($animatable.offset().top + $animatable.height() - 20 < offset) {
-          $animatable.removeClass('animatable').addClass('animated');
-        }
-      });
-    };
-    $(window).on('scroll', doAnimations);
-    $(window).trigger('scroll');
-
-    return () => {
-      $(window).off('scroll', doAnimations);
-    };
-  }, []);
   return (
     <Box >
     <Container>
     <Box sx={{textAlign:'center'}}>
       <Box sx={{ marginTop:{lg:"5%", xs:"-40%"} }}>
         <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px', marginLeft:"25%" }}>5W</Typography>
-        <Typography variant='h3' sx={{pl:'100px'}} >   <Test/></Typography>
+        <Typography variant='h3' sx={{pl:'100px'}} > <Test/></Typography>
       </Box>   
       <Grid  className='BOX' container spacing={1} justifyContent={'space-between'}>
         {dataW.map((w, idx)=>
