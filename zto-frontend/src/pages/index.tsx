@@ -19,8 +19,8 @@ export default function Home() {
         <TemplateCart />
         {/* <TemplateList /> */}
         <About />
-        <Chatbot />
         <FootNav />
+        <Chatbot />
         <WebSteppers />
         <Footer />
       </main>
