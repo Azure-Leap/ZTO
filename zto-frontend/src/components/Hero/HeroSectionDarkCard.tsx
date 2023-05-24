@@ -136,7 +136,8 @@ export default function DarkCard() {
         <MenuItem key={card.time}>
           <Grid
             sx={{
-              width: {lg:"400px", xs:"250px"},
+              height:{lg:"600px", xs:"300px"},
+              width: {lg:"400px", xs:"150px"},
               borderRadius: "16px",
               boxShadow: "0px 4px 16px rgba(20, 158, 158, 0.25)",
               background: "black",
@@ -159,17 +160,17 @@ export default function DarkCard() {
             <Box >
             <Box sx={{borderBottom:"solid 2px gray"}}>
               <Box sx={{padding:"20px"}}>
-              <Box sx={{fontSize:"15px"}}>
+              <Box sx={{fontSize:{lg:"14px", xs:"8px"}}} >
                 Editorial
               </Box>
-              <Box sx={{fontSize:"25px"}}>
+              <Box sx={{  fontSize:{lg:"25px", xs:"8px"}}}>
                 WunderUI-design system
               </Box>
               </Box>
             </Box>
       <Box sx={{borderBottom:"solid 2px gray"}}>
-      <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between" , alignItems:"center", padding:"20px" }}>
-            <Box sx={{display:"flex", flexDirection:"row", gap:"10px" }}>
+      <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between" , alignItems:"center", padding:"20px",fontSize:{lg:"25px", xs:"8px"} }}>
+            <Box sx={{display:"flex", flexDirection:"row", gap:"10px",  }}>
               <Box>
                 By
               </Box>
@@ -181,7 +182,7 @@ export default function DarkCard() {
                 <Box>
                   from
                 </Box>
-                <Box sx={{fontSize:"30px"}}>
+                <Box sx={{fontSize:{lg:"25px", xs:"8px"}}} >
                   34.9
                 </Box>
                 <Box sx={{fontSize:"10px"}}>
@@ -190,7 +191,7 @@ export default function DarkCard() {
             </Box>
             </Box>
       </Box>
-            <Button sx={{color:"white", padding:"20px"}}>
+            <Button sx={{color:"white",padding:{lg:"20px", xs:"10px"}, fontSize:{lg:"25px", xs:"8px"}}}>
               View Product
             </Button>
             

@@ -62,8 +62,8 @@ export default function BasicGrid() {
     <Box >
     <Container>
     <Box sx={{textAlign:'center'}}>
-      <Box sx={{ mx:{lg:"35%"} }}>
-        <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px' }}>5W</Typography>
+      <Box sx={{ marginTop:{lg:"5%", xs:"-40%"} }}>
+        <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px', marginLeft:"25%" }}>5W</Typography>
         <Typography variant='h3' sx={{pl:'100px'}} >   <Test/></Typography>
       </Box>   
       <Grid  className='BOX' container spacing={1} justifyContent={'space-between'}>
