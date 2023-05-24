@@ -52,9 +52,9 @@ export default function Test() {
   
   return (
     <Grid>
-      <Box>
+      <Box sx={{marginLeft:{lg:"0", xs:"10%"}}}>
         <TitleStyle ref={ref}>
-          <LinkStyle href="#" color="inherit">
+          <LinkStyle sx={{fontSize:{lg:"40px", xs:"30px"}}} href="#" color="inherit">
          Solution
             <Underline color="#fb9f18" time={0.5} trigger={active} size={4} />
           </LinkStyle>

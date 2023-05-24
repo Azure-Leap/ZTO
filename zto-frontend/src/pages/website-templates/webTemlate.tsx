@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Grid} from '@mui/material'
+import { Container, Grid} from '@mui/material'
 import Typography from '../editPage/onepirate/modules/components/Typography'
 import {Pagination} from '@mui/material'
 import CategoriesHead from './CategoriesHead'
@@ -29,23 +29,32 @@ const WebTemlate = () => {
     getTemp()
   },[] )
   return (
-    <Layout>
-    <Grid sx={{textAlign:"center", margin:"0% 11% 0% 11%"}}>
-      <Typography variant='h3' sx={{padding:"100px 0px 20px 0px"}}>
+  
+       <Layout>
+    <Grid sx={{textAlign:"center", margin:{xs:"0"}, width:{lg:"100vw", xs:"100vh"}}}>
+      <Typography variant='h3' sx={{padding:{lg:"100px 0px 20px 0px", xs:"0px"}, fontSize:{lg:"50px", xs:"20px"}}}>
           WEBSITE TEMPLATES
-      </Typography>
-      <Typography sx={{margin:"40px 300px 40px 300px", }}>
+      </Typography> 
+      <Typography sx={{margin:{lg:"40px 300px 40px 300px"} }}>
           Choose the Microweber template, which fits for your website.
           Each template is a perfect example of how your website will look like.
           You can expand and modify the template or even start from scratch.
       </Typography>
     <Grid container spacing={0}  item xs={12} sx={{display:"flex", flexDirection:"row",  justifyContent:"space-around", marginTop:"30px",gap:"50px" }}>
+         
+          <Container>
           <CategoriesHead templates={templates}  setTemplatesFilter={setTemplatesFilter} templatesFilter={templatesFilter}/>
           <WebsiteTemlatesCard templates={templates} isLoading={isLoading}  setTemplatesFilter={setTemplatesFilter} templatesFilter={templatesFilter}/>
+          </Container>
+         
     </Grid>
-          <Pagination sx={{marginLeft:"35%", marginTop:"2%"}} count={100} color="primary" />
+    <Grid sx={{alignContent:"center", alignItems:"center"}}>
+    <Pagination sx={{marginLeft:"40%"}} count={100} color="primary" />
+    </Grid>
+  
     </Grid>
     </Layout>
+   
   )
 }
 

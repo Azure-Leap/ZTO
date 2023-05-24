@@ -5,10 +5,10 @@ import Cart from './Cart';
 
 const TemplateCart = () => {
   return (
-    <Grid sx={{width:"100%",  height:"86vh", backgroundColor:"#F0FFFF", zIndex:"10", overflow:"hidden"}}>
-        <Grid sx={{ display:"flex"}}>
-        <Grid sx={{ width:{lg:"50%", sm:"100%"} , height:{lg:"86vh", sm:"100vh"}, backgroundColor:"white", zIndex:"2", padding:"0% 0% 0% 20%", boxShadow: " 50px 0px 100px 80px white ", backgroundBlendMode:"color-burn"}}>
-            <Box sx={{marginBottom:"50px"}}>
+    <Grid sx={{width:"100%",  backgroundColor:"#F0FFFF", zIndex:"10", overflow:"hidden"}}>
+        <Grid sx={{ display:"flex", flexDirection:{lg:"row", xs:"column"}}}>
+        <Grid sx={{width:{lg:"50%", xs:"100%"},  backgroundColor:"white", zIndex:"2", padding:"0% 0% 0% 20%", boxShadow: " 50px 0px 100px 80px white ", backgroundBlendMode:"color-burn"}}>
+            <Box sx={{marginBottom:"50px", textAlign:{lg:"left", xs:"center"}, width:{lg:"400px", xs:"250px"}}}>
                 <Typography sx={{color:"blue", fontWeight:"bold"}}>
                     Product
                 </Typography>
@@ -22,7 +22,7 @@ const TemplateCart = () => {
                 </Typography>
                
             </Box>
-            <Box sx={{display:"flex", flexDirection:"column", gap:{lg:"50px", sm:"30px"}}}>
+            <Box sx={{display:"flex",  flexDirection:"column", gap:{lg:"50px", xs:"30px"}}}>
             <Box sx={{display:"flex", alignContent:"center", alignItems:"center", cursor:"pointer", gap:"20px", "&:hover": {
           background: "#F0F8FF",
           borderRadius:"20px"},}}>
@@ -142,9 +142,9 @@ const TemplateCart = () => {
                 </Box>
                     </Box>
         </Grid> 
-       <Box sx={{zIndex:"1", marginLeft:"30%"}}>
+       <Grid sx={{zIndex:"1", marginLeft:"30%"}}>
        <Cart/>
-       </Box>
+       </Grid>
  
 </Grid>
 </Grid>

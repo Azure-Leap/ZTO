@@ -72,7 +72,7 @@ function ResponsiveAppBar() {
     },
   }));
   return (
-    <AppBar position="sticky" sx={{ textAlign: "center", backgroundColor: "transparent", color: "#000", backdropFilter:"blur(50px)"}}>
+    <AppBar  position="sticky" sx={{ textAlign: "center", backgroundColor: "transparent", color: "#000", backdropFilter:"blur(50px)", width:{lg:"100%", xs:"100vh"}}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

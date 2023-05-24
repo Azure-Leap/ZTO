@@ -15,7 +15,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
 
 
   return isLoading && templates ? (
-      <Box> 
+      <Box sx={{}}> 
         {!templatesFilter.length && <Box>Олдсонгүй</Box>}
         <Snackbar
         open={alert}
@@ -29,12 +29,13 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
 
       </Snackbar>
 
-       <Box sx={{display:"flex", gap:"40px", flexDirection:"row",flexWrap:"wrap",}}>
+       <Grid sx={{ display:"flex" ,gap:"50px", flexDirection:"row",flexWrap:"wrap", alignContent:"center", alignItems:"center"}}>
           {templatesFilter.map((template:any, idx:any) => (
         <Grid  key={idx} 
         className="WEB"
           sx={{
             mb:"40px",
+            width: {lg:"55vh", xs:"100vh"},
             background: "white",
             boxShadow:
               "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
@@ -47,7 +48,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
                 zIndex:"2",
                 backgroundImage: `url(${template.image})`,
                 backgroundRepeat: "no-repeat",
-                width: "555px",
+                width: {lg:"55vh", xs:"100vh"},
                 height: "500px",
                 backgroundPosition: "center 0",
                 display: "block",
@@ -116,7 +117,7 @@ const WebsiteTemlatesCard = ({ templates, isLoading,setTemplatesFilter, template
           </Box>
         </Grid>
       ))}
-      </Box>
+      </Grid>
       </Box>
   ) : <Box sx={{ display: 'flex', height:'100vh' }}>
   <CircularProgress /> 

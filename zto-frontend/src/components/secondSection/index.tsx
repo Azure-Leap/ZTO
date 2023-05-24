@@ -12,9 +12,6 @@ import UpdateIcon from '@mui/icons-material/Update';
 import Image from 'next/image';
 import Test from './test';
 
-import $ from 'jquery';
-
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -40,7 +37,7 @@ export default function BasicGrid() {
     <Container>
     <Box sx={{textAlign:'center'}}>
       <Box sx={{ marginTop:{lg:"5%", xs:"-40%"} }}>
-        <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px', marginLeft:"25%" }}>5W</Typography>
+        <Typography variant='h3' sx={{borderBottom: "8px #ff3d00 solid", width:'200px', marginLeft:{lg:"25%", xs:"10%" }}}>5W</Typography>
         <Typography variant='h3' sx={{pl:'100px'}} > <Test/></Typography>
       </Box>   
       <Grid  className='BOX' container spacing={1} justifyContent={'space-between'}>
@@ -59,7 +56,7 @@ export default function BasicGrid() {
           <Image src={img} alt='second-img'  height={500} style={{width:'100%'}} />
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={5}>
-          <Typography className="block animatable bounceInLeft" variant='h3' fontSize={'3rem'} fontWeight={500}>Вэбсайтын шинэлэг шийдэл </Typography>
+          <Typography className="block animatable bounceInLeft" variant='h3' sx={{fontSize:{lg:"3rem", xs:"2rem"}, textAlign:{lg:"none", xs:"center"}}}  fontWeight={500}>Вэбсайтын шинэлэг шийдэл </Typography>
         <List  >
           {dataW.map((e, idx)=>
           <ListItem disablePadding key={idx}>
