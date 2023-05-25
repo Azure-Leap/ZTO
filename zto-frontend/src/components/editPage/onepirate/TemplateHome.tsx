@@ -11,25 +11,21 @@ import withRoot from "./modules/withRoot";
 import { Box } from "@mui/material";
 import EditForm from "./modules/edit/editForm";
 
-function Index({handleClick, change}:any) {
-  
+function Index({ handleClick, change }: any) {
   return (
-      <React.Fragment>
-        <Box>
-          <AppAppBar />
-          <ProductHero handleClick={handleClick} change={change} />
-          <ProductValues handleClick={handleClick} change={change}/>
-          <ProductCategories handleClick={handleClick} change={change}/>
-          <ProductHowItWorks handleClick={handleClick} change={change}/>
-          <ProductCTA handleClick={handleClick} change={change}/>
-          <ProductSmokingHero handleClick={handleClick} change={change}/>
-          <AppFooter />
-        </Box>
-      </React.Fragment>
-
+    <React.Fragment>
+      <Box>
+        <AppAppBar />
+        <ProductHero handleClick={handleClick} change={change} />
+        <ProductValues handleClick={handleClick} change={change} />
+        <ProductCategories />
+        <ProductHowItWorks handleClick={handleClick} change={change} />
+        <ProductCTA />
+        <ProductSmokingHero />
+        <AppFooter />
+      </Box>
+    </React.Fragment>
   );
 }
-
-
 
 export default withRoot(Index);

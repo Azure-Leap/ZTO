@@ -15,11 +15,12 @@ const item: SxProps<Theme> = {
   px: 5,
 };
 
-function ProductValues({ handleClick , change }: any) {
-  const { inputVal  } = React.useContext(EditContext);
+function ProductValues({ handleClick, change }: any) {
+  const { inputVal }: any = React.useContext(EditContext);
 
   return (
-    <Box id="productValues"
+    <Box
+      id="productValues"
       component="section"
       sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
     >
@@ -50,7 +51,7 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                   
+
                     input: {
                       textAlign: "center",
                       color: inputVal.valTit1.color,
@@ -61,7 +62,7 @@ function ProductValues({ handleClick , change }: any) {
                 />
               </Typography>
               <Typography variant="h5">
-              <TextField
+                <TextField
                   name="valText1"
                   value={inputVal.valText1.p}
                   variant="outlined"
@@ -72,14 +73,15 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    
+
                     input: {
                       textAlign: "center",
                       color: inputVal.valText1.color,
                       fontSize: inputVal.valText1.size,
                       fontWeight: inputVal.valText1.bold,
                     },
-                  }}/>
+                  }}
+                />
               </Typography>
             </Box>
           </Grid>
@@ -92,7 +94,7 @@ function ProductValues({ handleClick , change }: any) {
                 sx={{ height: 55 }}
               />
               <Typography variant="h6" sx={{ my: 5 }}>
-              <TextField
+                <TextField
                   name="valTit2"
                   value={inputVal.valTit2.p}
                   variant="outlined"
@@ -103,17 +105,18 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    
+
                     input: {
                       textAlign: "center",
                       color: inputVal.valTit2.color,
                       fontSize: inputVal.valTit2.size,
                       fontWeight: inputVal.valTit2.bold,
                     },
-                  }}/>
+                  }}
+                />
               </Typography>
               <Typography variant="h5">
-              <TextField
+                <TextField
                   name="valText2"
                   value={inputVal.valText2.p}
                   variant="outlined"
@@ -123,16 +126,16 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    
+
                     input: {
                       textAlign: "center",
                       color: inputVal.valText2.color,
                       fontSize: inputVal.valText2.size,
                       fontWeight: inputVal.valText2.bold,
                     },
-                  }}/>
+                  }}
+                />
               </Typography>
-             
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -144,28 +147,29 @@ function ProductValues({ handleClick , change }: any) {
                 sx={{ height: 55 }}
               />
               <Box onClick={handleClick}>
-              <Typography variant="h6" sx={{ my: 5 }} >
-              <TextField
-                  name="valTit3"
-                  value={inputVal.valTit3.p}
-                  variant="outlined"
-                  fullWidth
-                  rows={4}
-                  onChange={change}
-                  sx={{
-                    width: "400px",
-                    "& fieldset": { border: "none" },
-                    input: {
-                      textAlign: "center",
-                      color: inputVal.valTit3.color,
-                      fontSize: inputVal.valTit3.size,
-                      fontWeight: inputVal.valTit3.bold,
-                    },
-                  }}/>
-              </Typography>
+                <Typography variant="h6" sx={{ my: 5 }}>
+                  <TextField
+                    name="valTit3"
+                    value={inputVal.valTit3.p}
+                    variant="outlined"
+                    fullWidth
+                    rows={4}
+                    onChange={change}
+                    sx={{
+                      width: "400px",
+                      "& fieldset": { border: "none" },
+                      input: {
+                        textAlign: "center",
+                        color: inputVal.valTit3.color,
+                        fontSize: inputVal.valTit3.size,
+                        fontWeight: inputVal.valTit3.bold,
+                      },
+                    }}
+                  />
+                </Typography>
               </Box>
               <Typography variant="h5">
-              <TextField
+                <TextField
                   name="valText3"
                   value={inputVal.valText3.p}
                   variant="outlined"
@@ -175,14 +179,15 @@ function ProductValues({ handleClick , change }: any) {
                   sx={{
                     width: "400px",
                     "& fieldset": { border: "none" },
-                    
+
                     input: {
                       textAlign: "center",
                       color: inputVal.valText3.color,
                       fontSize: inputVal.valText3.size,
                       fontWeight: inputVal.valText3.bold,
                     },
-                  }}/>
+                  }}
+                />
               </Typography>
             </Box>
           </Grid>

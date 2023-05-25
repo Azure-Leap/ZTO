@@ -6,13 +6,10 @@
 // import Button from './Button';
 // import Tooltip from './Tooltip';
 // import Backdrop from './Backdrop';
-import Typography from './Typography';
-
+import Typography from "./Typography";
 
 // ----------------------------------------------------------------------
 
-export default function ComponentsOverrides(theme) {
-  return Object.assign(
-    Typography(theme),
-  );
+export default function ComponentsOverrides(theme: any) {
+  return Object.assign(Typography(theme));
 }

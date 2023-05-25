@@ -58,4 +58,4 @@ const ResponsiveFooter = () => {
   );
 };
 
-export default ResponsiveFooter ;
+export default ResponsiveFooter;

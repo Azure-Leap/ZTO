@@ -3,13 +3,14 @@ import { Grid, Box, Button, Typography, Container } from "@mui/material";
 // import Button from '../editPage/onepirate/modules/components/Button'
 import Search from "./Search";
 import axios from "axios";
+import { BASE_API_URL } from "@/utils/variables";
 
-const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
+const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:9010/categories")
+      .get(`${BASE_API_URL}/categories`)
       .then((res) => {
         console.log(res.data);
         setCategories(res.data);
@@ -19,19 +20,20 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
 
   const searchWeb = (e: any) => {
     console.log("fff", e.target.value);
-    const filterWeb = templates.filter((web:any) => web.name?.toLowerCase().includes(e.target.value))
-      setTemplatesFilter(filterWeb) ;
-      // setTemplates(templatesFilter)
-  }
+    const filterWeb = templates.filter((web: any) =>
+      web.name?.toLowerCase().includes(e.target.value)
+    );
+    setTemplatesFilter(filterWeb);
+    // setTemplates(templatesFilter)
+  };
 
-  const filterCat = (id :string) => {
-    const filterCat = templates.filter((tem:any) => tem?.category._id === id);
-    
+  const filterCat = (id: string) => {
+    const filterCat = templates.filter((tem: any) => tem?.category._id === id);
+
     setTemplatesFilter(filterCat);
   };
 
   return (
-    
     <Grid
       sx={{
         position: "sticky",
@@ -67,7 +69,6 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
         </Button>
       {categories.map((category :any , idx) => (
         <Button
-          key={idx}
           sx={{
 
             height: "20px",
@@ -80,11 +81,41 @@ const CategoriesHead = ({ setTemplatesFilter, templates }:any) => {
               height: "40px",
             },
           }}
-          onClick={() => filterCat(category._id)}
+          onClick={() => setTemplatesFilter(templates)}
         >
-          {category.title}
+          All
         </Button>
-      ))}
+        {categories.map((category: any, idx) => (
+          <Button
+            key={idx}
+            sx={{
+              height: "20px",
+              backgroundColor: "none",
+              color: "black",
+              fontSize: "17px",
+              "&:hover": {
+                border: "solid 1px",
+                borderRadius: "0",
+                height: "40px",
+              },
+            }}
+            onClick={() => filterCat(category._id)}
+          >
+            {category.title}
+          </Button>
+        ))}
+      </Box>
+      <Box
+        sx={{
+          height: "50px",
+
+          width: "400px",
+          backgroundColor: "none",
+          color: "black",
+          fontSize: "17px",
+        }}
+      >
+        <Search searchWeb={searchWeb} />
       </Box>
       <Box   sx={{
             height: "70px",

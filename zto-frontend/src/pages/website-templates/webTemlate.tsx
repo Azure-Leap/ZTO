@@ -11,23 +11,23 @@ import Layout from '@/components/layout'
 const WebTemlate = () => {
   const [templates, setTemplates] = useState([]);
   const [templatesFilter, setTemplatesFilter] = useState([]);
-  const [isLoading, setIsLoading]= useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const getTemp=async()=>{
-    try{
-      const res = await axios.get('http://localhost:9010/websites')
+  const getTemp = async () => {
+    try {
+      const res = await axios.get(`${BASE_API_URL}/websites`);
       console.log("tem", res.data);
-      setTemplates(res.data)
-      setTemplatesFilter(res.data)
-      setIsLoading(true)
-    }catch(err){
+      setTemplates(res.data);
+      setTemplatesFilter(res.data);
+      setIsLoading(true);
+    } catch (err) {
       console.log("err", err);
     }
   };
 
-  useEffect(()=>{
-    getTemp()
-  },[] )
+  useEffect(() => {
+    getTemp();
+  }, []);
   return (
   
        <Layout>
@@ -58,4 +58,4 @@ const WebTemlate = () => {
   )
 }
 
-export default WebTemlate
+export default WebTemlate;
