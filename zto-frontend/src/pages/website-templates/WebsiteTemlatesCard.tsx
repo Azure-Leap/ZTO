@@ -29,9 +29,9 @@ const WebsiteTemlatesCard = ({
     useContext(CartContext);
 
   return isLoading && templates ? (
-    <Box>
-      {!templatesFilter.length && <Box>Олдсонгүй</Box>}
-      <Snackbar
+      <Box sx={{}}> 
+        {!templatesFilter.length && <Box>Олдсонгүй</Box>}
+        <Snackbar
         open={alert}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         autoHideDuration={2000}
@@ -42,34 +42,28 @@ const WebsiteTemlatesCard = ({
         <Alert severity="error">Та эхлээд нэвтэрнэ үү!</Alert>
       </Snackbar>
 
-      <Box
-        sx={{
-          display: "flex",
-          gap: "40px",
-          flexDirection: "row",
-          flexWrap: "wrap",
-        }}
-      >
-        {templatesFilter.map((template: any, idx: any) => (
-          <Grid
-            key={idx}
-            className="WEB"
-            sx={{
-              mb: "40px",
-              background: "white",
-              boxShadow:
-                "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-              "&:hover": { scale: "1.06 ", overflowY: "hidden" },
-            }}
-          >
-            <Box
+       <Grid sx={{ display:"flex" ,gap:"50px", flexDirection:"row",flexWrap:"wrap", alignContent:"center", alignItems:"center"}}>
+          {templatesFilter.map((template:any, idx:any) => (
+        <Grid  key={idx} 
+        className="WEB"
+          sx={{
+            mb:"40px",
+            margin:{lg:"0% 0% 0% 0%", xs:"10% 10% -10% 10%"},
+            width: {lg:"55vh", xs:"90vh"},
+            background: "white",
+            boxShadow:
+              "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+            "&:hover": { scale: "1.06 ", overflowY: "hidden" },
+          }}
+        >
+          <Box
               className="bounceTemplate"
               sx={{
                 zIndex: "2",
                 backgroundImage: `url(${template.image})`,
                 backgroundRepeat: "no-repeat",
-                width: "555px",
-                height: "500px",
+                width: {lg:"55vh", xs:"80vh"},
+                height: "400px",
                 backgroundPosition: "center 0",
                 display: "block",
               }}
@@ -136,15 +130,17 @@ const WebsiteTemlatesCard = ({
                 </Link>
               </Box>
             </Box>
+        
           </Grid>
-        ))}
+        
+      ))}
+      </Grid>
       </Box>
-    </Box>
-  ) : (
-    <Box sx={{ display: "flex", height: "100vh" }}>
-      <CircularProgress />
-    </Box>
-  );
+  ) : <Box sx={{ display: 'flex', height:'100vh' }}>
+  <CircularProgress /> 
+</Box>
+
+  
 };
 
 export default WebsiteTemlatesCard;

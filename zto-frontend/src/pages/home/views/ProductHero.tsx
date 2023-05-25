@@ -1,6 +1,8 @@
 import ProductHeroLayout from "./ProductHeroLayout";
 import HeroSectionDark from "@/components/Hero/HeroSectionDark";
 import HeroSectionWhite from "@/components/Hero/HeroSectionWhite";
+
+
 export default function ProductHero() {
   if (typeof window !== "undefined") {
     const left: HTMLElement | null = document.getElementById("left-side");
@@ -21,9 +23,11 @@ export default function ProductHero() {
     };
   }
   return (
-    <ProductHeroLayout sxBackground={{ width: "100%" }}>
-      <HeroSectionDark />
+    <ProductHeroLayout sxBackground={{ width: "100vh" }}>
+
+<HeroSectionDark />
       <HeroSectionWhite />
+
     </ProductHeroLayout>
   );
 }

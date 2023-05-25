@@ -37,36 +37,37 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
     <Grid
       sx={{
         position: "sticky",
-        top: "65px",
-        height: "80px",
+        top: {lg:"65px", xs:"60px"},
+        height: "100px",
         alignItems: "center",
-        flexDirection: "row",
+        flexDirection: {lg:"row", xs:"column"},
         justifyContent: "space-around",
         mt: "30px",
-        width: "100%",
         zIndex: "11",
         backgroundColor: "transparent",
         backdropFilter: "saturate(100%) blur(80px)",
-        display: "flex",
+        display:"flex",
       }}
     >
-      <Box sx={{ marginLeft: "5%" }}>
-        <Button
+      <Box sx={{  width:{lg:"100%", xs:"100vh"}
+, }}>   
+      <Button
           sx={{
             height: "20px",
             backgroundColor: "none",
             color: "black",
-            fontSize: "17px",
+           fontSize: {lg:"17px", xs:"10px"},
             "&:hover": {
               border: "solid 1px",
               borderRadius: "0",
               height: "40px",
             },
           }}
-          onClick={() => setTemplatesFilter(templates)}
+          onClick={()=>setTemplatesFilter(templates)}
         >
-          All
+         All
         </Button>
+     
         {categories.map((category: any, idx) => (
           <Button
             key={idx}
@@ -74,7 +75,7 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
               height: "20px",
               backgroundColor: "none",
               color: "black",
-              fontSize: "17px",
+              fontSize: {lg:"17px", xs:"10px"},
               "&:hover": {
                 border: "solid 1px",
                 borderRadius: "0",
@@ -87,18 +88,18 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
           </Button>
         ))}
       </Box>
-      <Box
-        sx={{
-          height: "50px",
-
-          width: "400px",
-          backgroundColor: "none",
-          color: "black",
-          fontSize: "17px",
-        }}
-      >
-        <Search searchWeb={searchWeb} />
-      </Box>
+      <Box   sx={{
+            height: "70px",
+            width:{lg:"50%", xs:"100vh"},
+            backgroundColor: "none",
+            alignContent:"center",
+            alignItems:"center",
+            color: "black",
+            fontSize: "17px",
+          }}>
+          <Search searchWeb = {searchWeb}/>
+        </Box>
+     
     </Grid>
   );
 };

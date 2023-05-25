@@ -7,29 +7,29 @@ import { CardMedia } from '@mui/material';
 const catType = [
   {
     Id:"3",
-    Name: "Munkhtur",
-    About:".",
+    Name: "?.Энхтүвшин",
+    About:"Багийн ахлагч",
     Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
     Id:"3",
-    Name: "Ekhntuwshin",
-    About:" .",
+    Name: "Б.Мөнхтөр",
+    About:"Багийн гишүүн",
     Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
     Id:"3",
-    Name: "Angarag",
-    About:" .",
+    Name: "?.Ангараг",
+    About:"Багийн гишүүн",
     Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
 ];
 const About = () => {
   return (
-    <Grid ><Grid sx={{display:{lg: "flex", sm:"flow"},  justifyContent:"space-between", margin:{lg:"240px", sm:"50px"}}}>
+    <Grid sx={{width:{lg:"100%", xs:"100vh"}}} ><Grid sx={{display:{lg: "flex", xm:"flow"}, textAlign:{lg:"left", xs:"center"}, justifyContent:"space-between", margin:{lg:"240px", xs:"50px"}}}>
     <Grid>
-              <Typography variant='h2' sx={{position:"sticky", top:"200px"}} className=''>Бидний тухай</Typography></Grid>
-      <Grid  sx={{display:"flex", flexDirection:"column", gap:"90px"}}>{catType.map((card) => (
+            <Typography variant='h2' sx={{position:"sticky", top:"200px", marginBottom:{lg:"0", xs:"20px"} }}>Бидний тухай</Typography></Grid>
+      <Grid sx={{display:"flex", flexDirection:"column", gap:"90px"}}>{catType.map((card) => (
             <Grid key={card.Id}>
             <Grid>
             <Box sx={{display:"flex", justifyContent:"space-between"}}>
@@ -45,7 +45,7 @@ const About = () => {
              <Box>    <CardMedia
               component="img"
               height="400"
-              sx={{borderRadius:"120px 20px 80px 20px"}}
+              sx={{borderRadius:"120px 20px 80px 20px", height:{lg:"400px", xs:"200px"}}}
               image="https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
               alt="green iguana"
             /></Box>

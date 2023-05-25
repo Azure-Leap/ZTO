@@ -67,7 +67,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <Box>
       <Snackbar
         open={alert}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -230,7 +230,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Box>
   );
 };
 
