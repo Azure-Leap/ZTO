@@ -95,7 +95,7 @@ export default function BasicGrid() {
     <Box>
       <Container>
         <Box sx={{ textAlign: "center" }}>
-          <Box sx={{ mx: { lg: "35%" } }}>
+          <Box sx={{ margin: { lg: "0% 0% 0% 35%", xs:"-40% -30% 0% 50%" } }}>
             <Typography
               variant="h3"
               sx={{ borderBottom: "8px #ff3d00 solid", width: "200px" }}
@@ -107,7 +107,7 @@ export default function BasicGrid() {
               <Test />
             </Typography>
           </Box>
-          <Grid
+          <Grid sx={{width:{lg:"100%", xs:"100vh"}}}
             className="BOX"
             container
             spacing={1}
@@ -140,7 +140,7 @@ export default function BasicGrid() {
           </Grid>
         </Box>
         <Box>
-          <Grid container spacing={2} justifyContent={"center"} my={"50px"}>
+          <Grid container spacing={2} justifyContent={"center"} my={"50px"} sx={{width:{lg:"100%", xs:"100vh"}}}>
             <Grid
               className="block animatable fadeInUp"
               item

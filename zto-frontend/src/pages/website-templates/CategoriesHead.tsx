@@ -67,24 +67,7 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
         >
          All
         </Button>
-      {categories.map((category :any , idx) => (
-        <Button
-          sx={{
-
-            height: "20px",
-            backgroundColor: "none",
-            color: "black",
-            fontSize: {lg:"17px", xs:"10px"},
-            "&:hover": {
-              border: "solid 1px",
-              borderRadius: "0",
-              height: "40px",
-            },
-          }}
-          onClick={() => setTemplatesFilter(templates)}
-        >
-          All
-        </Button>
+     
         {categories.map((category: any, idx) => (
           <Button
             key={idx}
@@ -92,7 +75,7 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
               height: "20px",
               backgroundColor: "none",
               color: "black",
-              fontSize: "17px",
+              fontSize: {lg:"17px", xs:"10px"},
               "&:hover": {
                 border: "solid 1px",
                 borderRadius: "0",
@@ -104,18 +87,6 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
             {category.title}
           </Button>
         ))}
-      </Box>
-      <Box
-        sx={{
-          height: "50px",
-
-          width: "400px",
-          backgroundColor: "none",
-          color: "black",
-          fontSize: "17px",
-        }}
-      >
-        <Search searchWeb={searchWeb} />
       </Box>
       <Box   sx={{
             height: "70px",

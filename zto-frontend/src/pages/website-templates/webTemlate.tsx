@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Grid} from '@mui/material'
-import Typography from '../editPage/onepirate/modules/components/Typography'
+import {Typography} from '@mui/material'
 import {Pagination} from '@mui/material'
 import CategoriesHead from './CategoriesHead'
 import WebsiteTemlatesCard from './WebsiteTemlatesCard'
 import axios from 'axios'
 import Layout from '@/components/layout'
+  import { BASE_API_URL } from '@/utils/variables'
 
 
 const WebTemlate = () => {

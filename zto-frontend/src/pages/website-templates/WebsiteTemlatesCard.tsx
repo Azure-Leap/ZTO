@@ -48,7 +48,8 @@ const WebsiteTemlatesCard = ({
         className="WEB"
           sx={{
             mb:"40px",
-            width: {lg:"55vh", xs:"100vh"},
+            margin:{lg:"0% 0% 0% 0%", xs:"10% 10% -10% 10%"},
+            width: {lg:"55vh", xs:"90vh"},
             background: "white",
             boxShadow:
               "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
@@ -61,8 +62,8 @@ const WebsiteTemlatesCard = ({
                 zIndex: "2",
                 backgroundImage: `url(${template.image})`,
                 backgroundRepeat: "no-repeat",
-                width: {lg:"55vh", xs:"100vh"},
-                height: "500px",
+                width: {lg:"55vh", xs:"80vh"},
+                height: "400px",
                 backgroundPosition: "center 0",
                 display: "block",
               }}
@@ -129,37 +130,7 @@ const WebsiteTemlatesCard = ({
                 </Link>
               </Box>
             </Box>
-            <Box  sx={{ display: "flex", gap: "30px" }}>
-              <Link
-              className="BUT"
-                href={template.demoLink}
-                sx={{
-                  border: "solid 2px black",
-                  color: "Black",
-                  width: "80px",
-                  padding: "13px",
-                  borderRadius: "0",
-                  textAlign:"center"
-                }}
-              >
-                PREVIEW
-              </Link>
-              <Link
-              className="BUT"
-              href={template.editLink}
-                sx={{
-                  background: "gray",
-                  border: "solid 2px gray",
-                  color: "white",
-                  width: "150px",
-                  padding: "13px",
-                  borderRadius: "0",
-                  textAlign:"center"
-                }}
-              >
-                Edit
-              </Link>
-            </Box>
+        
           </Grid>
         
       ))}
