@@ -29,12 +29,7 @@ export default function ProductHero({ handleClick, change }: any) {
         />
 
         <div onClick={handleClick}>
-          <Typography
-            color="inherit"
-            align="center"
-            variant="h2"
-            marked="center"
-          > 
+         
             <TextField
               name="title"
               value={inputVal.title.p}
@@ -50,14 +45,9 @@ export default function ProductHero({ handleClick, change }: any) {
                 },
               }}
             />
-          </Typography>
+     
         </div>
-        <Typography
-          color="inherit"
-          align="center"
-          variant="h5"
-          sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
-        >
+       
           <TextField
             name="text"
             value={inputVal.text.p}
@@ -75,7 +65,6 @@ export default function ProductHero({ handleClick, change }: any) {
               },
             }}
           />
-        </Typography>
         <Button
           color="secondary"
           variant="contained"
@@ -102,7 +91,6 @@ export default function ProductHero({ handleClick, change }: any) {
             }}
           />
         </Button>
-        <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
           <TextField
             name="p1"
             value={inputVal.p1.p}
@@ -120,7 +108,6 @@ export default function ProductHero({ handleClick, change }: any) {
               },
             }}
           />
-        </Typography>
       </ProductHeroLayout>
     </Box>
   );

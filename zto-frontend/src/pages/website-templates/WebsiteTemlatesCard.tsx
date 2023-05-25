@@ -115,7 +115,7 @@ const WebsiteTemlatesCard = ({
                 </Link>
                 <Link
                   className="BUT"
-                  href={template.editLink}
+                  href="/website-templates/editpage"
                   sx={{
                     background: "gray",
                     border: "solid 2px gray",

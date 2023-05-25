@@ -37,7 +37,7 @@ const pages = [
 const EditSidebar = () =>  {
   return (
     <Box sx={{ display: 'flex',  marginTop:"5%" }}>
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 , backgroundColor:"#fff"}} >
           <ResponsiveAppBar/>
       </AppBar>
       <Drawer

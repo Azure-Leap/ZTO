@@ -40,7 +40,7 @@ function ProductValues({ handleClick, change }: any) {
                 alt="suitcase"
                 sx={{ height: 55 }}
               />
-              <Typography variant="h6" sx={{ my: 5 }}>
+              
                 <TextField
                   name="valTit1"
                   value={inputVal.valTit1.p}
@@ -60,8 +60,7 @@ function ProductValues({ handleClick, change }: any) {
                     },
                   }}
                 />
-              </Typography>
-              <Typography variant="h5">
+          
                 <TextField
                   name="valText1"
                   value={inputVal.valText1.p}
@@ -82,7 +81,6 @@ function ProductValues({ handleClick, change }: any) {
                     },
                   }}
                 />
-              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -93,7 +91,6 @@ function ProductValues({ handleClick, change }: any) {
                 alt="graph"
                 sx={{ height: 55 }}
               />
-              <Typography variant="h6" sx={{ my: 5 }}>
                 <TextField
                   name="valTit2"
                   value={inputVal.valTit2.p}
@@ -114,8 +111,6 @@ function ProductValues({ handleClick, change }: any) {
                     },
                   }}
                 />
-              </Typography>
-              <Typography variant="h5">
                 <TextField
                   name="valText2"
                   value={inputVal.valText2.p}
@@ -135,7 +130,6 @@ function ProductValues({ handleClick, change }: any) {
                     },
                   }}
                 />
-              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -147,7 +141,6 @@ function ProductValues({ handleClick, change }: any) {
                 sx={{ height: 55 }}
               />
               <Box onClick={handleClick}>
-                <Typography variant="h6" sx={{ my: 5 }}>
                   <TextField
                     name="valTit3"
                     value={inputVal.valTit3.p}
@@ -166,9 +159,7 @@ function ProductValues({ handleClick, change }: any) {
                       },
                     }}
                   />
-                </Typography>
               </Box>
-              <Typography variant="h5">
                 <TextField
                   name="valText3"
                   value={inputVal.valText3.p}
@@ -188,7 +179,6 @@ function ProductValues({ handleClick, change }: any) {
                     },
                   }}
                 />
-              </Typography>
             </Box>
           </Grid>
         </Grid>

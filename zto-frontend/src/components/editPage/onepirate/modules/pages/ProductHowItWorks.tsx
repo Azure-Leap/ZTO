@@ -57,7 +57,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
             opacity: 0.7,
           }}
         />
-        <Typography variant="h4" marked="center" component="h2" sx={{ mb: 14 }}>
           <TextField
             name="workTit"
             value={inputVal.workTit.p}
@@ -77,7 +76,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
               },
             }}
           />
-        </Typography>
         <div>
           <Grid container spacing={5}>
             <Grid item xs={12} md={4}>
@@ -89,7 +87,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
                   alt="suitcase"
                   sx={image}
                 />
-                <Typography variant="h5" align="center">
                   <TextField
                     name="workP1"
                     value={inputVal.workP1.p}
@@ -107,7 +104,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
                       },
                     }}
                   />
-                </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -119,7 +115,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
                   alt="graph"
                   sx={image}
                 />
-                <Typography variant="h5" align="center">
                   <TextField
                     name="workP2"
                     value={inputVal.workP2.p}
@@ -138,7 +133,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
                       },
                     }}
                   />
-                </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -150,7 +144,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
                   alt="clock"
                   sx={image}
                 />
-                <Typography variant="h5" align="center">
                   <TextField
                     name="workP3"
                     value={inputVal.workP3.p}
@@ -169,7 +162,6 @@ function ProductHowItWorks({ handleClick, change }: any) {
                       },
                     }}
                   />
-                </Typography>
               </Box>
             </Grid>
           </Grid>
