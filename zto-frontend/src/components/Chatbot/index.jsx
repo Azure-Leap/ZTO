@@ -74,14 +74,18 @@ const ChatPot = () => {
     return (
       <Box
         sx={{
-          width: "18%",
+          width: {
+            lg: "18%",
+            xl: "18%",
+            xs: "40%",
+          },
           height: "100wh",
           borderRadius: "21px",
           margin: "20px",
           marginLeft: "80%",
           position: "fixed",
           bottom: 10,
-          backgroundColor:"white",
+          backgroundColor: "white",
           right: 10,
           zIndex: "999999",
           boxShadow: 10,
@@ -194,7 +198,19 @@ const ChatPot = () => {
                           display: "inline-block",
                         }}
                       >
-                        <Typography sx={{fontSize:"14px"}}>{mess.message}</Typography>
+                        <Typography
+                          sx={{
+                            fontSize: {
+                              xs: "20px",
+                              lg: "14px",
+                              sm: "18px",
+                              md: "18px",
+                              xl: "15px",
+                            },
+                          }}
+                        >
+                          {mess.message}
+                        </Typography>
                       </Box>
                     </Box>
                   ) : (
@@ -208,7 +224,19 @@ const ChatPot = () => {
                         display: "inline-block",
                       }}
                     >
-                      <Typography sx={{fontSize:"14px"}}>{mess.message}</Typography>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "20px",
+                            lg: "14px",
+                            sm: "18px",
+                            md: "18px",
+                            xl: "15px",
+                          },
+                        }}
+                      >
+                        {mess.message}
+                      </Typography>
                     </Box>
                   )}
                 </Box>
@@ -221,7 +249,6 @@ const ChatPot = () => {
         <Box
           boxShadow={3}
           sx={{
-           
             borderBottomColor: "#FFFFFA",
             backgroundColor: "#98d6fb",
             display: "flex",
@@ -231,20 +258,19 @@ const ChatPot = () => {
           <Button
             sx={{
               margin: 1,
-              width:"100%",
+              width: "100%",
               borderRadius: 3,
-              height:"50px",
+              height: "50px",
               backgroundColor: "white",
               color: "black",
               border: 1,
-              fontSize:"12px",
+              fontSize: "12px",
               borderColor: "#3e8dee",
               ":hover": {
                 backgroundColor: "#E0FFFF",
                 color: "black",
                 border: 1,
                 borderColor: "#fffffa",
-                
               },
             }}
             onClick={sendDefaultMessage}
@@ -261,7 +287,7 @@ const ChatPot = () => {
         >
           <Box
             sx={{
-             justifyContent:"space-between",
+              justifyContent: "space-between",
               display: "flex",
               borderEndStartRadius: "2px",
               borderEndEndRadius: "2px",
@@ -270,42 +296,41 @@ const ChatPot = () => {
               borderBottomColor: "#8da0b2",
             }}
           >
-            <Box sx={{padding:1}}>
-            <TextField
-              id="outlined-basic"
-              label="Танд асуух асуулт байна уу?"
-              variant="outlined"
-              onChange={newMessage}
-              value={newMess}
-              sx={{
-                
-                height: "70%",
-                padding:"5px",
-                height:"50px",
-                input: {
-                  color: "#101314",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderBottom: "none",
-                    borderTop: "none",
-                    borderLeft: "none",
-                    borderRight: "none",
+            <Box sx={{ padding: 1 }}>
+              <TextField
+                id="outlined-basic"
+                label="Танд асуух асуулт байна уу?"
+                variant="outlined"
+                onChange={newMessage}
+                value={newMess}
+                sx={{
+                  height: "70%",
+                  padding: "5px",
+                  height: "50px",
+                  input: {
+                    color: "#101314",
                   },
-                  "&:hover fieldset": {
-                    borderBottomColor: "none",
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderBottom: "none",
+                      borderTop: "none",
+                      borderLeft: "none",
+                      borderRight: "none",
+                    },
+                    "&:hover fieldset": {
+                      borderBottomColor: "none",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderBottomColor: "none",
+                    },
                   },
-                  "&.Mui-focused fieldset": {
-                    borderBottomColor: "none",
-                  },
-                },
-              }}
-              InputLabelProps={{
-                style: { color: "#8da0b2" , fontSize:"14px"},
-              }}
-            />
+                }}
+                InputLabelProps={{
+                  style: { color: "#8da0b2", fontSize: "14px" },
+                }}
+              />
             </Box>
-         
+
             <Box
               sx={{
                 height: "100wh",
@@ -314,21 +339,19 @@ const ChatPot = () => {
                 justifyContent: "center",
                 ":hover": {
                   cursor: "pointer",
-                  backgroundColor:"#FFF5EE"
+                  backgroundColor: "#FFF5EE",
                 },
               }}
               onClick={sendMessage}
             >
-              <Button   
+              <Button
                 sx={{
                   display: "flex",
                   color: "#FFFFFA",
-                  height:"20px"
-               
-                }}>
-           
+                  height: "20px",
+                }}
+              >
                 <BsFillSendFill style={{ color: "#101314" }} />
-           
               </Button>
             </Box>
           </Box>
