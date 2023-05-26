@@ -10,13 +10,14 @@ import MenuItem from '@mui/material/MenuItem';
 import MinFooter from '@/components/MinFooter';
 import Layout from '@/components/layout';
 
+// const turuuImg = require('../../assets/img/turuu.jpg')
+// const aboutImg = require('../../assets/img/tuvshin.jpg')
 const aboutImg = require('../../assets/img/store.jpg')
 const catType = [
   {
     Id:"3",
     Name: "Munkhtur",
-    imageURL:
-      "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    imageURL:`${aboutImg}`,
     About: "text",
     Contact: "4.7",
     Type1:"jdsjflkds",

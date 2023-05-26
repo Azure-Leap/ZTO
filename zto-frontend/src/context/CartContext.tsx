@@ -18,7 +18,7 @@ const CartProvider = ({ children }: any): JSX.Element => {
  const addCart = async(tem:any) =>{
   try{
     if(!cartItem){
-      const res = await axios.post("http://localhost:9010/carts", {user_id:user._id, items:[tem], totalPrice:tem.price})
+      const res = await axios.post(`${BASE_API_URL}/carts`, {user_id:user._id, items:[tem], totalPrice:tem.price})
       console.log("orood irlee")
     }else{
       console.log("up")
@@ -28,7 +28,7 @@ const CartProvider = ({ children }: any): JSX.Element => {
           (ac: any, cur: any) => (ac += cur.price),
         );
         const arr = [...items, tem]
-            const res = await axios.put(`http://localhost:9010/carts/${_id}`, {items:arr, totalPrice:orderTotal})
+            const res = await axios.put(`${BASE_API_URL}/carts/${_id}`, {items:arr, totalPrice:orderTotal})
     }
     setChangeState(!changeState)
    
@@ -38,7 +38,7 @@ const CartProvider = ({ children }: any): JSX.Element => {
  }
  const getCart =async()=>{
   try{
-    const res = await axios.get(`http://localhost:9010/carts/user/${user._id}`)
+    const res = await axios.get(`${BASE_API_URL}carts/user/${user._id}`)
     console.log("oo", res)
     setCartItem(res.data)
   }catch(err){

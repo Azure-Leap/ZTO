@@ -3,13 +3,17 @@ import React from 'react'
 import { Grid, Box, Typography } from '@mui/material'
 import { CardMedia } from '@mui/material';
 
+const turuuImg = require('../../assets/img/turuu.jpg')
+const tuvshinImg = require('../../assets/img/tuvshin.jpg')
+const angaragImg = require('../../assets/img/angarag.jpg')
 
 const catType = [
   {
     Id:"3",
-    Name: "?.Энхтүвшин",
+    Name: "Д.Энхтүвшин",
     About:"Багийн ахлагч",
-    Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+    Pic:
+    "https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
     Id:"3",
@@ -19,7 +23,7 @@ const catType = [
   },
   {
     Id:"3",
-    Name: "?.Ангараг",
+    Name: "Ө.Ангараг",
     About:"Багийн гишүүн",
     Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
   },

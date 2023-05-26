@@ -52,7 +52,7 @@ const CartWeb = () => {
 
   const createOrder = async () => {
       try {
-        const res = await axios.post(`http://localhost:9010/orders`, {
+        const res = await axios.post(`${BASE_API_URL}/orders`, {
           user_id: user._id,
           cart_id: cartItem._id,
           totalAmount: cartItem.totalPrice,

@@ -10,10 +10,8 @@ import { CartsService } from 'src/carts/carts.service';
 @Injectable()
 export class OrdersService {
   constructor(@InjectModel("Order") private readonly orderModel: Model<Order>){}
-  async create(input) {
-
-    console.log(input, "----")
-    return  await this.orderModel.create(input)
+  async create(createOrderDto) {
+    return  await this.orderModel.create(createOrderDto)
   }
 
   async  findAll() {

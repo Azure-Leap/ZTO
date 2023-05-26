@@ -9,20 +9,20 @@ export class OrdersController {
   constructor(private readonly ordersService: OrdersService, private readonly cartService: CartsService) {}
 
   @Post()
- async create(@Body() createOrderDto) {
-    const { cart_id,  user_id}  =  createOrderDto
-    const cart = await this.cartService.findOne({_id: cart_id});
+ async create(@Body() createOrderDto:CreateOrderDto) {
+    // const { cart_id,  user_id}  =  createOrderDto
+    // const cart = await this.cartService.findOne({_id: cart_id});
 
-    const { cartItem, totalPrice} = cart
+    // const { cartItem, totalPrice} = cart
 
-    const order = {
-      user_id,
-      totalPrice,
-      websites: cartItem
-    }
-    await this.cartService.remove(cart_id);
+    // const order = {
+    //   user_id,
+    //   totalPrice,
+    //   websites: cartItem
+    // }
+    // await this.cartService.remove(cart_id);
 
-    return this.ordersService.create(order);
+    return this.ordersService.create(createOrderDto);
   }
 
   @Get()
