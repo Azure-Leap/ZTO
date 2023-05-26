@@ -23,7 +23,6 @@ const WebsiteTemlatesCard = ({
   setTemplatesFilter,
   templatesFilter,
 }: any) => {
-  // console.log("templates", templates);
   const { user }: any = useContext(AuthContext);
   const { changeState, setChangeState, setAlert, alert, addCart }: any =
     useContext(CartContext);
@@ -91,12 +90,7 @@ const WebsiteTemlatesCard = ({
                 >
                   {template.category?.title}
                 </Typography>
-                <IconButton onClick={() => addCart(template, "inc")}>
-                  {/* <IconButton onClick={()=> addCart(template._id, template.price)} > */}
-                  <AddShoppingCartIcon
-                    sx={{ color: "green", fontSize: "1.5rem" }}
-                  />
-                </IconButton>
+                
               </Box>
               <Box sx={{ display: "flex", gap: "30px" }}>
                 <Link
@@ -128,6 +122,12 @@ const WebsiteTemlatesCard = ({
                 >
                   Edit
                 </Link>
+                <IconButton onClick={() => addCart(template)}>
+                  {/* <IconButton onClick={()=> addCart(template._id, template.price)} > */}
+                  <AddShoppingCartIcon
+                    sx={{ color: "green", fontSize: "1.5rem" }}
+                  />
+                </IconButton>
               </Box>
             </Box>
         

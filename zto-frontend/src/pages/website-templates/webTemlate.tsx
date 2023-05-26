@@ -17,7 +17,6 @@ const WebTemlate = () => {
   const getTemp = async () => {
     try {
       const res = await axios.get(`${BASE_API_URL}/websites`);
-      console.log("tem", res.data);
       setTemplates(res.data);
       setTemplatesFilter(res.data);
       setIsLoading(true);

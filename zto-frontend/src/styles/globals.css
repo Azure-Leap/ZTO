@@ -72,9 +72,12 @@ a {
 
 .container {
   overflow: hidden;
+  max-width: 100%;
 }
+
+
 .forms-container {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   height: 100%;
   top: 0;
@@ -201,8 +204,8 @@ form.sign-in-form {
 .container:before {
   content: "";
   position: absolute;
-  height: 2000px;
-  width: 2000px;
+  width: 800px;
+  height: 700px;
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
@@ -344,8 +347,8 @@ form.sign-in-form {
     font-size: 0.7rem;
   }
   .container:before {
-    width: 1500px;
-    height: 1500px;
+    width: 100%;
+    height: 470px;
     transform: translateX(-50%);
     left: 30%;
     bottom: 68%;
@@ -388,6 +391,7 @@ form.sign-in-form {
     padding: 0.5rem 1rem;
   }
   .container {
+    width: 100vh;
     padding: 1.5rem;
   }
   .container:before {
@@ -396,7 +400,7 @@ form.sign-in-form {
   }
   .container.sign-up-mode:before {
     bottom: 28%;
-    left: 50%;
+    /* left: 50%; */
   }
 }
 

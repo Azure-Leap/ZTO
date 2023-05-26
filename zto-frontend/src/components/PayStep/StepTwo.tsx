@@ -16,8 +16,8 @@ import { BASE_API_URL } from "@/utils/variables";
 
 const StepTwo = () => {
   const { user }: any = useContext(AuthContext);
-  const { cartItems, orders, setOrderId }: any = useContext(CartContext);
-  const { cartItem } = cartItems;
+  const { cartItem, orders, setOrderId }: any = useContext(CartContext);
+  console.log("py", orders)
 
   const [cardNumber, setCardNumber] = useState("2417 3125 3544 3546");
   const [cvvNumber, setCvvNumber] = useState("327");
@@ -40,38 +40,31 @@ const StepTwo = () => {
     setIsFlip(!isFlip);
   };
 
-  const updateOrder = async (id: any) => {
-    console.log("hh", id);
-    if (user._id === orders?.user_id?._id) {
-      try {
-        const res = await axios.put(`${BASE_API_URL}/orders/payment/${id}`, {
-          payment: {
-            cardNumber,
-            cvvNumber,
-            expiryMonth,
-            expiryYear,
-            cardName,
-            mobileNumber,
-            amount: orders.totalAmount,
-            status: "SUCCESS",
-          },
-        });
-        console.log(",,;", res);
-      } catch (err) {
-        console.log("ERR", err);
-      }
-    }
-  };
-
-  // const updateOrder= async(id:any)=>{
-  //   try{
-  //     const res = await axios.put(`http://localhost:9010/orders/${id}`, {payment: "SUCCESS"})
-  //   }catch(err){
-  //     console.log("ERR", err)
+  // const updateOrder = async (id: any) => {
+  //   console.log("hh", id);
+  //   if (user._id === orders?.user_id?._id) {
+  //     try {
+  //       const res = await axios.put(`${BASE_API_URL}/orders/payment/${id}`, {
+  //         payment: {
+  //           cardNumber,
+  //           cvvNumber,
+  //           expiryMonth,
+  //           expiryYear,
+  //           cardName,
+  //           mobileNumber,
+  //           amount: orders.totalAmount,
+  //           status: "SUCCESS",
+  //         },
+  //       });
+  //       console.log(",,;", res);
+  //     } catch (err) {
+  //       console.log("ERR", err);
+  //     }
   //   }
-  // }
+  // };
 
-  const vatPrice = Math.floor(cartItems?.totalPrice * 0.1);
+
+  // const vatPrice = Math.floor(cartItem?.totalPrice * 0.1);
 
   return (
     <Box
@@ -417,15 +410,14 @@ const StepTwo = () => {
                     <span>Order number</span>
                     <strong>429252965</strong>
                   </li>
-                  {cartItem?.map((t: any, idx: any) => (
-                    <li key={idx} className="flex-between">
+                    <li  className="flex-between">
                       <span>Product</span>
-                      <strong>{t.template.name}</strong>
+                      <strong>ZTO</strong>
                     </li>
-                  ))}
+               
                   <li className="flex-between">
                     <span>VAT (10%)</span>
-                    <strong>{vatPrice}</strong>
+                    <strong>20</strong>
                   </li>
                 </ul>
               </Box>
@@ -437,10 +429,9 @@ const StepTwo = () => {
                   </Box>
                   <Box>
                     <strong>
-                      {cartItems?.totalPrice + vatPrice}
                       <span className="f-secondary-color">USD</span>
                     </strong>
-                    {/* <small>.99 <span className="f-secondary-color">USD</span></small> */}
+                    <small>.99 <span className="f-secondary-color">USD</span></small>
                   </Box>
                 </Box>
                 <i className="ai-coin size-lg"></i>

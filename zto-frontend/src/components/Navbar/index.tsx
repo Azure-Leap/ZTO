@@ -26,7 +26,7 @@ function ResponsiveAppBar() {
   const history = useRouter();
 
   const {user, setIsSignIn, setUser}:any = useContext(AuthContext)
-  const {cartItems}:any = useContext(CartContext);
+  const {cartItem}:any = useContext(CartContext);
   // console.log( cartItems, "-----------------")
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -179,13 +179,6 @@ function ResponsiveAppBar() {
                 console.log("SIGNIN");
                 setIsSignIn(false)
               }}>
-                 <IconButton href='/website-templates/cart' aria-label="cart" sx={{px:'20px'}} >
-                    {cartItems?.length > 0 ? 
-                      <StyledBadge badgeContent={cartItems.length} color="secondary">
-                        <ShoppingCartIcon sx={{color:"#000"}}/>
-                      </StyledBadge> : <ShoppingCartIcon sx={{color:"#000"}}/> }   
-                  </IconButton>
-
 
                 <Link href='/auth'> 
                   Login
@@ -202,8 +195,8 @@ function ResponsiveAppBar() {
             </Box> :
             <Box>
                  <IconButton href='/website-templates/cart' aria-label="cart" sx={{px:'20px'}} >
-                    {cartItems?.cartItem?.length > 0 ? 
-                      <StyledBadge badgeContent={cartItems?.cartItem?.length} color="secondary">
+                    {cartItem?.items?.length > 0 ? 
+                      <StyledBadge badgeContent={cartItem?.items?.length} color="secondary">
                         <ShoppingCartIcon sx={{color:"#000"}}/>
                       </StyledBadge> : <ShoppingCartIcon sx={{color:"#000"}}/> }
    

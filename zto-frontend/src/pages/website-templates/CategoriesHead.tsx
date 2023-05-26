@@ -12,14 +12,12 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
     axios
       .get(`${BASE_API_URL}/categories`)
       .then((res) => {
-        console.log(res.data);
         setCategories(res.data);
       })
       .catch((err) => {});
   }, []);
 
   const searchWeb = (e: any) => {
-    console.log("fff", e.target.value);
     const filterWeb = templates.filter((web: any) =>
       web.name?.toLowerCase().includes(e.target.value)
     );
@@ -29,7 +27,6 @@ const CategoriesHead = ({ setTemplatesFilter, templates }: any) => {
 
   const filterCat = (id: string) => {
     const filterCat = templates.filter((tem: any) => tem?.category._id === id);
-
     setTemplatesFilter(filterCat);
   };
 
