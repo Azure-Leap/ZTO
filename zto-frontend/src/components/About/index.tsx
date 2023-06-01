@@ -12,20 +12,19 @@ const catType = [
     Id:"3",
     Name: "Д.Энхтүвшин",
     About:"Багийн ахлагч",
-    Pic:
-    "https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+    Pic:"http://res.cloudinary.com/dso5fsmob/image/upload/v1685546837/puszo5xhirecftfayack.jpg"
   },
   {
     Id:"3",
     Name: "Б.Мөнхтөр",
     About:"Багийн гишүүн",
-    Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+    Pic:"http://res.cloudinary.com/dso5fsmob/image/upload/v1685546765/yerkpn7uin2efljqqo6y.jpg"
   },
   {
     Id:"3",
     Name: "Ө.Ангараг",
     About:"Багийн гишүүн",
-    Pic:"https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+    Pic:"http://res.cloudinary.com/dso5fsmob/image/upload/v1685547078/se0dr9vfg3zjnmnmnroi.jpg"
   },
 ];
 const About = () => {
@@ -46,12 +45,12 @@ const About = () => {
                 {card.About}
              </Typography>
              </Box></Box>
-             <Box>    <CardMedia
+             <Box sx={{maxWidth:"500px"}}>    
+              <CardMedia
               component="img"
-              height="400"
-              sx={{borderRadius:"120px 20px 80px 20px", height:{lg:"400px", xs:"200px"}}}
-              image="https://images.unsplash.com/photo-1674574124340-c00cc2dae99c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-              alt="green iguana"
+              height="500"
+              sx={{borderRadius:"120px 20px 80px 20px",    height:{lg:"500px", md:"350px", xs:"200px"}, width:{lg:"500px", md:"350px", xs:"200px"} }}
+              image={card.Pic}
             /></Box>
             </Box>
           </Box>

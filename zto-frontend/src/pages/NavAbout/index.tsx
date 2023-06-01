@@ -16,40 +16,26 @@ const aboutImg = require('../../assets/img/store.jpg')
 const catType = [
   {
     Id:"3",
-    Name: "Munkhtur",
-    imageURL:`${aboutImg}`,
-    About: "text",
-    Contact: "4.7",
-    Type1:"jdsjflkds",
-    Type2:"fjsldjf",
-    Type1Text:"fkldsjflsdfkdsjfldsl",
-    Type2Text:"slkfdsjfjdslfksd"
+    Name: "Б.Мөнхтөр",
+    img:"http://res.cloudinary.com/dso5fsmob/image/upload/v1685546765/yerkpn7uin2efljqqo6y.jpg",
+    Type1Text:"Багийн гишүүн",
+    Type2Text:"Full stack developer"
 
   },
   {
     Id:"2",
-    Name: "Enkhtuvshin",
-    imageURL:
-    "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-  About: "3Days 4 Nights",
-  Contact: "4.7",
-  Type1:"jdsjflkds",
-  Type2:"fjsldjf",
-  Type1Text:"fkldsjflsdfkdsjfldsl",
-    Type2Text:"slkfdsjfjdslfksd"
+    Name: "Д.Энхтүвшин",
+    img:"http://res.cloudinary.com/dso5fsmob/image/upload/v1685546837/puszo5xhirecftfayack.jpg",
+  Type1Text:"Багийн ахлагч",
+  Type2Text:"Full stack developer"
 
   },
   {
     Id:"1",
-    Name: "Angarag",
-    imageURL:
-    "https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-  About: "3Days 4 Nights",
-  Contact: "4.7",
-  Type1:"jdsjflkds",
-  Type2:"fjsldjf",
-  Type1Text:"fkldsjflsdfkdsjfldsl",
-    Type2Text:"slkfdsjfjdslfksd"
+    Name: "Ө.Ангараг",
+    img:"http://res.cloudinary.com/dso5fsmob/image/upload/v1685547078/se0dr9vfg3zjnmnmnroi.jpg",
+  Type1Text:"Багийн гишүүн",
+    Type2Text:"Full stack developer"
   },
 ];
 export default function About() {    
@@ -63,7 +49,7 @@ export default function About() {
         <Grid>
       <Box className="Aboutprofile-card" sx={{width:"400px", display:"flex", flexDirection:"column", borderRadius:"4px", transition:"3s", overflow:"hidden", backgroundColor:"#f1f1f1", fontSize:"16px", lineHeight:"22px", color:"#000", boxShadow:"-5px -5px 25px rgba(0, 0, 0, 0.705)"}}>
     <Box className="Abouttop-card">
-      <Image src={aboutImg} alt="user picture" width={400} height={260}/>
+      <img src={`${card.img}`} alt="user picture" style={{width:"400px", height:"400px"}}/>
       <Box className="Aboutmenu-icon">
         <Box className="Aboutmenu Aboutitem1"></Box>
         <Box className="Aboutmenu Aboutitem2"></Box>  
@@ -73,13 +59,9 @@ export default function About() {
     </Box>
     </Box>
     <Box className="Aboutmiddle-card" sx={{margin:"5px 25px"}}>
-      <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>Name:</Typography>
-      <Box className='Aboutpara'>{card.Name}:</Box>
+      <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>Name: {card.Name}</Typography>
     </Box>
-    <Box className="Aboutmiddle-card" sx={{margin:"5px 25px"}}>
-      <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>About:</Typography>
-      <Box className='Aboutpara'>{card.About}</Box>
-    </Box>
+   
     <Box className="Aboutfooter" sx={{margin:"5px 25px", textAlign:"justify"}}>
       <Typography sx={{fontSize:"20px", color:"#000", fontWeight:"600", margin:"12px 0", borderBottom:"4px solid rgba(1, 106, 175, 0.603)"}}>Contact:</Typography>
       <Box className="flex" sx={{display:"flex"}}> 
@@ -89,8 +71,8 @@ export default function About() {
       <a href="#" className="social-icon linkedin"><LinkedInIcon  sx={{width:"100px"}}/></a>
       </Box>
       <Box className="Aboutlinks">
-        <address>{card.Type1}: <a href="" target="_blank">{card.Type1Text}</a></address>
-        <address>{card.Type2}: <a href="">{card.Type2Text}</a></address>
+        <address> <a href="" target="_blank">{card.Type1Text}</a></address>
+        <address> <a href="">{card.Type2Text}</a></address>
       </Box>
   </Box>
       </Box>

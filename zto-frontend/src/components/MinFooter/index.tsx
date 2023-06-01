@@ -10,10 +10,10 @@ import {
 
 const MinFooter = () => {
   return (
-    <Box >
+    <Box sx={{marginTop:"50px"}} >
       <Box
         sx={{
-            // marginTop:"10px",
+            
           display: "flex",
           justifyContent: "space-around",
           padding: "3vh",

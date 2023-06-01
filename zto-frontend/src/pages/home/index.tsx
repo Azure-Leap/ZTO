@@ -18,20 +18,14 @@ export default function Home() {
       <main className="bg-white, absolute">
         <Box>
         <ProductHero />
-        </Box>
-   
-        {/* <CustomCursor /> */}
+        </Box> 
         <Box>  <SecondSection /></Box>
-      
-        {/* <TemplateList /> */}
-        <TemplateCart/>
+              <TemplateCart/>
         <About />
         <Chatbot/>
         <WebSteppers />
         <Footer />
-        <ResponsiveFooter/>
-        
-      
+        <ResponsiveFooter/>      
       </main>
       </Layout>
     </>

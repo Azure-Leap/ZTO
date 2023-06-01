@@ -61,38 +61,9 @@ const dataW = [
 const img = require("../../assets/img/undraw_building_websites_i78t.svg");
 
 export default function BasicGrid() {
-  useEffect(() => {
-    const doAnimations = () => {
-      const offset = window
-        ? $(window)?.scrollTop()
-        : 0 + window
-        ? $(window).height()
-        : 0;
-      const animatables = $(".animatable");
 
-      if (animatables.length === 0) {
-        $(window).off("scroll", doAnimations);
-      }
-
-      animatables.each(function (i: any) {
-        const item: any = $(this);
-        // console.log("IT", item);
-        // console.log("IT", i);
-        // console.log("IT", item[0]);
-        if (item.offset().top + item.height() - 20 < (offset ? offset : 0)) {
-          item.removeClass("animatable").addClass("animated");
-        }
-      });
-    };
-    $(window).on("scroll", doAnimations);
-    $(window).trigger("scroll");
-
-    return () => {
-      $(window).off("scroll", doAnimations);
-    };
-  }, []);
   return (
-    <Box>
+    <Box sx={{mt:"120px"}}>
       <Container>
         <Box sx={{ textAlign: "center" }}>
           <Box sx={{ margin: { lg: "0% 0% 0% 35%", xs:"-40% -30% 0% 50%" } }}>
@@ -102,9 +73,9 @@ export default function BasicGrid() {
             >
               5W
             </Typography>
-            <Typography variant="h3" sx={{ pl: "100px" }}>
+            <Typography variant="h3" >
               {" "}
-              <Test />
+              Solution
             </Typography>
           </Box>
           <Grid sx={{width:{lg:"100%", xs:"100vh"}}}

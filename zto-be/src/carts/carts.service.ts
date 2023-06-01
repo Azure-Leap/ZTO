@@ -43,8 +43,8 @@ export class CartsService {
   }
   async cartItemDelete(id: string) {
     // const {items} = this.cartModel
-    // const deleteItem = await this.cartModel.findByIdAndDelete(id);
-    // return deleteItem;
-    // return await this.cartModel.findByIdAndDelete();
+    const deleteItem = await this.cartModel.findByIdAndDelete(id);
+    return deleteItem;
+    return await this.cartModel.findByIdAndDelete();
   }
 }

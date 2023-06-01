@@ -38,17 +38,17 @@ const CartWeb = () => {
 
   console.log("kkl", cartItem)
 
-  // const deleteCart = async (id: any) => {
-  //   console.log("del", id);
-  //   try {
-  //     const {items} = cartItem
-  //     const deleteItem = items?.find(it =>it._id==id )
-  //     await axios.put(`http://localhost:9010/carts/items/${id}`);
-  //     setChangeState(!changeState);
-  //   } catch (err) {
-  //     console.log("err", err);
-  //   }
-  // };
+  const deleteItem = async (id: any) => {
+    console.log("del", id);
+    try {
+      // const {items} = cartItem
+      // const deleteItem = items?.find(it=>it._id==id )
+      await axios.put(`${BASE_API_URL}/carts/items/${id}`);
+      setChangeState(!changeState);
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
   const createOrder = async () => {
       try {
@@ -66,7 +66,7 @@ const CartWeb = () => {
     } 
   ;
 
-  // const removeCart = (id: any) => {
+  // const deleteItem = (id: any) => {
   //   console.log(id);
   //   const filteredItems = cartItems?.filter((e: any) => e.template._id !== id);
   //   console.log(filteredItems);
@@ -177,7 +177,7 @@ const CartWeb = () => {
                         <IconButton
                           aria-label="delete"
                           sx={{ fontSize: "1.5rem" }}
-                          // onClick={()=>  deleteCart(x._id)}
+                          onClick={()=>deleteItem(x._id)}
                         >
                           <DeleteIcon sx={{ color: "red" }} />{" "}
                           <Typography>Remove</Typography>
